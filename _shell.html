@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Reunion 2028 — Six Options, One Decision</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; display:flex; flex-direction:column; background:#0f1420; color:#e8e6e0; }
+  header.rt-head { background:linear-gradient(135deg,#141b2e 0%,#1d2740 100%); padding:14px 20px 0; border-bottom:1px solid #2a3550; position:relative; }
+  #musicBtn.on { color:#e8b84b !important; border-color:#e8b84b !important; }
+  .rt-title { font-size:1.15rem; font-weight:700; letter-spacing:.02em; }
+  .rt-title span { color:#e8b84b; }
+  .rt-sub { font-size:.78rem; color:#9aa4bc; margin:2px 0 10px; }
+  nav.rt-tabs { display:flex; gap:4px; overflow-x:auto; }
+  nav.rt-tabs button { appearance:none; border:none; cursor:pointer; background:transparent; color:#9aa4bc; font:inherit; font-size:.88rem; font-weight:600; padding:9px 16px; border-radius:8px 8px 0 0; white-space:nowrap; border-bottom:3px solid transparent; }
+  nav.rt-tabs button:hover { background:#232e48; color:#e8e6e0; }
+  nav.rt-tabs button.rt-active { background:#0f1420; color:#e8b84b; border-bottom-color:#e8b84b; }
+  main.rt-panels { flex:1; min-height:0; position:relative; }
+  .rt-panel { position:absolute; inset:0; display:none; }
+  .rt-panel.rt-show { display:block; }
+  .rt-panel iframe { width:100%; height:100%; border:0; background:#fff; }
+  /* ---------- Overview tab ---------- */
+  #ov { overflow-y:auto; padding:28px 24px 60px; }
+  .ov-wrap { max-width:1080px; margin:0 auto; }
+  .ov-wrap h1 { font-size:1.7rem; margin-bottom:6px; }
+  .ov-wrap h1 em { color:#e8b84b; font-style:normal; }
+  .ov-lede { color:#b8c0d4; font-size:.95rem; line-height:1.55; max-width:70ch; margin-bottom:26px; }
+  .ov-wrap h2 { font-size:1.15rem; margin:34px 0 12px; color:#e8b84b; }
+  .ov-scroll { overflow-x:auto; border:1px solid #2a3550; border-radius:10px; }
+  table.ov-t { border-collapse:collapse; width:100%; min-width:1130px; font-size:.82rem; }
+  .ov-t th, .ov-t td { padding:9px 11px; text-align:left; border-bottom:1px solid #232e48; vertical-align:top; }
+  .ov-t thead th { background:#1d2740; color:#e8b84b; font-size:.8rem; position:sticky; top:0; }
+  .ov-t tbody th { color:#9aa4bc; font-weight:600; white-space:nowrap; background:#141b2e; }
+  .ov-t td { color:#dfe3ee; }
+  .ov-t td.good { color:#7ed6a2; }
+  .ov-t td.warn { color:#e8a06a; }
+  .ov-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; }
+  .ov-card { background:#141b2e; border:1px solid #2a3550; border-radius:12px; padding:16px 18px; }
+  .ov-card h3 { font-size:1rem; margin-bottom:8px; }
+  .ov-card p { font-size:.85rem; color:#b8c0d4; line-height:1.55; }
+  .ov-card p + p { margin-top:8px; }
+  .ov-card .win { color:#7ed6a2; font-weight:600; }
+  .ov-card .risk { color:#e8a06a; font-weight:600; }
+  .ov-verdict { background:linear-gradient(135deg,#1a2338,#222e4d); border:1px solid #3a4a72; border-radius:14px; padding:22px 24px; margin-top:10px; }
+  .ov-verdict p { font-size:.92rem; line-height:1.65; color:#dfe3ee; }
+  .ov-verdict p + p { margin-top:11px; }
+  .ov-verdict strong { color:#e8b84b; }
+  ul.ov-steps { margin:10px 0 0 20px; font-size:.88rem; color:#b8c0d4; line-height:1.7; }
+  .ov-note { font-size:.75rem; color:#7a849c; margin-top:26px; line-height:1.5; }
+  /* ---------- Vote tab ---------- */
+  #vote { overflow-y:auto; padding:28px 24px 60px; }
+  .vt-ranklist { display:flex; flex-direction:column; gap:8px; max-width:540px; margin:14px 0 18px; }
+  .vt-item { display:flex; align-items:center; gap:12px; background:#141b2e; border:1px solid #2a3550; border-radius:12px; padding:12px 14px; cursor:grab; user-select:none; touch-action:none; font-weight:600; font-size:.92rem; color:#dfe3ee; }
+  .vt-item.vt-drag { opacity:.92; border-color:#e8b84b; background:#1d2740; box-shadow:0 6px 18px rgba(0,0,0,.45); cursor:grabbing; }
+  .vt-num { width:26px; height:26px; border-radius:50%; background:#e8b84b; color:#0f1420; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:.85rem; flex:none; }
+  .vt-handle { color:#7a849c; font-size:1.05rem; flex:none; }
+  .vt-updown { display:flex; gap:4px; flex:none; }
+  .vt-updown button { appearance:none; border:1px solid #2a3550; background:#0f1420; color:#9aa4bc; border-radius:6px; width:30px; height:28px; cursor:pointer; font-size:.75rem; }
+  .vt-updown button:hover { border-color:#e8b84b; color:#e8b84b; }
+  .vt-row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:10px 0; }
+  input.vt-name, textarea.vt-import { background:#0f1420; border:1px solid #2a3550; color:#e8e6e0; border-radius:8px; padding:9px 12px; font:inherit; font-size:.88rem; }
+  textarea.vt-import { width:100%; min-height:70px; font-size:.8rem; }
+  button.vt-btn { appearance:none; border:1px solid #3a4a72; background:#1a2338; color:#dfe3ee; font:inherit; font-weight:600; font-size:.85rem; padding:9px 16px; border-radius:8px; cursor:pointer; }
+  button.vt-btn:hover { border-color:#e8b84b; }
+  button.vt-btn.vt-primary { background:#e8b84b; border-color:#e8b84b; color:#0f1420; }
+  .vt-ballots { display:flex; flex-direction:column; gap:6px; margin-top:8px; }
+  .vt-ballot { background:#141b2e; border:1px solid #232e48; border-radius:8px; padding:8px 12px; font-size:.83rem; color:#b8c0d4; display:flex; justify-content:space-between; gap:10px; align-items:center; flex-wrap:wrap; }
+  .vt-ballot b { color:#e8e6e0; }
+  .vt-x { cursor:pointer; color:#e8a06a; font-weight:700; padding:0 4px; }
+  .vt-round { background:#141b2e; border:1px solid #2a3550; border-radius:10px; padding:12px 16px; margin-top:10px; font-size:.85rem; }
+  .vt-round h4 { color:#e8b84b; font-size:.88rem; margin-bottom:8px; }
+  .vt-cand { margin:7px 0; color:#dfe3ee; }
+  .vt-bar { height:9px; border-radius:5px; background:#3a4a72; margin-top:3px; min-width:2px; }
+  .vt-bar.vt-lead { background:#e8b84b; }
+  .vt-elim { color:#e8a06a; font-size:.8rem; margin-top:8px; }
+  .vt-winner { background:linear-gradient(135deg,#2a3550,#3a4a72); border:1px solid #e8b84b; border-radius:12px; padding:16px 20px; margin-top:14px; font-size:1rem; color:#fff; }
+  .vt-note { font-size:.78rem; color:#7a849c; margin-top:6px; line-height:1.5; }
+  @media (max-width:640px){ #ov{padding:20px 14px 50px;} .ov-wrap h1{font-size:1.35rem;} }
+</style>
+</head>
+<body>
+<header class="rt-head">
+  <div class="rt-title">Family Reunion <span>Summer 2028</span></div>
+  <div class="rt-sub">20 travelers · 3 generations · 9 days on the ground · late June–July · six destinations pitched, one honest referee</div>
+  <button id="musicBtn" title="Toggle theme music for the open tab" style="position:absolute;top:12px;right:18px;appearance:none;border:1px solid #3a4a72;background:#1a2338;color:#9aa4bc;font:inherit;font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:999px;cursor:pointer;">🎵 Music: Off</button>
+  <nav class="rt-tabs" id="tabs">
+    <button data-p="ov" class="rt-active">📊 The Verdict</button>
+    <button data-p="greece">🏛️ Greece</button>
+    <button data-p="alaska">🚢 Alaska</button>
+    <button data-p="slovenia">🏔️ Slovenia</button>
+    <button data-p="hawaii">🌺 Hawaii</button>
+    <button data-p="norway">🌊 Norway</button>
+    <button data-p="portugal">🐋 Portugal</button>
+    <button data-p="vote">🗳️ Vote</button>
+  </nav>
+</header>
+<main class="rt-panels">
+  <div class="rt-panel rt-show" id="ov">
+    <div class="ov-wrap">
+      <h1>Six pitches. One family. <em>Here's the honest read.</em></h1>
+      <p class="ov-lede">Each destination team below makes its own best case — with real properties, real prices, and real cons. This tab is the neutral referee: the numbers side by side, what each option is genuinely best at, and where each one bites. All figures are 2028 estimates for the full group of 20 (grandparents 67 &amp; 65; 11 adults; kids 16, 13, 11, 11, 9, 9, 6, 6, and 3½), against a ~$30k lodging target with airfare paid per family.</p>
+
+      <h2>The numbers, side by side (2028 dollars, all 20 people)</h2>
+      <div class="ov-scroll">
+      <table class="ov-t">
+        <thead><tr><th></th><th>🏛️ Greece — NW Crete</th><th>🚢 Alaska — cruise + Denali</th><th>🏔️ Slovenia — Lake Bled</th><th>🌺 Hawaii — Maui</th><th>🌊 Norway — Sognefjord</th><th>🐋 Portugal — Azores + Algarve</th></tr></thead>
+        <tbody>
+          <tr><th>Lodging, 9 nights</th><td class="good">~$17,600 — Villa Natali, one villa sleeps exactly 20</td><td>~$24–31k cruise fare (floating lodging) + land hotels</td><td class="good">~$6,500–7,500 — The Millhouse, one house sleeps 20</td><td class="warn">~$25–33k — Hyatt Ka'anapali via owner rentals only</td><td class="good">~$7–12.5k — cabin cluster or 22-sleeper villa</td><td class="warn">~$26–34k — Azores villa cluster + Algarve 10BR villa</td></tr>
+          <tr><th>On-the-ground total (ex-air)</th><td>~$38,400</td><td class="warn">$38–41k lean · $52–60k recommended</td><td class="good">~$21–26k</td><td class="warn">~$48.5–65k</td><td>~$27–35k</td><td class="warn">~$44–56k (incl. mid-trip flights)</td></tr>
+          <tr><th>Group airfare</th><td class="warn">$28–36k (highest)</td><td class="good">$11.5–14k (lowest)</td><td>$19–24k</td><td class="good">$14–19k</td><td>$20–27k</td><td class="warn">$24–28.5k</td></tr>
+          <tr><th>Grand total, all-in</th><td>~$66–74k</td><td>~$52–55k lean · $68–74k full</td><td class="good">~$40–50k (cheapest)</td><td class="warn">~$62–84k (priciest)</td><td>~$47–62k</td><td class="warn">~$68–85k</td></tr>
+          <tr><th>Per person, all-in</th><td>~$3,300–3,700</td><td>~$2,600–3,700</td><td class="good">~$2,000–2,500</td><td class="warn">~$3,100–4,200</td><td>~$2,400–3,100</td><td class="warn">~$3,400–4,200</td></tr>
+          <tr><th>Everyone under one roof?</th><td class="good">Yes — one villa, pool w/ kids' section</td><td class="good">One ship, 7 cabins — the "moving house"</td><td class="good">Yes — one house, 20-seat dinner table</td><td class="warn">No — 2–3 units in one beachfront complex</td><td class="warn">Mostly clusters; one true 22-sleeper (quote-only)</td><td>Split — villa cluster on São Miguel, then one 10BR villa (sleeps 25) in the Algarve</td></tr>
+          <tr><th>Passports needed</th><td>Yes ×20</td><td class="warn">Yes ×20 — incl. every child (one-way rule)</td><td>Yes ×20</td><td class="good">None</td><td>Yes ×20</td><td>Yes ×20</td></tr>
+          <tr><th>Door-to-door travel</th><td class="warn">15–19 hrs, 1–2 stops</td><td class="good">Short flights, but open-jaw YVR-in/ANC-out</td><td class="warn">16–20 hrs — hardest of the five</td><td class="good">Nonstops under 7 hrs for 19 of 20</td><td>13–16 hrs, 1 stop</td><td>BOS 5-hr nonstop (shortest to Europe); SLC/LAX 12–16 hrs + a mid-trip move day</td></tr>
+          <tr><th>July weather</th><td class="warn">82–88°F, sunny, hot</td><td>Low 60s, rain likely in ports</td><td class="good">75–79°F alpine, afternoon storms</td><td class="good">85–88°F, near-zero rain leeward</td><td class="warn">52–68°F, ~16 rain days on coast</td><td>Azores 72–75°F sun/mist roulette; Algarve 82–90°F bone-dry</td></tr>
+          <tr><th>Swimming</th><td class="good">Warm sea, sandy shallow beaches</td><td class="warn">Ship pools only (potty-trained only)</td><td>Lake Bled ~72–75°F</td><td class="good">78–80°F ocean, calmest season</td><td class="warn">Fjords 57–61°F — not a swim trip</td><td>Sea 68–72°F (cool); 97–107°F thermal pools; Algarve coves + water park</td></tr>
+          <tr><th>Toddler (3½) fit</th><td>Great beaches; pool fence must be arranged</td><td class="warn">Kids club &amp; pools require potty training</td><td>Great, but marquee hikes = carrier terrain</td><td class="good">Best in class — lagoon pool, calm bays</td><td>Free entry everywhere; cold water, rain gear</td><td class="good">All-ages catamaran whale watch, warm thermal pools, sheltered sandy coves</td></tr>
+          <tr><th>Teens (13–16) fit</th><td>Boat days, water park, snorkeling</td><td class="good">Glaciers, dog sleds, White Pass, ship life</td><td>Rafting, ziplines, summer toboggan</td><td>Surfing, snorkeling, Haleakala</td><td>Rafting, kayaking, Skylift hikes</td><td>Benagil cave kayaking, water park, crater-lake bikes, surf lessons</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>What each option is actually best at</h2>
+      <div class="ov-cards">
+        <div class="ov-card"><h3>🏛️ Greece — the classic villa reunion</h3>
+          <p><span class="win">Strongest card:</span> the full fantasy, in budget — one 9-bedroom villa sleeping exactly 20, warm sea, sandy toddler-grade beaches, tavernas, a private boat day to Balos Lagoon. Lodging is $12k under target, funding a chef and the charter.</p>
+          <p><span class="risk">Biggest bite:</span> the most expensive airfare of the five ($28–36k group) and 15–19 hours each way with a 3½-year-old. July heat is real; the pool needs a rented fence.</p></div>
+        <div class="ov-card"><h3>🚢 Alaska — the effortless togetherness play</h3>
+          <p><span class="win">Strongest card:</span> nobody cooks, nobody drives, nobody splits up — one ship carries all 20 past calving glaciers, then the Denali extension. Cheapest flights of the five, and the only option where grandma and grandpa are fully off duty.</p>
+          <p><span class="risk">Biggest bite:</span> $30k buys only the lean version (~$52–55k all-in; $68–74k done right). All 20 need passports including every child, and if the 3½-year-old isn't potty-trained there's no kids club and no pool.</p></div>
+        <div class="ov-card"><h3>🏔️ Slovenia — the value-and-substance play</h3>
+          <p><span class="win">Strongest card:</span> the cheapest trip of the five by a wide margin (~$40–50k all-in) with arguably the best activity density — lake, castle, caves, rafting, alpine toboggan, all within an hour of one 20-person house with a 20-seat table.</p>
+          <p><span class="risk">Biggest bite:</span> the hardest flights (16–20 hrs, everyone connects), essentially one true 20-sleeper (real booking risk), no private pool, and no warm sea.</p></div>
+        <div class="ov-card"><h3>🌺 Hawaii — the path of least resistance</h3>
+          <p><span class="win">Strongest card:</span> no passports for anyone, nonstops under 7 hours for 19 of 20, the calmest toddler ocean, and near-guaranteed perfect weather. The safest choice — nothing about it can really go wrong.</p>
+          <p><span class="risk">Biggest bite:</span> the most expensive trip ($62–84k all-in), the $30k lodging target only works via timeshare owner rentals in fixed 7-night blocks, and the family splits across 2–3 units rather than one roof.</p></div>
+        <div class="ov-card"><h3>🐋 Portugal — the two-worlds trip</h3>
+          <p><span class="win">Strongest card:</span> two vacations in one — volcanic crater lakes, Furnas hot springs, and year-round resident sperm whales on São Miguel (the direct answer to Maui's no-whales problem), then a warm Algarve week in one 10-bedroom villa that sleeps all of you. Boston gets the shortest US–Europe flight in existence (5-hr nonstop to Ponta Delgada), and Portugal's daily costs are among Western Europe's lowest.</p>
+          <p><span class="risk">Biggest bite:</span> moving 20 people mid-trip costs a full day plus ~$5–6.5k, Azores weather is a roulette even in July, no single 20-sleeper exists on São Miguel, and the all-in total (~$68–85k) lands in Hawaii territory.</p></div>
+        <div class="ov-card"><h3>🌊 Norway — the jaw-dropper</h3>
+          <p><span class="win">Strongest card:</span> scenery none of the others can match, cool comfortable temps that are gold for the grandparents, 19-hour days, and kids ride free nearly everywhere — the $30k lodging budget nearly covers the whole trip on the ground.</p>
+          <p><span class="risk">Biggest bite:</span> weather is a genuine gamble (Bergen: ~16 rain days in July), daily prices are brutal ($650+ group dinners), the water is 57–61°F, and true 20-sleepers are nearly nonexistent.</p></div>
+      </div>
+
+      <h2>The referee's verdict</h2>
+      <div class="ov-verdict">
+        <p><strong>If the vote were mine:</strong> it comes down to <strong>Greece vs. Slovenia</strong>, and the tiebreaker is what "reunion" means to this family. If it means one villa, one pool, warm sea, and everyone at the same long dinner table every night — <strong>Greece wins</strong>: it's the only option that delivers the full one-roof-plus-beach fantasy inside the lodging budget. If it means maximum shared adventure per dollar and nobody stressing about cost, <strong>Slovenia wins</strong> — it's roughly $20–25k cheaper all-in than Greece or Hawaii, and the kids' itinerary is arguably the best of the five.</p>
+        <p><strong>Choose Hawaii</strong> if the deciding voters prize ease over price — it's the only option with zero passports, the shortest flights, and the best toddler ocean, at a ~$15–30k premium over the value options. <strong>Choose Alaska</strong> if the grandparents' rest matters most and the potty-training question resolves — it's the only truly effortless option, but be clear-eyed that done right it runs ~$68–74k. <strong>Norway</strong> is the wildcard: the most spectacular and the coolest (literally), best for a family that hikes more than it swims and will trade rain risk for fjords. <strong>Portugal</strong> is the variety play — whales, volcanoes, and a warm villa week in one itinerary, and by far the easiest trip for the Boston brother — but it stacks Hawaii-class totals on top of a 20-person mid-trip move, so choose it for the two-worlds experience, not for simplicity or savings.</p>
+        <p><strong>Cross-cutting facts for the family vote:</strong> five of six options need passports for all 20 — start the 9 kids' applications by mid-2027 (~$1,300–1,500 total). Every option books 12–18 months out for July at this group size, so a decision by <strong>late 2026 / early 2027</strong> keeps all doors open. And in every destination, the <strong>last week of June beats July</strong>: lower prices, thinner crowds, milder heat, and school's out for all nine grandkids.</p>
+      </div>
+
+      <h2>Next steps</h2>
+      <ul class="ov-steps">
+        <li><strong>Now:</strong> circulate this deck; each family ranks their top two.</li>
+        <li><strong>Fall 2026:</strong> decision made → inquire on the lead property (Villa Natali / Millhouse / RedWeek alerts / Princess group desk / Skjolden Brygge / Villa Penina Majestic + Santa Barbara Eco-Beach) — all sell out 12+ months ahead for July.</li>
+        <li><strong>Mid-2027:</strong> passport applications for the kids (if not Hawaii); flights ~10–11 months out, using group-desk bookings for the SLC twelve.</li>
+        <li><strong>Winter 2027–28:</strong> book marquee activities for 20 (boat charters, luau, excursions, rafting) — group slots go first.</li>
+      </ul>
+
+      <p class="ov-note">All prices are current 2025/26 research inflated ~5–10%/yr to 2028; treat as planning ranges, not quotes. Full sourcing, property links, and per-city airfare detail live inside each destination tab. Each pitch was instructed to argue its case and disclose its real cons — read the cons sections; they're honest.</p>
+    </div>
+  </div>
+  <div class="rt-panel" id="vote">
+    <div class="ov-wrap">
+      <h1>The family vote — <em>ranked choice</em></h1>
+      <p class="ov-lede">Drag the destinations into your order of preference — top of the list is your first choice (the ▲▼ arrows work too). If no destination wins a majority of first choices, the last-place option is eliminated and those ballots transfer to their next choice, round by round, until one destination has a true majority. No spoilers, no vote-splitting between the two Mediterranean options — just rank honestly. With the 11 adults voting, winning takes <b>6 votes</b> after transfers. The starting order is shuffled for each voter, so nobody inherits a default.</p>
+      <h2>1 · Cast a ballot</h2>
+      <div class="vt-row">
+        <input class="vt-name" id="vtName" placeholder="Voter name" maxlength="30">
+        <button class="vt-btn" id="vtClear">Shuffle / start over</button>
+      </div>
+      <div class="vt-ranklist" id="vtRank"></div>
+      <div class="vt-row">
+        <button class="vt-btn vt-primary" id="vtAdd">Add ballot on this device</button>
+        <button class="vt-btn" id="vtCopy">Copy ballot code</button>
+      </div>
+      <p class="vt-note">Two ways to vote: pass this page around and each person adds their ballot here — or each household opens its own copy, ranks, hits <b>Copy ballot code</b>, and texts the code to the organizer, who pastes it below. Ballots are saved in this browser and survive closing the file. Ranking a partial list is fine — a ballot with no remaining choices simply exhausts.</p>
+      <h2>2 · Ballots collected (<span id="vtCount">0</span> of 11)</h2>
+      <div class="vt-ballots" id="vtList"></div>
+      <div class="vt-row" style="margin-top:14px"><textarea class="vt-import" id="vtImport" placeholder="Paste ballot codes here — one per line — then click Import"></textarea></div>
+      <div class="vt-row">
+        <button class="vt-btn" id="vtImportBtn">Import pasted ballots</button>
+        <button class="vt-btn" id="vtWipe">Delete all ballots</button>
+      </div>
+      <h2>3 · The count</h2>
+      <div class="vt-row"><button class="vt-btn vt-primary" id="vtRun">Run the instant-runoff count</button></div>
+      <div id="vtResults"></div>
+      <p class="vt-note">Elimination ties are broken by fewest first-choice votes in round one, then alphabetically — stated here so nobody accuses the referee of rigging it.</p>
+    </div>
+  </div>
+  <div class="rt-panel" id="greece"><iframe title="Greece pitch" srcdoc="[[GREECE]]"></iframe></div>
+  <div class="rt-panel" id="alaska"><iframe title="Alaska pitch" srcdoc="[[ALASKA]]"></iframe></div>
+  <div class="rt-panel" id="slovenia"><iframe title="Slovenia pitch" srcdoc="[[SLOVENIA]]"></iframe></div>
+  <div class="rt-panel" id="hawaii"><iframe title="Hawaii pitch" srcdoc="[[HAWAII]]"></iframe></div>
+  <div class="rt-panel" id="norway"><iframe title="Norway pitch" srcdoc="[[NORWAY]]"></iframe></div>
+  <div class="rt-panel" id="portugal"><iframe title="Portugal pitch" srcdoc="[[PORTUGAL]]"></iframe></div>
+</main>
+<script>
+  /* ---------- tabs ---------- */
+  var tabs = document.getElementById('tabs');
+  var activePanel = 'ov';
+  tabs.addEventListener('click', function(e){
+    var btn = e.target.closest('button'); if(!btn) return;
+    tabs.querySelectorAll('button').forEach(function(b){ b.classList.toggle('rt-active', b===btn); });
+    document.querySelectorAll('.rt-panel').forEach(function(p){ p.classList.toggle('rt-show', p.id===btn.dataset.p); });
+    activePanel = btn.dataset.p;
+    if (musicOn) playTheme(activePanel);
+  });
+
+  /* ---------- theme music: synthesized in-page, no external audio ---------- */
+  var ctx=null, master=null, delayNode=null, themeBus=null, loopTimer=null, nextT=0, musicOn=false, currentTheme=null;
+  function nf(n){
+    var pc={'C':0,'C#':1,'Db':1,'D':2,'D#':3,'Eb':3,'E':4,'F':5,'F#':6,'Gb':6,'G':7,'G#':8,'Ab':8,'A':9,'A#':10,'Bb':10,'B':11};
+    var m=n.match(/^([A-G][#b]?)(-?\d)$/); var midi=(parseInt(m[2],10)+1)*12+pc[m[1]];
+    return 440*Math.pow(2,(midi-69)/12);
+  }
+  function ensureCtx(){
+    if(ctx) return;
+    ctx=new (window.AudioContext||window.webkitAudioContext)();
+    master=ctx.createGain(); master.gain.value=0.14; master.connect(ctx.destination);
+    delayNode=ctx.createDelay(1); delayNode.delayTime.value=0.28;
+    var fb=ctx.createGain(); fb.gain.value=0.25; delayNode.connect(fb); fb.connect(delayNode);
+    var wet=ctx.createGain(); wet.gain.value=0.18; delayNode.connect(wet); wet.connect(master);
+  }
+  function newBus(){ var b=ctx.createGain(); b.gain.value=1; b.connect(master); b.connect(delayNode); return b; }
+  function pluck(t,f,d,g,type){
+    var o=ctx.createOscillator(), e=ctx.createGain();
+    o.type=type||'triangle'; o.frequency.value=f;
+    e.gain.setValueAtTime(0.0001,t); e.gain.exponentialRampToValueAtTime(g,t+0.008);
+    e.gain.exponentialRampToValueAtTime(0.0001,t+d);
+    o.connect(e); e.connect(themeBus); o.start(t); o.stop(t+d+0.05);
+  }
+  function pluck2(t,f,d,g,type){ pluck(t,f*1.004,d,g*0.6,type); pluck(t,f*0.996,d,g*0.6,type); }
+  function pad(t,f,d,g,type){
+    var o=ctx.createOscillator(), e=ctx.createGain();
+    o.type=type||'sine'; o.frequency.value=f;
+    e.gain.setValueAtTime(0.0001,t); e.gain.linearRampToValueAtTime(g,t+d*0.3);
+    e.gain.setValueAtTime(g,t+d*0.7); e.gain.linearRampToValueAtTime(0.0001,t+d);
+    o.connect(e); e.connect(themeBus); o.start(t); o.stop(t+d+0.05);
+  }
+  var THEMES = {
+    /* Verdict: neutral, gentle documentary pad */
+    ov: function(t){
+      pad(t,nf('C3'),4.8,0.05); pad(t,nf('G3'),4.8,0.035); pad(t,nf('E4'),4.8,0.025);
+      pad(t+4.8,nf('A2'),4.8,0.05); pad(t+4.8,nf('E3'),4.8,0.035); pad(t+4.8,nf('C4'),4.8,0.025);
+      [[0.6,'E5'],[2.4,'G5'],[5.4,'C5'],[7.2,'B4']].forEach(function(x){ pluck(t+x[0],nf(x[1]),1.6,0.05); });
+      return 9.6;
+    },
+    /* Greece: quick bouzouki-style double-picked hijaz run */
+    greece: function(t){
+      var st=0.22, mel=['E4','F4','G#4','A4','B4','C5','B4','A4','G#4','A4','B4','E5','D5','C5','B4','A4','G#4','F4','E4','E4'];
+      mel.forEach(function(n,i){
+        pluck(t+i*st,nf(n),0.32,0.11); pluck(t+i*st+0.09,nf(n),0.22,0.06);
+      });
+      for(var i=0;i<5;i++){ pluck(t+i*st*4,nf(i%2?'B2':'E2'),0.5,0.09,'sawtooth'); }
+      return st*mel.length;
+    },
+    /* Alaska: glacial drones, foghorn, ice sparkles */
+    alaska: function(t){
+      pad(t,nf('A1'),12,0.07); pad(t,nf('E2'),12,0.05);
+      pad(t,nf('A3'),7,0.035); pad(t,nf('E4'),7,0.022);
+      pad(t+6,nf('F3'),6,0.035); pad(t+6,nf('C4'),6,0.022);
+      pad(t+0.5,nf('G1'),2.5,0.055,'sawtooth');
+      [[1.7,'E6'],[3.9,'A6'],[5.3,'C#6'],[8.1,'E6'],[10.2,'B5']].forEach(function(x){ pluck(t+x[0],nf(x[1]),0.9,0.03,'sine'); });
+      return 12;
+    },
+    /* Slovenia: alpine oom-pah-pah waltz with accordion-ish lead */
+    slovenia: function(t){
+      var b=0.55, bars=[['G2',['B3','D4']],['C3',['E4','G4']],['D3',['F#4','A4']],['G2',['B3','D4']]];
+      bars.forEach(function(bar,i){
+        var bt=t+i*3*b;
+        pluck(bt,nf(bar[0]),0.7,0.1,'sawtooth');
+        [1,2].forEach(function(beat){ bar[1].forEach(function(n){ pluck(bt+beat*b,nf(n),0.4,0.045,'square'); }); });
+      });
+      var mel=['D5','B4','G4','C5','E5','C5','A4','F#4','D4','B4','G4','B4'];
+      mel.forEach(function(n,i){ pluck(t+i*b,nf(n),0.65,0.06,'sawtooth'); });
+      return 12*b;
+    },
+    /* Hawaii: lazy swung ukulele rolls and a warm slack-key phrase */
+    hawaii: function(t){
+      var bar=2.4, chords=[['F3','A3','C4','F4'],['Bb2','D3','F3','Bb3'],['C3','E3','G3','C4'],['F3','A3','C4','F4']];
+      chords.forEach(function(ch,i){
+        [0,1.2].forEach(function(off){ ch.forEach(function(n,j){ pluck(t+i*bar+off+j*0.045,nf(n),0.9,0.05); }); });
+      });
+      [[0,'C5',1.1],[1.2,'A4',1.1],[2.4,'G4',0.9],[3.4,'F4',1.4],[4.8,'G4',1.1],[6.0,'A4',1.1],[7.2,'F4',2.2]].forEach(function(x){
+        pluck(t+x[0],nf(x[1]),x[2],0.085);
+      });
+      return bar*4;
+    },
+    /* Norway: Grieg-tinged morning flute over a cool pad */
+    norway: function(t){
+      pad(t,nf('E3'),9.3,0.04); pad(t,nf('B3'),9.3,0.028); pad(t,nf('G#4'),9.3,0.016);
+      var b=0.42, mel=['B4','G#4','F#4','E4','F#4','G#4','B4','G#4','F#4','E4','F#4','G#4','F#4','G#4','B4','G#4','C#5','B4','G#4','E4'];
+      mel.forEach(function(n,i){ pad(t+i*b,nf(n),i===mel.length-1?1.6:b*1.15,0.07,'sine'); });
+      return b*mel.length+1.8;
+    },
+    /* Portugal: melancholy fado guitar arpeggios with shimmer-doubled strings */
+    portugal: function(t){
+      var st=0.24, bars=[
+        ['A2','E3','A3','C4','E4','C4','A3','E3'],
+        ['D3','A3','D4','F4','A4','F4','D4','A3'],
+        ['E3','B3','E4','G#4','B4','G#4','E4','B3'],
+        ['A2','E3','A3','C4','E4','C4','A3','E3']];
+      bars.forEach(function(bar,i){ bar.forEach(function(n,j){ pluck2(t+(i*8+j)*st,nf(n),0.5,0.07); }); });
+      [[0,'E5'],[1.92,'C5'],[3.84,'B4'],[5.76,'A4']].forEach(function(x){ pluck2(t+x[0],nf(x[1]),1.8,0.055); });
+      return st*32;
+    }
+  };
+  function runLoop(){
+    if(!musicOn || !currentTheme) return;
+    var t=Math.max(ctx.currentTime+0.05,nextT);
+    var len=THEMES[currentTheme](t);
+    nextT=t+len;
+    loopTimer=setTimeout(runLoop, Math.max(100,(nextT-ctx.currentTime-0.35)*1000));
+  }
+  function stopTheme(){
+    clearTimeout(loopTimer); currentTheme=null;
+    if(themeBus){ var b=themeBus; b.gain.setTargetAtTime(0.0001,ctx.currentTime,0.08); setTimeout(function(){ try{b.disconnect();}catch(e){} },700); themeBus=null; }
+  }
+  function playTheme(id){
+    ensureCtx(); if(ctx.state==='suspended') ctx.resume();
+    stopTheme();
+    if(!THEMES[id]) return;
+    themeBus=newBus(); currentTheme=id; nextT=ctx.currentTime+0.1; runLoop();
+  }
+  document.getElementById('musicBtn').addEventListener('click', function(){
+    musicOn=!musicOn;
+    this.textContent = musicOn ? '🎵 Music: On' : '🎵 Music: Off';
+    this.classList.toggle('on', musicOn);
+    if(musicOn) playTheme(activePanel); else stopTheme();
+  });
+  THEMES.vote = THEMES.ov;
+
+  /* ---------- ranked-choice voting (instant runoff) ---------- */
+  var VT_CANDS = [['greece','🏛️ Greece'],['alaska','🚢 Alaska'],['slovenia','🏔️ Slovenia'],['hawaii','🌺 Hawaii'],['norway','🌊 Norway'],['portugal','🐋 Portugal']];
+  var VT_LABEL = {}; VT_CANDS.forEach(function(c){ VT_LABEL[c[0]]=c[1]; });
+  var VT_EXPECTED = 11, VT_KEY = 'rt2028ballots';
+  function vtBallots(){ try { return JSON.parse(localStorage.getItem(VT_KEY)) || []; } catch(e){ return []; } }
+  function vtSave(list){ try { localStorage.setItem(VT_KEY, JSON.stringify(list)); } catch(e){} vtRenderList(); }
+  var vtRankEl = document.getElementById('vtRank');
+  function vtInitRank(){
+    var order = VT_CANDS.map(function(c){ return c[0]; });
+    for(var i=order.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=order[i]; order[i]=order[j]; order[j]=t; }
+    vtRankEl.innerHTML = order.map(function(id){
+      return '<div class="vt-item" data-c="'+id+'"><span class="vt-num"></span><span class="vt-handle">⠿</span><span style="flex:1">'+VT_LABEL[id]+'</span><span class="vt-updown"><button data-d="-1" title="Move up">▲</button><button data-d="1" title="Move down">▼</button></span></div>';
+    }).join('');
+    vtNumber();
+  }
+  function vtNumber(){ Array.prototype.forEach.call(vtRankEl.children, function(el,i){ el.querySelector('.vt-num').textContent = i+1; }); }
+  function vtGetOrder(){ return Array.prototype.map.call(vtRankEl.children, function(el){ return el.dataset.c; }); }
+  vtRankEl.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    var item = b.closest('.vt-item'), d = parseInt(b.dataset.d,10);
+    var sib = d<0 ? item.previousElementSibling : item.nextElementSibling;
+    if(sib){ if(d<0) vtRankEl.insertBefore(item,sib); else vtRankEl.insertBefore(sib,item); vtNumber(); }
+  });
+  var vtDragEl = null;
+  vtRankEl.addEventListener('pointerdown', function(e){
+    if(e.target.closest('button')) return;
+    var item = e.target.closest('.vt-item'); if(!item) return;
+    vtDragEl = item; item.classList.add('vt-drag');
+    try { item.setPointerCapture(e.pointerId); } catch(err){}
+    e.preventDefault();
+  });
+  vtRankEl.addEventListener('pointermove', function(e){
+    if(!vtDragEl) return;
+    var after = null, kids = Array.prototype.filter.call(vtRankEl.children, function(el){ return el!==vtDragEl; });
+    for(var i=0;i<kids.length;i++){ var r = kids[i].getBoundingClientRect(); if(e.clientY < r.top + r.height/2){ after = kids[i]; break; } }
+    if(after) vtRankEl.insertBefore(vtDragEl, after); else vtRankEl.appendChild(vtDragEl);
+    vtNumber();
+  });
+  function vtDragEnd(){ if(vtDragEl){ vtDragEl.classList.remove('vt-drag'); vtDragEl=null; vtNumber(); } }
+  vtRankEl.addEventListener('pointerup', vtDragEnd);
+  vtRankEl.addEventListener('pointercancel', vtDragEnd);
+  document.getElementById('vtClear').addEventListener('click', vtInitRank);
+  function vtRenderList(){
+    var list = vtBallots();
+    document.getElementById('vtCount').textContent = list.length;
+    document.getElementById('vtList').innerHTML = list.length ? list.map(function(b,i){
+      return '<div class="vt-ballot"><span><b>'+String(b.n).replace(/[<>&]/g,'')+'</b> — '+b.r.map(function(c,j){ return (j+1)+'. '+VT_LABEL[c]; }).join(' · ')+'</span><span class="vt-x" data-i="'+i+'" title="Remove ballot">✕</span></div>';
+    }).join('') : '<p class="vt-note">No ballots yet.</p>';
+  }
+  document.getElementById('vtList').addEventListener('click', function(e){
+    if(!e.target.classList.contains('vt-x')) return;
+    var list = vtBallots(); list.splice(parseInt(e.target.dataset.i,10),1); vtSave(list);
+  });
+  document.getElementById('vtAdd').addEventListener('click', function(){
+    var name = document.getElementById('vtName').value.trim();
+    if(!name){ name = 'Voter ' + (vtBallots().length+1); }
+    var list = vtBallots(); list.push({n:name, r:vtGetOrder()}); vtSave(list);
+    document.getElementById('vtName').value=''; vtInitRank();
+  });
+  document.getElementById('vtCopy').addEventListener('click', function(){
+    var name = document.getElementById('vtName').value.trim() || 'Unnamed';
+    var code = 'RCV1:' + btoa(unescape(encodeURIComponent(JSON.stringify({n:name, r:vtGetOrder()}))));
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(code); this.textContent='Copied! Text it to the organizer'; var btn=this; setTimeout(function(){ btn.textContent='Copy ballot code'; }, 2500); }
+    else { window.prompt('Copy this ballot code:', code); }
+  });
+  document.getElementById('vtImportBtn').addEventListener('click', function(){
+    var lines = document.getElementById('vtImport').value.split(/\s+/).filter(Boolean), list = vtBallots(), ok=0, bad=0;
+    lines.forEach(function(line){
+      try {
+        var b = JSON.parse(decodeURIComponent(escape(atob(line.replace(/^RCV1:/,'')))));
+        if(b && b.r && b.r.length && b.r.every(function(c){ return VT_LABEL[c]; })){ list.push({n:String(b.n||'Unnamed').slice(0,30), r:b.r}); ok++; } else bad++;
+      } catch(e){ bad++; }
+    });
+    vtSave(list); document.getElementById('vtImport').value='';
+    alert(ok + ' ballot(s) imported' + (bad ? ', ' + bad + ' invalid code(s) skipped' : '') + '.');
+  });
+  document.getElementById('vtWipe').addEventListener('click', function(){
+    if(confirm('Delete all ' + vtBallots().length + ' ballots from this device?')) vtSave([]);
+  });
+  function vtIRV(ballots){
+    var active = VT_CANDS.map(function(c){ return c[0]; }), rounds = [], firstCounts = null;
+    for(var guard=0; guard<10; guard++){
+      var counts = {}, exhausted = 0;
+      active.forEach(function(c){ counts[c]=0; });
+      ballots.forEach(function(b){
+        var pick = b.r.filter(function(c){ return active.indexOf(c)>=0; })[0];
+        if(pick) counts[pick]++; else exhausted++;
+      });
+      var total = ballots.length - exhausted;
+      if(!firstCounts) firstCounts = Object.assign({}, counts);
+      var winner = active.filter(function(c){ return counts[c] > total/2; })[0] || null;
+      var round = { counts: Object.assign({},counts), exhausted: exhausted, total: total, eliminated: null, winner: winner };
+      rounds.push(round);
+      if(winner || active.length<=1 || total===0) break;
+      var min = Math.min.apply(null, active.map(function(c){ return counts[c]; }));
+      var elim = active.filter(function(c){ return counts[c]===min; })
+        .sort(function(a,b){ return (firstCounts[a]-firstCounts[b]) || a.localeCompare(b); })[0];
+      round.eliminated = elim;
+      active = active.filter(function(c){ return c!==elim; });
+    }
+    return rounds;
+  }
+  document.getElementById('vtRun').addEventListener('click', function(){
+    var ballots = vtBallots(), out = document.getElementById('vtResults');
+    if(!ballots.length){ out.innerHTML = '<p class="vt-note">No ballots to count yet.</p>'; return; }
+    var rounds = vtIRV(ballots), html = '';
+    if(ballots.length !== VT_EXPECTED) html += '<p class="vt-note">Counting '+ballots.length+' ballot(s) — expecting '+VT_EXPECTED+' voters. Results below are provisional until everyone has voted.</p>';
+    rounds.forEach(function(r, i){
+      var ranked = Object.keys(r.counts).sort(function(a,b){ return r.counts[b]-r.counts[a]; });
+      var max = Math.max.apply(null, ranked.map(function(c){ return r.counts[c]; })) || 1;
+      html += '<div class="vt-round"><h4>Round '+(i+1)+' — '+r.total+' active ballot(s), majority needs '+(Math.floor(r.total/2)+1)+'</h4>';
+      ranked.forEach(function(c){
+        var pct = r.total ? Math.round(100*r.counts[c]/r.total) : 0;
+        html += '<div class="vt-cand">'+VT_LABEL[c]+' — <b>'+r.counts[c]+'</b> ('+pct+'%)<div class="vt-bar'+(r.counts[c]===max?' vt-lead':'')+'" style="width:'+Math.max(2,pct)+'%"></div></div>';
+      });
+      if(r.exhausted) html += '<p class="vt-note">'+r.exhausted+' ballot(s) exhausted (no ranked options left).</p>';
+      if(r.eliminated) html += '<p class="vt-elim">✕ '+VT_LABEL[r.eliminated]+' eliminated — those ballots transfer to their next choice.</p>';
+      html += '</div>';
+    });
+    var last = rounds[rounds.length-1];
+    if(last.winner){
+      html += '<div class="vt-winner">🏆 <b>'+VT_LABEL[last.winner]+'</b> wins with '+last.counts[last.winner]+' of '+last.total+' votes ('+Math.round(100*last.counts[last.winner]/last.total)+'%) in round '+rounds.length+'.</div>';
+    } else if(last.total===0){
+      html += '<p class="vt-note">All ballots exhausted — no winner. Rank more choices per ballot.</p>';
+    } else {
+      var survivors = Object.keys(last.counts).sort(function(a,b){ return last.counts[b]-last.counts[a]; });
+      html += '<div class="vt-winner">🏆 <b>'+VT_LABEL[survivors[0]]+'</b> wins as the last option standing ('+last.counts[survivors[0]]+' of '+last.total+').</div>';
+    }
+    out.innerHTML = html;
+  });
+  vtInitRank(); vtRenderList();
+</script>
+</body>
+</html>

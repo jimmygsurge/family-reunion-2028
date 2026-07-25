@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alaska 2028 — One Ship, One Family, Twenty People</title>
+<style>
+  /* ============ ALASKA PITCH — all styles scoped under .alaska-pitch ============ */
+  .alaska-pitch{
+    --ak-ink:#10202e;
+    --ak-deep:#0c2f43;
+    --ak-glacier:#2b7ea1;
+    --ak-ice:#e8f2f7;
+    --ak-mist:#f4f8fa;
+    --ak-gold:#c9922e;
+    --ak-forest:#2d5d46;
+    --ak-red:#a54242;
+    --ak-line:#d5e2ea;
+    font-family:Georgia,'Times New Roman',serif;
+    color:var(--ak-ink);
+    background:var(--ak-mist);
+    line-height:1.6;
+    margin:0;
+  }
+  .alaska-pitch *{box-sizing:border-box;}
+  .alaska-pitch .ak-sans{font-family:'Segoe UI',Helvetica,Arial,sans-serif;}
+
+  /* ---- hero ---- */
+  .alaska-pitch .ak-hero{
+    position:relative;
+    background:linear-gradient(160deg,#0c2f43 0%,#154a63 45%,#2b7ea1 100%);
+    color:#fff;
+    padding:0;
+    overflow:hidden;
+  }
+  .alaska-pitch .ak-hero-img{width:100%;height:420px;object-fit:cover;display:block;opacity:.85;}
+  .alaska-pitch .ak-hero-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(12,47,67,.25) 0%,rgba(12,47,67,.82) 78%,rgba(12,47,67,.95) 100%);
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:2.2rem 2.5rem;
+  }
+  .alaska-pitch .ak-kicker{
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;
+    text-transform:uppercase;letter-spacing:.22em;font-size:.78rem;color:#ffd98a;margin:0 0 .6rem;
+  }
+  .alaska-pitch .ak-hero-title{
+    font-size:clamp(1.9rem,4.5vw,3.2rem);
+    line-height:1.12;margin:0 0 .5rem;font-weight:700;color:#fff;
+  }
+  .alaska-pitch .ak-hero-sub{
+    font-size:clamp(1rem,2vw,1.25rem);max-width:46rem;margin:0 0 1.4rem;color:#dcecf4;font-style:italic;
+  }
+  .alaska-pitch .ak-statrow{display:flex;flex-wrap:wrap;gap:1rem;}
+  .alaska-pitch .ak-stat{
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);
+    border-radius:10px;padding:.55rem 1.1rem;text-align:center;backdrop-filter:blur(3px);
+  }
+  .alaska-pitch .ak-stat-num{font-size:1.35rem;font-weight:700;display:block;color:#ffd98a;font-family:'Segoe UI',Helvetica,Arial,sans-serif;}
+  .alaska-pitch .ak-stat-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-family:'Segoe UI',Helvetica,Arial,sans-serif;color:#cfe4ee;}
+
+  /* ---- layout ---- */
+  .alaska-pitch .ak-wrap{max-width:980px;margin:0 auto;padding:0 1.6rem;}
+  .alaska-pitch .ak-section{padding:3rem 0 1rem;}
+  .alaska-pitch .ak-eyebrow{
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;
+    text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;color:var(--ak-glacier);
+    font-weight:700;margin:0 0 .35rem;
+  }
+  .alaska-pitch .ak-h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 1rem;color:var(--ak-deep);line-height:1.2;}
+  .alaska-pitch .ak-h3{font-size:1.15rem;margin:1.4rem 0 .5rem;color:var(--ak-deep);}
+  .alaska-pitch .ak-lead{font-size:1.12rem;max-width:52rem;}
+  .alaska-pitch .ak-note{font-size:.85rem;color:#5b7183;font-family:'Segoe UI',Helvetica,Arial,sans-serif;}
+
+  /* ---- figures / photos ---- */
+  .alaska-pitch .ak-fig{
+    margin:0;border-radius:12px;overflow:hidden;position:relative;
+    background:linear-gradient(150deg,#154a63,#2b7ea1 60%,#7db8cf);
+    box-shadow:0 6px 22px rgba(12,47,67,.18);
+  }
+  .alaska-pitch .ak-fig img{width:100%;height:230px;object-fit:cover;display:block;}
+  .alaska-pitch .ak-fig figcaption{
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.78rem;
+    padding:.5rem .8rem;background:#fff;color:#4a606f;border-top:3px solid var(--ak-gold);
+  }
+  .alaska-pitch .ak-figgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin:1.4rem 0;}
+  .alaska-pitch .ak-fig-min{min-height:120px;}
+
+  /* ---- panels & tables ---- */
+  .alaska-pitch .ak-panel{
+    background:#fff;border:1px solid var(--ak-line);border-radius:12px;
+    padding:1.4rem 1.6rem;margin:1.2rem 0;box-shadow:0 3px 14px rgba(12,47,67,.07);
+  }
+  .alaska-pitch .ak-panel-gold{border-top:5px solid var(--ak-gold);}
+  .alaska-pitch .ak-panel-blue{border-top:5px solid var(--ak-glacier);}
+  .alaska-pitch table.ak-table{
+    width:100%;border-collapse:collapse;font-family:'Segoe UI',Helvetica,Arial,sans-serif;
+    font-size:.9rem;margin:.8rem 0;background:#fff;
+  }
+  .alaska-pitch table.ak-table th{
+    background:var(--ak-deep);color:#fff;text-align:left;padding:.55rem .7rem;
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;
+  }
+  .alaska-pitch table.ak-table td{padding:.55rem .7rem;border-bottom:1px solid var(--ak-line);vertical-align:top;}
+  .alaska-pitch table.ak-table tr:nth-child(even) td{background:var(--ak-ice);}
+  .alaska-pitch .ak-money{font-weight:700;color:var(--ak-deep);white-space:nowrap;}
+  .alaska-pitch .ak-total-row td{background:#fdf4e0 !important;font-weight:700;border-top:2px solid var(--ak-gold);}
+  .alaska-pitch .ak-scrollx{overflow-x:auto;}
+
+  /* ---- pros/cons ---- */
+  .alaska-pitch .ak-pc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem;margin:1.2rem 0;}
+  .alaska-pitch .ak-pros,.alaska-pitch .ak-cons{border-radius:12px;padding:1.3rem 1.5rem;}
+  .alaska-pitch .ak-pros{background:#eef6f0;border:1px solid #bcd8c6;border-top:5px solid var(--ak-forest);}
+  .alaska-pitch .ak-cons{background:#f9efee;border:1px solid #e0c2c2;border-top:5px solid var(--ak-red);}
+  .alaska-pitch .ak-pros h3,.alaska-pitch .ak-cons h3{margin:0 0 .8rem;font-size:1.1rem;}
+  .alaska-pitch .ak-pros h3{color:var(--ak-forest);}
+  .alaska-pitch .ak-cons h3{color:var(--ak-red);}
+  .alaska-pitch .ak-pc-list{margin:0;padding:0;list-style:none;}
+  .alaska-pitch .ak-pc-list li{margin:0 0 .75rem;padding-left:1.5rem;position:relative;font-size:.95rem;}
+  .alaska-pitch .ak-pros .ak-pc-list li::before{content:"✔";position:absolute;left:0;color:var(--ak-forest);font-weight:700;}
+  .alaska-pitch .ak-cons .ak-pc-list li::before{content:"✖";position:absolute;left:0;color:var(--ak-red);font-weight:700;}
+  .alaska-pitch .ak-pc-list strong{color:var(--ak-ink);}
+
+  /* ---- experience cards ---- */
+  .alaska-pitch .ak-exp{display:flex;gap:1rem;align-items:flex-start;margin:0 0 1.1rem;}
+  .alaska-pitch .ak-exp-num{
+    flex:0 0 2.3rem;height:2.3rem;border-radius:50%;background:var(--ak-gold);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;margin-top:.15rem;
+  }
+  .alaska-pitch .ak-exp h4{margin:0 0 .2rem;font-size:1.05rem;color:var(--ak-deep);}
+  .alaska-pitch .ak-exp p{margin:0;font-size:.95rem;}
+  .alaska-pitch .ak-price-tag{
+    display:inline-block;background:var(--ak-ice);border:1px solid var(--ak-line);border-radius:6px;
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.78rem;padding:.1rem .5rem;
+    color:var(--ak-deep);font-weight:600;margin-left:.4rem;white-space:nowrap;
+  }
+
+  /* ---- budget bars ---- */
+  .alaska-pitch .ak-bar-block{margin:.9rem 0;}
+  .alaska-pitch .ak-bar-label{font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.85rem;font-weight:600;margin-bottom:.25rem;display:flex;justify-content:space-between;}
+  .alaska-pitch .ak-bar-track{background:var(--ak-ice);border-radius:99px;height:1.35rem;position:relative;overflow:hidden;border:1px solid var(--ak-line);}
+  .alaska-pitch .ak-bar-fill{height:100%;border-radius:99px;}
+  .alaska-pitch .ak-bar-target{position:relative;}
+  .alaska-pitch .ak-target-line{
+    position:absolute;top:-6px;bottom:-6px;width:3px;background:var(--ak-red);left:50%;
+  }
+  .alaska-pitch .ak-target-note{font-size:.75rem;color:var(--ak-red);font-family:'Segoe UI',Helvetica,Arial,sans-serif;margin-top:.2rem;}
+
+  /* ---- verdict / closing ---- */
+  .alaska-pitch .ak-verdict{
+    background:linear-gradient(160deg,var(--ak-deep) 0%,#154a63 70%,#1c5f80 100%);
+    color:#e9f3f8;border-radius:14px;padding:2.2rem 2.4rem;margin:2.5rem 0 3rem;
+  }
+  .alaska-pitch .ak-verdict .ak-h2{color:#fff;}
+  .alaska-pitch .ak-verdict .ak-eyebrow{color:#ffd98a;}
+  .alaska-pitch .ak-verdict p{max-width:54rem;}
+  .alaska-pitch .ak-verdict .ak-big{font-size:1.25rem;line-height:1.5;font-style:italic;color:#fff;}
+  .alaska-pitch .ak-footer-note{font-size:.78rem;color:#7a8fa0;font-family:'Segoe UI',Helvetica,Arial,sans-serif;padding:0 0 2.5rem;}
+  .alaska-pitch .ak-badge{
+    display:inline-block;background:var(--ak-gold);color:#fff;border-radius:6px;
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.72rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;padding:.2rem .6rem;margin-bottom:.6rem;
+  }
+  @media (max-width:640px){
+    .alaska-pitch .ak-hero-overlay{padding:1.4rem 1.2rem;}
+    .alaska-pitch .ak-wrap{padding:0 1rem;}
+    .alaska-pitch .ak-hero-img{height:340px;}
+  }
+</style>
+</head>
+<body>
+<div class="alaska-pitch">
+
+  <!-- ================= HERO ================= -->
+  <header class="ak-hero">
+    <img class="ak-hero-img"
+         src="https://commons.wikimedia.org/wiki/Special:FilePath/Dramatic%20view%20of%20Marjerie%20glacier%20from%20a%20cruise%20ship.jpg?width=1600"
+         alt="Cruise ship passengers on deck facing the towering blue face of Margerie Glacier in Glacier Bay, Alaska"
+         onerror="this.style.display='none'">
+    <div class="ak-hero-overlay">
+      <p class="ak-kicker">Family Reunion 2028 &middot; The Alaska Proposal</p>
+      <h1 class="ak-hero-title">One Ship. One Family.<br>Twenty People, Zero Logistics.</h1>
+      <p class="ak-hero-sub">A 7-night one-way glacier cruise from Vancouver into the heart of Alaska — then trade the ship for Denali. The only vacation where a 3-year-old, four teens, and two grandparents all win the same week.</p>
+      <div class="ak-statrow ak-sans">
+        <div class="ak-stat"><span class="ak-stat-num">20</span><span class="ak-stat-lbl">travelers, ages 3&ndash;67</span></div>
+        <div class="ak-stat"><span class="ak-stat-num">7 + 3</span><span class="ak-stat-lbl">nights afloat + Denali days</span></div>
+        <div class="ak-stat"><span class="ak-stat-num">2</span><span class="ak-stat-lbl">full glacier days</span></div>
+        <div class="ak-stat"><span class="ak-stat-num">1</span><span class="ak-stat-lbl">unpack. That's it.</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ak-wrap">
+
+    <!-- ================= THE CORE ARGUMENT ================= -->
+    <section class="ak-section">
+      <p class="ak-eyebrow">The core argument</p>
+      <h2 class="ak-h2">A ship is the only "one big house" that actually fits this family</h2>
+      <p class="ak-lead">Every competing pitch — the Greek islands, the Slovenian villa, Maui — has to solve the same brutal problem: <strong>how do 20 people spanning 64 years of age eat together, sleep near each other, and still each have a good day?</strong> Villas split into car caravans. Island-hopping means ferries with a toddler. A resort means three condos and a group text about where to meet.</p>
+      <p class="ak-lead">A cruise ship dissolves the problem. Seven cabins on the same corridor. Free kids' clubs by age band, a teen lounge, a covered pool, quiet decks for the grandparents — and every single night, <strong>two adjoining tables of ten at the same fixed dinner seating</strong>, no reservation scramble, no driving, no cooking rotation. The scenery moves so nobody has to.</p>
+    </section>
+
+    <!-- ================= THE PLAN ================= -->
+    <section class="ak-section">
+      <p class="ak-eyebrow">The recommended plan</p>
+      <h2 class="ak-h2">Princess "Voyage of the Glaciers" northbound + DIY Denali</h2>
+      <p><strong>Late June 2028 &middot; Vancouver &rarr; Whittier (Anchorage), 7 nights &middot; then 3 land days to Denali National Park.</strong> Princess and Holland America are the one-way Gulf of Alaska specialists; Princess's route is the only 7-night itinerary that includes <em>both</em> Glacier Bay National Park and College Fjord — two full scenic-cruising days — plus Ketchikan, Juneau, and Skagway. Northbound means the trip ends in Alaska, exactly where the Denali extension and the flights home begin.</p>
+
+      <div class="ak-figgrid">
+        <figure class="ak-fig">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Margerie%20Glacier%2C%20Aug%202016.jpg?width=900"
+               alt="The jagged blue ice face of Margerie Glacier meeting the water in Glacier Bay National Park"
+               onerror="this.style.display='none'">
+          <figcaption>Margerie Glacier, Glacier Bay National Park — a ranger-narrated full day, included in the fare. (Wikimedia Commons)</figcaption>
+        </figure>
+        <figure class="ak-fig">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wonder%20Lake%2C%20Denali.jpg?width=900"
+               alt="Denali reflected in Wonder Lake under a clear sky, Denali National Park"
+               onerror="this.style.display='none'">
+          <figcaption>Denali from Wonder Lake — the land-extension payoff no island vacation can match. (Wikimedia Commons)</figcaption>
+        </figure>
+      </div>
+
+      <h3 class="ak-h3">Cabin plan for 20 — seven cabins, one corridor</h3>
+      <div class="ak-scrollx">
+      <table class="ak-table">
+        <tr><th>Cabin</th><th>Who</th><th>Type</th><th>Est. fare (2026/27 proxy)</th></tr>
+        <tr><td>1</td><td>Grandparents (67 &amp; 65)</td><td>Balcony</td><td class="ak-money">~$3,400</td></tr>
+        <tr><td>2&ndash;4</td><td>Three couples, 2 kids each</td><td>Balcony quads (&times;3)</td><td class="ak-money">~$4,600 each</td></tr>
+        <tr><td>5</td><td>Couple + the 3-year-old</td><td>Balcony triple</td><td class="ak-money">~$4,000</td></tr>
+        <tr><td>6</td><td>Two oldest kids (16 &amp; 13)</td><td>Inside, connecting to Cabin 5</td><td class="ak-money">~$2,200</td></tr>
+        <tr><td>7</td><td>Boston aunt/uncle (+ optionally the 16-yr-old, saving ~$1,100)</td><td>Inside</td><td class="ak-money">~$2,200</td></tr>
+        <tr class="ak-total-row"><td colspan="3">Cruise fares + taxes/port fees (~$275/person on one-ways)</td><td class="ak-money">~$31,000</td></tr>
+        <tr class="ak-total-row"><td colspan="3">Lean version: all inside/oceanview + "Kids Sail Free" promo</td><td class="ak-money">~$24,000&ndash;25,500</td></tr>
+      </table>
+      </div>
+      <p class="ak-note">Basis: July-peak Princess pricing — insides ~$1,000&ndash;1,300/person, balconies ~$1,500&ndash;1,900/person for guests 1&ndash;2; 3rd/4th guests ~$450&ndash;700 (or taxes-only under Princess's recurring "3rd &amp; 4th Guests Sail Free" promotions — worth $3,000&ndash;4,500 to this group). Holland America's Glacier Discovery runs ~5% less (2027 leads $869&ndash;$1,214 inside). Add ~5&ndash;10% for 2028. <strong>Disney reference point:</strong> Disney Wonder does Alaska only as a <em>round-trip from Vancouver</em> (no one-way, no Denali link) from ~$3,938/person double occupancy — roughly <strong>$58,000&ndash;$72,000 for this group, about 2&times; Princess</strong>, for one fewer glacier.</p>
+    </section>
+
+    <!-- ================= TOP 5 ================= -->
+    <section class="ak-section">
+      <p class="ak-eyebrow">The highlight reel</p>
+      <h2 class="ak-h2">Five experiences the family will still talk about in 2048</h2>
+
+      <div class="ak-exp">
+        <div class="ak-exp-num">1</div>
+        <div><h4>Glacier Bay + College Fjord — two full glacier days <span class="ak-price-tag">included in fare</span></h4>
+        <p>Park rangers board the ship; calving ice thunders off a 250-foot wall while all 20 of you stand at the same rail. The toddler needs nothing but a jacket; the teens will film it. This is the trip's beating heart, and it costs zero extra.</p></div>
+      </div>
+      <div class="ak-exp">
+        <div class="ak-exp-num">2</div>
+        <div><h4>Juneau humpback whale watching <span class="ak-price-tag">$123&ndash;$230/person &middot; ~$2,800&ndash;3,200 group</span></h4>
+        <p>Near-100% sighting rates in peak season on heated, enclosed boats — genuinely toddler-safe and teen-approved. A group of 20 can often charter an entire small boat to itself.</p></div>
+      </div>
+      <div class="ak-exp">
+        <div class="ak-exp-num">3</div>
+        <div><h4>Skagway: White Pass &amp; Yukon Route Railroad <span class="ak-price-tag">$155 adult / $77.50 child &middot; ~$2,300&ndash;2,600 group</span></h4>
+        <p>A vintage narrow-gauge train climbing 3,000 feet over Gold Rush trestles, boarding steps from the pier. Zero walking required — the single best all-twenty-ages excursion of the trip.</p></div>
+      </div>
+      <div class="ak-exp">
+        <div class="ak-exp-num">4</div>
+        <div><h4>Ketchikan: Lumberjack Show &amp; totem poles <span class="ak-price-tag">~$40&ndash;60/person &middot; ~$1,000 group</span></h4>
+        <p>Cheap, hilarious, one hour, steps from the ship. Teens who want more adrenaline can swap in a rainforest zipline (~$189).</p></div>
+      </div>
+      <div class="ak-exp">
+        <div class="ak-exp-num">5</div>
+        <div><h4>Denali Tundra Wilderness Tour <span class="ak-price-tag">$144.75 adult / $66 child &middot; ~$2,350 group</span></h4>
+        <p>Grizzlies, caribou, moose, and Dall sheep from the park's classic wildlife bus, deep past where private cars can go. (Honest note: it's 6&ndash;7 hours — one parent may sit it out with the toddler at the lodge's free sled-dog demo.)</p></div>
+      </div>
+
+      <div class="ak-figgrid">
+        <figure class="ak-fig">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Humpback%20whale%20breaching%20in%20southeast%20alaska.jpg?width=900"
+               alt="A humpback whale breaching clear of the water in Southeast Alaska"
+               onerror="this.style.display='none'">
+          <figcaption>Humpback breaching, Southeast Alaska — late June/July is peak feeding season. (Wikimedia Commons)</figcaption>
+        </figure>
+        <figure class="ak-fig">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/White%20Pass%20and%20Yukon%20Route%20train%20in%20Skagway%2C%20Aug%202016.jpg?width=900"
+               alt="White Pass and Yukon Route excursion train in Skagway, Alaska"
+               onerror="this.style.display='none'">
+          <figcaption>White Pass &amp; Yukon Route Railroad, Skagway. (Wikimedia Commons)</figcaption>
+        </figure>
+        <figure class="ak-fig">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Alaska%20Railroad%20GoldStar%20Dome%20Service%20(15020458538).jpg?width=900"
+               alt="Glass-domed GoldStar railcar of the Alaska Railroad rolling through wilderness"
+               onerror="this.style.display='none'">
+          <figcaption>Alaska Railroad dome service, Anchorage&ndash;Denali — the scenic option for the land leg. (Wikimedia Commons)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= LAND EXTENSION ================= -->
+    <section class="ak-section">
+      <p class="ak-eyebrow">Days 8&ndash;10</p>
+      <h2 class="ak-h2">The Denali extension — do it ourselves and save thousands</h2>
+      <div class="ak-panel ak-panel-blue">
+        <p><strong>Day 8:</strong> Walk off the ship in Whittier, motorcoach to Anchorage (~$65/person), pick up 3 minivans + an SUV. Lunch stop in Talkeetna (Denali views, riverside town the kids will love), drive on to the park entrance.<br>
+        <strong>Day 9:</strong> Tundra Wilderness Tour into Denali National Park; evening at the lodge.<br>
+        <strong>Day 10:</strong> Scenic drive back, final night in Anchorage, fly home from ANC.</p>
+        <div class="ak-scrollx">
+        <table class="ak-table">
+          <tr><th>Land item (20 people)</th><th>Est. cost</th></tr>
+          <tr><td>Whittier&rarr;Anchorage transfer</td><td class="ak-money">~$1,300</td></tr>
+          <tr><td>4 rental vehicles &times; 3 days + gas</td><td class="ak-money">~$2,100&ndash;2,700</td></tr>
+          <tr><td>Denali-area lodge, 7 rooms &times; 2 nights (July $350&ndash;500/night)</td><td class="ak-money">~$5,000&ndash;7,000</td></tr>
+          <tr><td>Tundra Wilderness Tour (13 adult-fare + 7 child)</td><td class="ak-money">~$2,350</td></tr>
+          <tr><td>Anchorage hotel, final night (7 rooms)</td><td class="ak-money">~$2,100</td></tr>
+          <tr><td>Meals on land (~3 days)</td><td class="ak-money">~$3,600</td></tr>
+          <tr class="ak-total-row"><td>DIY land total (vs. ~$18,000&ndash;26,000 for the packaged cruisetour)</td><td class="ak-money">~$16,500&ndash;19,000</td></tr>
+        </table>
+        </div>
+        <p class="ak-note">Upgrade option: ride the Alaska Railroad up ($199/adult Adventure Class, ~half for kids) while one adult drives a luggage van — the domed-railcar experience for ~$1,000 extra. Budget fallback: two nights in Talkeetna instead of Denali saves $4,000&ndash;6,000. Cruise-line cruisetours (Princess/HAL Denali lodges, from ~$2,259/person all-in) are the zero-logistics alternative but cost $14,000&ndash;24,000 more than cruise-only at this headcount.</p>
+      </div>
+    </section>
+
+    <!-- ================= BUDGET ================= -->
+    <section class="ak-section">
+      <p class="ak-eyebrow">The honest money slide</p>
+      <h2 class="ak-h2">Budget vs. the ~$30k target — no sugarcoating</h2>
+
+      <div class="ak-bar-block ak-sans">
+        <div class="ak-bar-label"><span>Family budget target (ex-airfare)</span><span>$30,000</span></div>
+        <div class="ak-bar-track"><div class="ak-bar-fill" style="width:50%;background:var(--ak-red);"></div></div>
+      </div>
+      <div class="ak-bar-block ak-sans">
+        <div class="ak-bar-label"><span>LEAN Alaska (insides + promo fares, Talkeetna, fewer excursions)</span><span>~$38,000&ndash;41,000</span></div>
+        <div class="ak-bar-track"><div class="ak-bar-fill" style="width:66%;background:var(--ak-glacier);"></div></div>
+      </div>
+      <div class="ak-bar-block ak-sans">
+        <div class="ak-bar-label"><span>RECOMMENDED Alaska (balconies, full excursions, Denali)</span><span>~$52,000&ndash;60,000</span></div>
+        <div class="ak-bar-track"><div class="ak-bar-fill" style="width:93%;background:var(--ak-deep);"></div></div>
+      </div>
+      <div class="ak-bar-block ak-sans">
+        <div class="ak-bar-label"><span>Disney Wonder reference (cruise only, no Denali)</span><span>~$58,000&ndash;72,000+</span></div>
+        <div class="ak-bar-track"><div class="ak-bar-fill" style="width:100%;background:#8a8f94;"></div></div>
+      </div>
+
+      <div class="ak-scrollx">
+      <table class="ak-table">
+        <tr><th>Line item (20 people, ex-airfare)</th><th>Lean</th><th>Recommended</th></tr>
+        <tr><td>Cruise fares + taxes (7 cabins)</td><td class="ak-money">~$24,000</td><td class="ak-money">~$31,000</td></tr>
+        <tr><td>Gratuities ($18/person/day &times; 7 nights)</td><td class="ak-money">$2,520</td><td class="ak-money">$2,520</td></tr>
+        <tr><td>Pre-cruise Vancouver hotel night (7 rooms)</td><td class="ak-money">~$2,300</td><td class="ak-money">~$2,600</td></tr>
+        <tr><td>Shore excursions</td><td class="ak-money">~$3,500</td><td class="ak-money">~$6,500</td></tr>
+        <tr><td>Land extension</td><td class="ak-money">~$11,000 (Talkeetna)</td><td class="ak-money">~$17,500 (Denali)</td></tr>
+        <tr><td>Passports for 9 kids (one-way requires them)</td><td class="ak-money">~$1,300</td><td class="ak-money">~$1,300</td></tr>
+        <tr class="ak-total-row"><td>Total ex-airfare (with ~7% 2028 inflation buffer)</td><td class="ak-money">~$38,000&ndash;41,000</td><td class="ak-money">~$52,000&ndash;60,000</td></tr>
+      </table>
+      </div>
+      <p><strong>Straight talk:</strong> $30k buys the cruise itself — inside cabins on a kids-sail-free promotion (~$24&ndash;27k with gratuities) plus the Vancouver night — but not balconies, the full excursion slate, <em>and</em> Denali. The recommended experience is roughly <strong>$2,600&ndash;3,000 per person, everything included except flights</strong>. That is still about half of what Disney charges for the boat alone.</p>
+
+      <h3 class="ak-h3">Airfare reality — the open-jaw (separate from the budget above)</h3>
+      <div class="ak-scrollx">
+      <table class="ak-table">
+        <tr><th>Departure city</th><th>Fly into Vancouver</th><th>Fly home from Anchorage</th><th>Open-jaw / person</th><th>Family total</th></tr>
+        <tr><td>Salt Lake City (12 travelers)</td><td>~$170&ndash;250</td><td>~$450&ndash;500 (July peak)</td><td class="ak-money">~$620&ndash;750</td><td class="ak-money">~$7,500&ndash;9,000</td></tr>
+        <tr><td>Southern California (7)</td><td>~$150&ndash;250</td><td>~$260&ndash;350</td><td class="ak-money">~$450&ndash;600</td><td class="ak-money">~$3,200&ndash;4,200</td></tr>
+        <tr><td>Boston (1)</td><td>~$300&ndash;450</td><td>~$310&ndash;450</td><td class="ak-money">~$650&ndash;900</td><td class="ak-money">~$650&ndash;900</td></tr>
+        <tr class="ak-total-row"><td colspan="4">Group airfare total</td><td class="ak-money">~$11,500&ndash;14,000</td></tr>
+      </table>
+      </div>
+      <p class="ak-note">Sanity check: a round-trip-Seattle Inside Passage cruise would cut group airfare to ~$5,500&ndash;7,500 — the one-way's ~$5,000&ndash;7,000 flight premium is the real price of Glacier Bay + College Fjord + Denali. We think it's worth it; the family should decide with eyes open.</p>
+    </section>
+
+    <!-- ================= PROS & CONS ================= -->
+    <section class="ak-section">
+      <p class="ak-eyebrow">Full disclosure</p>
+      <h2 class="ak-h2">The real pros and cons — including the ones that hurt</h2>
+      <div class="ak-pc-grid">
+        <div class="ak-pros">
+          <h3>Why it works</h3>
+          <ul class="ak-pc-list">
+            <li><strong>The one-roof factor is unbeatable.</strong> Seven cabins, one corridor, dinner for 20 at two adjoining tables every night — no villa, resort, or island-hop can match it with zero driving and one unpack.</li>
+            <li><strong>Every age has a lane.</strong> Free kids' clubs (ages 3&ndash;17 in bands), a teen lounge, a covered pool, quiet adult decks — parents actually get a vacation too.</li>
+            <li><strong>Two included glacier days</strong> — the wow moments cost nothing extra and happen with everyone together at the rail.</li>
+            <li><strong>2028 timing is perfect:</strong> the grandkids will be 3&frac12; to 16 — old enough to remember it, young enough to still all come.</li>
+            <li><strong>Cool-weather comfort:</strong> 60s&ndash;70s°F, 18&ndash;20 hours of daylight, no sunburned toddlers, easy on the grandparents.</li>
+            <li><strong>Roughly half Disney's price</strong> for a better itinerary, and the land leg ends at Anchorage's airport with nonstops toward all three home cities.</li>
+          </ul>
+        </div>
+        <div class="ak-cons">
+          <h3>Where it genuinely hurts</h3>
+          <ul class="ak-pc-list">
+            <li><strong>Passports for all 20 — including every child.</strong> One-way Vancouver sailings void the birth-certificate exception. ~$1,300&ndash;1,500 and applications must start by late 2027. Miss one passport, miss the ship.</li>
+            <li><strong>The potty-training cliff.</strong> If the 3&frac12;-year-old isn't fully potty-trained by June 2028, mainstream lines allow <em>no</em> kids-club drop-off and <em>no</em> pool access — swim diapers are banned fleet-wide. Only Disney (2&times; the price) and Royal Caribbean truly solve this.</li>
+            <li><strong>Motion sickness risk is real.</strong> The final Gulf of Alaska crossing is open ocean and can roll noticeably. Mitigate with midship cabins and Bonine, but anyone badly prone to seasickness will feel it.</li>
+            <li><strong>Open-jaw airfare costs ~$5,000&ndash;7,000 more</strong> than a simple round trip, and three cities converging on Vancouver demands a buffer day.</li>
+            <li><strong>Weather is a coin flip.</strong> Juneau averages 64°F with regular drizzle; Denali's summit hides ~2 days out of 3. Pack rain shells, not swimsuits — <strong>there is no beach on this vacation.</strong></li>
+            <li><strong>$30k realistically buys only the lean version.</strong> The full recommended experience is $52&ndash;60k ex-air. Excursions for 20 add up fast ($6,500 for the full slate), and 7 connecting cabins require booking the day 2028 inventory opens.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CLOSING ================= -->
+    <section class="ak-verdict">
+      <span class="ak-badge">The closing argument</span>
+      <h2 class="ak-h2">Why Alaska wins the family vote</h2>
+      <p>Greece is gorgeous — and it's ferries, heat, and four rental cars with nine kids. The Slovenian villa is charming — and someone cooks for 20 every night while the teens ask what there is to do. Maui is easy — and it's three condos, one pool, and a week that looks like every other resort week.</p>
+      <p class="ak-big">Alaska is the only pitch where the hotel itself does the traveling. Twenty beds move together past calving glaciers while the family sleeps, and every generation wakes up to the same jaw-dropping view — then splits into kids' club, teen lounge, whale boat, and quiet deck, and reunites at the same dinner table by seven.</p>
+      <p>The grandparents get comfort and grandeur without a single long walk. The teens get whales breaching and a gold-rush railroad. The little ones get moose, sled dogs, and a ship to explore. The parents get actual rest. And in 2048, nobody will say "remember that villa?" — they'll say <em>"remember when the glacier cracked and the whole family screamed at once?"</em></p>
+      <p class="ak-big">One booking window, one corridor of cabins, one unforgettable map line from Vancouver to Denali. That's the reunion. Vote Alaska.</p>
+    </section>
+
+    <p class="ak-footer-note">Prices are real 2026/2027 published fares and rates used as a proxy for 2028 (add ~5&ndash;10%): Princess/HAL one-way leads $704&ndash;$1,214 inside; Disney Wonder from $3,938/person; White Pass $155/$77.50; Tundra Wilderness Tour $144.75/$66; Alaska Railroad $199&ndash;$378; gratuities $18/person/day; airfare from current July fare data (Delta, Alaska Airlines, Southwest). Full sourced research report available separately. Photos: Wikimedia Commons.</p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Norway 2028 — The Fjords Family Reunion</title>
+<style>
+  :root{
+    --ink:#0e1a26; --paper:#f7f5f0; --card:#ffffff;
+    --fjord:#1b4965; --fjord-deep:#0f2d40; --glacier:#5fa8d3; --ice:#cae9ff;
+    --moss:#3e6b48; --sun:#e9b44c; --berry:#a4243b;
+    --muted:#5b6b78; --line:#e3ded4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .sans{font-family:'Segoe UI',Helvetica,Arial,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* HERO */
+  header{position:relative;min-height:560px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:linear-gradient(160deg,#0f2d40 0%,#1b4965 55%,#5fa8d3 100%)}
+  header .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+  header .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,38,.25) 0%,rgba(14,26,38,.05) 40%,rgba(14,26,38,.82) 100%)}
+  header .wrap{position:relative;padding-bottom:56px;padding-top:120px}
+  .kicker{font-family:'Segoe UI',Helvetica,Arial,sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.78rem;color:var(--ice);margin-bottom:14px}
+  h1{font-size:clamp(2.2rem,5.4vw,4rem);line-height:1.08;font-weight:400;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+  h1 em{font-style:italic;color:var(--sun)}
+  .sub{margin-top:16px;max-width:640px;font-size:1.12rem;color:#e8f1f8;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .badges{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+  .badge{font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.8rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);padding:6px 14px;border-radius:999px}
+
+  /* SECTIONS */
+  section{padding:64px 0}
+  section.tint{background:#efece4}
+  section.dark{background:var(--fjord-deep);color:#e8f1f8}
+  h2{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:400;margin-bottom:8px}
+  h2 .num{color:var(--sun);font-style:italic;margin-right:10px}
+  .lede{color:var(--muted);max-width:760px;margin-bottom:32px;font-size:1.05rem}
+  section.dark .lede{color:#a9c3d6}
+  .rule{width:64px;height:3px;background:var(--sun);margin:14px 0 26px}
+
+  /* CARDS */
+  .grid{display:grid;gap:20px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(14,26,38,.06)}
+  .card .imgbox{height:190px;position:relative;background:linear-gradient(140deg,var(--fjord),var(--glacier))}
+  .card .imgbox img{width:100%;height:100%;object-fit:cover;display:block}
+  .card .imgbox .cap{position:absolute;bottom:0;left:0;right:0;padding:6px 12px;font-size:.68rem;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.55));font-family:'Segoe UI',sans-serif}
+  .card .body{padding:20px 22px 24px}
+  .card h3{font-size:1.15rem;margin-bottom:6px}
+  .card .meta{font-family:'Segoe UI',sans-serif;font-size:.78rem;color:var(--glacier);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px}
+  .card p{font-size:.95rem;color:#33424f}
+  .price{font-family:'Segoe UI',sans-serif;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:.9rem}
+  .price b{color:var(--fjord)}
+
+  /* TABLES */
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-family:'Segoe UI',sans-serif;font-size:.92rem}
+  .tablewrap{overflow-x:auto;border-radius:10px}
+  th{background:var(--fjord);color:#fff;text-align:left;padding:12px 14px;font-weight:600;font-size:.85rem;white-space:nowrap}
+  td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#fbfaf7}
+  td.r,th.r{text-align:right;white-space:nowrap}
+  .foot{font-size:.8rem;color:var(--muted);margin-top:10px;font-family:'Segoe UI',sans-serif}
+
+  /* PROS/CONS */
+  .pc{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+  .pc .col{border-radius:12px;padding:26px 28px}
+  .pc .pro{background:#eaf3ec;border:1px solid #cfe3d4}
+  .pc .con{background:#f9ecec;border:1px solid #ecd2d2}
+  .pc h3{font-size:1.2rem;margin-bottom:14px}
+  .pc .pro h3{color:var(--moss)} .pc .con h3{color:var(--berry)}
+  .pc ul{list-style:none}
+  .pc li{padding:9px 0 9px 30px;position:relative;font-size:.95rem;border-top:1px solid rgba(0,0,0,.05)}
+  .pc li:first-child{border-top:none}
+  .pc li::before{position:absolute;left:2px;top:9px;font-family:'Segoe UI',sans-serif;font-weight:700}
+  .pc .pro li::before{content:"+";color:var(--moss)}
+  .pc .con li::before{content:"–";color:var(--berry)}
+  .pc li b{display:block}
+
+  /* STATS */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:8px}
+  .stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:20px;text-align:center}
+  .stat .n{font-size:1.9rem;color:var(--sun)}
+  .stat .l{font-family:'Segoe UI',sans-serif;font-size:.8rem;color:#a9c3d6;margin-top:4px}
+
+  .note{background:#fdf6e6;border:1px solid #efd9a0;border-left:5px solid var(--sun);border-radius:8px;padding:16px 20px;font-size:.94rem;margin:24px 0}
+  .note b{color:#8a6410}
+
+  /* CLOSING */
+  .closing{position:relative;color:#fff;overflow:hidden;background:linear-gradient(160deg,#0f2d40,#1b4965)}
+  .closing .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+  .closing .wrap{position:relative;padding:80px 24px;text-align:center}
+  .closing h2{margin-bottom:20px}
+  .closing p{max-width:720px;margin:0 auto 18px;font-size:1.08rem;color:#dcebf5}
+  .closing .big{font-size:1.35rem;font-style:italic;color:var(--sun)}
+
+  footer{background:var(--ink);color:#8fa3b3;padding:28px 0;font-size:.8rem;font-family:'Segoe UI',sans-serif}
+  @media (max-width:640px){ header{min-height:460px} section{padding:48px 0} }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="hero-img" alt="Geirangerfjord seen from the Ørnesvingen viewpoint, deep blue fjord between steep green mountains"
+       src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Panoramic_view_of_Geirangerfjorden_from_%C3%98rnesvingen_20150604_1.jpg/1280px-Panoramic_view_of_Geirangerfjorden_from_%C3%98rnesvingen_20150604_1.jpg"
+       onerror="this.style.display='none'">
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="kicker">Family Reunion 2028 &middot; The Case for Norway</div>
+    <h1>Nine days where the mountains<br>meet the sea. <em>All twenty of us.</em></h1>
+    <p class="sub">The Norwegian fjords, late June 2028. One waterfront base. Midnight-sun evenings, a railway carved through waterfalls, a glacier the grandkids ride to in open-top "troll cars" — and summer weather the grandparents will actually enjoy.</p>
+    <div class="badges sans">
+      <span class="badge">20 travelers, ages 3&#189; to 67</span>
+      <span class="badge">9 nights on the fjord</span>
+      <span class="badge">Lodging well UNDER the $30k budget</span>
+      <span class="badge">World's safest family destination class</span>
+    </div>
+  </div>
+</header>
+
+<!-- WHY -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">01</span>Why the fjords fit <i>this</i> family</h2>
+    <div class="rule"></div>
+    <p class="lede">Every big activity here works for a 67-year-old with moderate mobility AND a 3&#189;-year-old — because Norway built its showpieces around trains, boats, cable cars, and vintage open cars, not hiking boots. The teenagers get rafting and kayaks; the grandparents get a seat with the best view in Europe.</p>
+    <div class="grid g3">
+      <div class="card"><div class="body">
+        <div class="meta">Cool by design</div>
+        <h3>62&deg;F July days</h3>
+        <p>While Crete and Maui bake at 90&deg;F+, fjord Norway runs 55&ndash;68&deg;F. No heat exhaustion for grandparents, no sunburned toddler, no fighting over air conditioning. Sweater evenings around the cabin grill.</p>
+      </div></div>
+      <div class="card"><div class="body">
+        <div class="meta">Midnight-sun-adjacent</div>
+        <h3>~19 hours of daylight</h3>
+        <p>Late June: sunrise ~4:30am, sunset ~11pm, and it never gets fully dark. Kids play outside after dinner at 9:30pm. Two vacations' worth of usable hours in every day.</p>
+      </div></div>
+      <div class="card"><div class="body">
+        <div class="meta">Seat-based sightseeing</div>
+        <h3>Trains, boats &amp; gondolas</h3>
+        <p>Flåm Railway, UNESCO fjord cruise, Loen Skylift cable car, troll cars to a glacier snout. The jaw-dropping stuff requires zero hiking. (Trolltunga? A 10&ndash;12 hour alpine slog. We are honestly, cheerfully skipping it.)</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LODGING -->
+<section class="tint">
+  <div class="wrap">
+    <h2><span class="num">02</span>The base: real properties, real numbers</h2>
+    <div class="rule"></div>
+    <p class="lede">Honest truth first: Norway's cabin stock skews small, and a true single 20-sleeper in fjord country is <b>rare</b> — we found exactly one headline candidate, plus excellent "one waterfront complex, adjacent units" solutions that keep everyone within 50 yards of each other. All are dramatically under the $30,000 lodging budget.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <div class="imgbox">
+          <img alt="Traditional Norwegian holiday house landscape by a fjord" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/N%C3%A6r%C3%B8yfjorden_mot_Gudvangen.jpg/1280px-N%C3%A6r%C3%B8yfjorden_mot_Gudvangen.jpg" onerror="this.style.display='none'">
+          <div class="cap">Fjord country — Nærøyfjorden (Wikimedia Commons)</div>
+        </div>
+        <div class="body">
+          <div class="meta">The one true 20-sleeper &middot; Novasol N17221</div>
+          <h3>Ølen Fjord Villa — sleeps 22</h3>
+          <p><b>10 bedrooms, 12 bathrooms, 24&nbsp;m&sup2; indoor pool</b>, wood stove, WiFi, fjord panorama 50m above Ølensfjord, rowing boat for hire, 10 parking spots. Traditional Norwegian style, ~2h south of Bergen. The whole family under one roof — the only listing we found that does it.</p>
+          <div class="price"><b>Est. $8,000&ndash;$12,500 for 9 nights (2028)</b><br>Novasol prices by quote/date; estimate based on comparable XXL Novasol Norway homes. Book: novasol.com (N17221).<br><i>Trade-off: outside the marquee Sognefjord/Nordfjord sights — plan 2 long day trips or accept quieter fjord scenery.</i></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgbox">
+          <img alt="Lustrafjord arm of the Sognefjord near Skjolden" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/N%C3%A6r%C3%B8yfjord-Norway-April-2011.jpg/1280px-N%C3%A6r%C3%B8yfjord-Norway-April-2011.jpg" onerror="this.style.display='none'">
+          <div class="cap">Inner Sognefjord arm (Wikimedia Commons)</div>
+        </div>
+        <div class="body">
+          <div class="meta">Recommended pick &middot; one waterfront complex</div>
+          <h3>Skjolden Brygge — 3 adjacent apartments (27 beds)</h3>
+          <p>Apartment buildings on piles <b>over the Sognefjord</b> at Skjolden, the fjord's innermost village. Largest units: 4 bedrooms, 9 beds, 2 baths, 2 living rooms, panoramic balconies; premium waterfront houses add <b>sauna &amp; jacuzzi</b>. Everyone on the same dock; kids run between doors.</p>
+          <div class="price"><b>Est. $9,000&ndash;$10,500 for 9 nights (2028)</b> — 3 large units @ ~NOK 2,500&ndash;3,500/night each (smaller units listed from ~$129&ndash;150/night). Book: booking.skjoldenbrygge.com.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgbox">
+          <img alt="Aurlandsfjord near Flåm, steep mountains and calm water" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/N%C3%A6r%C3%B8yfjord-cruise-view.jpg/1280px-N%C3%A6r%C3%B8yfjord-cruise-view.jpg" onerror="this.style.display='none'">
+          <div class="cap">Aurlandsfjord–Nærøyfjord waters (Wikimedia Commons)</div>
+        </div>
+        <div class="body">
+          <div class="meta">Historic charm &middot; Aurland (10 min from Flåm)</div>
+          <h3>Vangsgaarden Gjestgiveri &amp; Rorbuer — 6 fjordside cabins</h3>
+          <p>Family-run 18th-century inn on the Aurlandsfjord. <b>Six garden cabins right on the water, each sleeping 4&ndash;5</b> (kitchen, bath, fjord balcony) = 24&ndash;30 beds, plus 18 inn rooms if you want a partial buyout. Walk to the village bakery; 10 minutes to the Flåm Railway.</p>
+          <div class="price"><b>Est. $10,000&ndash;$12,000 for 9 nights (2028)</b> — cabins from ~$180&ndash;200/night today. Book: vangsgaarden.com or Booking.com.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgbox">
+          <img alt="Lake Lovatnet turquoise glacial water near Loen" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Summer_evening_at_Lovatnet%2C_Stryn%2C_Norway%2C_2013_June.jpg/1280px-Summer_evening_at_Lovatnet%2C_Stryn%2C_Norway%2C_2013_June.jpg" onerror="this.style.display='none'">
+          <div class="cap">Summer evening, Lovatnet near Loen (Wikimedia Commons)</div>
+        </div>
+        <div class="body">
+          <div class="meta">Budget champion &middot; Sogndal</div>
+          <h3>Vesterland Feriepark — 4&ndash;5 cabins/apartments</h3>
+          <p>120-unit holiday park near Sogndal with <b>indoor pool + children's pool</b>, playgrounds, and full-kitchen cabins. The most kid-proof option: rainy-day pool insurance built in, and the cheapest path to 20 beds in the heart of Sognefjord.</p>
+          <div class="price"><b>Est. $6,800&ndash;$7,800 for 9 nights (2028)</b> — units ~$139&ndash;163/night today &times; 5. Book: direct or Expedia/Travelocity.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgbox">
+          <img alt="View over Lovatnet from Hoven, the Loen Skylift summit" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Lovatnet_from_Hoven.jpg/1280px-Lovatnet_from_Hoven.jpg" onerror="this.style.display='none'">
+          <div class="cap">Loen valley from Mt. Hoven (Wikimedia Commons)</div>
+        </div>
+        <div class="body">
+          <div class="meta">Zero-cooking alternative &middot; Nordfjord</div>
+          <h3>Hotel Loenfjord, Loen — ~8 rooms, half board</h3>
+          <p>Fjordside hotel at the foot of the Loen Skylift. Family packages from <b>NOK 1,990/night (2 adults + 1 child, dinner buffet + breakfast included)</b>; kids in existing beds NOK 350. Nobody cooks, nobody does dishes, and Norway's restaurant prices stop mattering.</p>
+          <div class="price"><b>Est. $19,000&ndash;$23,000 for 9 nights (2028), MEALS INCLUDED</b> — still under budget once you count food savings. Book: loenfjord.no.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgbox">
+          <img alt="Flåm village harbor area on the Aurlandsfjord" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Fl%C3%A5msbana_train_at_Fl%C3%A5m_Station.jpg/1280px-Fl%C3%A5msbana_train_at_Fl%C3%A5m_Station.jpg" onerror="this.style.display='none'">
+          <div class="cap">Flåm station and valley (Wikimedia Commons)</div>
+        </div>
+        <div class="body">
+          <div class="meta">Wildcard &middot; Flåm proper</div>
+          <h3>Flåm Marina &amp; Apartments — 5 of 11 apartments</h3>
+          <p>Self-catering apartments on the Flåm marina, Sognefjord views, restaurant downstairs. Walk to the railway and fjord cruises — car-free days for whoever wants them. Popular with multigen family groups celebrating occasions.</p>
+          <div class="price"><b>Est. $14,000&ndash;$16,000 for 9 nights (2028)</b> — ~$262&ndash;300/apt/night in summer today &times; 5. Book: flaammarina.no / Booking.com.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note"><b>Straight talk on the "one big house" dream:</b> Norway simply doesn't build many 20-person hyttes — the Ølen villa above was the only verified 22-sleeper we found on the major platforms, and its price must be quoted by date. Our actual recommendation is the <b>adjacent-units model</b> (Skjolden or Vangsgaarden): same dock, same firepit, private doors for five families and one blissfully unshared toddler bedtime. Prices shown are current listed/typical rates inflated ~5&ndash;8%/yr to 2028, at <b>9.7 NOK = 1 USD</b> (July 2026 rate).</div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">03</span>Top five days out — priced for all 20</h2>
+    <div class="rule"></div>
+    <p class="lede">Group cost assumes 12 adult-fare travelers (incl. the 16-year-old), 7 children 6&ndash;15, toddler free. NOK at 9.7/USD, current published prices; add ~10&ndash;15% for 2028.</p>
+    <div class="grid g3">
+      <div class="card">
+        <div class="imgbox"><img alt="Green Flåm Railway train at Flåm Station" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Fl%C3%A5msbana_-_Crowned_the_most_beautiful_train_journey_in_the_world_%2831250591633%29.jpg/1280px-Fl%C3%A5msbana_-_Crowned_the_most_beautiful_train_journey_in_the_world_%2831250591633%29.jpg" onerror="this.style.display='none'"><div class="cap">Flåmsbana (Wikimedia Commons)</div></div>
+        <div class="body"><div class="meta">All ages &middot; 2 hrs round trip</div><h3>1. Flåm Railway (Flåmsbana)</h3>
+        <p>One of the world's steepest normal-gauge railways: 20 tunnels, the Kjosfossen waterfall stop, everyone in a heated vintage carriage. Stroller and grandparent perfection.</p>
+        <div class="price"><b>NOK 730 adult / ~365 child RT</b> high season &middot; group ≈ <b>NOK 11,300 ($1,165)</b></div></div>
+      </div>
+      <div class="card">
+        <div class="imgbox"><img alt="Electric sightseeing boat in the narrow UNESCO Nærøyfjord" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/N%C3%A6r%C3%B8yfjord-cruise-view.jpg/1280px-N%C3%A6r%C3%B8yfjord-cruise-view.jpg" onerror="this.style.display='none'"><div class="cap">Nærøyfjord cruise (Wikimedia Commons)</div></div>
+        <div class="body"><div class="meta">All ages &middot; 2 hrs, indoor + deck seating</div><h3>2. Nærøyfjord Cruise (UNESCO)</h3>
+        <p>Silent electric boat Flåm→Gudvangen through Europe's narrowest great fjord — 250m wide under 1,700m walls. Goats on shore, waterfalls everywhere. Under-4s free.</p>
+        <div class="price"><b>NOK 550 adult / 275 child</b> one way &middot; group ≈ <b>NOK 8,525 ($880)</b></div></div>
+      </div>
+      <div class="card">
+        <div class="imgbox"><img alt="View of Lovatnet and Nordfjord mountains from the Loen Skylift summit" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Lovatnet_from_Hoven.jpg/1280px-Lovatnet_from_Hoven.jpg" onerror="this.style.display='none'"><div class="cap">Mt. Hoven, 1,011m (Wikimedia Commons)</div></div>
+        <div class="body"><div class="meta">All ages &middot; 5-min cable car</div><h3>3. Loen Skylift</h3>
+        <p>Cable car from fjord level to 1,011m Mt. Hoven in five minutes. Summit restaurant, easy boardwalk strolls, and Norway's best "did we really earn this view without hiking?" moment. Under-6s ride free.</p>
+        <div class="price"><b>NOK 650 adult / 345 child (6&ndash;15) RT</b> &middot; group ≈ <b>NOK 10,215 ($1,055)</b>; family tickets trim ~10%</div></div>
+      </div>
+      <div class="card">
+        <div class="imgbox"><img alt="Briksdalsbreen glacier arm above a milky glacial lake" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Briksdalsbreen%2C_2011_August.jpg/1280px-Briksdalsbreen%2C_2011_August.jpg" onerror="this.style.display='none'"><div class="cap">Briksdalsbreen (Wikimedia Commons)</div></div>
+        <div class="body"><div class="meta">All ages via troll car &middot; half day</div><h3>4. Briksdal Glacier &amp; Troll Cars</h3>
+        <p>Open-top "troll cars" carry grandparents and the toddler up the waterfall valley to the glacier lake — the walkers in the family can hike the same 45-min path. A real blue glacier, no crampons required.</p>
+        <div class="price"><b>NOK 300 pp return; kids ≤7 free</b> &middot; group ≈ <b>NOK 5,100 ($525)</b></div></div>
+      </div>
+      <div class="card">
+        <div class="imgbox"><img alt="Family rafting on a calm green river near Voss" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Geirangerfjorden_from_mountainside%2CStranda%2C_Norway%2C_2019_July.jpg/1280px-Geirangerfjorden_from_mountainside%2CStranda%2C_Norway%2C_2019_July.jpg" onerror="this.style.display='none'"><div class="cap">Fjord-country adventure terrain (Wikimedia Commons)</div></div>
+        <div class="body"><div class="meta">Ages 5+ &middot; 3 hrs &middot; teens' pick</div><h3>5. Voss Family Rafting / Flåm Kayaking</h3>
+        <p>Class-2 family float on the Vosso with Voss Active (min age 5), or guided tandem fjord kayaking from Flåm's beach (families 5+ welcome, no experience needed). Grandparents spectate with coffee.</p>
+        <div class="price"><b>NOK 790 adult / 590 kid</b> rafting &middot; ~14 paddlers ≈ <b>NOK 11,400 ($1,175)</b></div></div>
+      </div>
+      <div class="card">
+        <div class="imgbox"><img alt="Bryggen wharf in Bergen with wooden Hanseatic facades" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Bryggen%2C_Bergen%2C_Noruega%2C_2019-09-08%2C_DD_115-117_PAN.jpg/1280px-Bryggen%2C_Bergen%2C_Noruega%2C_2019-09-08%2C_DD_115-117_PAN.jpg" onerror="this.style.display='none'"><div class="cap">Bryggen, Bergen (Wikimedia Commons)</div></div>
+        <div class="body"><div class="meta">Free-to-cheap bonus days</div><h3>Bonus: the free stuff</h3>
+        <p>Bergen's UNESCO Bryggen wharf &amp; fish market on arrival day; Vøringsfossen waterfall platforms (free); Lærdal's 24.5&nbsp;km tunnel — the world's longest road tunnel, lit like the aurora; fjord fishing off the dock; wild berry picking. Norway's best moments cost nothing.</p>
+        <div class="price"><b>$0&ndash;small change</b> &middot; the antidote to Norwegian prices</div></div>
+      </div>
+    </div>
+    <div class="note"><b>What we're honestly NOT doing:</b> Trolltunga (10&ndash;12 hr, 28&nbsp;km alpine hike — absolutely not for this group), glacier ice-climbing, and Geiranger as a base (gorgeous, but 3+ extra driving hours and cruise-ship crowds; we see equivalent UNESCO drama on the Nærøyfjord). Fjord swimming is real but <b>cold</b> — 57&ndash;61&deg;F surface in July; the hardy kids will scream happily, everyone else has the sauna/pool.</div>
+  </div>
+</section>
+
+<!-- WEATHER / HONESTY -->
+<section class="dark">
+  <div class="wrap">
+    <h2 style="color:#fff"><span class="num">04</span>The weather, told straight</h2>
+    <div class="rule"></div>
+    <p class="lede">Western Norway is one of Europe's wettest regions. We won't pretend otherwise — we'll just base the trip where it rains least.</p>
+    <div class="stats sans">
+      <div class="stat"><div class="n">52&ndash;68&deg;F</div><div class="l">Typical July range; warm spells hit 75&ndash;80&deg;F inland</div></div>
+      <div class="stat"><div class="n">~16</div><div class="l">Days with some rain in Bergen each July (83&ndash;150mm)</div></div>
+      <div class="stat"><div class="n">Drier inland</div><div class="l">Inner-fjord bases (Skjolden, Sogndal, Lærdal, Aurland) sit in the rain shadow — Lærdal is one of Norway's driest spots</div></div>
+      <div class="stat"><div class="n">~19 hrs</div><div class="l">Daylight in late June; no true darkness — evenings feel endless</div></div>
+      <div class="stat"><div class="n">57&ndash;61&deg;F</div><div class="l">Fjord surface water in July — swimmable for the brave, cold for everyone</div></div>
+      <div class="stat"><div class="n">0 days</div><div class="l">Of dangerous heat for grandparents or the toddler. Ever.</div></div>
+    </div>
+    <p class="lede" style="margin-top:26px">Translation: pack rain shells, book a base with a sauna or indoor pool, and expect a rhythm of brilliant-bright days broken by moody, waterfall-swelling showers — which is when the fjords look most like the postcards anyway.</p>
+  </div>
+</section>
+
+<!-- AIRFARE -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">05</span>Getting there: the airfare reality</h2>
+    <div class="rule"></div>
+    <p class="lede">Fly into <b>Bergen (BGO)</b> — the fjord gateway, 1 connection from every departure city. Summer round-trip economy estimates below are researched current fares with 2028 headroom; airfare is per-family, separate from the shared budget.</p>
+    <div class="tablewrap"><table>
+      <tr><th>Departure</th><th>Best routing</th><th>Total time (one way)</th><th class="r">Est. RT / person</th><th class="r">Family total</th></tr>
+      <tr><td><b>Salt Lake City</b> (12 incl. grandparents)</td><td>Delta nonstop SLC→Amsterdam (~9h25) + KLM to Bergen (1h45)</td><td>~13&ndash;15 hrs door-to-door</td><td class="r">$1,100&ndash;$1,450<br><span class="foot">avg $1,224; June from $1,285</span></td><td class="r"><b>$13,200&ndash;$17,400</b></td></tr>
+      <tr><td><b>Southern California</b> (7)</td><td>Norse Atlantic LAX→Oslo direct (~10h35) + 50-min hop to Bergen; or one-stop via AMS/KEF</td><td>~13&ndash;16 hrs</td><td class="r">$850&ndash;$1,200<br><span class="foot">deals seen $715&ndash;766 RT</span></td><td class="r"><b>$6,000&ndash;$8,400</b></td></tr>
+      <tr><td><b>Boston</b> (1)</td><td>Icelandair BOS→Reykjavík (5h15) + KEF→Bergen (2h)</td><td>~9&ndash;10 hrs — shortest of any pitch city</td><td class="r">$600&ndash;$900<br><span class="foot">fares listed from $424</span></td><td class="r"><b>$600&ndash;$900</b></td></tr>
+    </table></div>
+    <p class="foot">All-family airfare envelope: roughly <b>$20,000&ndash;$27,000</b>. Honest note: that's real money and 1 connection each way with jet lag — comparable to Greece/Slovenia, more than Maui/Alaska for the West Coast families. Booking ~9 months out (fall 2027) and flexing a day or two around July 4 week is worth $150&ndash;300/seat.</p>
+  </div>
+</section>
+
+<!-- LOGISTICS -->
+<section class="tint">
+  <div class="wrap">
+    <h2><span class="num">06</span>Moving 20 people (easier than it sounds)</h2>
+    <div class="rule"></div>
+    <div class="grid g3">
+      <div class="card"><div class="body"><div class="meta">Wheels</div><h3>Three 9-seat vans</h3>
+      <p>VW Caravelle-class from Bergen Airport. Rates run <b>$74&ndash;340/day</b> by season and supplier; budget <b>~$200/day/van</b> booked early = <b>~$6,000 for 10 days, all three</b>. Every family drives; nobody's trapped on a tour bus schedule.</p></div></div>
+      <div class="card"><div class="body"><div class="meta">Ferries &amp; tolls</div><h3>Shockingly cheap now</h3>
+      <p>Norway halved ferry fares: Mannheller&ndash;Fodnes is <b>NOK 69 (~$7) per van — passengers free</b>. Rental cars carry AutoPASS toll chips; expect <b>$150&ndash;250 total</b> in ferries + tolls for the whole trip. The 24.5&nbsp;km Lærdal Tunnel: free.</p></div></div>
+      <div class="card"><div class="body"><div class="meta">Fuel</div><h3>The one ugly number</h3>
+      <p>Petrol ≈ <b>NOK 22/L (~$8.60/gal)</b>. Three vans, ~1,500&nbsp;km each ≈ <b>~$950 total</b>. Painful per gallon, modest in total because distances are short: Bergen→Flåm 2h45, Flåm→Sogndal ~1h, Sogndal→Loen ~2h15.</p></div></div>
+      <div class="card"><div class="body"><div class="meta">Little ones</div><h3>Toddler &amp; boosters</h3>
+      <p>Norwegian law: under 135&nbsp;cm = child seat/booster. Bring your own seats (fly free on Delta/Icelandair) — rentals charge ~$10&ndash;15/day each. Trains, boats, skylift and troll cars all take strollers and lap-toddlers happily; under-4s ride most things free.</p></div></div>
+      <div class="card"><div class="body"><div class="meta">If someone gets sick</div><h3>First-world medicine everywhere</h3>
+      <p>Every district has a <i>legevakt</i> (urgent care) — Sogndal, Voss, Stryn — plus hospitals at Voss, Lærdal, Nordfjordeid and Førde, and one of the world's densest air-ambulance networks. Tap water is pristine; travel insurance still recommended.</p></div></div>
+      <div class="card"><div class="body"><div class="meta">Feeding the crew</div><h3>Groceries beat restaurants 4:1</h3>
+      <p>Restaurant dinner for 20: <b>$650&ndash;950</b> (mains NOK 250&ndash;400 each, no alcohol). Groceries for 20 self-catering: <b>~$400&ndash;500/day</b> (NOK 150&ndash;250 pp). Strategy: big-kitchen base, Rema 1000/Kiwi supermarket runs, 2&ndash;3 restaurant nights. Food ≈ <b>$6,000&ndash;6,500</b> for 9 days.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROS AND CONS -->
+<section>
+  <div class="wrap">
+    <h2><span class="num">07</span>The honest ledger</h2>
+    <div class="rule"></div>
+    <p class="lede">A pitch that hides its weaknesses deserves to lose the family vote. Here is the full ledger — both columns true.</p>
+    <div class="pc">
+      <div class="col pro">
+        <h3>Why Norway wins</h3>
+        <ul>
+          <li><b>Scenery no other pitch can match.</b> UNESCO fjords, glaciers, 1,000m waterfalls — from a boat seat, a train seat, a gondola. Nothing in Crete, Bled, Maui or an Alaska cruise combines this density of drama with this little walking.</li>
+          <li><b>Cool summer = grandparent gold.</b> 55&ndash;68&deg;F days; zero heat risk for 67-year-olds and a toddler. July in Crete/Maui is 88&ndash;95&deg;F.</li>
+          <li><b>19-hour days.</b> The reunion's real currency is unhurried time together; Norway literally issues more of it. Post-dinner mountain light until 11pm.</li>
+          <li><b>Lodging crushes the budget.</b> $7,000&ndash;$12,500 for 9 nights vs the $30,000 ceiling — the surplus funds every activity AND most of the food.</li>
+          <li><b>Safest-tier destination.</b> Minimal crime, pristine water, superb roads, universal English, world-class healthcare. The lowest-anxiety place on earth to lose sight of a 6-year-old for ninety seconds.</li>
+          <li><b>Built-in multigen design.</b> Under-4s free nearly everywhere, under-6/under-8 free on Skylift/troll cars, family tickets standard, ferries carry passengers free.</li>
+          <li><b>No cruise-ship regimentation.</b> Unlike the Alaska option: your own kitchens, your own vans, your own schedule, no formal nights, no cabin fees &times; 20.</li>
+        </ul>
+      </div>
+      <div class="col con">
+        <h3>What it will cost you (truthfully)</h3>
+        <ul>
+          <li><b>It rains. Often.</b> Western Norway is among Europe's wettest regions — Bergen sees ~16 rain days each July. An inland base cuts this but eliminates nothing. If a mostly-guaranteed-sun beach week is the goal, Crete beats us.</li>
+          <li><b>Norway is brutally expensive day-to-day.</b> $9 pizza slice, $17 burger, $650+ to feed 20 in a restaurant, $8.60/gal fuel, $6 lattes. Self-catering is the only sane play — and that means kitchen duty on vacation.</li>
+          <li><b>True 20-sleeper houses are scarce.</b> We found one (Ølen, quote-only pricing). Realistically you're in 3&ndash;6 adjacent units — together, but not under one literal roof.</li>
+          <li><b>Long travel day with a toddler.</b> 13&ndash;16 hours door-to-door from SLC/LAX, one connection, 8-hour jet lag. Airfare envelope $20&ndash;27k across the families — Maui is cheaper and easier from the West Coast.</li>
+          <li><b>The water is cold.</b> 57&ndash;61&deg;F fjords, colder glacial lakes. This is a scenery-and-adventure trip, not a swim trip; the pool/sauna at the base is the actual swimming.</li>
+          <li><b>Logistics need one organized adult.</b> Three vans, ferry timing, activity pre-booking (July slots sell out months ahead). It's all easy — but it isn't zero-effort like a cruise.</li>
+          <li><b>No nightlife/resort amenities.</b> Fjord villages sleep early. Teens get rafting and midnight sun, not boardwalks.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section class="tint">
+  <div class="wrap">
+    <h2><span class="num">08</span>The full budget, no asterisks</h2>
+    <div class="rule"></div>
+    <p class="lede">Shared on-the-ground costs for all 20, using the recommended Skjolden Brygge base, 2028-adjusted prices (5&ndash;8%/yr inflation on current researched rates, 9.7 NOK/USD).</p>
+    <div class="tablewrap"><table>
+      <tr><th>Category</th><th>Detail</th><th class="r">Estimate (2028 USD)</th></tr>
+      <tr><td><b>Lodging — 9 nights</b></td><td>3 large waterfront apartments, Skjolden Brygge (range spans the Ølen villa or Vesterland options)</td><td class="r"><b>$7,000&ndash;$12,500</b></td></tr>
+      <tr><td>Food</td><td>Groceries ~$450/day for 20 + three restaurant dinners</td><td class="r">$6,000&ndash;$6,800</td></tr>
+      <tr><td>Ground transport</td><td>3 &times; 9-seat vans, 10 days ($6,000) + fuel ($950) + ferries/tolls ($250) + parking</td><td class="r">$7,200&ndash;$8,200</td></tr>
+      <tr><td>Activities</td><td>Flåm Railway, Nærøyfjord cruise, Loen Skylift, Briksdal, rafting/kayak + Bergen day</td><td class="r">$5,200&ndash;$6,000</td></tr>
+      <tr><td>Contingency</td><td>Weather pivots, ice cream inflation, souvenir trolls</td><td class="r">$1,500</td></tr>
+      <tr><td style="background:var(--fjord);color:#fff"><b>Shared total (20 people)</b></td><td style="background:var(--fjord);color:#fff">Everything on the ground, 9 full days</td><td class="r" style="background:var(--fjord);color:#fff"><b>$26,900&ndash;$35,000</b></td></tr>
+      <tr><td colspan="3" style="background:#fdf6e6"><b>Read that again:</b> the ~$30,000 earmarked for lodging alone very nearly covers the <i>entire trip on the ground</i> — because fjord lodging runs a third of a Crete or Maui villa of this capacity in peak season.</td></tr>
+      <tr><td><i>Airfare (separate, per family)</i></td><td>SLC 12 pax $13.2&ndash;17.4k &middot; SoCal 7 pax $6.0&ndash;8.4k &middot; Boston 1 pax $0.6&ndash;0.9k</td><td class="r"><i>$19,800&ndash;$26,700</i></td></tr>
+    </table></div>
+    <p class="foot">Sources: published 2026 rates from Flåmsbana/Norway's Best, Loen Skylift, Briksdal Adventure, Voss Active, Norled/AutoPASS ferry tariffs, Global Petrol Prices, Novasol/Skjolden Brygge/Vangsgaarden/Vesterland/Hotel Loenfjord listings, and current SLC/LAX/BOS&ndash;BGO fare data. Where an operator prices only by dated quote (the Ølen villa, large Skjolden units), the figure is a clearly-labeled estimate from comparable listed units.</p>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <img class="hero-img" alt="Geirangerfjord and village from the mountainside in July" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Geirangerfjorden_and_Geiranger.jpg/1280px-Geirangerfjorden_and_Geiranger.jpg" onerror="this.style.display='none'">
+  <div class="wrap">
+    <h2>Why Norway wins</h2>
+    <p>Greece has the sun. Maui has the beach. Alaska has the ship. Slovenia has the lake. But only Norway hands a 67-year-old and a 3-year-old the <i>same</i> front-row seat to the most dramatic landscape in Europe — by train, boat, cable car and troll car — in 62-degree comfort, under a sun that won't set until the stories are finished.</p>
+    <p>The lodging budget doesn't just survive Norway; it funds the whole adventure. The rain is real, the prices are real, and so is this: nobody in this family, from 3&#189; to 67, will ever forget standing together at the head of a fjord at 10:30 at night, in daylight.</p>
+    <p class="big">Nine days. Twenty people. One fjord. Vote Norway.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Norway Fjords 2028 — family reunion pitch &middot; Prices researched July 2026, inflated 5&ndash;8%/yr to 2028 &middot; 9.7 NOK = 1 USD &middot; Photos: Wikimedia Commons (CC) &middot; Competing pitches: Crete &middot; Alaska &middot; Bled &middot; Maui</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maui 2028 — The Case for Hawaii | Family Reunion Pitch</title>
+<style>
+  :root{
+    --ocean:#0b5d8a; --ocean-deep:#083c59; --sand:#fdf8ef; --sand-2:#f6eeda;
+    --sunset:#e8743b; --sunset-deep:#c85a26; --palm:#1f7a5c; --ink:#22303a;
+    --gold:#d9a441; --card:#ffffff; --line:#e6dcc6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--sand);color:var(--ink);line-height:1.6;}
+  h1,h2,h3,h4,.sans{font-family:'Segoe UI',Helvetica,Arial,sans-serif;}
+  a{color:var(--ocean);}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- HERO ---------- */
+  header.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;}
+  header.hero .bg{position:absolute;inset:0;background:linear-gradient(160deg,#0b5d8a,#083c59 60%,#052638);}
+  header.hero img.heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  header.hero .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,30,45,.88) 0%,rgba(5,30,45,.25) 45%,rgba(5,30,45,.15) 100%);}
+  header.hero .content{position:relative;padding:70px 24px 64px;width:100%;}
+  .kicker{font-family:'Segoe UI',sans-serif;letter-spacing:.28em;text-transform:uppercase;font-size:.78rem;color:var(--gold);font-weight:700;}
+  header.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.05;margin:.35em 0 .3em;font-weight:800;text-shadow:0 2px 18px rgba(0,0,0,.45);}
+  header.hero p.sub{font-size:clamp(1.05rem,2vw,1.35rem);max-width:46em;text-shadow:0 1px 10px rgba(0,0,0,.5);}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .badge{font-family:'Segoe UI',sans-serif;font-size:.85rem;font-weight:600;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(4px);padding:8px 16px;border-radius:999px;}
+  .badge strong{color:var(--gold);}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(8,60,89,.96);backdrop-filter:blur(6px);box-shadow:0 2px 12px rgba(0,0,0,.25);}
+  nav .wrap{display:flex;gap:2px;overflow-x:auto;padding:0 12px;}
+  nav a{font-family:'Segoe UI',sans-serif;color:#dfeef7;text-decoration:none;font-size:.83rem;font-weight:600;padding:13px 14px;white-space:nowrap;border-bottom:3px solid transparent;}
+  nav a:hover{color:#fff;border-bottom-color:var(--gold);}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:72px 0;}
+  section.alt{background:var(--sand-2);}
+  section.dark{background:var(--ocean-deep);color:#eaf3f8;}
+  section.dark h2{color:#fff;}
+  .eyebrow{font-family:'Segoe UI',sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.75rem;color:var(--sunset-deep);font-weight:700;}
+  section.dark .eyebrow{color:var(--gold);}
+  h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:.3em 0 .55em;line-height:1.15;font-weight:800;}
+  .lede{font-size:1.14rem;max-width:52em;}
+  .grid{display:grid;gap:22px;margin-top:34px;}
+  .grid.c2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+  .grid.c3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 3px 14px rgba(34,48,58,.07);display:flex;flex-direction:column;}
+  .card .imgbox{position:relative;height:190px;background:linear-gradient(140deg,#0b5d8a,#1f7a5c);}
+  .card .imgbox img{width:100%;height:100%;object-fit:cover;display:block;}
+  .imgbox .fallback-label{display:none;position:absolute;inset:0;align-items:center;justify-content:center;color:#fff;font-family:'Segoe UI',sans-serif;font-weight:700;font-size:1.05rem;text-align:center;padding:14px;}
+  .imgbox.img-failed .fallback-label{display:flex;}
+  .card .body{padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;}
+  .card h3{font-size:1.18rem;margin-bottom:6px;}
+  .price{font-family:'Segoe UI',sans-serif;font-weight:800;color:var(--sunset-deep);font-size:1.02rem;margin:6px 0 8px;}
+  .meta{font-family:'Segoe UI',sans-serif;font-size:.82rem;color:#5c6b76;margin-bottom:8px;}
+  .card p{font-size:.95rem;}
+  .tag{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:10px;}
+  .tag.lead{background:#0b5d8a;color:#fff;} .tag.value{background:#1f7a5c;color:#fff;}
+  .tag.stretch{background:#d9a441;color:#3a2c07;} .tag.alt{background:#8a5d0b;color:#fff;}
+  .tag.plan{background:#e6dcc6;color:#5a4a20;}
+
+  /* ---------- STAT STRIP ---------- */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-top:36px;}
+  .stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:18px 16px;text-align:center;}
+  .stat .n{font-family:'Segoe UI',sans-serif;font-size:1.9rem;font-weight:800;color:var(--gold);line-height:1.1;}
+  .stat .l{font-size:.85rem;margin-top:4px;color:#cfe3ef;font-family:'Segoe UI',sans-serif;}
+
+  /* ---------- TABLES ---------- */
+  .tablewrap{overflow-x:auto;margin-top:26px;border-radius:12px;border:1px solid var(--line);background:#fff;}
+  table{width:100%;border-collapse:collapse;font-family:'Segoe UI',sans-serif;font-size:.92rem;min-width:640px;}
+  th{background:var(--ocean);color:#fff;text-align:left;padding:12px 14px;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;}
+  td{padding:12px 14px;border-top:1px solid #eee6d2;vertical-align:top;}
+  tr:nth-child(even) td{background:#fbf7ec;}
+  td.num{font-weight:700;white-space:nowrap;}
+  .totalrow td{background:#f0e8d2 !important;font-weight:800;font-size:.98rem;}
+
+  /* ---------- PROS / CONS ---------- */
+  .pc{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-top:34px;}
+  .pc .col{border-radius:14px;padding:26px 26px 20px;}
+  .pc .pros{background:#eef7f1;border:1px solid #bfe0cd;}
+  .pc .cons{background:#fbeeea;border:1px solid #ecc8bb;}
+  .pc h3{font-size:1.25rem;margin-bottom:14px;}
+  .pc .pros h3{color:var(--palm);} .pc .cons h3{color:#b23c17;}
+  .pc ul{list-style:none;}
+  .pc li{padding:9px 0 9px 30px;position:relative;border-top:1px dashed rgba(0,0,0,.1);font-size:.95rem;}
+  .pc li:first-child{border-top:none;}
+  .pc .pros li::before{content:"✓";position:absolute;left:2px;top:9px;font-weight:800;color:var(--palm);}
+  .pc .cons li::before{content:"✗";position:absolute;left:2px;top:9px;font-weight:800;color:#b23c17;}
+  .pc li strong{font-family:'Segoe UI',sans-serif;}
+
+  /* ---------- ACTIVITIES ---------- */
+  .act{display:flex;gap:18px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:0;overflow:hidden;margin-top:18px;}
+  .act .thumb{flex:0 0 240px;min-height:170px;position:relative;background:linear-gradient(140deg,#0b5d8a,#1f7a5c);}
+  .act .thumb img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;}
+  .act .txt{padding:20px 22px;flex:1;}
+  .act h3{font-size:1.12rem;}
+  .act .cost{font-family:'Segoe UI',sans-serif;font-weight:800;color:var(--sunset-deep);font-size:.92rem;margin:4px 0 6px;}
+  .act p{font-size:.94rem;}
+  @media(max-width:640px){.act{flex-direction:column}.act .thumb{flex:none;height:170px}}
+
+  .note{background:#fff8e6;border-left:5px solid var(--gold);padding:16px 20px;border-radius:0 10px 10px 0;margin-top:26px;font-size:.95rem;}
+  .warn{background:#fbeeea;border-left:5px solid #c85a26;padding:16px 20px;border-radius:0 10px 10px 0;margin-top:26px;font-size:.95rem;}
+
+  /* ---------- KITCHEN MATH ---------- */
+  .mathbox{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:30px;}
+  .mathcard{border-radius:14px;padding:24px;text-align:center;font-family:'Segoe UI',sans-serif;}
+  .mathcard .big{font-size:2rem;font-weight:800;line-height:1.1;}
+  .mathcard .cap{font-size:.88rem;margin-top:6px;}
+  .m-red{background:#fbeeea;border:1px solid #ecc8bb;color:#8a2f10;}
+  .m-green{background:#eef7f1;border:1px solid #bfe0cd;color:#145c41;}
+  .m-gold{background:#fff4d6;border:1px solid #ecd48f;color:#6b4e08;}
+
+  /* ---------- CLOSING ---------- */
+  .closing{position:relative;color:#fff;overflow:hidden;}
+  .closing img.bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .closing .shade{position:absolute;inset:0;background:linear-gradient(rgba(5,30,45,.78),rgba(5,30,45,.86));}
+  .closing .content{position:relative;padding:84px 24px;text-align:center;max-width:880px;margin:0 auto;}
+  .closing h2{color:#fff;}
+  .closing p{font-size:1.12rem;margin-top:14px;}
+  .vote{display:inline-block;margin-top:30px;font-family:'Segoe UI',sans-serif;font-weight:800;font-size:1.05rem;background:var(--sunset);color:#fff;padding:16px 34px;border-radius:999px;letter-spacing:.04em;box-shadow:0 6px 24px rgba(232,116,59,.45);}
+
+  footer{background:#052638;color:#9fb9c9;font-family:'Segoe UI',sans-serif;font-size:.8rem;padding:28px 0;text-align:center;}
+  footer a{color:#cfe3ef;}
+  .src{font-size:.78rem;color:#7d8b95;font-family:'Segoe UI',sans-serif;margin-top:10px;}
+  .src a{color:#4a7ea3;}
+  ul.plain{margin:14px 0 0 20px;}
+  ul.plain li{margin-bottom:8px;font-size:.97rem;}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="bg"></div>
+  <img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ka%27anapali%20Beach%2C%20Maui%2C%20Hawai%27i.jpg?width=1600"
+       alt="Ka'anapali Beach, Maui — golden sand, palm trees, and calm turquoise water"
+       onerror="this.style.display='none'">
+  <div class="shade"></div>
+  <div class="content wrap">
+    <div class="kicker">Family Reunion 2028 &nbsp;•&nbsp; The Hawaii Pitch</div>
+    <h1>Maui.<br>Everyone in. No passports.<br>One unforgettable beach.</h1>
+    <p class="sub">Nine days on Ka'anapali Beach for all 20 of us — grandparents, five families, nine grandkids from 16 down to 3&frac12; — in full-kitchen beachfront villas, booked the smart way. This is the trip everyone can actually make, and the one the grandkids will talk about for thirty years.</p>
+    <div class="badges">
+      <span class="badge"><strong>0</strong> passports needed — for all 20 travelers</span>
+      <span class="badge"><strong>19 of 20</strong> fly nonstop (5.5–7 hrs)</span>
+      <span class="badge"><strong>88°F</strong> &amp; ~0.35" of rain all July</span>
+      <span class="badge"><strong>80°F</strong> ocean — warmest &amp; calmest of the year</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#why">Why Maui</a>
+    <a href="#strategy">The Lodging Play</a>
+    <a href="#properties">Properties &amp; Prices</a>
+    <a href="#activities">Top 5 Activities</a>
+    <a href="#kitchen">The Kitchen Math</a>
+    <a href="#budget">Budget</a>
+    <a href="#airfare">Airfare</a>
+    <a href="#proscons">Honest Pros &amp; Cons</a>
+    <a href="#close">Why Hawaii Wins</a>
+  </div>
+</nav>
+
+<!-- ================= WHY ================= -->
+<section id="why" class="dark">
+  <div class="wrap">
+    <div class="eyebrow">The Opening Argument</div>
+    <h2>Greece needs 12 passports we don't have. Alaska is cold water and cabin walls. Slovenia is 20+ hours of travel with a toddler.</h2>
+    <p class="lede">Maui is the only contender where a lost passport can't sink a family, where the 67-year-old and the 3&frac12;-year-old swim in the same 80-degree water, and where the Salt Lake and SoCal crews — 19 of our 20 people — board a single nonstop flight and step off in paradise before dinner. U.S. healthcare, U.S. cell plans, English everywhere, and the deepest full-kitchen lodging stock in the tropics. For a group this size and this spread of ages, logistics aren't a footnote. They're the whole ballgame.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">20/20</div><div class="l">travel on a driver's license — no passport office, no renewals, no risk</div></div>
+      <div class="stat"><div class="n">5.5 hrs</div><div class="l">SoCal nonstop to Maui; SLC nonstop under 7 hrs (Delta daily)</div></div>
+      <div class="stat"><div class="n">85–88°F</div><div class="l">late June/July highs in Ka'anapali; lows 68–72°F</div></div>
+      <div class="stat"><div class="n">~0.35"</div><div class="l">total July rainfall on the leeward coast — near-guaranteed sun</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STRATEGY ================= -->
+<section id="strategy">
+  <div class="wrap">
+    <div class="eyebrow">The Lodging Play</div>
+    <h2>The Hyatt anchor is real — <em>if</em> we book it like insiders.</h2>
+    <p class="lede">The family's anchor idea — Hyatt Vacation Club at Ka'anapali Beach (the Hyatt Residence Club) — is a 131-unit beachfront residence resort with full kitchens, in-unit laundry, a zero-entry lagoon pool, and Ka'anapali Beach out the front door. Booked at retail, 9 nights for 20 people runs <strong>$35,000–$50,000+</strong>. Booked as <strong>owner rentals through RedWeek and Koala</strong> — renting timeshare owners' weeks directly, with RedWeek's verified-and-protected escrow holding our money until check-in — the same villas land at roughly <strong>$22,000–$33,000 (2028 est.)</strong>. That's the whole strategy: same beach, same pools, same kitchens, roughly half price.</p>
+    <p class="lede" style="margin-top:16px">Two clean configurations for 20: <strong>two 3-bedroom villas (sleeps 10 each — exactly 20)</strong> or <strong>three 2-bedroom villas (sleeps 6–7 each)</strong>. Grandparents get their own suite either way. Watch listings starting <strong>summer 2027</strong> and move fast — summer Maui weeks in big units go first.</p>
+    <div class="warn"><strong>Full transparency, up front:</strong> timeshare weeks rent in fixed 7-night blocks (usually Sat–Sat). For 9 full days we'd build a 10-night trip from a 7-night owner-rental week plus 2–3 flexibly booked nights (Hyatt direct, Maui Resort Rentals, or a night in Hana mid-trip) — or simply run two consecutive weeks. It's a solvable puzzle, but it's real, and the other pitches don't have it.</div>
+  </div>
+</section>
+
+<!-- ================= PROPERTIES ================= -->
+<section id="properties" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Properties &amp; Real Prices</div>
+    <h2>Five researched options, all verified pricing — no fantasy numbers.</h2>
+    <p class="lede">All 9-night totals show current (2026) researched rates, with 2028 estimates applying ~5–8%/yr inflation. Hawaii adds ~18% lodging tax on non-timeshare rentals; timeshare stays add a ~$25–38/day/unit accommodation tax.</p>
+
+    <div class="grid c2">
+      <div class="card">
+        <div class="imgbox">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kaanapali%20beach%20Black%20rock%20Maui%2C%20Hawaii%20(44826441865).jpg?width=900"
+               alt="Ka'anapali Beach looking toward Black Rock, steps from the Hyatt Vacation Club"
+               onerror="this.style.display='none';this.parentElement.classList.add('img-failed')">
+          <div class="fallback-label">Ka'anapali Beach at Black Rock</div>
+        </div>
+        <div class="body">
+          <span class="tag lead">The Lead — Our Anchor</span>
+          <h3>Hyatt Vacation Club at Ka'anapali Beach</h3>
+          <div class="meta">Beachfront, Ka'anapali • 2BR sleeps 6–7 • 3BR (2,054–2,111 sq ft) sleeps 10 • full kitchens, W/D, zero-entry lagoon pool + infinity pool</div>
+          <div class="price">Owner rentals: 2BR $440–$1,429/nt • 3BR up to ~$1,999/nt (summer)<br>9 nights, 3×2BR or 2×3BR: <u>$19,000–$29,000 now → $22,000–$33,000 in 2028</u></div>
+          <p>Booked via RedWeek (verified &amp; protected escrow) or Koala. Retail via Maui Resort Rentals runs $775–$3,150/nt per 2BR — the owner-rental market is what makes the anchor affordable. Note the $40/night per-vehicle parking (detailed in the cons — we're not hiding it).</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgbox">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Maui%20Sunset%20Kaanapali%20Beach%20-%20Flickr%20-%20Joe%20Parks.jpg?width=900"
+               alt="Sunset over Ka'anapali Beach near the Westin Ka'anapali Ocean Resort Villas"
+               onerror="this.style.display='none';this.parentElement.classList.add('img-failed')">
+          <div class="fallback-label">Ka'anapali Sunset</div>
+        </div>
+        <div class="body">
+          <span class="tag value">The Value Hedge</span>
+          <h3>The Westin Ka'anapali Ocean Resort Villas</h3>
+          <div class="meta">North Ka'anapali Beach • 2BR lockoff sleeps 8 • 3 units = sleeps 24 • pirate-ship kids' pool + waterslides • Westin Family Kids Club (ages 5–12) at Westin Maui</div>
+          <div class="price">Owner rentals from ~$205/nt (25–50% under retail); retail 2BR from ~$619/nt<br>9 nights, 3×2BR @ $550–750: <u>$15,000–$20,500 now → $17,000–$24,000 in 2028</u></div>
+          <p>The strongest branded value on the same beach. If Hyatt summer inventory doesn't materialize by early 2028, this is the pre-agreed Plan B — arguably better pools for the 6- and 9-year-olds.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgbox">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Beach%20at%20Kapalua%20(49810427812).jpg?width=900"
+               alt="Calm protected water at Kapalua, near Honua Kai and the Napili condo corridor"
+               onerror="this.style.display='none';this.parentElement.classList.add('img-failed')">
+          <div class="fallback-label">West Maui — Kapalua Coast</div>
+        </div>
+        <div class="body">
+          <span class="tag stretch">The Stretch</span>
+          <h3>Honua Kai Resort &amp; Spa (condo cluster)</h3>
+          <div class="meta">Kahekili Beach, N. Ka'anapali • 3BR sleeps 8–10 (avg ~$1,812/nt) • "tandem" adjoining-unit packages sleep up to 32 • waterslides, aquatic playground, Duke's on site</div>
+          <div class="price">9 nights, 3BR + 2×2BR: <u>$29,000–$34,000 now → $33,000–$39,500 in 2028</u> + $40/nt/unit resort fee (Outrigger) + ~18% tax on some channels</div>
+          <p>The best kid-pool complex in West Maui and true flexible nightly booking — but it blows past $30k in summer. On the board as the upgrade if the budget flexes.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgbox">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wailea%20Beach%20Maui%20Hawaii%20(45016201794).jpg?width=900"
+               alt="Wailea Beach on Maui's sunny, dry south shore"
+               onerror="this.style.display='none';this.parentElement.classList.add('img-failed')">
+          <div class="fallback-label">Wailea Beach, South Maui</div>
+        </div>
+        <div class="body">
+          <span class="tag plan">Budget Levers</span>
+          <h3>Wailea Ekolu Village &nbsp;/&nbsp; One Big House</h3>
+          <div class="meta">Ekolu: 4×2BR garden condos in Wailea, $299–$639/nt each • House: e.g., VRBO #1374831 — 7BR, sleeps 26, private pool w/ kids' shelf &amp; slide, pickleball</div>
+          <div class="price">Ekolu 9 nights: <u>$16,000–$21,500 now → $18,500–$25,000 in 2028</u> incl. fees<br>Large homes: ~$2,500–$4,500/nt summer → $32,000–$55,000 in 2028 (Kihei 8BR-class from ~$24,000)</div>
+          <p>Ekolu is the under-budget play in a luxury zip code (10 min from the beach, driest side of the island). The single-roof estate maximizes togetherness — one kitchen, one pool, everyone under one roof — at a premium and with a 12-month booking runway.</p>
+        </div>
+      </div>
+
+      <div class="card" style="grid-column:1/-1">
+        <div class="body">
+          <span class="tag alt">The Honest Alternative</span>
+          <h3>Kings' Land by Hilton Grand Vacations — Waikoloa, Big Island</h3>
+          <div class="meta">Kohala Coast • 1–3BR suites, full kitchens • 4 pools incl. family super-pool with waterslide • owner rentals from $243/nt on RedWeek</div>
+          <div class="price">9 nights (2×3BR or 3BR + 2×2BR): <u>$12,000–$17,000 now → $14,000–$20,000 in 2028</u> — roughly half of Maui</div>
+          <p>We researched it and we'll say it plainly: <strong>on pure lodging value, the Big Island beats Maui by ~$10,000+.</strong> But it trades away the family's Hyatt anchor, Ka'anapali's walkable 3-mile beach, Road to Hana, Haleakala, and the deepest kid-beach lineup in the islands. If the family's #1 criterion becomes price alone, this is the honest fallback — and it's still Hawaii, still no passports. We think Maui is worth the difference. (Oahu's Ko Olina roughly ties Maui on cost: 3× Marriott Ko Olina 2BR ≈ $17,000–$24,500/9 nights now, with the calmest toddler lagoons in the state — the runner-up, not the winner.)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ACTIVITIES ================= -->
+<section id="activities">
+  <div class="wrap">
+    <div class="eyebrow">Nine Days, Every Generation</div>
+    <h2>The Top 5 — with real group costs for 13 adults (13+) and 7 kids.</h2>
+
+    <div class="act">
+      <div class="thumb">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Molokini-crater-maui.jpg?width=700"
+             alt="Molokini Crater, the crescent-shaped snorkeling atoll off Maui"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="txt">
+        <h3>1. Molokini Crater + Turtle Town snorkel — aboard the Calypso</h3>
+        <div class="cost">~$187/adult • ~$127/child 4–12 • under 3 free → group ≈ $3,200–$3,500 + tax/tip</div>
+        <p>A triple-deck glass-bottom catamaran with a waterslide and stair entry gentle enough for the grandparents — non-snorkelers ride in comfort, the toddler watches fish through the glass floor. 150-foot visibility inside a volcanic crescent. Morning departures only; the trades chop the water after 1 pm. (Trilogy is the premium option at ~$231/pp.)</p>
+      </div>
+    </div>
+
+    <div class="act">
+      <div class="thumb">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Samoan%20fire%20dancer.jpg?width=700"
+             alt="Fire-knife dancer performing at a Polynesian luau"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="txt">
+        <h3>2. Luau night — Old Lahaina Luau (or budget swap)</h3>
+        <div class="cost">$229/adult 13+ • $140/child 3–12 • under 3 free → group ≈ $3,960 (Myths of Maui swap: ≈ $2,900)</div>
+        <p>Widely rated the most authentic luau in Hawaii — oceanfront, four-course dinner, open bar for the adults. It sells out months ahead; with 20 people we call group sales directly. Want fire-knife spectacle instead? Drums of the Pacific is next door to our Hyatt villas (~$202+/pp).</p>
+      </div>
+    </div>
+
+    <div class="act">
+      <div class="thumb">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/HIHWNMS%20snorkeler%20behind%20turtle%20(50199043823).jpg?width=700"
+             alt="Snorkeler swimming behind a green sea turtle in Hawaiian waters"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="txt">
+        <h3>3. Ka'anapali Beach + Black Rock — the free daily anchor</h3>
+        <div class="cost">$0 — buy snorkel sets at Costco Kahului (~$35/set) instead of renting at $10/day</div>
+        <p>Turtles at Black Rock most mornings, the nightly cliff-dive torch ceremony, and a flat 3-mile beachwalk perfect for grandparents and strollers — all out our front door. For the 3&frac12;-year-old: Kapalua Bay and Napili Bay, 15 minutes north, are reef-protected crescents with gently sloping sand — the calmest toddler swimming on the island.</p>
+      </div>
+    </div>
+
+    <div class="act">
+      <div class="thumb">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Haleakala%20Sunrise%20Maui%20Hawaii%20Haleakala%20National%20Park%20-%20Flickr%20-%20Mferbfriske.jpg?width=700"
+             alt="Sunrise above the clouds at Haleakala National Park summit"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="txt">
+        <h3>4. Haleakala summit — sunset for the group, sunrise for the brave</h3>
+        <div class="cost">$30/vehicle entry (+$1 sunrise reservation) → 4 vehicles ≈ $120–$124 total</div>
+        <p>A 10,023-foot volcano above the clouds. Real talk: sunrise means a 2:30 am wake-up, 40°F at the summit, and a Recreation.gov reservation that sells out in ~15 minutes, 60 days ahead. So the teens-and-parents squad chases sunrise; everyone else gets identical views at sunset with no reservation and no meltdowns.</p>
+      </div>
+    </div>
+
+    <div class="act">
+      <div class="thumb">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Snorkeling%20in%20Molokini%20(Unsplash).jpg?width=700"
+             alt="Snorkelers in clear turquoise water near Molokini, Maui"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="txt">
+        <h3>5. Road to Hana — the smart "half-Hana" split</h3>
+        <div class="cost">Self-drive ≈ $300–$600 (fuel + park fees) • guided vans for 12 ≈ $2,500+</div>
+        <p>620 curves and a 10–14 hour day is a no for a 3&frac12;-year-old and a 20-person convoy — so we don't pretend otherwise. The adventurous sub-group does the full drive (or a guided van, so nobody white-knuckles it); everyone else does the front half to Twin Falls and Ke'anae and is back for a beach afternoon. Wai'anapanapa's black-sand beach needs a timed reservation (~$10 parking + $5/person).</p>
+      </div>
+    </div>
+
+    <div class="note"><strong>Straight talk on whales:</strong> humpbacks visit Maui December–April. In July there are <em>no whales</em> — anyone promising whale watching in summer is selling you something. Our summer wins are the warmest, calmest ocean of the year and near-zero rain. Rain-day backup: Maui Ocean Center aquarium (~$45 adult / $35 child ≈ $800 group).</div>
+  </div>
+</section>
+
+<!-- ================= KITCHEN MATH ================= -->
+<section id="kitchen" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">The Budget Superpower</div>
+    <h2>The kitchen math: how villas pay for the beach.</h2>
+    <p class="lede">Yes — Hawaii groceries run 40–60% above the mainland. We're not hiding that. But every unit in our plan has a full kitchen, and Costco Kahului is 10 minutes from the airport (20–30% below Hawaii supermarkets). Feeding 20 people in restaurants three meals a day would cost $100–$150 per person per day. Cooking breakfasts, lunches, and most dinners in — with 3–4 proper restaurant nights out — cuts the food bill by more than half.</p>
+    <div class="mathbox">
+      <div class="mathcard m-red"><div class="big">$18,000–$27,000</div><div class="cap">9 days of restaurants for 20 people ($100–150/person/day)</div></div>
+      <div class="mathcard m-green"><div class="big">$8,500–$11,500</div><div class="cap">Our plan: Costco day-one run + groceries ($5,000–6,500) + 3–4 restaurant nights ($3,500–5,000)</div></div>
+      <div class="mathcard m-gold"><div class="big">≈ $10,000–$15,000 SAVED</div><div class="cap">— which is effectively what pays for beachfront over budget lodging. Try that on a cruise ship or in a hotel.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BUDGET ================= -->
+<section id="budget">
+  <div class="wrap">
+    <div class="eyebrow">The Full Ledger</div>
+    <h2>Budget vs. the $30k lodging target — the honest version.</h2>
+    <p class="lede"><strong>Does $30k buy this at retail? No.</strong> Summer Maui retail for 20 people beachfront is $35k–$50k+. <strong>Does $30k buy it via owner rentals? Yes — tightly.</strong> Hyatt owner-rental lodging lands at $22,000–$33,000 (2028 est.): inside or near target at the low-to-mid range, up to ~10% over at the top. The Westin hedge ($17,000–$24,000) sits comfortably under. Here's the whole trip, 2028 dollars, 10 nights / 9 full days:</p>
+    <div class="tablewrap">
+      <table>
+        <tr><th>Category</th><th>Low</th><th>High</th><th>Notes</th></tr>
+        <tr><td>Lodging (10 nights, Hyatt VC owner rentals)</td><td class="num">$25,000</td><td class="num">$33,000</td><td>3×2BR or 2×3BR via RedWeek/Koala incl. ~$300–400 fractional tax. Westin swap saves $6–9k; Honua Kai adds $5–8k</td></tr>
+        <tr><td>Food — groceries (full kitchens)</td><td class="num">$5,000</td><td class="num">$6,500</td><td>Costco Kahului day 1 (~$1,200–1,500) + top-ups; all breakfasts, most lunches, 6–7 group dinners in</td></tr>
+        <tr><td>Food — restaurants</td><td class="num">$3,500</td><td class="num">$5,000</td><td>3–4 outings for 20 @ $900–1,300</td></tr>
+        <tr><td>4 minivans + gas + parking</td><td class="num">$7,000</td><td class="num">$9,500</td><td>Vans $5,000–7,500 (summer rates are volatile: $750–$2,080/wk observed) + gas ~$600 + up to $1,600 Hyatt parking</td></tr>
+        <tr><td>Activities</td><td class="num">$8,000</td><td class="num">$11,000</td><td>Snorkel boat ~$3,400 + luau $2,900–4,000 + Haleakala ~$124 + Hana $400–2,500 + extras</td></tr>
+        <tr class="totalrow"><td>Trip total (ex-airfare)</td><td class="num">≈ $48,500</td><td class="num">≈ $65,000</td><td>≈ $2,400–$3,250/person • ≈ $8,000–$11,000 per family of 4–5</td></tr>
+        <tr><td>Airfare (paid per family, separately)</td><td class="num">$14,000</td><td class="num">$19,000</td><td>Detail below — this is where Hawaii crushes the competition</td></tr>
+      </table>
+    </div>
+    <div class="note"><strong>Cost-cutter menu if we need to shave:</strong> Westin instead of Hyatt (−$6–9k) • Wailea Ekolu condos (−$7–10k) • Myths of Maui luau (−$1,000) • 3 vans instead of 4 (−$2,500 incl. parking) • Big Island switch (−$10k+). The plan flexes down without leaving Hawaii.</div>
+  </div>
+</section>
+
+<!-- ================= AIRFARE ================= -->
+<section id="airfare" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Getting There — Our Strongest Card</div>
+    <h2>19 of 20 people, one nonstop flight each. No other pitch can say that.</h2>
+    <div class="tablewrap">
+      <table>
+        <tr><th>Departure</th><th>Who</th><th>Nonstop?</th><th>Summer RT (current)</th><th>2028 est. / person</th></tr>
+        <tr><td>Salt Lake City → Kahului (OGG)</td><td>3 families — 12 people</td><td><strong>Yes</strong> — Delta daily, ~6h 50m</td><td class="num">$690–$980</td><td class="num">$750–$1,100</td></tr>
+        <tr><td>SoCal (LAX/SAN/SNA) → OGG</td><td>2 families — 7 people</td><td><strong>Yes</strong> — 7 carriers from LAX, ~5h 40m</td><td class="num">$295–$550</td><td class="num">$350–$650</td></tr>
+        <tr><td>Boston → OGG</td><td>1 adult</td><td>No — one stop via LAX/SFO/SEA, ~13–15 hrs</td><td class="num">$556–$1,100</td><td class="num">$650–$1,250</td></tr>
+        <tr class="totalrow"><td colspan="3">Group total (2028 est.)</td><td class="num" colspan="2">≈ $14,000–$19,000</td></tr>
+      </table>
+    </div>
+    <p style="margin-top:20px;font-size:1.02rem">Compare the alternatives honestly: Greece or Slovenia means <strong>15–24 hours door-to-door each way with a toddler and two grandparents</strong>, connections in Europe, 8–9 time zones, and 12 of us racing passport renewals. An Alaska cruise means flying to Seattle/Vancouver <em>then</em> boarding, fixed dinner seatings for 20, and cold, unswimmable water. Maui: one flight, one ocean you can actually get in, and the 6-hour time change works <em>for</em> us — kids wake at 5 am ready for the beach before the wind picks up. Only real burden falls on one traveler: Boston's long haul (we'll fly them in a day early to recover).</p>
+  </div>
+</section>
+
+<!-- ================= PROS & CONS ================= -->
+<section id="proscons">
+  <div class="wrap">
+    <div class="eyebrow">Credibility Section</div>
+    <h2>The real pros and cons — including the ones that hurt our pitch.</h2>
+    <p class="lede">The family asked for honesty. A pitch that hides its weaknesses deserves to lose. Here is everything, unvarnished:</p>
+    <div class="pc">
+      <div class="col pros">
+        <h3>Why Maui genuinely wins</h3>
+        <ul>
+          <li><strong>Zero passports for 20 people.</strong> The only tropical option where an expired or lost passport can't strand a family. With 9 kids, this is not a small thing.</li>
+          <li><strong>Shortest flights for 19 of 20:</strong> 5.5 hrs SoCal, &lt;7 hrs SLC — both nonstop. Half the effective travel of Europe for our two biggest contingents.</li>
+          <li><strong>Near-guaranteed weather:</strong> 85–88°F, ~0.35" rain all July on our coast, 80°F calm ocean — summer is West Maui's flattest, safest swim season.</li>
+          <li><strong>Every age wins:</strong> reef-protected toddler bays (Kapalua, Napili, Honokowai), waterslide pools, teen snorkeling and surf lessons, a flat 3-mile beachwalk for grandparents, luau nights for everyone.</li>
+          <li><strong>Full kitchens save $10,000–$15,000</strong> vs. restaurant-feeding 20 — the deepest condo/timeshare stock in the U.S. tropics makes it possible.</li>
+          <li><strong>U.S. everything:</strong> healthcare, cell plans, car seats, pharmacies, English — meaningful with a 3&frac12;-year-old and grandparents in the party.</li>
+          <li><strong>The owner-rental market makes the Hyatt anchor affordable</strong> — roughly half of retail, with escrow protection, and a same-beach Westin fallback if inventory tightens.</li>
+          <li><strong>Activity depth:</strong> Molokini, Black Rock, Haleakala, Hana — nobody is bored on day 6, and the biggest daily activity (the beach) is free.</li>
+        </ul>
+      </div>
+      <div class="col cons">
+        <h3>The honest downsides</h3>
+        <ul>
+          <li><strong>The $30k target only works via the owner-rental market.</strong> Retail beachfront for 20 in summer is $35k–$50k+. If we won't do RedWeek/Koala, our budget buys garden-view Wailea condos or the Westin — not the Hyatt.</li>
+          <li><strong>7-night timeshare blocks complicate a 9-day trip.</strong> We'll stitch a 10-night stay from a 7-night week + 2–3 flexible nights, or run two consecutive weeks. Solvable, but it needs early commitment (watch listings from summer 2027).</li>
+          <li><strong>Realistic all-in is ~$48,500–$65,000 ex-airfare</strong> (≈$2,400–$3,250/person). Maui is one of the priciest destinations in the U.S. — the Big Island would save $10k+, and we said so above.</li>
+          <li><strong>Groceries run 40–60% above the mainland</strong> (milk $6 even at Costco, $8–10 at Safeway). The kitchen plan beats restaurants, but food is still a five-figure line.</li>
+          <li><strong>Hidden cost we found: Hyatt parking is $40/night per vehicle</strong> — 4 vans × 10 nights = $1,600. Mitigation: keep 2–3 vans, not 4. Honua Kai adds a $40/nt/unit resort fee; timeshares add ~$25–38/day/unit tax.</li>
+          <li><strong>No whales in summer.</strong> Humpbacks are Dec–Apr. If whale watching is a must-have, this is the wrong season — full stop.</li>
+          <li><strong>Summer = peak crowds and peak minivan chaos:</strong> observed van rates swung $750→$2,080/week in one summer. Book refundable early, re-shop monthly.</li>
+          <li><strong>Lahaina town is still rebuilding.</strong> Ka'anapali resorts are fully open and the harbor and Old Lahaina Luau operate, but historic Front Street's core likely remains under reconstruction into 2027–2029. We'll be respectful guests in a recovering community.</li>
+          <li><strong>Likely 2–3 units, not one roof.</strong> Same complex, same pools, adjoining where possible — but the single-house version costs more ($32k–$55k) and gives up resort amenities.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSING ================= -->
+<section id="close" class="closing">
+  <img class="bgimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Maui%20Sunset%20Kaanapali%20Beach%20-%20Flickr%20-%20Joe%20Parks.jpg?width=1600"
+       alt="Golden sunset over Ka'anapali Beach, Maui" onerror="this.style.display='none'">
+  <div class="shade"></div>
+  <div class="content">
+    <div class="kicker">The Closing Argument</div>
+    <h2>Why Hawaii wins this vote.</h2>
+    <p>Greece is beautiful — for the 11 adults. Alaska is spectacular — through a window. Slovenia is a gem — 24 hours of travel away. <strong>Maui is the only option built for all twenty of us at once:</strong> the 3&frac12;-year-old wading at Kapalua Bay, the teens diving Black Rock, the grandparents walking a flat beachfront mile to breakfast, and every family behind its own kitchen door at night — together at one pool by day.</p>
+    <p>We've shown you the real numbers, the real fees, and the real trade-offs, because this plan doesn't need hiding. The anchor the family already loves — the Hyatt on Ka'anapali Beach — is achievable near budget through the owner-rental market, with a same-beach fallback if it isn't. No passports. Nonstop flights for 19 of 20. Guaranteed sun. An ocean warm enough for every generation.</p>
+    <p><em>The reunion's job is simple: everyone comes, everyone's comfortable, everyone remembers it forever. Only one destination checks all three.</em></p>
+    <div class="vote">VOTE MAUI — SUMMER 2028 &nbsp;🌺</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Prepared for the 2028 family reunion decision • All prices researched June–July 2026; 2028 figures apply ~5–8%/yr inflation • Photos: Wikimedia Commons (freely licensed)</div>
+    <div class="src">Key sources:
+      <a href="https://www.redweek.com/resort/P6386-hyatt-vacation-club-at-ka-anapali-beach/timeshare-rentals">RedWeek — Hyatt VC Ka'anapali rentals</a> •
+      <a href="https://www.go-koala.com/resort/hyatt-residence-club-maui-kaanapali-beach">Koala</a> •
+      <a href="https://www.redweek.com/resort/P1276-the-westin-kaanapali-ocean-resort-villas/timeshare-rentals">RedWeek — Westin KORV</a> •
+      <a href="https://www.mauiresortrentals.com/rental/hyatt-residence-club-kaanapali-2br-oceanfront-middle-villa">Maui Resort Rentals — Hyatt 2BR</a> •
+      <a href="https://www.hawaiigaga.com/maui/condos/honua-kai-resort.aspx">HawaiiGaga — Honua Kai</a> •
+      <a href="https://www.vrbo.com/1374831">VRBO #1374831</a> •
+      <a href="https://www.redweek.com/resort/P5789-kings-land-by-hilton-grand-vacations/timeshare-rentals">RedWeek — Kings' Land</a> •
+      <a href="https://www.snorkelmolokini.com/calypso">Calypso Molokini</a> •
+      <a href="https://hawaiitravelwithkids.com/old-lahaina-luau/">Old Lahaina Luau pricing</a> •
+      <a href="https://www.recreation.gov/ticket/facility/253731">Haleakala sunrise reservations</a> •
+      <a href="https://weatherspark.com/m/150359/7/Average-Weather-in-July-in-Maui-Hawaii-United-States">July weather</a> •
+      <a href="https://www.kayak.com/flight-routes/Salt-Lake-City-SLC/Maui-zzFUK">SLC–OGG fares</a> •
+      <a href="https://howtoliveinhawaii.com/grocery-prices-in-hawaii/">Hawaii grocery prices</a> •
+      <a href="https://thehawaiivacationguide.com/lahaina/">Lahaina status</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
