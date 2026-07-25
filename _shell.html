@@ -180,6 +180,7 @@
       <p class="vt-note">Enter your name, drag into your order, hit <b>Submit</b> — done, from any phone or computer. Everyone's ballots collect in a shared ballot box automatically. Submitting again under the same name replaces your earlier ballot, so you can change your mind until the count. <b>Copy ballot code</b> is the backup path if the shared box is ever unreachable: text the code to the organizer, who pastes it below.</p>
       <h2>2 · Ballots collected (<span id="vtCount">0</span> of 11) <button class="vt-btn" id="vtRefresh" style="margin-left:10px;font-size:.75rem;padding:6px 12px">↻ Refresh</button></h2>
       <p class="vt-note" id="vtStatus">Checking the shared ballot box…</p>
+      <p class="vt-note">Rankings are secret until the count — this list only shows who's voted. Change your mind? Just submit again under the same name; your new ballot replaces the old one.</p>
       <div class="vt-ballots" id="vtList"></div>
       <div class="vt-row" style="margin-top:14px"><textarea class="vt-import" id="vtImport" placeholder="Paste ballot codes here — one per line — then click Import"></textarea></div>
       <div class="vt-row">
@@ -415,19 +416,10 @@
   function vtRenderList(){
     var list = vtBallots();
     document.getElementById('vtCount').textContent = list.length;
-    document.getElementById('vtList').innerHTML = list.length ? list.map(function(b,i){
-      return '<div class="vt-ballot"><span><b>'+String(b.n).replace(/[<>&]/g,'')+'</b> — '+b.r.map(function(c,j){ return (j+1)+'. '+VT_LABEL[c]; }).join(' · ')+'</span><span class="vt-x" data-i="'+i+'" title="Remove ballot">✕</span></div>';
+    document.getElementById('vtList').innerHTML = list.length ? list.map(function(b){
+      return '<div class="vt-ballot"><span>✅ <b>'+String(b.n).replace(/[<>&]/g,'')+'</b> has voted</span></div>';
     }).join('') : '<p class="vt-note">No ballots yet.</p>';
   }
-  document.getElementById('vtList').addEventListener('click', function(e){
-    if(!e.target.classList.contains('vt-x')) return;
-    var list = vtBallots(); var removed = list.splice(parseInt(e.target.dataset.i,10),1)[0]; vtSave(list);
-    if(vtOnline !== false && removed){
-      vtCloudGet().then(function(cloud){
-        return vtCloudPut(cloud.filter(function(b){ return String(b.n).toLowerCase() !== String(removed.n).toLowerCase(); }));
-      }).then(function(){ return vtSyncNow(); }).catch(function(){ vtSetStatus(false); });
-    }
-  });
   document.getElementById('vtAdd').addEventListener('click', function(){
     var name = document.getElementById('vtName').value.trim();
     if(!name){ alert('Add your name first — it\'s how the ballot box knows a re-vote replaces your old ballot.'); return; }
