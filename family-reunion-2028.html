@@ -2769,7 +2769,7 @@
   var VT_CANDS = [['greece','🏛️ Greece'],['alaska','🚢 Alaska'],['slovenia','🏔️ Slovenia'],['hawaii','🌺 Hawaii'],['norway','🌊 Norway'],['portugal','🐋 Portugal']];
   var VT_LABEL = {}; VT_CANDS.forEach(function(c){ VT_LABEL[c[0]]=c[1]; });
   var VT_EXPECTED = 11, VT_KEY = 'rt2028ballots', vtOnline = null;
-  var VT_SYNC = 'https://extendsclass.com/api/json-storage/bin/eecbcba';
+  var VT_SYNC = 'https://kvdb.io/MTzAm9K6meFWKGHGkfrtfY/ballots';
   function vtBallots(){ try { return JSON.parse(localStorage.getItem(VT_KEY)) || []; } catch(e){ return []; } }
   function vtSave(list){ try { localStorage.setItem(VT_KEY, JSON.stringify(list)); } catch(e){} vtRenderList(); }
   function vtSetStatus(ok, msg){
@@ -2780,12 +2780,20 @@
     el.style.color = ok ? '#7ed6a2' : '#e8a06a';
   }
   function vtCloudGet(){
-    return fetch(VT_SYNC + '?_=' + Date.now(), {cache:'no-store'})
-      .then(function(r){ if(!r.ok) throw new Error('get '+r.status); return r.json(); })
-      .then(function(d){ return Array.isArray(d.ballots) ? d.ballots : []; });
+    return fetch(VT_SYNC, {cache:'no-store'})
+      .then(function(r){
+        if(r.status===404) return '{"ballots":[]}';
+        if(!r.ok) throw new Error('get '+r.status);
+        return r.text();
+      })
+      .then(function(txt){
+        var d = JSON.parse(txt);
+        return Array.isArray(d.ballots) ? d.ballots : [];
+      });
   }
   function vtCloudPut(list){
-    return fetch(VT_SYNC, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ballots:list})})
+    // POST with text/plain is a CORS "simple request" — no preflight needed
+    return fetch(VT_SYNC, {method:'POST', headers:{'Content-Type':'text/plain'}, body:JSON.stringify({ballots:list})})
       .then(function(r){ if(!r.ok) throw new Error('put '+r.status); });
   }
   function vtMerge(list, ballot){
