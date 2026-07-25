@@ -3327,6 +3327,7 @@
   var VT_CANDS = [['greece','🏛️ Greece'],['alaska','🚢 Alaska'],['slovenia','🏔️ Slovenia'],['hawaii','🌺 Hawaii'],['norway','🌊 Norway'],['northamerica','🌲 North America']];
   var VT_LABEL = {}; VT_CANDS.forEach(function(c){ VT_LABEL[c[0]]=c[1]; });
   var VT_EXPECTED = 11, VT_KEY = 'rt2028ballots', vtOnline = null;
+  var VT_RESULTS_ENABLED = false; /* organizer flips to true when all ballots are in, then redeploys */
   var VT_SYNC = 'https://api.npoint.io/5fe91462d1e78155a199';
   function vtBallots(){ try { return JSON.parse(localStorage.getItem(VT_KEY)) || []; } catch(e){ return []; } }
   function vtSave(list){ try { localStorage.setItem(VT_KEY, JSON.stringify(list)); } catch(e){} vtRenderList(); }
@@ -3468,9 +3469,16 @@
     return rounds;
   }
   document.getElementById('vtRun').addEventListener('click', function(){
+    if(!VT_RESULTS_ENABLED) return;
     var btn = this; btn.disabled = true;
     vtSyncNow().then(function(){ btn.disabled = false; vtRenderCount(); });
   });
+  if(!VT_RESULTS_ENABLED){
+    var runBtn = document.getElementById('vtRun');
+    runBtn.disabled = true; runBtn.style.opacity = '.45'; runBtn.style.cursor = 'not-allowed';
+    runBtn.textContent = '🔒 Results locked until everyone has voted';
+    document.getElementById('vtResults').innerHTML = '<p class="vt-note">No peeking — the count (and the points scoreboard) stays sealed until all 11 ballots are in. The organizer will unlock it, and then everyone sees the full round-by-round results together.</p>';
+  }
   function vtRenderCount(){
     var ballots = vtBallots(), out = document.getElementById('vtResults');
     if(!ballots.length){ out.innerHTML = '<p class="vt-note">No ballots to count yet.</p>'; return; }
