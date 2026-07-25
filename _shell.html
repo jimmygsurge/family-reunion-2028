@@ -91,6 +91,24 @@
   .vt-elim { color:#e8a06a; font-size:.8rem; margin-top:8px; }
   .vt-winner { background:linear-gradient(135deg,#2a3550,#3a4a72); border:1px solid #e8b84b; border-radius:12px; padding:16px 20px; margin-top:14px; font-size:1rem; color:#fff; }
   .vt-note { font-size:.78rem; color:#7a849c; margin-top:6px; line-height:1.5; }
+  /* ---------- anonymous comments ---------- */
+  #cmFab { position:fixed; bottom:18px; right:18px; z-index:50; display:none; appearance:none; border:1px solid #e8b84b; background:#1d2740; color:#e8b84b; font:inherit; font-weight:700; font-size:.9rem; padding:12px 18px; border-radius:999px; cursor:pointer; box-shadow:0 6px 20px rgba(0,0,0,.5); }
+  #cmDrawer { position:fixed; bottom:0; right:0; width:400px; max-width:100vw; max-height:70vh; z-index:60; background:#141b2e; border:1px solid #3a4a72; border-bottom:none; border-radius:14px 14px 0 0; display:none; flex-direction:column; box-shadow:0 -8px 30px rgba(0,0,0,.55); }
+  #cmDrawer.open { display:flex; }
+  .cm-head { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 16px; border-bottom:1px solid #2a3550; }
+  .cm-head b { color:#e8b84b; font-size:.95rem; }
+  .cm-close { cursor:pointer; color:#9aa4bc; font-size:1.1rem; padding:2px 8px; }
+  .cm-list { overflow-y:auto; padding:10px 16px; flex:1; min-height:80px; }
+  .cm-item { border-bottom:1px dashed #2a3550; padding:9px 0; font-size:.88rem; color:#dfe3ee; line-height:1.45; overflow-wrap:break-word; }
+  .cm-item:last-child { border-bottom:none; }
+  .cm-meta { font-size:.72rem; color:#7a849c; margin-top:3px; }
+  .cm-compose { padding:10px 16px 14px; border-top:1px solid #2a3550; }
+  .cm-compose textarea { width:100%; min-height:64px; background:#0f1420; border:1px solid #2a3550; color:#e8e6e0; border-radius:8px; padding:9px 12px; font:inherit; font-size:.86rem; resize:vertical; }
+  .cm-row { display:flex; gap:8px; margin-top:8px; align-items:center; }
+  .cm-anon { font-size:.72rem; color:#7a849c; flex:1; }
+  .cm-jump { appearance:none; border:1px solid #3a4a72; background:#1a2338; color:#b8c0d4; font:inherit; font-size:.78rem; font-weight:600; padding:6px 11px; border-radius:8px; cursor:pointer; white-space:nowrap; }
+  .cm-jump:hover { border-color:#e8b84b; color:#e8b84b; }
+  @media (max-width:640px){ #cmDrawer { width:100%; right:0; max-height:78vh; } #cmFab { bottom:14px; right:14px; } }
   @media (max-width:640px){ #ov{padding:20px 14px 50px;} .ov-wrap h1{font-size:1.35rem;} }
 </style>
 </head>
@@ -138,6 +156,7 @@
           <tr><th>Littles (18 mo, 3 &amp; 4) fit</th><td>Great shallow beaches; pool fence must be arranged</td><td class="warn">Baby is below every club &amp; pool line; the 3-yr-old needs potty training</td><td>Great, but marquee hikes = carrier terrain</td><td class="good">Best in class — lagoon pool, calm bays, lap-infant nonstop</td><td>Both littles free everywhere; cold water, rain gear</td><td class="good">Road-trip naps beat redeyes; rail-trail tow-behinds, all-ages gondolas</td></tr>
           <tr><th>Kid freedom (the 6–11s roaming solo)</th><td class="good">Villa compound free-range; gelato runs for the olders (shop at 100 m)</td><td class="good">Best on the ballot — the 9s and 11s get the run of a contained ship all week</td><td class="good">Gardens, free bikes, ultra-safe village; river frontage needs rules</td><td>Resort roaming with eyes-on — it's a public property with an ocean</td><td class="warn">Safest country on earth, but the property is mostly their world</td><td class="good">Private acres, docks, HOA pools — Coeur d'Alene free-range is the star</td></tr>
           <tr><th>Teens (13–16) fit</th><td>Boat days, water park, snorkeling</td><td class="good">Glaciers, dog sleds, White Pass, ship life</td><td>Rafting, ziplines, summer toboggan</td><td>Surfing, snorkeling, Haleakala</td><td>Rafting, kayaking, Skylift hikes</td><td>Silverwood coasters, wake sports, Hiawatha rail-trail, Banff icefields</td></tr>
+          <tr><th>Family commentary</th><td><button class="cm-jump" data-tab="greece">💬 <span class="cm-count" data-tab="greece">0</span> — read / add</button></td><td><button class="cm-jump" data-tab="alaska">💬 <span class="cm-count" data-tab="alaska">0</span> — read / add</button></td><td><button class="cm-jump" data-tab="slovenia">💬 <span class="cm-count" data-tab="slovenia">0</span> — read / add</button></td><td><button class="cm-jump" data-tab="hawaii">💬 <span class="cm-count" data-tab="hawaii">0</span> — read / add</button></td><td><button class="cm-jump" data-tab="norway">💬 <span class="cm-count" data-tab="norway">0</span> — read / add</button></td><td><button class="cm-jump" data-tab="northamerica">💬 <span class="cm-count" data-tab="northamerica">0</span> — read / add</button></td></tr>
         </tbody>
       </table>
       </div>
@@ -225,6 +244,19 @@
   <div class="rt-panel" id="norway"><iframe title="Norway pitch" srcdoc="[[NORWAY]]"></iframe></div>
   <div class="rt-panel" id="northamerica"><iframe title="North America pitch" srcdoc="[[NORTHAMERICA]]"></iframe></div>
 </main>
+<button id="cmFab">💬 Comments</button>
+<div id="cmDrawer">
+  <div class="cm-head"><b id="cmTitle">💬 Comments</b><span class="cm-close" id="cmClose" title="Close">✕</span></div>
+  <div class="cm-list" id="cmList"></div>
+  <div class="cm-compose">
+    <textarea id="cmText" maxlength="500" placeholder="Add an anonymous comment about this destination…"></textarea>
+    <div class="cm-row">
+      <span class="cm-anon">Anonymous · visible to the whole family</span>
+      <button class="vt-btn" id="cmRefresh" title="Refresh">↻</button>
+      <button class="vt-btn vt-primary" id="cmPost">Post</button>
+    </div>
+  </div>
+</div>
 <script>
   /* ---------- tabs ---------- */
   var tabs = document.getElementById('tabs');
@@ -235,6 +267,7 @@
     document.querySelectorAll('.rt-panel').forEach(function(p){ p.classList.toggle('rt-show', p.id===btn.dataset.p); });
     activePanel = btn.dataset.p;
     if (activePanel === 'vote' && typeof vtSyncNow === 'function') vtSyncNow();
+    if (typeof cmOnTabSwitch === 'function') cmOnTabSwitch();
     if (musicOn) playTheme(activePanel);
   });
 
@@ -582,7 +615,76 @@
     }
     chipsEl.addEventListener('click', function(e){ var b = e.target.closest('.ov-chip'); if(b) show(+b.dataset.i); });
     show(0);
+    if (typeof cmUpdateBadges === 'function') cmUpdateBadges();
   })();
+
+  /* ---------- anonymous per-destination comments (shared board) ---------- */
+  var CM_SYNC = 'https://api.npoint.io/d578d5523c6bd588a1d6';
+  var CM_TABS = {greece:'🏛️ Greece', alaska:'🚢 Alaska', slovenia:'🏔️ Slovenia', hawaii:'🌺 Hawaii', norway:'🌊 Norway', northamerica:'🌲 North America'};
+  var cmCache = [];
+  function cmEsc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function cmAgo(t){ var s=(Date.now()-t)/1000; if(s<90) return 'just now'; if(s<3600) return Math.round(s/60)+' min ago'; if(s<86400) return Math.round(s/3600)+' hr ago'; return Math.round(s/86400)+' d ago'; }
+  function cmGet(){
+    return fetch(CM_SYNC, {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('cm get'); return r.json(); })
+      .then(function(d){ cmCache = Array.isArray(d.comments) ? d.comments : []; cmUpdateBadges(); return cmCache; });
+  }
+  function cmPut(list){
+    return fetch(CM_SYNC, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({comments:list})})
+      .then(function(r){ if(!r.ok) throw new Error('cm put'); });
+  }
+  function cmCount(tab){ return cmCache.filter(function(c){ return c.tab === tab; }).length; }
+  function cmUpdateBadges(){
+    Object.keys(CM_TABS).forEach(function(tab){
+      Array.prototype.forEach.call(document.querySelectorAll('.cm-count[data-tab="'+tab+'"]'), function(el){ el.textContent = cmCount(tab); });
+    });
+    if(CM_TABS[activePanel]) document.getElementById('cmFab').textContent = '💬 Comments (' + cmCount(activePanel) + ')';
+  }
+  function cmRenderList(){
+    var list = cmCache.filter(function(c){ return c.tab === activePanel; }).sort(function(a,b){ return a.t - b.t; });
+    document.getElementById('cmList').innerHTML = list.length ? list.map(function(c){
+      return '<div class="cm-item">'+cmEsc(c.text)+'<div class="cm-meta">Anonymous · '+cmAgo(c.t)+'</div></div>';
+    }).join('') : '<p class="vt-note" style="padding:8px 0">No comments yet — be the first.</p>';
+    var el = document.getElementById('cmList'); el.scrollTop = el.scrollHeight;
+  }
+  function cmOpen(){
+    if(!CM_TABS[activePanel]) return;
+    document.getElementById('cmTitle').textContent = '💬 ' + CM_TABS[activePanel] + ' — family comments';
+    document.getElementById('cmDrawer').classList.add('open');
+    cmRenderList();
+    cmGet().then(cmRenderList).catch(function(){});
+  }
+  function cmOnTabSwitch(){
+    var isDest = !!CM_TABS[activePanel];
+    document.getElementById('cmFab').style.display = isDest ? 'block' : 'none';
+    if(!isDest){ document.getElementById('cmDrawer').classList.remove('open'); }
+    else {
+      cmUpdateBadges();
+      if(document.getElementById('cmDrawer').classList.contains('open')){
+        document.getElementById('cmTitle').textContent = '💬 ' + CM_TABS[activePanel] + ' — family comments';
+        cmRenderList();
+      }
+    }
+  }
+  document.getElementById('cmFab').addEventListener('click', cmOpen);
+  document.getElementById('cmClose').addEventListener('click', function(){ document.getElementById('cmDrawer').classList.remove('open'); });
+  document.getElementById('cmRefresh').addEventListener('click', function(){ cmGet().then(cmRenderList).catch(function(){}); });
+  document.getElementById('cmPost').addEventListener('click', function(){
+    var ta = document.getElementById('cmText'), text = ta.value.trim();
+    if(!text) return;
+    var btn = this; btn.disabled = true; btn.textContent = '…';
+    var entry = { tab: activePanel, text: text.slice(0,500), t: Date.now() };
+    cmGet().then(function(list){ return cmPut(list.concat([entry])); })
+      .then(cmGet)
+      .then(function(){ ta.value = ''; cmRenderList(); btn.disabled = false; btn.textContent = 'Post'; })
+      .catch(function(){ btn.disabled = false; btn.textContent = 'Post'; alert('Could not reach the comment board — try again in a moment.'); });
+  });
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.cm-jump'); if(!b) return;
+    var tabBtn = document.querySelector('#tabs button[data-p="'+b.dataset.tab+'"]');
+    if(tabBtn){ tabBtn.click(); setTimeout(cmOpen, 60); }
+  });
+  cmGet().catch(function(){});
 </script>
 </body>
 </html>
