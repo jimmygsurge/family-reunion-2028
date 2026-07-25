@@ -32,7 +32,21 @@
   table.ov-t { border-collapse:collapse; width:100%; min-width:1140px; font-size:.82rem; }
   .ov-t th, .ov-t td { padding:9px 11px; text-align:left; border-bottom:1px solid #232e48; vertical-align:top; }
   .ov-t thead th { background:#1d2740; color:#e8b84b; font-size:.8rem; position:sticky; top:0; }
-  .ov-t tbody th { color:#9aa4bc; font-weight:600; white-space:nowrap; background:#141b2e; }
+  .ov-t tbody th { color:#9aa4bc; font-weight:600; background:#141b2e; white-space:normal; min-width:110px; max-width:140px; font-size:.78rem; }
+  /* mobile verdict scorecards */
+  .ov-mob { display:none; }
+  .ov-chips { display:flex; flex-wrap:wrap; gap:6px; margin:0 0 12px; }
+  .ov-chip { appearance:none; border:1px solid #3a4a72; background:#1a2338; color:#b8c0d4; font:inherit; font-size:.8rem; font-weight:600; padding:7px 12px; border-radius:999px; cursor:pointer; }
+  .ov-chip.on { background:#e8b84b; border-color:#e8b84b; color:#0f1420; }
+  .ov-mobcard { background:#141b2e; border:1px solid #2a3550; border-radius:12px; padding:14px 16px; }
+  .ov-mobcard h3 { font-size:1rem; color:#e8b84b; margin-bottom:8px; }
+  .mrow { display:flex; gap:12px; justify-content:space-between; padding:8px 0; border-bottom:1px solid #232e48; font-size:.84rem; }
+  .mrow:last-child { border-bottom:none; }
+  .mrow .k { color:#9aa4bc; flex:0 0 40%; }
+  .mrow .v { color:#dfe3ee; text-align:right; flex:1; }
+  .mrow .v.good { color:#7ed6a2; }
+  .mrow .v.warn { color:#e8a06a; }
+  @media (max-width:720px){ .ov-scroll { display:none; } .ov-mob { display:block; } }
   .ov-t td { color:#dfe3ee; }
   .ov-t td.good { color:#7ed6a2; }
   .ov-t td.warn { color:#e8a06a; }
@@ -126,6 +140,11 @@
           <tr><th>Teens (13–16) fit</th><td>Boat days, water park, snorkeling</td><td class="good">Glaciers, dog sleds, White Pass, ship life</td><td>Rafting, ziplines, summer toboggan</td><td>Surfing, snorkeling, Haleakala</td><td>Rafting, kayaking, Skylift hikes</td><td>Silverwood coasters, wake sports, Hiawatha rail-trail, Banff icefields</td></tr>
         </tbody>
       </table>
+      </div>
+      <div class="ov-mob" id="ovMobile">
+        <p class="ov-note" style="margin:0 0 10px">Tap a destination to see its full scorecard.</p>
+        <div class="ov-chips"></div>
+        <div class="ov-mobcard"></div>
       </div>
 
       <h2>What each option is actually best at</h2>
@@ -520,6 +539,31 @@
     out.innerHTML = html;
   }
   vtInitRank(); vtRenderList(); vtSyncNow();
+
+  /* ---------- mobile verdict scorecards (built from the table, single source of truth) ---------- */
+  (function(){
+    var tbl = document.querySelector('.ov-t'), wrap = document.getElementById('ovMobile');
+    if(!tbl || !wrap) return;
+    var heads = Array.prototype.slice.call(tbl.querySelectorAll('thead th'),1).map(function(th){ return th.textContent.trim(); });
+    var rows = Array.prototype.map.call(tbl.querySelectorAll('tbody tr'), function(tr){
+      return { label: tr.querySelector('th').textContent.trim(),
+               cells: Array.prototype.map.call(tr.querySelectorAll('td'), function(td){ return {html: td.innerHTML, cls: td.className}; }) };
+    });
+    var chipsEl = wrap.querySelector('.ov-chips'), cardEl = wrap.querySelector('.ov-mobcard');
+    heads.forEach(function(h,i){
+      var b = document.createElement('button'); b.className = 'ov-chip' + (i===0?' on':'');
+      b.textContent = h.split('—')[0].trim(); b.dataset.i = i; chipsEl.appendChild(b);
+    });
+    function show(i){
+      Array.prototype.forEach.call(chipsEl.children, function(c){ c.classList.toggle('on', +c.dataset.i === i); });
+      cardEl.innerHTML = '<h3>' + heads[i] + '</h3>' + rows.map(function(r){
+        var c = r.cells[i] || {html:'', cls:''};
+        return '<div class="mrow"><div class="k">' + r.label + '</div><div class="v ' + c.cls + '">' + c.html + '</div></div>';
+      }).join('');
+    }
+    chipsEl.addEventListener('click', function(e){ var b = e.target.closest('.ov-chip'); if(b) show(+b.dataset.i); });
+    show(0);
+  })();
 </script>
 </body>
 </html>
