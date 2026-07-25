@@ -635,6 +635,7 @@
   }
   function cmCount(tab){ return cmCache.filter(function(c){ return c.tab === tab; }).length; }
   function cmUpdateBadges(){
+    if (!CM_TABS || !cmCache) return; /* guard: callable before module vars initialize */
     Object.keys(CM_TABS).forEach(function(tab){
       Array.prototype.forEach.call(document.querySelectorAll('.cm-count[data-tab="'+tab+'"]'), function(el){ el.textContent = cmCount(tab); });
     });
