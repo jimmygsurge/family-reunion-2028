@@ -174,11 +174,12 @@
       </div>
       <div class="vt-ranklist" id="vtRank"></div>
       <div class="vt-row">
-        <button class="vt-btn vt-primary" id="vtAdd">Add ballot on this device</button>
+        <button class="vt-btn vt-primary" id="vtAdd">Submit my ballot</button>
         <button class="vt-btn" id="vtCopy">Copy ballot code</button>
       </div>
-      <p class="vt-note">Two ways to vote: pass this page around and each person adds their ballot here — or each household opens its own copy, ranks, hits <b>Copy ballot code</b>, and texts the code to the organizer, who pastes it below. Ballots are saved in this browser and survive closing the file. Ranking a partial list is fine — a ballot with no remaining choices simply exhausts.</p>
-      <h2>2 · Ballots collected (<span id="vtCount">0</span> of 11)</h2>
+      <p class="vt-note">Enter your name, drag into your order, hit <b>Submit</b> — done, from any phone or computer. Everyone's ballots collect in a shared ballot box automatically. Submitting again under the same name replaces your earlier ballot, so you can change your mind until the count. <b>Copy ballot code</b> is the backup path if the shared box is ever unreachable: text the code to the organizer, who pastes it below.</p>
+      <h2>2 · Ballots collected (<span id="vtCount">0</span> of 11) <button class="vt-btn" id="vtRefresh" style="margin-left:10px;font-size:.75rem;padding:6px 12px">↻ Refresh</button></h2>
+      <p class="vt-note" id="vtStatus">Checking the shared ballot box…</p>
       <div class="vt-ballots" id="vtList"></div>
       <div class="vt-row" style="margin-top:14px"><textarea class="vt-import" id="vtImport" placeholder="Paste ballot codes here — one per line — then click Import"></textarea></div>
       <div class="vt-row">
@@ -207,6 +208,7 @@
     tabs.querySelectorAll('button').forEach(function(b){ b.classList.toggle('rt-active', b===btn); });
     document.querySelectorAll('.rt-panel').forEach(function(p){ p.classList.toggle('rt-show', p.id===btn.dataset.p); });
     activePanel = btn.dataset.p;
+    if (activePanel === 'vote' && typeof vtSyncNow === 'function') vtSyncNow();
     if (musicOn) playTheme(activePanel);
   });
 
@@ -337,9 +339,35 @@
   /* ---------- ranked-choice voting (instant runoff) ---------- */
   var VT_CANDS = [['greece','🏛️ Greece'],['alaska','🚢 Alaska'],['slovenia','🏔️ Slovenia'],['hawaii','🌺 Hawaii'],['norway','🌊 Norway'],['portugal','🐋 Portugal']];
   var VT_LABEL = {}; VT_CANDS.forEach(function(c){ VT_LABEL[c[0]]=c[1]; });
-  var VT_EXPECTED = 11, VT_KEY = 'rt2028ballots';
+  var VT_EXPECTED = 11, VT_KEY = 'rt2028ballots', vtOnline = null;
+  var VT_SYNC = 'https://extendsclass.com/api/json-storage/bin/eecbcba';
   function vtBallots(){ try { return JSON.parse(localStorage.getItem(VT_KEY)) || []; } catch(e){ return []; } }
   function vtSave(list){ try { localStorage.setItem(VT_KEY, JSON.stringify(list)); } catch(e){} vtRenderList(); }
+  function vtSetStatus(ok, msg){
+    vtOnline = ok;
+    var el = document.getElementById('vtStatus');
+    el.innerHTML = ok ? '🟢 ' + (msg || 'Shared ballot box connected — votes sync across everyone\'s devices.')
+                      : '🔴 ' + (msg || 'Shared ballot box unreachable — votes save on this device only; use ballot codes to send them in.');
+    el.style.color = ok ? '#7ed6a2' : '#e8a06a';
+  }
+  function vtCloudGet(){
+    return fetch(VT_SYNC + '?_=' + Date.now(), {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('get '+r.status); return r.json(); })
+      .then(function(d){ return Array.isArray(d.ballots) ? d.ballots : []; });
+  }
+  function vtCloudPut(list){
+    return fetch(VT_SYNC, {method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ballots:list})})
+      .then(function(r){ if(!r.ok) throw new Error('put '+r.status); });
+  }
+  function vtMerge(list, ballot){
+    var out = list.filter(function(b){ return String(b.n).toLowerCase() !== String(ballot.n).toLowerCase(); });
+    out.push(ballot); return out;
+  }
+  function vtSyncNow(){
+    vtSetStatus(vtOnline !== false, 'Checking the shared ballot box…');
+    return vtCloudGet().then(function(list){ vtSetStatus(true); vtSave(list); return list; })
+      .catch(function(){ vtSetStatus(false); vtRenderList(); return null; });
+  }
   var vtRankEl = document.getElementById('vtRank');
   function vtInitRank(){
     var order = VT_CANDS.map(function(c){ return c[0]; });
@@ -385,13 +413,34 @@
   }
   document.getElementById('vtList').addEventListener('click', function(e){
     if(!e.target.classList.contains('vt-x')) return;
-    var list = vtBallots(); list.splice(parseInt(e.target.dataset.i,10),1); vtSave(list);
+    var list = vtBallots(); var removed = list.splice(parseInt(e.target.dataset.i,10),1)[0]; vtSave(list);
+    if(vtOnline !== false && removed){
+      vtCloudGet().then(function(cloud){
+        return vtCloudPut(cloud.filter(function(b){ return String(b.n).toLowerCase() !== String(removed.n).toLowerCase(); }));
+      }).then(function(){ return vtSyncNow(); }).catch(function(){ vtSetStatus(false); });
+    }
   });
   document.getElementById('vtAdd').addEventListener('click', function(){
     var name = document.getElementById('vtName').value.trim();
-    if(!name){ name = 'Voter ' + (vtBallots().length+1); }
-    var list = vtBallots(); list.push({n:name, r:vtGetOrder()}); vtSave(list);
-    document.getElementById('vtName').value=''; vtInitRank();
+    if(!name){ alert('Add your name first — it\'s how the ballot box knows a re-vote replaces your old ballot.'); return; }
+    var ballot = {n:name, r:vtGetOrder(), t:Date.now()};
+    var btn = this; btn.disabled = true; btn.textContent = 'Submitting…';
+    function done(okCloud){
+      btn.disabled = false; btn.textContent = 'Submit my ballot';
+      document.getElementById('vtName').value=''; vtInitRank();
+      if(!okCloud) alert('The shared ballot box is unreachable right now. Your ballot is saved on this device — use "Copy ballot code" to text it to the organizer as a backup.');
+    }
+    vtCloudGet().then(function(list){
+      var merged = vtMerge(list, ballot);
+      return vtCloudPut(merged).then(vtCloudGet).then(function(chk){
+        if(!chk.some(function(b){ return String(b.n).toLowerCase() === name.toLowerCase(); })){
+          var again = vtMerge(chk, ballot);
+          return vtCloudPut(again).then(function(){ return again; });
+        }
+        return chk;
+      });
+    }).then(function(finalList){ vtSetStatus(true); vtSave(finalList); done(true); })
+      .catch(function(){ vtSetStatus(false); vtSave(vtMerge(vtBallots(), ballot)); done(false); });
   });
   document.getElementById('vtCopy').addEventListener('click', function(){
     var name = document.getElementById('vtName').value.trim() || 'Unnamed';
@@ -411,8 +460,12 @@
     alert(ok + ' ballot(s) imported' + (bad ? ', ' + bad + ' invalid code(s) skipped' : '') + '.');
   });
   document.getElementById('vtWipe').addEventListener('click', function(){
-    if(confirm('Delete all ' + vtBallots().length + ' ballots from this device?')) vtSave([]);
+    if(!confirm('Delete ALL ballots — including everyone\'s in the shared ballot box? This restarts the whole vote.')) return;
+    vtSave([]);
+    vtCloudPut([]).then(function(){ vtSetStatus(true, 'Shared ballot box cleared — the vote has been reset.'); })
+      .catch(function(){ vtSetStatus(false); });
   });
+  document.getElementById('vtRefresh').addEventListener('click', vtSyncNow);
   function vtIRV(ballots){
     var active = VT_CANDS.map(function(c){ return c[0]; }), rounds = [], firstCounts = null;
     for(var guard=0; guard<10; guard++){
@@ -437,6 +490,10 @@
     return rounds;
   }
   document.getElementById('vtRun').addEventListener('click', function(){
+    var btn = this; btn.disabled = true;
+    vtSyncNow().then(function(){ btn.disabled = false; vtRenderCount(); });
+  });
+  function vtRenderCount(){
     var ballots = vtBallots(), out = document.getElementById('vtResults');
     if(!ballots.length){ out.innerHTML = '<p class="vt-note">No ballots to count yet.</p>'; return; }
     var rounds = vtIRV(ballots), html = '';
@@ -463,8 +520,8 @@
       html += '<div class="vt-winner">🏆 <b>'+VT_LABEL[survivors[0]]+'</b> wins as the last option standing ('+last.counts[survivors[0]]+' of '+last.total+').</div>';
     }
     out.innerHTML = html;
-  });
-  vtInitRank(); vtRenderList();
+  }
+  vtInitRank(); vtRenderList(); vtSyncNow();
 </script>
 </body>
 </html>

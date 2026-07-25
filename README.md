@@ -2,12 +2,10 @@
 
 A six-destination comparison deck for a 20-person, three-generation family reunion (late June/July 2028), with researched pitches for Greece, an Alaska cruise, Slovenia, Hawaii, the Norwegian fjords, and Portugal (Azores + Algarve) — plus a neutral verdict tab, synthesized theme music, and ranked-choice (instant-runoff) voting for the 11 adult voters.
 
-**Live site:** deployed via GitLab Pages from `family-reunion-2028.html` (see `.gitlab-ci.yml`).
+**Live site:** deployed via GitHub Pages — `index.html` is the built deck, served from the `main` branch root.
 
 ## How to vote
-Open the site, go to the **🗳️ Vote** tab, drag the destinations into your order of preference, then either add your ballot on a shared device or hit **Copy ballot code** and text the code to the organizer, who imports all ballots and runs the count.
-
-Note: ballots are stored in each visitor's own browser — the site has no server, so votes do not sync between devices. The ballot-code workflow is how votes reach the organizer.
+Open the site on any phone or computer, go to the **🗳️ Vote** tab, enter your name, drag the destinations into your order of preference, and hit **Submit my ballot**. Ballots collect automatically in a shared ballot box; re-submitting under the same name replaces your earlier ballot. If the shared box is ever unreachable, the page falls back to **Copy ballot code** — text the code to the organizer, who imports it and runs the count.
 
 ## Repo layout
 - `family-reunion-2028.html` — the built, self-contained deck (deployed page)
