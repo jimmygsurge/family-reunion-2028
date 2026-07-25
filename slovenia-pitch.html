@@ -93,12 +93,37 @@
 
   .note{font-size:.85rem;color:var(--mut);margin-top:12px;font-style:italic;}
 
+  /* KID FREEDOM + $35K BUILD */
+  .kidfree{margin-top:30px;background:#f0f7ee;border:1px solid #cfe3d3;border-left:6px solid var(--pine-2);border-radius:12px;padding:26px 28px;}
+  .kidfree h3{color:var(--pine-2);font-size:1.2rem;margin-bottom:10px;}
+  .kidfree .kf-label{font-family:'Segoe UI',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:700;color:var(--lake);margin-bottom:6px;}
+  .kidfree p{font-size:.96rem;color:var(--ink);margin-bottom:10px;}
+  .kidfree p:last-child{margin-bottom:0;}
+  .kidfree .kf-limit{background:#fdf3ec;border-radius:8px;padding:10px 14px;font-size:.9rem;color:#6b4438;}
+  .showcase{margin-top:34px;background:linear-gradient(150deg,#fffdf6,#f7efdb);border:2px solid var(--gold);border-radius:14px;padding:30px 32px;box-shadow:0 8px 26px rgba(30,40,35,.12);}
+  .showcase .sc-label{font-family:'Segoe UI',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:700;color:var(--red);margin-bottom:6px;}
+  .showcase h3{color:var(--pine);font-size:1.35rem;margin-bottom:14px;}
+  .showcase ul{list-style:none;margin:0 0 14px;}
+  .showcase li{padding:8px 0 8px 30px;position:relative;font-size:.96rem;border-bottom:1px dashed rgba(0,0,0,.1);}
+  .showcase li:last-child{border-bottom:none;}
+  .showcase li::before{content:"+";position:absolute;left:4px;top:6px;color:var(--gold);font-weight:700;font-family:'Segoe UI',sans-serif;font-size:1.2rem;}
+  .showcase .punch{font-family:'Segoe UI',sans-serif;font-weight:700;color:var(--pine);font-size:1.05rem;border-top:2px solid var(--gold);padding-top:14px;}
+
   /* CLOSER */
   .closer{background:linear-gradient(160deg,var(--pine) 0%,#0a2c22 100%);color:#eef6f1;text-align:center;}
   .closer h2{color:#fff;font-size:2.3rem;}
   .closer .argument{max-width:780px;margin:22px auto 0;font-size:1.13rem;color:#d9e8e0;text-align:left;}
   .closer .argument p{margin-bottom:16px;}
-  .vote{display:inline-block;margin-top:30px;background:var(--gold);color:#241c05;font-family:'Segoe UI',sans-serif;font-weight:700;font-size:1.05rem;padding:16px 38px;border-radius:8px;letter-spacing:.05em;}
+  .vote{display:inline-block;margin-top:26px;background:var(--gold);color:#241c05;font-family:'Segoe UI',sans-serif;font-weight:700;font-size:1.1rem;padding:16px 42px;border-radius:8px;letter-spacing:.05em;box-shadow:0 6px 22px rgba(0,0,0,.35);}
+  .votecard{max-width:720px;margin:44px auto 0;background:linear-gradient(150deg,#fffdf6,#f4ecd8);color:var(--ink);border-radius:16px;padding:38px 36px;text-align:left;border:2px solid var(--gold);box-shadow:0 14px 40px rgba(0,0,0,.4);}
+  .votecard .vc-kicker{font-family:'Segoe UI',sans-serif;text-transform:uppercase;letter-spacing:.2em;font-size:.75rem;font-weight:700;color:var(--red);margin-bottom:8px;}
+  .votecard h3{font-size:1.7rem;color:var(--pine);margin-bottom:18px;line-height:1.2;}
+  .votecard ul{list-style:none;margin:0 0 16px;}
+  .votecard li{padding:10px 0 10px 34px;position:relative;font-size:1.02rem;border-bottom:1px dashed rgba(0,0,0,.12);}
+  .votecard li:last-child{border-bottom:none;}
+  .votecard li::before{content:"★";position:absolute;left:2px;top:9px;color:var(--gold);font-size:1.1rem;}
+  .votecard .concede{font-size:.92rem;color:var(--mut);font-style:italic;border-left:3px solid var(--red);padding-left:12px;margin:14px 0 6px;}
+  .votecard .cta-row{text-align:center;}
   footer{background:#081f18;color:#7e988d;font-size:.8rem;text-align:center;padding:26px 20px;font-family:'Segoe UI',sans-serif;}
   footer a{color:#a8c6b8;}
 </style>
@@ -150,7 +175,7 @@
           <div class="loc sans">Ribno village · 2 km from Lake Bled</div>
           <p>300-year-old converted millhouse in riverside gardens. <b>Sleeps 20 in one house</b>: 5 rooms, 6 full baths, two 6-bed bunk rooms the kids will fight over, a kitchen with a <b>20-seat table</b>, laundry, free bikes, even an 8-seat house minibus. River out back, lake swimming 5 minutes away.</p>
           <span class="price">~$630/night now · 9 nights ≈ $5,700 → ~$6,5–7,5k in 2028</span>
-          <p style="margin-top:10px;font-size:.85rem;">Airbnb &amp; Booking.com · rustic-comfortable, not luxe · no pool (river + lake instead)</p>
+          <p style="margin-top:10px;font-size:.85rem;">Airbnb &amp; Booking.com · rustic-comfortable, not luxe · no pool (river + lake instead) · confirm a crib/cot for the 18-month-old when booking</p>
         </div>
       </div>
       <div class="card">
@@ -158,7 +183,7 @@
           <span class="badge alt">Backup · Bohinj</span>
           <h3>Holiday House "Na vasi"</h3>
           <div class="loc sans">Savica village, Bohinjska Bistrica · 25 min from Bled</div>
-          <p>One house, <b>10–20 guests</b> in apartment units — each family gets its own kitchenette and bath (a gift with a napping 3-year-old). Garden, playground, BBQ, bike hire.</p>
+          <p>One house, <b>10–20 guests</b> in apartment units — each family gets its own kitchenette and bath (a gift with a napping 18-month-old). Garden, playground, BBQ, bike hire.</p>
           <span class="price">Est. €550–800/night whole house · 9 nights ≈ $6–8.5k (2028: $7–10k)</span>
           <p style="margin-top:10px;font-size:.85rem;">Airbnb &amp; Booking.com · confirm whole-house rate direct</p>
         </div>
@@ -200,7 +225,15 @@
         </div>
       </div>
     </div>
-    <p class="note">Itinerary shape: ONE base for all 9 nights. Slovenia is the size of New Jersey — Ljubljana 35 min, Bohinj 25 min, Postojna Cave 1 hr, Soča Valley 1.5 hr, even the Adriatic at Piran ~1 hr 50 min. No mid-trip repacking of 20 suitcases.</p>
+    <p class="note">Itinerary shape: ONE base for all 9 nights. Slovenia is the size of New Jersey — Ljubljana 35 min, Bohinj 25 min, Postojna Cave 1 hr, Soča Valley 1.5 hr, even the Adriatic at Piran ~1 hr 50 min. No mid-trip repacking of 20 suitcases. And to be clear: "one property" doesn't have to mean one roof — separate units with shared gardens and amenities (Na vasi, Villa Nebina, Garden Village) work just as well. The 20-seat table and one shared living room are a celebrated bonus, not a requirement.</p>
+
+    <div class="kidfree">
+      <div class="kf-label sans">Kid Freedom Report · The Millhouse, Ribno</div>
+      <h3>Can the 6-to-11s roam? Mostly, yes — and that's rare.</h3>
+      <p>Slovenia is one of the safest countries in Europe, and Ribno is exactly the kind of quiet, low-traffic village where Slovenian kids still roam by default. The Millhouse sits in its own riverside gardens with <b>free bikes on site</b> — the four olders (9, 9, 11, 11) can realistically bike the village lanes to the shop and along the quiet road out of Ribno on their own, and the whole six-pack (add the 6-year-olds) has the run of the gardens, lawn, and village green without an adult shadowing them.</p>
+      <p>The Bled lake path is ~2 km away: an easy, mostly quiet ride the 11-year-olds can do with a buddy rule or with the 16-year-old leading — a short stretch of road means we'd walk/ride it together once before turning them loose.</p>
+      <p class="kf-limit"><b>Honest limits:</b> the property's best feature is also its rule-maker — unfenced river frontage. Fine freedom territory for the 9s and 11s who can swim; a clear boundary line for the 6-year-olds, and strict eyes-on for the 3-year-old and the baby. House rule on night one, problem solved.</p>
+    </div>
   </div>
 </section>
 
@@ -217,7 +250,7 @@
           <h3>1 · Lake Bled: pletna boat, castle &amp; summer toboggan</h3>
           <p>Hand-rowed pletna to the island church, castle terrace above the lake, then the Straža toboggan run — the kids will demand repeats.</p>
           <p class="fee">Pletna €20 adult / €10 child (cash) · Castle €19 · Toboggan ~€15/ride</p>
-          <p class="agefit">Toddler-to-grandparent friendly; 99 island steps are optional (café at the dock).</p>
+          <p class="agefit">Kids under 4 — both the 3-year-old and the baby — ride the pletna free; bring euros, the boatmen are cash-only.</p>
         </div>
       </div>
       <div class="card">
@@ -226,14 +259,14 @@
           <h3>2 · Vintgar Gorge</h3>
           <p>Wooden boardwalks hanging over glass-green rapids, 10 minutes from Bled. Now a one-way 5.7 km circuit, 2.5–3 hrs.</p>
           <p class="fee">€15 adult/senior · €5 child ≤15 · timed tickets online</p>
-          <p class="agefit">Honest note: strollers are banned — toddler rides in a carrier; grandparents need to be happy walking 2+ hrs. Go at 8:00 to beat crowds.</p>
+          <p class="agefit">Honest note: strollers are banned — the 18-month-old (and likely the 3-year-old) ride in carriers for the full circuit. Go at 8:00 to beat crowds.</p>
         </div>
       </div>
       <div class="card">
         <div class="imgbox"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/H%C3%B6hlenburg_Predjama_in_Slovenien.jpg/1280px-H%C3%B6hlenburg_Predjama_in_Slovenien.jpg" alt="Predjama Castle built into the mouth of a cliff cave" onerror="this.style.display='none';this.parentElement.querySelector('.imgfallback').style.display='flex';"><div class="imgfallback">Predjama Castle — built into a cliff</div></div>
         <div class="body">
           <h3>3 · Postojna Cave + Predjama Castle</h3>
-          <p>An underground train into a vast cave system, then a castle built into a cliff mouth. The rare cave that works for a 3-year-old AND grandma.</p>
+          <p>An underground train into a vast cave system, then a castle built into a cliff mouth. The rare cave adventure even the 3-year-old and the baby can do.</p>
           <p class="fee">Cave €28.80 adult / €17.30 child · cave+castle combo ~€42.50 (bundles save ~25%)</p>
           <p class="agefit">Constant 10°C inside — bring jackets. Full-day trip, ~1 hr drive.</p>
         </div>
@@ -244,16 +277,16 @@
           <h3>4 · Soča Valley family rafting (Bovec)</h3>
           <p>The teens and tweens raft an impossibly turquoise river; family-trip sections take kids from ~age 3–5, classic whitewater from 7+.</p>
           <p class="fee">€54–90/person · high-season family rates ~€60 adult / €54 child</p>
-          <p class="agefit">Grandparents + toddler do Kobarid museum &amp; gorge viewpoints meanwhile. The 50-hairpin Vršič Pass drive is a highlight itself.</p>
+          <p class="agefit">Operator minimums (~age 3–5) mean the 18-month-old sits this one out with a parent — non-rafters do Kobarid museum &amp; gorge viewpoints meanwhile. The 50-hairpin Vršič Pass drive is a highlight itself.</p>
         </div>
       </div>
       <div class="card">
         <div class="imgbox"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Velika_planina_%288965484358%29.jpg/1280px-Velika_planina_%288965484358%29.jpg" alt="Wooden shepherd huts on the Velika Planina alpine plateau" onerror="this.style.display='none';this.parentElement.querySelector('.imgfallback').style.display='flex';"><div class="imgfallback">Velika Planina — shepherd huts at 1,600 m</div></div>
         <div class="body">
           <h3>5 · Velika Planina herdsmen's plateau</h3>
-          <p>Cable car to Europe's largest shepherd settlement — 150 wooden huts on a nearly flat plateau at 1,600 m. The easiest "big mountain day" in the Alps.</p>
+          <p>Cable car to Europe's largest shepherd settlement — 150 wooden huts on a wide-open plateau at 1,600 m, with a relaxed 6.5 km loop among the herds.</p>
           <p class="fee">Cable car €24 return (€26 with chairlift)</p>
-          <p class="agefit">Genuinely doable for toddler (carrier) and grandparents alike. Try the hut-made sour milk &amp; štruklji.</p>
+          <p class="agefit">Trails are unpaved — carriers, not strollers, for the baby and the 3-year-old. Try the hut-made sour milk &amp; štruklji.</p>
         </div>
       </div>
       <div class="card">
@@ -278,11 +311,11 @@
         <h3>Why Slovenia genuinely wins</h3>
         <ul>
           <li><b>Unbeatable cost:</b> a true 20-person villa at ~$7k for 9 nights leaves ~$23k of the $30k lodging budget unspent. The whole trip on the ground (~$21–26k) costs less than lodging alone elsewhere.</li>
-          <li><b>Perfect summer weather for THIS group:</b> 24–26°C alpine July days, cool nights — no Mediterranean heat-wave risk for the grandparents or the toddler.</li>
+          <li><b>Perfect summer weather:</b> 24–26°C alpine July days, cool nights — none of the Mediterranean heat-wave gamble baked into a Greek July.</li>
           <li><b>Best activity spread per mile:</b> toboggans, cave trains, castles, rafting, cable cars, lakes with shallow beach entries — all within ~60 minutes of one base. Nobody ages out; nobody is too young for most of it.</li>
-          <li><b>One base, zero repacking:</b> 9 nights, one house, day trips in every direction — the sanity-preserving format for 20 people and a 3-year-old's nap schedule.</li>
-          <li><b>Safe, easy, English-friendly:</b> one of Europe's safest countries; Bled urgent care in town, pediatric hospital 20 min away, university hospital 45 min.</li>
-          <li><b>The togetherness factor:</b> one roof, one 20-seat dinner table, every night. A cruise gives you cabins down a hallway; the Millhouse gives you a family home.</li>
+          <li><b>One base, zero repacking:</b> 9 nights, one house, day trips in every direction — the sanity-preserving format for 20 people and an 18-month-old's nap schedule.</li>
+          <li><b>Safe, easy, English-friendly:</b> one of Europe's safest countries, English widely spoken, tap water excellent — and medical care is close by should anyone ever need it.</li>
+          <li><b>The togetherness factor:</b> a 20-seat dinner table and one shared living room, every night — under one roof at the Millhouse, or as separate family units around shared gardens at the apartment-style options. Either way it beats cabins down a cruise hallway; the shared table is the bonus we'd choose, not a constraint we're stuck with.</li>
         </ul>
       </div>
       <div class="col cons">
@@ -292,7 +325,7 @@
           <li><b>Essentially ONE true 20-sleeper house.</b> If the Millhouse is booked for our dates, we drop to apartment-cluster or buyout options. Real booking risk — we must commit 12–18 months out.</li>
           <li><b>No private pool</b> at the realistic options. Swimming is lake, river, and Garden Village's natural pools — lovely in July (~22–24°C lake), but it is not a Maui resort pool.</li>
           <li><b>July crowds at the honeypots.</b> Bled's core is genuinely packed in peak season. Mitigation: stay in Ribno, start days at 8:00, target late June.</li>
-          <li><b>Marquee hikes are stroller-hostile.</b> Vintgar Gorge bans strollers outright (2.5–3 hr carrier-only circuit); Velika Planina trails are unpaved. Two baby carriers required, and Vintgar is a real reconsideration if Grandma isn't up for 2+ hours on foot.</li>
+          <li><b>Marquee hikes are stroller-hostile.</b> Vintgar Gorge bans strollers outright (2.5–3 hr carrier-only circuit); Velika Planina trails are unpaved. Pack carriers for the baby and the 3-year-old — wheels won't work on the signature walks.</li>
           <li><b>Afternoon thunderstorms</b> are a normal alpine-July feature — plans need morning-first flexibility.</li>
         </ul>
       </div>
@@ -309,13 +342,13 @@
     <div class="tblwrap">
     <table>
       <tr><th>Departure</th><th>Best routing</th><th>Current summer RT</th><th>2028 estimate</th><th>Door-to-door</th></tr>
-      <tr><td><b>Salt Lake City</b> (12 travelers)</td><td>Delta nonstop SLC→AMS or CDG, then KLM/Air France to Ljubljana — a clean 1-stop</td><td>~$900–1,100</td><td><b>~$1,000–1,250</b></td><td>~16–18 hrs</td></tr>
-      <tr><td><b>Southern California</b> (7 travelers)</td><td>LAX→Ljubljana 1–2 stops ~$730–900; or LAX→Venice ~$600–900 (often cheaper) + 3-hr ground transfer to Bled</td><td>~$650–950</td><td><b>~$750–1,100</b></td><td>~16–20 hrs</td></tr>
-      <tr><td><b>Boston</b> (1 traveler)</td><td>1 stop via AMS/CDG/FRA/ZRH to Ljubljana, from ~$627–960</td><td>~$700–1,000</td><td><b>~$800–1,100</b></td><td>~13–16 hrs</td></tr>
-      <tr class="total"><td colspan="2">Whole-group airfare (booked ~10–11 months out)</td><td>—</td><td colspan="2"><b>≈ $19,000–24,000 total (separate per family)</b></td></tr>
+      <tr><td><b>Salt Lake City</b> (11 travelers: grandparents, no-kids couple, family of 7 — kids 11, 9, 6, 3 &amp; the 18-month-old)</td><td>Delta nonstop SLC→AMS or CDG, then KLM/Air France to Ljubljana — a clean 1-stop</td><td>~$900–1,100</td><td><b>~$1,000–1,250</b></td><td>~16–18 hrs</td></tr>
+      <tr><td><b>Oceanside, CA</b> (5 travelers: family of 5 — kids 11, 9, 6, flying SAN or LAX)</td><td>SAN/LAX→Ljubljana 1–2 stops ~$730–900; Venice (VCE) often prices lower + 3-hr ground transfer</td><td>~$650–950</td><td><b>~$750–1,100</b></td><td>~16–20 hrs</td></tr>
+      <tr><td><b>Boston area</b> (4 travelers: BOS family of 3 incl. the 16-year-old + single adult from Manchester, NH flying BOS or MHT)</td><td>1 stop via AMS/CDG/FRA/ZRH to Ljubljana, from ~$627–960 (MHT adds a domestic hop or an easy drive to Logan)</td><td>~$700–1,000</td><td><b>~$800–1,100</b></td><td>~13–16 hrs</td></tr>
+      <tr class="total"><td colspan="2">Whole-group airfare (booked ~10–11 months out)</td><td>—</td><td colspan="2"><b>≈ $18,000–23,500 total (separate per family; ~$900–1,150 less if the 18-month-old flies as a ~10%-fare lap infant)</b></td></tr>
     </table>
     </div>
-    <p class="note">Ground plan on arrival: 3 × 9-seat rental vans from Ljubljana airport (~$100–140/day each in July; ≈ $4,000–5,300 all-in for 10 days incl. fuel &amp; the €16/week e-vignette, usually included). Kids under 150 cm need seats/boosters — cheapest is buying boosters on arrival (€40–80) and donating them. Optional: 20-seat minibus + driver (~€700–1,000/day) for the 2–3 all-group excursion days. Venice–Bled private van transfer ≈ €300–450 each way if SoCal flies into VCE.</p>
+    <p class="note">Ground plan on arrival: 3 × 9-seat rental vans from Ljubljana airport (~$100–140/day each in July; ≈ $4,000–5,300 all-in for 10 days incl. fuel &amp; the €16/week e-vignette, usually included). Kids under 150 cm need seats/boosters — bring the infant seat for the 18-month-old from home; for the older kids, buying boosters on arrival (€40–80) and donating them beats €7–13/day rentals. Optional: 20-seat minibus + driver (~€700–1,000/day) for the 2–3 all-group excursion days. Price-shopping note: Venice (VCE) sometimes beats Ljubljana on fares from East Coast hubs — if any family books it, a private Venice–Bled van transfer runs ≈ €300–450 each way (~3 hrs).</p>
   </div>
 </section>
 
@@ -332,9 +365,22 @@
       <tr><td>Ground transport — 3 vans × 10 days, fuel, vignettes, boosters</td><td><b>$4,500–5,500</b></td><td>Add ~$1,500–2,000 for VCE transfers or driver-minibus days</td></tr>
       <tr><td>Activities — cave combo, rafting, cable cars, boats, castle, toboggan ×2</td><td><b>$3,000–4,000</b></td><td>~$150–200/person for the full slate</td></tr>
       <tr class="total"><td>On-the-ground total</td><td>≈ $21,000–26,000</td><td>Inside the $30k lodging-only budget — with room to spare</td></tr>
-      <tr><td>Airfare (separate, per family)</td><td>≈ $19,000–24,000 group</td><td>SLC family of 4 ≈ $4,000–5,000 · SoCal families ≈ $2,600–4,400 · Boston single ≈ $800–1,100</td></tr>
-      <tr class="total"><td>Grand total incl. airfare</td><td>≈ $40,000–50,000</td><td>All 20 people, 9 full days</td></tr>
+      <tr><td>Airfare (separate, per family)</td><td>≈ $18,000–23,500 group</td><td>SLC family of 7 ≈ $7,000–8,750 (≈ $6,100–7,700 with the 18-month-old as a lap infant) · SLC couples ≈ $2,000–2,500 each · Oceanside family of 5 ≈ $3,750–5,500 · Boston family of 3 ≈ $2,400–3,300 · NH single ≈ $800–1,100</td></tr>
+      <tr class="total"><td>Grand total incl. airfare</td><td>≈ $39,000–49,500</td><td>All 20 people, 9 full days</td></tr>
     </table>
+    </div>
+
+    <div class="showcase">
+      <div class="sc-label sans">The $35K Build · Apples to Apples</div>
+      <h3>If every option got the same $35,000 (excluding airfare), here's Slovenia's build.</h3>
+      <p style="font-size:.95rem;color:var(--mut);margin-bottom:14px;">Our full on-the-ground trip — villa, food, 3 vans, every activity on the list for all 20 — costs ~$21–26k. That leaves a <b>$9–14k surplus</b>. Here's what it buys, at real Slovenian prices:</p>
+      <ul>
+        <li><b>A local babysitter for the whole trip</b> — Slovenian sitter rates run ~€8–15/hr; 5 hrs/day × 8 days (40 hrs) ≈ <b>€320–600 ($350–700)</b>. Parents get real dinners out; the baby gets naps on schedule.</li>
+        <li><b>Private-chef villa dinners</b> — catered dinners at ~€25–40/head; four chef nights for all 20 ≈ <b>$2,200–3,500</b>. The 20-seat table, nobody cooking.</li>
+        <li><b>A 20-seat minibus + driver for every big excursion day</b> — Postojna day, Soča day, Piran day at ~€700–1,000/day ≈ <b>$2,300–3,300</b>. Nobody drives the Vršič hairpins; everybody rides together.</li>
+        <li><b>Every activity, everyone, plus seconds</b> — the full activity slate (~$3–4k) is already inside the base build; add a repeat toboggan afternoon and a Ljubljana river cruise for ~<b>$500</b>.</li>
+      </ul>
+      <p class="punch">Staffed build total: ≈ $27,000–33,500 — still $1,500–8,000 in change. Slovenia is the only option where $35k buys the trip AND the staff.</p>
     </div>
   </div>
 </section>
@@ -345,12 +391,22 @@
     <p class="kicker" style="color:#ffe9a8;">The Vote</p>
     <h2>Why Slovenia wins</h2>
     <div class="argument">
-      <p>Maui will be beautiful and easy to reach — and lodging for 20 will devour the budget before the first luau. The cruise will be effortless — and the family will spend nine days in cabins down a hallway, together only at assigned dinner seatings. Greece will be stunning — and 38°C in July with a toddler and two grandparents is a real gamble.</p>
-      <p>Slovenia asks one hard thing of us — a long, connection-heavy flight — and then hands back everything else: <b>one house that sleeps every single one of us</b>, a twenty-seat table for nine family dinners, alpine mornings at 24°C, castles and cave trains and rafting for every age from 3.5 to 67, and an on-the-ground cost so low it leaves nearly $23,000 of the lodging budget unspent.</p>
+      <p>Maui will be beautiful and easy to reach — and lodging for 20 will devour the budget before the first luau. The cruise will be effortless — and the family will spend nine days in cabins down a hallway, together only at assigned dinner seatings. Greece will be stunning — and 38°C in July with an 18-month-old in tow is a real gamble.</p>
+      <p>Slovenia asks one hard thing of us — a long, connection-heavy flight — and then hands back everything else: <b>one house that sleeps every single one of us</b>, a twenty-seat table for nine family dinners, alpine mornings at 24°C, castles and cave trains and rafting for every age from the 18-month-old to the grandparents, and an on-the-ground cost so low it leaves nearly $23,000 of the lodging budget unspent.</p>
       <p>We researched this honestly: the villa inventory is thin, the hikes want baby carriers, and July has crowds. Every one of those problems is solved by one action — <b>booking early</b>. The flight problem is solved by one recovery day. Nothing solves Maui's price tag or the cruise's cabin walls.</p>
-      <p><b>The move:</b> hold late June 2028 · contact The Millhouse Bled for a 9-night exclusive block now (Garden Village as the magical backup, Vila Bled as the luxury fallback) · SLC &amp; Boston fly Delta/KLM one-stops into Ljubljana · SoCal price-shops Ljubljana vs. Venice · three vans at the airport · and the best family-reunion value on this shortlist is ours.</p>
+      <p><b>The move:</b> hold late June 2028 · contact The Millhouse Bled for a 9-night exclusive block now (Garden Village as the magical backup, Vila Bled as the luxury fallback) · SLC &amp; Boston fly Delta/KLM one-stops into Ljubljana (price-shop Venice as a fallback) · three vans at the airport · and the best family-reunion value on this shortlist is ours.</p>
     </div>
-    <span class="vote">Vote Slovenia — Lake Bled, Summer 2028 🏔️</span>
+    <div class="votecard">
+      <div class="vc-kicker">The Vote Card · Rank It #1</div>
+      <h3>Slovenia: the only trip on this ballot that's new to 19 of the 20 of us.</h3>
+      <ul>
+        <li><b>Genuinely NEW.</b> Everyone has done Hawaii. The whole family has already stood on Crete for a cruise day. Exactly one of us has ever seen Slovenia — for the other 19, every castle, cave train, and emerald river is a first. The no-kids voters get the discovery they're voting for.</li>
+        <li><b>Cheapest on the ballot by $15–35k</b> — a real 20-person villa for ~$7k against a $30k budget. On equal $35k footing, Slovenia's build comes fully staffed (see "The $35K Build"): sitter all week, chef nights, a driver for the big days — and still returns change. This is the trip that buys back its own flights.</li>
+        <li><b>Easiest days once we land — and free-range kids.</b> A 20-seat table, the densest kid-activity map of the four options (toboggan, cave train, rafting, lake beach, all under an hour), and a safe village base where the 6-to-11s can actually roam and bike on their own. The kid-families' logistics headache simply isn't here.</li>
+      </ul>
+      <p class="concede">The honest concession: it is the hardest journey on the ballot — 16–20 hours door-to-door with connections, and a baby on board.</p>
+      <div class="cta-row"><span class="vote">Rank Slovenia #1 on the Vote tab 🏔️</span></div>
+    </div>
   </div>
 </section>
 

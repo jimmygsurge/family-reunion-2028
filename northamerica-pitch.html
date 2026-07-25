@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lake Tahoe 2028 — The Drive-There Reunion</title>
+<title>North America 2028 — Three Lakes, One Easy Vote</title>
 <style>
   :root{
     --ink:#1c2b33;
     --ink-soft:#44565f;
     --tahoe:#0e6ba8;
     --tahoe-deep:#0a4d78;
-    --pine:#2e6b4f;
+    --cda:#2e6b4f;
+    --cda-deep:#1f4d38;
+    --banff:#4a5d8a;
+    --banff-deep:#33436b;
     --sand:#f5efe4;
     --sand-deep:#e9dfc9;
     --card:#ffffff;
@@ -21,122 +24,95 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{
-    font-family:Georgia,'Times New Roman',serif;
-    background:var(--sand);
-    color:var(--ink);
-    line-height:1.6;
-  }
-  .sans{font-family:'Segoe UI',Tahoma,Arial,sans-serif;}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--sand);color:var(--ink);line-height:1.6;}
   header.hero{
-    position:relative;
-    min-height:78vh;
-    display:flex;align-items:flex-end;
-    color:#fff;
-    background:linear-gradient(180deg, rgba(10,45,70,.25), rgba(8,30,48,.78)),url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Emerald_Bay%2C_Lake_Tahoe%2C_California._2015.jpg/1280px-Emerald_Bay%2C_Lake_Tahoe%2C_California._2015.jpg') center/cover no-repeat;
+    position:relative;min-height:72vh;display:flex;align-items:flex-end;color:#fff;
+    background:linear-gradient(180deg, rgba(10,45,70,.30), rgba(8,30,48,.80)),url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Emerald_Bay%2C_Lake_Tahoe%2C_California._2015.jpg/1280px-Emerald_Bay%2C_Lake_Tahoe%2C_California._2015.jpg') center/cover no-repeat;
     background-color:#0a4d78;
   }
-  .hero-inner{max-width:1050px;margin:0 auto;padding:56px 28px 64px;}
-  .kicker{
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;
-    text-transform:uppercase;letter-spacing:.22em;font-size:.8rem;
-    color:#ffd98a;margin-bottom:14px;font-weight:600;
-  }
-  h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.06;font-weight:700;text-shadow:0 2px 14px rgba(0,0,0,.45);}
-  .hero-sub{font-size:clamp(1.05rem,2.2vw,1.35rem);max-width:720px;margin-top:18px;color:#eaf3fa;text-shadow:0 1px 8px rgba(0,0,0,.5);}
-  .hero-stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;}
-  .stat{
-    background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.35);
-    backdrop-filter:blur(4px);border-radius:10px;padding:10px 18px;
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.92rem;
-  }
-  .stat b{display:block;font-size:1.25rem;color:#ffd98a;}
-  main{max-width:1050px;margin:0 auto;padding:0 24px 80px;}
-  section{margin-top:64px;}
-  h2{
-    font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--tahoe-deep);
-    margin-bottom:8px;
-  }
-  .rule{width:64px;height:4px;background:var(--gold);border-radius:2px;margin:10px 0 24px;}
-  h3{font-size:1.15rem;color:var(--pine);margin-bottom:8px;}
-  p.lead{font-size:1.12rem;color:var(--ink-soft);max-width:820px;}
-  .card{
-    background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
-    padding:26px;margin-top:20px;
-  }
-  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:20px;}
-  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:20px;}
+  .hero-inner{max-width:1080px;margin:0 auto;padding:56px 28px 56px;}
+  .kicker{font-family:'Segoe UI',Tahoma,Arial,sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.8rem;color:#ffd98a;margin-bottom:14px;font-weight:600;}
+  h1{font-size:clamp(2.2rem,5.6vw,3.9rem);line-height:1.07;font-weight:700;text-shadow:0 2px 14px rgba(0,0,0,.45);}
+  .hero-sub{font-size:clamp(1.02rem,2.1vw,1.3rem);max-width:780px;margin-top:18px;color:#eaf3fa;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+  .stat{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);border-radius:10px;padding:9px 16px;font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.9rem;}
+  .stat b{display:block;font-size:1.2rem;color:#ffd98a;}
+  main{max-width:1080px;margin:0 auto;padding:0 24px 80px;}
+  section{margin-top:60px;}
+  h2{font-size:clamp(1.55rem,3.3vw,2.15rem);color:var(--tahoe-deep);margin-bottom:8px;}
+  .rule{width:64px;height:4px;background:var(--gold);border-radius:2px;margin:10px 0 22px;}
+  h3{font-size:1.14rem;margin-bottom:8px;color:var(--ink);}
+  p.lead{font-size:1.1rem;color:var(--ink-soft);max-width:840px;}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin-top:18px;}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:18px;}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:18px;}
   figure.photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--sand-deep);}
-  figure.photo img{width:100%;height:260px;object-fit:cover;display:block;}
-  figure.photo figcaption{
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.8rem;color:var(--ink-soft);
-    padding:8px 14px;background:var(--card);
-  }
-  .img-fallback{
-    display:flex;align-items:center;justify-content:center;height:260px;
-    background:linear-gradient(135deg,#0e6ba8,#2e6b4f);color:#fff;
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;text-align:center;padding:20px;font-size:.95rem;
-  }
-  table{
-    width:100%;border-collapse:collapse;background:var(--card);
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.92rem;
-    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
-  }
-  .table-wrap{overflow-x:auto;margin-top:20px;border-radius:var(--radius);}
-  th{background:var(--tahoe-deep);color:#fff;text-align:left;padding:12px 14px;font-weight:600;white-space:nowrap;}
-  td{padding:11px 14px;border-top:1px solid #e8e2d4;vertical-align:top;}
+  figure.photo img{width:100%;height:230px;object-fit:cover;display:block;}
+  figure.photo figcaption{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.78rem;color:var(--ink-soft);padding:8px 13px;background:var(--card);}
+  .img-fallback{display:flex;align-items:center;justify-content:center;height:230px;background:linear-gradient(135deg,#0e6ba8,#2e6b4f);color:#fff;font-family:'Segoe UI',Tahoma,Arial,sans-serif;text-align:center;padding:20px;font-size:.92rem;}
+  table{width:100%;border-collapse:collapse;background:var(--card);font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.9rem;}
+  .table-wrap{overflow-x:auto;margin-top:18px;border-radius:var(--radius);box-shadow:var(--shadow);}
+  th{background:var(--tahoe-deep);color:#fff;text-align:left;padding:11px 13px;font-weight:600;white-space:nowrap;}
+  td{padding:10px 13px;border-top:1px solid #e8e2d4;vertical-align:top;}
   tr:nth-child(even) td{background:#faf7f0;}
-  .win td{background:#eaf4ec !important;font-weight:600;}
-  .badge{
-    display:inline-block;font-family:'Segoe UI',Tahoma,Arial,sans-serif;
-    font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-    padding:3px 10px;border-radius:20px;margin-left:6px;vertical-align:middle;
-  }
-  .badge.gold{background:#f7e8c3;color:#7a5b12;}
-  .badge.green{background:#dcefe2;color:#22593d;}
-  .badge.red{background:#f6dcd7;color:#7d2f24;}
-  .prop{border-left:5px solid var(--tahoe);}
-  .prop h3{color:var(--tahoe-deep);}
-  .prop .meta{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.88rem;color:var(--ink-soft);margin:6px 0 10px;}
-  .prop .price{
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-weight:700;color:var(--pine);
-    font-size:1.05rem;margin-top:10px;
-  }
-  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
-  .pill{
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.78rem;
-    background:var(--sand);border:1px solid var(--sand-deep);
-    padding:3px 10px;border-radius:20px;color:var(--ink-soft);
-  }
+  .hl td{background:#f3ead3 !important;font-weight:600;}
+  .dest{border-radius:var(--radius);overflow:hidden;margin-top:56px;box-shadow:var(--shadow);background:var(--card);}
+  .dest-band{padding:34px 30px 26px;color:#fff;}
+  .dest-band .tag{font-family:'Segoe UI',Tahoma,Arial,sans-serif;text-transform:uppercase;letter-spacing:.2em;font-size:.75rem;font-weight:700;opacity:.85;}
+  .dest-band h2{color:#fff;margin-top:6px;}
+  .dest-band p{max-width:820px;margin-top:8px;color:rgba(255,255,255,.92);}
+  .dest-body{padding:8px 30px 34px;}
+  .t-band{background:linear-gradient(120deg,var(--tahoe-deep),var(--tahoe));}
+  .c-band{background:linear-gradient(120deg,var(--cda-deep),var(--cda));}
+  .b-band{background:linear-gradient(120deg,var(--banff-deep),var(--banff));}
+  .dest-body h3.section-label{font-family:'Segoe UI',Tahoma,Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;color:var(--gold);margin-top:30px;font-weight:700;}
+  .prop{border-left:5px solid var(--gold);}
+  .prop .meta{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.86rem;color:var(--ink-soft);margin:5px 0 8px;}
+  .prop .price{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-weight:700;color:var(--cda-deep);font-size:1rem;margin-top:9px;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px;}
+  .pill{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.76rem;background:var(--sand);border:1px solid var(--sand-deep);padding:3px 10px;border-radius:20px;color:var(--ink-soft);}
   ul.clean{list-style:none;}
-  ul.clean li{padding:7px 0 7px 26px;position:relative;}
+  ul.clean li{padding:6px 0 6px 24px;position:relative;}
   ul.clean li::before{content:"—";position:absolute;left:0;color:var(--gold);font-weight:700;}
-  .pro-con{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:20px;}
-  .pro{border-top:5px solid var(--pine);}
+  .pro-con{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:18px;}
+  .pro{border-top:5px solid var(--cda);}
   .con{border-top:5px solid var(--red);}
-  .pro h3{color:var(--pine);} .con h3{color:var(--red);}
-  .big-number{
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:clamp(2rem,5vw,3rem);
-    font-weight:800;color:var(--tahoe-deep);line-height:1;
-  }
-  .callout{
-    background:linear-gradient(135deg,var(--tahoe-deep),var(--pine));
-    color:#fff;border-radius:var(--radius);padding:34px;margin-top:24px;box-shadow:var(--shadow);
-  }
-  .callout h3{color:#ffd98a;font-size:1.3rem;margin-bottom:10px;}
+  .pro h3{color:var(--cda-deep);} .con h3{color:var(--red);}
+  .callout{background:linear-gradient(135deg,var(--tahoe-deep),var(--cda-deep));color:#fff;border-radius:var(--radius);padding:32px;margin-top:22px;box-shadow:var(--shadow);}
+  .callout h3{color:#ffd98a;font-size:1.28rem;margin-bottom:10px;}
   .callout p{color:#e8f2ee;}
-  .fine{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.78rem;color:var(--ink-soft);margin-top:14px;}
-  footer{
-    text-align:center;padding:36px 20px 60px;color:var(--ink-soft);
-    font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.85rem;
+  .fine{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.78rem;color:var(--ink-soft);margin-top:12px;}
+  .kidfree{background:#eef6ee;border:1px solid #cfe4cf;border-left:6px solid var(--cda);border-radius:var(--radius);padding:18px 22px;margin-top:22px;}
+  .kidfree .kf-label{font-family:'Segoe UI',Tahoma,Arial,sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.74rem;font-weight:700;color:var(--cda-deep);}
+  .kidfree .kf-grade{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-weight:800;font-size:1rem;color:var(--cda-deep);margin:4px 0 8px;}
+  .kidfree p{font-size:.97rem;color:var(--ink);}
+  .build-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:18px;}
+  .build{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;border-top:6px solid var(--gold);}
+  .build h3{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:1.02rem;color:var(--tahoe-deep);margin-bottom:10px;}
+  .bd-row{display:flex;justify-content:space-between;gap:12px;font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.88rem;padding:5px 0;border-bottom:1px dashed #e2d9c4;color:var(--ink-soft);}
+  .bd-row span:last-child{white-space:nowrap;font-weight:600;color:var(--ink);}
+  .bd-total{display:flex;justify-content:space-between;font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-weight:800;padding:8px 0 2px;color:var(--tahoe-deep);}
+  .bd-head{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.85rem;background:#f7e8c3;color:#5c4410;border-radius:8px;padding:10px 12px;margin-top:12px;line-height:1.5;}
+  footer{text-align:center;padding:36px 20px 60px;color:var(--ink-soft);font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.84rem;}
+  .votecard{
+    margin-top:70px;position:relative;border-radius:18px;overflow:hidden;
+    background:linear-gradient(135deg,#0a4d78 0%,#1f4d38 55%,#33436b 100%);
+    color:#fff;box-shadow:0 14px 44px rgba(10,40,60,.35);
+    border:2px solid #ffd98a;padding:46px 38px 42px;
   }
-  .closing{
-    margin-top:64px;background:var(--tahoe-deep);color:#fff;border-radius:var(--radius);
-    padding:44px 36px;box-shadow:var(--shadow);
+  .votecard .vc-kicker{font-family:'Segoe UI',Tahoma,Arial,sans-serif;text-transform:uppercase;letter-spacing:.26em;font-size:.78rem;font-weight:700;color:#ffd98a;}
+  .votecard h2{color:#fff;font-size:clamp(1.8rem,4vw,2.6rem);margin-top:10px;line-height:1.1;}
+  .votecard .vc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:26px;}
+  .votecard .vc-point{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:16px 18px;}
+  .votecard .vc-point b{display:block;font-family:'Segoe UI',Tahoma,Arial,sans-serif;color:#ffd98a;font-size:.95rem;margin-bottom:6px;letter-spacing:.02em;}
+  .votecard .vc-point p{font-size:.95rem;color:#e9f1f7;line-height:1.5;}
+  .votecard .vc-concede{margin-top:22px;font-style:italic;color:#cfdde8;font-size:.98rem;border-left:3px solid #ffd98a;padding-left:14px;}
+  .votecard .vc-cta{
+    display:inline-block;margin-top:26px;font-family:'Segoe UI',Tahoma,Arial,sans-serif;
+    background:#ffd98a;color:#1c2b33;font-weight:800;font-size:1.08rem;
+    padding:14px 30px;border-radius:40px;letter-spacing:.02em;box-shadow:0 4px 16px rgba(0,0,0,.3);
   }
-  .closing h2{color:#ffd98a;}
-  .closing p{color:#dfeaf2;font-size:1.08rem;max-width:840px;}
-  .closing .rule{background:#ffd98a;}
+  .votecard .vc-tail{margin-top:14px;font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.85rem;color:#b9cbd8;}
 </style>
 </head>
 <body>
@@ -144,240 +120,394 @@
 <header class="hero">
   <div class="hero-inner">
     <div class="kicker">Family Reunion 2028 &middot; The North America Pitch</div>
-    <h1>Lake Tahoe.<br>Everybody just drives.</h1>
-    <p class="hero-sub">Nine days on the bluest lake in America, in one giant cabin with a hot tub and a game room &mdash; and 19 of our 20 people get there without an airport, a passport, or a single time zone.</p>
-    <div class="hero-stats sans">
-      <div class="stat"><b>19 of 20</b> arrive by car</div>
-      <div class="stat"><b>~$1,600</b> total group travel cost</div>
-      <div class="stat"><b>0</b> passports needed</div>
-      <div class="stat"><b>0</b> hours of jet lag</div>
-      <div class="stat"><b>80&deg;F</b> &amp; sunny, ~90% of July days</div>
+    <h1>Three mountain lakes.<br>No redeyes. One easy vote.</h1>
+    <p class="hero-sub">This ballot line is a trio: <b>Lake Tahoe</b>, <b>Coeur d'Alene</b>, and <b>Banff&ndash;Canmore</b>. Vote "North America" now, and the family holds a second, smaller vote later to pick among the three. What you're really voting for today: nine days together without overnight flights, customs lines, or an 18-month-old melting down at an international gate.</p>
+    <div class="hero-stats">
+      <div class="stat"><b>2 of 3</b> options need no passports</div>
+      <div class="stat"><b>~$3,500</b> group travel to Tahoe vs $14k&ndash;$36k airfare abroad</div>
+      <div class="stat"><b>16 of 20</b> can drive to Lake Tahoe (Utah + California crews)</div>
+      <div class="stat"><b>All 3</b> have real 20-person lodging under ~$30k</div>
     </div>
   </div>
 </header>
 
 <main>
 
-<!-- WHY TAHOE -->
+<!-- SHARED OPENING -->
 <section>
-  <h2>Why Tahoe wins for this family</h2>
+  <h2>The shared argument: the trip starts at the driveway, not the gate</h2>
   <div class="rule"></div>
-  <p class="lead">Every other destination on the ballot asks 20 people &mdash; including a 3&frac12;-year-old &mdash; to survive airports, connections, and redeyes before the vacation even starts. Tahoe is the only world-class alpine lake that sits <b>almost exactly halfway between Salt Lake City and Southern California</b>. Utah drives I-80 west in about 8 hours. SoCal drives US-395 north in about 7&ndash;8 hours. Same day, same lake, minivans full of gear, car seats, coolers, and napping kids. Only our Boston traveler flies.</p>
-  <div class="grid3">
-    <figure class="photo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Sand_Harbor%2C_Lake_Tahoe%2C_Nevada%2C_20220514%2C_04.jpg/1280px-Sand_Harbor%2C_Lake_Tahoe%2C_Nevada%2C_20220514%2C_04.jpg" alt="Turquoise water and granite boulders at Sand Harbor beach, Lake Tahoe, Nevada" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Sand Harbor, Lake Tahoe &mdash; turquoise shallows and granite boulders&lt;/div&gt;'">
-      <figcaption>Sand Harbor, east shore &mdash; the kids' favorite beach (Wikimedia Commons)</figcaption>
-    </figure>
-    <figure class="photo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Golden_Hour_at_Emerald_Bay.jpg/1280px-Golden_Hour_at_Emerald_Bay.jpg" alt="Golden hour light over Emerald Bay, Lake Tahoe" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Emerald Bay at golden hour &mdash; the postcard shot of the whole trip&lt;/div&gt;'">
-      <figcaption>Emerald Bay &mdash; where the paddlewheeler cruise goes (Wikimedia Commons)</figcaption>
-    </figure>
-    <figure class="photo">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Donner_Lake_from_McClashan_Point.jpg/1280px-Donner_Lake_from_McClashan_Point.jpg" alt="Donner Lake near Truckee seen from McClashan Point" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Donner Lake &mdash; the quieter, warmer lake five minutes from our cabin&lt;/div&gt;'">
-      <figcaption>Donner Lake &mdash; warmer water, five minutes from the cabin zone (Wikimedia Commons)</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- TRAVEL EASE - KILLER CARD -->
-<section>
-  <h2>The killer card: getting there costs almost nothing</h2>
-  <div class="rule"></div>
-  <p class="lead">The other pitches need <b>$14,000&ndash;$36,000 in group airfare</b> before anyone eats a meal. Here is our entire travel bill:</p>
-  <div class="table-wrap">
-  <table>
-    <tr><th>Family</th><th>How they get there</th><th>Time</th><th>Est. cost (2028)</th></tr>
-    <tr><td><b>3 Utah families + grandparents</b> (12 people, 3 vehicles)</td><td>Drive I-80 West, SLC &rarr; Truckee (~520 mi)</td><td>7.5&ndash;8.5 hrs</td><td>~$200/vehicle round-trip gas &rarr; <b>~$600</b></td></tr>
-    <tr><td><b>2 SoCal families</b> (7 people, 2 vehicles)</td><td>Drive US-395 North, LA &rarr; Truckee (~465 mi). (Or fly LAX&rarr;RNO nonstop ~1.5 hrs, ~$150&ndash;280 RT each)</td><td>7&ndash;8 hrs</td><td>~$180/vehicle round-trip gas &rarr; <b>~$360</b></td></tr>
-    <tr><td><b>Boston</b> (1 adult)</td><td>Fly BOS &rarr; Reno (1 stop; no nonstop exists), then a 35-min family pickup from RNO</td><td>~8&ndash;9 hrs door to door</td><td><b>~$450&ndash;600</b> RT</td></tr>
-    <tr class="win"><td colspan="3">TOTAL GROUP TRAVEL</td><td>~$1,400&ndash;$1,600</td></tr>
-  </table>
-  </div>
+  <p class="lead">Every international option on the ballot spends its first day &mdash; and $14,000&ndash;$36,000 of group airfare &mdash; just getting twenty people through airports. The North America option spends that day already at the lake. Our family is 11 Salt Lakers, 5 Oceansiders, 3 Bostonians, and one New Hampshirite &mdash; and for Lake Tahoe, both the Utah and California crews (16 of our 20) simply <b>drive</b>: gear in the trunk, car seats installed, the 18-month-old napping on the highway instead of over the Atlantic. The four New Englanders fly ordinary domestic daytime flights &mdash; no redeyes, no customs. No passports for Tahoe or Coeur d'Alene. No overnight travel for anyone. And the airfare money doesn't vanish &mdash; it becomes a bigger house, a boat day, and a college-fund-sized savings line.</p>
   <div class="callout">
-    <h3>~$1,600 vs. $14,000&ndash;$36,000</h3>
-    <p>That is a <b>$12,000&ndash;$34,000 swing</b> versus the flight-based options &mdash; roughly the cost of the entire 9-night lodge, saved before we leave the driveway. No passports for 20 people (nine of them kids &mdash; that alone is ~$1,400 in passport fees for the Banff option). No jet lag. No lost luggage. The toddler naps in her own car seat, not on a redeye over Greenland. And if somebody forgets the pack-n-play, it's in the trunk, not in a checked-bag dispute.</p>
+    <h3>A vote for North America is a vote for a second, easier decision</h3>
+    <p>You are not choosing between Tahoe, Coeur d'Alene, and Banff today. You're choosing the <i>continent</i>. If North America wins the ranked-choice vote, the family runs a quick runoff among these three &mdash; with full pricing below so that vote takes ten minutes, not ten email threads.</p>
   </div>
 </section>
 
-<!-- THE HOUSE -->
-<section>
-  <h2>One roof, twenty people: real houses, real prices</h2>
-  <div class="rule"></div>
-  <p class="lead">This is the region where 20-person cabins actually exist in quantity. North Lake Tahoe &mdash; Truckee, Tahoe Donner, Northstar, Tahoe Vista &mdash; has no South-Lake-style rental cap drama, and big homes are abundant on VRBO and Airbnb. Budget target: <b>$30,000 for 9 nights</b>. Every option below lands at or under it. Prices are July peak-season estimates inflated ~5&ndash;8%/yr to 2028; big-cabin cleaning fees ($600&ndash;$1,200) and ~10&ndash;14% lodging tax are included in the totals.</p>
-
-  <div class="card prop">
-    <h3>1. "Luxury Tahoe Donner Home, Sauna + Hot Tub &mdash; Sleeps 20" <span class="badge gold">Top pick</span></h3>
-    <div class="meta sans">Tahoe Donner (Truckee), CA &middot; Sleeps 20 &middot; Airbnb listing #2419342</div>
-    <p>A purpose-built big-group home in the Tahoe Donner HOA &mdash; which means guest access to the Trout Creek Rec Center (three pools including a toddler pool, hot tubs, sauna) and a private HOA beach on Donner Lake. The whole family under one roof, with the rec-center safety valve for rainy hours.</p>
-    <div class="pill-row"><span class="pill">Hot tub</span><span class="pill">Sauna</span><span class="pill">HOA pools + private Donner Lake beach</span><span class="pill">15 min to the lake</span></div>
-    <div class="price">Est. $1,300&ndash;$1,600/night &rarr; ~$14,000&ndash;$17,500 all-in for 9 nights</div>
+<!-- ============ TAHOE ============ -->
+<div class="dest" id="tahoe">
+  <div class="dest-band t-band">
+    <div class="tag">Option 1 &middot; California / Nevada</div>
+    <h2>Lake Tahoe &mdash; North Shore (Truckee &middot; Tahoe Donner &middot; Tahoe Vista &middot; Incline Village)</h2>
+    <p>The bluest big lake in America, sitting almost exactly between the two driving hubs: ~8 hours from Salt Lake City on I-80, ~8&ndash;8.5 hours from Oceanside up I-15/US-395. Sixteen of our twenty arrive by car; the four New Englanders fly into Reno, 35 minutes from the cabin.</p>
   </div>
+  <div class="dest-body">
 
-  <div class="card prop">
-    <h3>2. Truckee Estate &mdash; 8 BR / 12 BA, Movie Theater &amp; Elevator</h3>
-    <div class="meta sans">Truckee, CA &middot; Sleeps 18 (+2 on aerobeds for the teens) &middot; VRBO #385791</div>
-    <p>8 bedrooms, twelve bathrooms (zero morning shower wars for 20 people), a private movie theater, spa and hot tub. The teens claim the theater; the grandparents claim the spa.</p>
-    <div class="pill-row"><span class="pill">Movie theater</span><span class="pill">Hot tub + spa</span><span class="pill">12 bathrooms</span><span class="pill">Near Northstar</span></div>
-    <div class="price">Est. $1,700&ndash;$2,100/night &rarr; ~$18,500&ndash;$23,000 all-in for 9 nights</div>
-  </div>
-
-  <div class="card prop">
-    <h3>3. "Sleeps 18 &mdash; Private Theater &amp; Hot Tub" <span class="badge green">Value play</span></h3>
-    <div class="meta sans">Truckee, CA &middot; Sleeps 18 (+toddler crib) &middot; Airbnb listing #2467011</div>
-    <p>The budget-friendly version of option 2: big open great room, theater room, hot tub. At 18+2 it is snug for our 20, but the savings fund an extra boat day.</p>
-    <div class="pill-row"><span class="pill">Theater room</span><span class="pill">Hot tub</span><span class="pill">Best price per head</span></div>
-    <div class="price">Est. $1,100&ndash;$1,400/night &rarr; ~$12,000&ndash;$15,500 all-in for 9 nights</div>
-  </div>
-
-  <div class="card prop">
-    <h3>4. Nine-King-Suite Luxury Lodge &mdash; 9 BR / 11.5 BA <span class="badge gold">Splurge</span></h3>
-    <div class="meta sans">Truckee, CA &middot; Sleeps 20+ &middot; Airbnb Luxe tier</div>
-    <p>Nine king suites (every couple gets a real bedroom), two 8-person hot tubs, chef's kitchen with a custom 20-seat dining table, game room with pool and foosball. This is the "we did it right" option &mdash; and it still fits the budget.</p>
-    <div class="pill-row"><span class="pill">Two 8-person hot tubs</span><span class="pill">9 king suites</span><span class="pill">20-seat dining table</span><span class="pill">Game room</span></div>
-    <div class="price">Est. $2,300&ndash;$2,800/night &rarr; ~$24,500&ndash;$29,500 all-in for 9 nights</div>
-  </div>
-
-  <div class="card prop">
-    <h3>5. Two-House Compound at Northstar <span class="badge green">Flexible</span></h3>
-    <div class="meta sans">Northstar (Truckee), CA &middot; 2 &times; 5 BR homes, each sleeps 12 &middot; Tahoe Luxury Properties (tluxp.com), e.g. "Home Run" + "Eagle's Nest"</div>
-    <p>Two luxury 5-bedroom homes side by side in the Northstar resort community (summer rates from ~$675&ndash;$1,000/night each). Families with little kids get quiet bedtimes; the village gondola, bike park, and roller rink are walkable. Slightly less "one big house" magic, maximum sleep quality.</p>
-    <div class="pill-row"><span class="pill">Walk to Northstar Village</span><span class="pill">Quiet toddler bedtimes</span><span class="pill">Hot tubs at both</span></div>
-    <div class="price">Est. $1,600&ndash;$2,200/night combined &rarr; ~$17,000&ndash;$23,000 all-in for 9 nights</div>
-  </div>
-  <p class="fine">Rates are researched July estimates from current listings and manager-published ranges, escalated to 2028; exact quotes require dates. Book 9&ndash;12 months out &mdash; true 20-sleepers are the first homes to go for July.</p>
-</section>
-
-<!-- ACTIVITIES -->
-<section>
-  <h2>Nine days, ages 3&frac12; to 67 &mdash; nobody is bored</h2>
-  <div class="rule"></div>
-  <div class="table-wrap">
-  <table>
-    <tr><th>Activity</th><th>Who</th><th>Est. 2028 price</th><th>Why it works</th></tr>
-    <tr><td><b>Emerald Bay cruise on the M.S. Dixie II paddlewheeler</b> (Zephyr Cove)</td><td>All 20, ages 0&ndash;67</td><td>~$105 adult / $60 child 3&ndash;11 / under 3 free &rarr; ~$2,000 group</td><td>The whole family on one boat to the most photographed bay in America. Zero fitness required, maximum photo ops.</td></tr>
-    <tr><td><b>Truckee River raft float</b>, Tahoe City &rarr; River Ranch</td><td>Ages 2+ &mdash; literally everyone</td><td>~$75/person &rarr; ~$1,450 group</td><td>Self-guided 5-mile lazy float, 2&ndash;3 hrs, swimming holes and sandbars. The rare activity the toddler AND the 16-year-old both love.</td></tr>
-    <tr><td><b>Palisades Tahoe Aerial Tram to High Camp</b> (8,200 ft)</td><td>All ages; 4 &amp; under free</td><td>~$45&ndash;55/person &rarr; ~$900 group</td><td>Olympic-venue tram, lake-view deck, roller skating and a playground on a mountaintop. Grandparents + big kids can hike down the Shirley Canyon trail.</td></tr>
-    <tr><td><b>Tahoe Treetop Adventure Park</b> (Tahoe City / Tahoe Vista)</td><td>Ages 6+ (7 of 9 grandkids + game adults)</td><td>~$70 kids / $80 adults &rarr; ~$1,100 for 14</td><td>27 ziplines and 60 aerial bridges. Teens rate this the #1 thing all week; toddler crew hits the KidZone Museum instead.</td></tr>
-    <tr><td><b>Sand Harbor beach day + pontoon boat afternoon</b></td><td>All 20</td><td>$15/vehicle + reservation; pontoons ~$700&ndash;$1,200 per half-day boat</td><td>Caribbean-clear shallows over white sand for the little kids; two rented pontoons put the whole family on the water for a sunset cruise.</td></tr>
-  </table>
-  </div>
-  <p class="fine">Also in easy reach: Donner Lake's warm West End Beach (5 min), Tahoe East Shore Trail (paved, stroller-friendly), Commons Beach movie nights in Tahoe City, mini golf, and 100+ miles of family hiking. Sand Harbor requires an advance parking reservation (reservenevada.com, 8:00&ndash;10:30am window) mid-May through September &mdash; we book it the week reservations open.</p>
-</section>
-
-<!-- WEATHER -->
-<section>
-  <h2>Weather &mdash; and the honest smoke conversation</h2>
-  <div class="rule"></div>
-  <div class="grid2">
-    <div class="card">
-      <h3>Late June / July: about as reliable as mountain weather gets</h3>
-      <ul class="clean">
-        <li>Highs <b>75&ndash;82&deg;F</b>, overnight lows 45&ndash;50&deg;F (great sleeping, bring hoodies)</li>
-        <li>Sunshine roughly <b>90% of summer days</b>; measurable rain is rare</li>
-        <li>Lake surface <b>65&ndash;70&deg;F</b> by mid-July; Sand Harbor and Donner Lake shallows warmer</li>
-        <li>Elevation 5,900&ndash;7,000 ft &mdash; noticeably mild vs. Breckenridge's 9,600 ft sleeping altitude; no real acclimatization issues for the toddler or anyone else</li>
-      </ul>
+    <div class="grid3">
+      <figure class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Sand_Harbor%2C_Lake_Tahoe%2C_Nevada%2C_20220514%2C_04.jpg/1280px-Sand_Harbor%2C_Lake_Tahoe%2C_Nevada%2C_20220514%2C_04.jpg" alt="Turquoise water and granite boulders at Sand Harbor beach, Lake Tahoe, Nevada" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Sand Harbor, Lake Tahoe &mdash; turquoise shallows and granite boulders&lt;/div&gt;'">
+        <figcaption>Sand Harbor, east shore (Wikimedia Commons)</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Golden_Hour_at_Emerald_Bay.jpg/1280px-Golden_Hour_at_Emerald_Bay.jpg" alt="Golden hour light over Emerald Bay, Lake Tahoe" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Emerald Bay at golden hour&lt;/div&gt;'">
+        <figcaption>Emerald Bay &mdash; the paddlewheeler cruise destination (Wikimedia Commons)</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Donner_Lake_from_McClashan_Point.jpg/1280px-Donner_Lake_from_McClashan_Point.jpg" alt="Donner Lake near Truckee seen from McClashan Point" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Donner Lake &mdash; the warmer lake five minutes from the cabin zone&lt;/div&gt;'">
+        <figcaption>Donner Lake &mdash; warmer water, 5 min from the cabins (Wikimedia Commons)</figcaption>
+      </figure>
     </div>
-    <div class="card con">
-      <h3>The straight truth on wildfire smoke</h3>
-      <p>Tahoe sits in the Sierra, and the Sierra burns. The 2021 Caldor Fire forced the evacuation of South Lake Tahoe in <b>late August</b>. Smoke season is real &mdash; but it is overwhelmingly an <b>August&ndash;September</b> phenomenon. Late June and early July are historically the clearest weeks of the fire calendar, which is exactly when we would go. The risk is not zero, and this pitch won't pretend it is: we book refundable where possible, buy trip insurance (~$400&ndash;600 for the group), and accept that a bad-luck year could gray out some views. Note that Banff, Whitefish, Bend, and Breckenridge all carry the same Western smoke lottery ticket &mdash; this is not a Tahoe-only risk.</p>
+
+    <h3 class="section-label">Getting there, family by family</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Family</th><th>Route</th><th>Time</th><th>Est. 2028 cost</th></tr>
+      <tr><td>Salt Lake crew (11 people: grandparents, the no-kids couple, the family of 7 &mdash; 3 vehicles)</td><td>Drive I-80 W, SLC to Truckee, ~520 mi</td><td>7.5&ndash;8.5 hrs</td><td>~$200/vehicle RT gas &rarr; ~$600</td></tr>
+      <tr><td>Oceanside crew (5 people: couple + 3 kids &mdash; 1 minivan)</td><td>Drive I-15 N / US-395 N through the Owens Valley, ~525 mi</td><td>~8&ndash;8.5 hrs</td><td>~$200 RT gas</td></tr>
+      <tr><td>Boston family (3: couple + the 16-year-old)</td><td>Fly BOS&ndash;RNO, 1 stop (no nonstop exists); Reno is 35 min from Truckee</td><td>~8&ndash;9 hrs door to door</td><td>~$450&ndash;600 RT each &rarr; ~$1,350&ndash;1,800</td></tr>
+      <tr><td>Manchester, NH (1 adult)</td><td>Fly from BOS (or MHT), 1 stop to RNO; shares the Boston family's rental</td><td>~8&ndash;9 hrs</td><td>~$450&ndash;600 RT</td></tr>
+      <tr><td>Flyers' wheels</td><td>One mid-size SUV rental at RNO for the four New Englanders, 10 days (or a family pickup run &mdash; Reno is 35 min away)</td><td>&mdash;</td><td>~$550&ndash;700</td></tr>
+      <tr class="hl"><td colspan="3">Group travel total &mdash; 16 of 20 by car</td><td>~$3,150&ndash;$3,900</td></tr>
+    </table></div>
+
+    <h3 class="section-label">Where 20 people sleep (9 nights, all-in incl. cleaning + ~10&ndash;14% tax, 2028-adjusted)</h3>
+    <p class="fine">Note on South Lake Tahoe: the city's VHR ordinance history (Measure T, struck down 2025, replaced by a 900-permit cap) makes big-home permits there a lottery &mdash; so this pitch stays on the North Shore and Truckee, where large rentals are abundant and uncapped.</p>
+    <div class="card prop">
+      <h3>1. "Luxury Tahoe Donner Home, Sauna + Hot Tub &mdash; Sleeps 20"</h3>
+      <div class="meta">Tahoe Donner (Truckee), CA &middot; Sleeps 20 &middot; Airbnb #2419342</div>
+      <div class="pill-row"><span class="pill">Hot tub + sauna</span><span class="pill">HOA rec center: 3 pools incl. toddler pool</span><span class="pill">Private HOA beach on Donner Lake</span></div>
+      <div class="price">Est. $1,300&ndash;$1,600/night &rarr; ~$14,000&ndash;$17,500 all-in</div>
     </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section>
-  <h2>How the North American candidates scored</h2>
-  <div class="rule"></div>
-  <div class="table-wrap">
-  <table>
-    <tr><th>Destination</th><th>Travel ease</th><th>20-person cabins</th><th>Activities 3&frac12;&ndash;67</th><th>"Feels like vacation"</th><th>Total /40</th></tr>
-    <tr class="win"><td>Lake Tahoe (North Shore)</td><td>9</td><td>9</td><td>9</td><td>8</td><td><b>35 &mdash; WINNER</b></td></tr>
-    <tr><td>Park City / Midway, UT</td><td>10</td><td>9</td><td>7</td><td>4 &mdash; it's 45 min from 12 people's houses</td><td>30</td></tr>
-    <tr><td>Jackson Hole, WY</td><td>6 &mdash; easy from SLC, 12+ hrs or 2 flights from SoCal</td><td>5 &mdash; scarce &amp; very expensive in July</td><td>9</td><td>9</td><td>29</td></tr>
-    <tr><td>Breckenridge, CO</td><td>5 &mdash; 7&ndash;8 hr drives for everyone or DEN + 2 hrs</td><td>8</td><td>8</td><td>7 &mdash; but 9,600 ft: 15&ndash;40% of visitors sleeping above 8,000 ft get altitude sickness; real risk for the toddler and several adults</td><td>28</td></tr>
-    <tr><td>Banff / Canmore, AB</td><td>2 &mdash; flights + passports for all 20 (~$1,400 in kids' passport fees alone), YYC + 90-min drive</td><td>4 &mdash; STRs restricted to shrinking tourist-home zones</td><td>9</td><td>10</td><td>25</td></tr>
-    <tr><td>Whitefish / Bend / CdA / McCall</td><td>3&ndash;5 &mdash; 9&ndash;13 hr drives or connecting flights for most</td><td>5&ndash;7</td><td>7&ndash;8</td><td>7&ndash;8</td><td>22&ndash;27</td></tr>
-  </table>
-  </div>
-  <p class="fine">Scores /10 per column, weighted toward this family's stated priority: travel ease. Banff is the most beautiful option on the list and the worst fit for the brief &mdash; it converts a drive-there reunion into a 20-passport international flight operation. Park City is the only rival on logistics, but a reunion 45 minutes from most of the family's front doors risks feeling like a long weekend at a nice hotel, with the temptation to "run home real quick." Tahoe is the sweet spot: far enough to feel like a real trip for every family, close enough that no one boards a plane except Boston.</p>
-</section>
-
-<!-- BUDGET -->
-<section>
-  <h2>The full budget &mdash; and what the alternatives cost</h2>
-  <div class="rule"></div>
-  <div class="table-wrap">
-  <table>
-    <tr><th>Line item (20 people, 9 nights)</th><th>Estimate (2028)</th><th>Notes</th></tr>
-    <tr><td>Lodging (one 20-person home incl. cleaning + tax)</td><td>$14,000&ndash;$24,000</td><td>Target was $30k &mdash; comes in under with headroom</td></tr>
-    <tr><td>Travel (5 cars' gas + 1 Boston flight)</td><td>$1,400&ndash;$1,600</td><td>vs. $14k&ndash;$36k group airfare elsewhere</td></tr>
-    <tr><td>Food (Costco run in Reno + groceries for 20 + 3 restaurant nights)</td><td>$6,500&ndash;$8,500</td><td>Big-kitchen cabin = most meals cooked, US grocery prices</td></tr>
-    <tr><td>Activities (top 5 above + extras)</td><td>$5,000&ndash;$7,000</td><td>Cruise, rafting, tram, treetop park, boats, beaches</td></tr>
-    <tr class="win"><td>TOTAL, ALL-IN</td><td>$27,000&ndash;$41,000</td><td>The international pitches run ~$40,000&ndash;$85,000 all-in</td></tr>
-  </table>
-  </div>
-  <div class="callout">
-    <h3>Same 9 days together. $15,000&ndash;$45,000 less.</h3>
-    <p>That difference is a college-fund contribution per grandchild, or the seed money for the <i>next</i> reunion. And because there are no flights for 19 of 20 people, the budget has almost no volatility: no airfare spikes, no baggage fees times twenty, no missed-connection hotel nights.</p>
-  </div>
-</section>
-
-<!-- KIDS -->
-<section>
-  <h2>Kid-by-kid fit</h2>
-  <div class="rule"></div>
-  <div class="grid3">
-    <div class="card"><h3>The toddler (3&frac12;)</h3><p>Naps in the car, not an airplane aisle. Raft float allows ages 2+. Sand Harbor and Donner Lake have shallow, gradual beaches. Toddler pool at the Tahoe Donner rec center. KidZone Museum in Truckee for the one cranky afternoon.</p></div>
-    <div class="card"><h3>The 6&ndash;13 crowd (six kids)</h3><p>Treetop park from age 6, boogie boards, pontoon tubing, gem panning and ropes courses at the resorts, bikes on the paved Truckee River trail, s'mores every single night at the cabin fire pit.</p></div>
-    <div class="card"><h3>The teen (16) &mdash; and the grandparents</h3><p>Real ziplines, cliff-jumping spots (supervised), Shirley Canyon hike from High Camp with Grandpa and Grandma &mdash; who hike, and will out-hike half the adults. Kayaks at sunrise on a glass lake.</p></div>
-  </div>
-</section>
-
-<!-- HONEST PROS/CONS -->
-<section>
-  <h2>The honest ledger</h2>
-  <div class="rule"></div>
-  <div class="pro-con">
-    <div class="card pro">
-      <h3>Pros</h3>
-      <ul class="clean">
-        <li>Only destination drivable from BOTH Utah and SoCal (~8 hrs each) &mdash; 19 of 20 people never see an airport</li>
-        <li>~$1,600 total group travel vs. $14k&ndash;$36k in airfare for the international options</li>
-        <li>Abundant real 18&ndash;20+ person homes; lodging lands under the $30k target</li>
-        <li>Best-in-class weather reliability: 90% sunshine, 75&ndash;82&deg;F</li>
-        <li>Genuine all-ages depth: cruise, float, tram, ziplines, five different beaches</li>
-        <li>No passports (nine kids' passports avoided), no jet lag, no baggage roulette</li>
-        <li>Mild elevation &mdash; none of Breckenridge's altitude-sickness risk</li>
-      </ul>
+    <div class="card prop">
+      <h3>2. Truckee Estate &mdash; 8 BR / 12 BA with Movie Theater &amp; Elevator</h3>
+      <div class="meta">Truckee, CA &middot; Sleeps 18 (+2 aerobeds for teens) &middot; VRBO #385791</div>
+      <div class="pill-row"><span class="pill">Private movie theater</span><span class="pill">Spa + hot tub</span><span class="pill">12 bathrooms &mdash; zero shower wars</span></div>
+      <div class="price">Est. $1,700&ndash;$2,100/night &rarr; ~$18,500&ndash;$23,000 all-in</div>
     </div>
-    <div class="card con">
-      <h3>Cons &mdash; said plainly</h3>
-      <ul class="clean">
-        <li><b>It is not exotic.</b> Nobody gets a passport stamp. Against Crete, Maui, the fjords, an Alaska glacier &mdash; Tahoe loses the bragging-rights contest, full stop. The counter is that this trip is about nine days together, not the destination's Instagram score.</li>
-        <li><b>Wildfire smoke risk is real.</b> Late June/early July is the safest window, but a Caldor-type year can happen. Trip insurance is part of this budget.</li>
-        <li>Two families still face 8-hour drives with young kids &mdash; easier than flying, but not nothing.</li>
-        <li>July is Tahoe's peak: lake-loop traffic, full beaches, and Sand Harbor requires advance parking reservations.</li>
-        <li>Boston has no nonstop to Reno &mdash; one connection, ~8&ndash;9 hrs door to door.</li>
-        <li>Big-cabin extras are hefty: expect $600&ndash;$1,200 cleaning fees and 10&ndash;14% lodging tax (already counted above).</li>
-      </ul>
+    <div class="card prop">
+      <h3>3. "Sleeps 18 &mdash; Private Theater &amp; Hot Tub" (value play)</h3>
+      <div class="meta">Truckee, CA &middot; Sleeps 18 (+crib) &middot; Airbnb #2467011</div>
+      <div class="pill-row"><span class="pill">Theater room</span><span class="pill">Hot tub</span><span class="pill">Best price per head</span></div>
+      <div class="price">Est. $1,100&ndash;$1,400/night &rarr; ~$12,000&ndash;$15,500 all-in</div>
+    </div>
+    <div class="card prop">
+      <h3>4. Two-house compound at Northstar (e.g., "Home Run" + "Eagle's Nest", Tahoe Luxury Properties)</h3>
+      <div class="meta">Northstar (Truckee), CA &middot; 2 &times; 5BR, each sleeps 12 &middot; tluxp.com, summer from ~$675&ndash;$1,000/night each</div>
+      <div class="pill-row"><span class="pill">Walk to Northstar Village</span><span class="pill">Quiet toddler bedtimes</span><span class="pill">Hot tubs at both</span></div>
+      <div class="price">Est. $1,600&ndash;$2,200/night combined &rarr; ~$17,000&ndash;$23,000 all-in</div>
+    </div>
+
+    <h3 class="section-label">Top multigenerational activities</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Activity</th><th>Ages</th><th>Est. 2028 price</th></tr>
+      <tr><td>Emerald Bay cruise on the M.S. Dixie II paddlewheeler (Zephyr Cove)</td><td>All 20; under 3 free</td><td>~$105 adult / $60 child 3&ndash;11 &rarr; ~$2,000 group</td></tr>
+      <tr><td>Truckee River raft float, Tahoe City to River Ranch (5-mi self-guided, 2&ndash;3 hrs)</td><td>Ages 2+ &mdash; everyone but the 18-month-old (a parent trades off with a lakeside picnic at River Ranch)</td><td>~$75/person &rarr; ~$1,400 group</td></tr>
+      <tr><td>Palisades Tahoe Aerial Tram to High Camp (8,200 ft; roller skating + playground on top)</td><td>All; 4 &amp; under free</td><td>~$45&ndash;55/person &rarr; ~$900 group</td></tr>
+      <tr><td>Sand Harbor beach day + 2 rented pontoons for a sunset cruise</td><td>All 20</td><td>$15/vehicle + reservation; pontoons ~$700&ndash;$1,200/half-day each</td></tr>
+      <tr><td>Tahoe Treetop Adventure Park (27 ziplines, 60 bridges)</td><td>Ages 6+ (7 of 9 grandkids)</td><td>~$70 kids / $80 adults &rarr; ~$1,100 for 14</td></tr>
+    </table></div>
+    <p class="fine">Heavenly's scenic gondola runs ~$71 child / ~$104 adult with dynamic pricing &mdash; spectacular but skippable at those rates. Sand Harbor requires an advance parking reservation (reservenevada.com) mid-May&ndash;Sept.</p>
+
+    <div class="kidfree">
+      <div class="kf-label">Kid Freedom Report &mdash; the six roamers (6, 6, 9, 9, 11, 11)</div>
+      <div class="kf-grade">Grade: Strong</div>
+      <p>A Tahoe Donner big-home lot gives the pack real ground of its own, and the HOA is built for exactly this: the olders can roam to the Trout Creek Rec Center (three pools) and the private Donner Lake beach on a buddy system, and quiet forest trails and bike loops start at the back door with easy "stay inside the neighborhood" boundaries. The big lake itself is a drive away, so open-water swimming stays a grown-up-supervised outing &mdash; the free-range zone is the neighborhood, not the shore.</p>
+    </div>
+
+    <h3 class="section-label">Honest ledger</h3>
+    <div class="pro-con">
+      <div class="card pro"><h3>For</h3><ul class="clean">
+        <li>The only option BOTH driving crews can drive &mdash; 16 of 20 arrive by car (SLC ~8 hrs, Oceanside ~8&ndash;8.5 hrs), and the flyers land just 35 min from the cabin</li>
+        <li>~$3,150&ndash;3,900 total group travel; no passports, ordinary domestic flights</li>
+        <li>Deep 18&ndash;20-person cabin inventory; lodging lands under the $30k target</li>
+        <li>75&ndash;82&deg;F and ~90% sunshine in late June/July; mild 6,000&ndash;7,000 ft elevation</li>
+      </ul></div>
+      <div class="card con"><h3>Against &mdash; said plainly</h3><ul class="clean">
+        <li><b>The water is cold.</b> Tahoe runs ~60&ndash;68&deg;F even in July. Kids will swim anyway; adults will wade. (Donner Lake and Sand Harbor shallows run warmer.)</li>
+        <li><b>Wildfire smoke is a real lottery ticket.</b> The 2021 Caldor Fire evacuated South Lake Tahoe in late August. Late June/early July is historically the clearest window, but a bad year can gray the views. Trip insurance is in the budget.</li>
+        <li>South Lake Tahoe's VHR permit cap rules out most big homes in city limits &mdash; the plan must stay North Shore / Truckee (it does).</li>
+        <li>July peak crowds: lake-loop traffic, full beaches, reservation systems.</li>
+      </ul></div>
     </div>
   </div>
+</div>
+
+<!-- ============ COEUR D'ALENE ============ -->
+<div class="dest" id="cda">
+  <div class="dest-band c-band">
+    <div class="tag">Option 2 &middot; Idaho</div>
+    <h2>Coeur d'Alene &mdash; the warm-water sleeper hit</h2>
+    <p>A 25-mile forest-ringed lake with the warmest swimming of the trio (~70&deg;F+ in July), true lakefront lodges that sleep 20, a top-tier theme park 20 minutes away, and one of America's great family bike rides an hour up the road.</p>
+  </div>
+  <div class="dest-body">
+
+    <div class="grid3">
+      <figure class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Lake_Coeur_d%27Alene_from_Tubbs_Hill_at_Sunset.jpg/1280px-Lake_Coeur_d%27Alene_from_Tubbs_Hill_at_Sunset.jpg" alt="Lake Coeur d'Alene seen from Tubbs Hill at sunset" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Lake Coeur d&#39;Alene from Tubbs Hill at sunset&lt;/div&gt;'">
+        <figcaption>Lake Coeur d'Alene from Tubbs Hill (Wikimedia Commons)</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Lake_Coeur_d%27Alene_%28Unsplash%29.jpg/1280px-Lake_Coeur_d%27Alene_%28Unsplash%29.jpg" alt="Blue water and forested shoreline of Lake Coeur d'Alene, Idaho" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Lake Coeur d&#39;Alene &mdash; forest-ringed blue water&lt;/div&gt;'">
+        <figcaption>Forest-ringed water, warm enough to actually swim (Wikimedia Commons)</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Lake_Coeur_d%27Alene%2C_Coeur_d%27Alene%2C_Idaho_%2850083363521%29.jpg/1280px-Lake_Coeur_d%27Alene%2C_Coeur_d%27Alene%2C_Idaho_%2850083363521%29.jpg" alt="Shoreline view of Lake Coeur d'Alene, Idaho" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Lake Coeur d&#39;Alene shoreline&lt;/div&gt;'">
+        <figcaption>The lake from the shoreline trail (Wikimedia Commons)</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="section-label">Getting there, family by family</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Family</th><th>Route</th><th>Time</th><th>Est. 2028 cost</th></tr>
+      <tr><td>Salt Lake crew (11 people, 3 vehicles)</td><td>Drive I-15 N / I-90 W, ~690 mi (pretty run through Montana; the family of 7 may split it overnight in Butte or Missoula)</td><td>~10 hrs</td><td>~$250/vehicle RT gas &rarr; ~$750</td></tr>
+      <tr><td>Oceanside crew (5 people)</td><td>Fly SAN&ndash;Spokane (GEG) nonstop ~2.5 hrs (Alaska/Southwest/American). Driving is 19+ hrs &mdash; not realistic.</td><td>~5 hrs door to door</td><td>~$280&ndash;400 RT each &rarr; ~$1,400&ndash;2,000 + minivan rental ~$700&ndash;850</td></tr>
+      <tr><td>Boston family (3) + Manchester (1)</td><td>Fly BOS&ndash;GEG, 1 stop; Spokane is 40 min from Coeur d'Alene</td><td>~8&ndash;9 hrs door to door</td><td>~$400&ndash;550 RT each &rarr; ~$1,600&ndash;2,200 + SUV rental ~$600&ndash;750</td></tr>
+      <tr class="hl"><td colspan="3">Group travel total &mdash; 11 of 20 by car</td><td>~$5,050&ndash;$6,550</td></tr>
+    </table></div>
+
+    <h3 class="section-label">Where 20 people sleep (real named lodges, 9 nights all-in, 2028-adjusted)</h3>
+    <div class="card prop">
+      <h3>1. Moose Lodge Estate &mdash; Mica Bay, Lake Coeur d'Alene</h3>
+      <div class="meta">Seasons Vacation Rentals (seasonsfpm.com) &middot; Sleeps 20 &middot; 5 BR / 5.5 BA main lodge + guest cabin &middot; 10 private acres, 360 ft of lakefront</div>
+      <div class="pill-row"><span class="pill">Private sandy beach</span><span class="pill">Boat dock</span><span class="pill">Lakeside lawn for 20-person dinners</span><span class="pill">Concierge</span></div>
+      <div class="price">Est. $1,800&ndash;$2,500/night &rarr; ~$18,500&ndash;$25,500 all-in</div>
+    </div>
+    <div class="card prop">
+      <h3>2. Mica Shore Lake House &mdash; Mica Bay</h3>
+      <div class="meta">Seasons Vacation Rentals &middot; Sleeps 18 (+2) &middot; 7 BR / 4.5 BA &middot; 105 ft of waterfront</div>
+      <div class="pill-row"><span class="pill">Private dock + water toys</span><span class="pill">7 real bedrooms</span><span class="pill">Swim off the lawn</span></div>
+      <div class="price">Est. $1,200&ndash;$1,700/night &rarr; ~$12,500&ndash;$17,500 all-in</div>
+    </div>
+    <div class="card prop">
+      <h3>3. Two-house combo: Riverfront Lodge + Fernan Lake Terrace Retreat</h3>
+      <div class="meta">Seasons Vacation Rentals &middot; Riverfront log lodge on the Spokane River, sleeps 12, 4 BR + bunkhouse, published $850&ndash;$1,100/night &middot; Fernan Lake modern cabin, sleeps 14, published $400&ndash;$750/night &middot; 10 min apart, both minutes from downtown</div>
+      <div class="pill-row"><span class="pill">Published real rates</span><span class="pill">Dock + river swimming</span><span class="pill">Wraparound decks</span></div>
+      <div class="price">$1,250&ndash;$1,850/night combined &rarr; ~$12,500&ndash;$18,500 all-in</div>
+    </div>
+
+    <h3 class="section-label">Top multigenerational activities</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Activity</th><th>Ages</th><th>Est. 2028 price</th></tr>
+      <tr><td><b>Silverwood Theme Park + Boulder Beach water park</b> (largest theme park in the Northwest, 20 min north)</td><td>All &mdash; coasters for the teens and thrill-seeking adults, kiddie land for the 3-year-old (the 18-month-old rides free), wave pool and lazy river for everyone</td><td>~$50 (8&ndash;64) / ~$30 (3&ndash;7 &amp; 65+), under 3 free &rarr; ~$900 group, water park included</td></tr>
+      <tr><td><b>Route of the Hiawatha rail-trail bike ride</b> &mdash; 15 miles gently downhill through 10 mountain tunnels and over 7 sky-high trestles</td><td>All riding ages; tots ride in tow-behinds; shuttle back up</td><td>~$60&ndash;80/person with bike rental + shuttle (10% off for groups of 15+) &rarr; ~$1,200 group</td></tr>
+      <tr><td>Lake Coeur d'Alene 90-minute scenic cruise (past the world's only floating golf green)</td><td>All 20</td><td>~$33 adult, less for kids &rarr; ~$550 group</td></tr>
+      <tr><td>Private boat/pontoon day on the lake</td><td>All 20</td><td>~$500&ndash;750 per boat half-day; 2 boats ~$1,000&ndash;1,500</td></tr>
+      <tr><td>Free day: world's longest floating boardwalk, Tubbs Hill shoreline hike (2 mi), City Beach + McEuen Park playground</td><td>All</td><td>$0</td></tr>
+    </table></div>
+
+    <div class="kidfree">
+      <div class="kf-label">Kid Freedom Report &mdash; the six roamers (6, 6, 9, 9, 11, 11)</div>
+      <div class="kf-grade">Grade: The star of the trio</div>
+      <p>This is what a lakefront estate buys: private beach, private dock, and acres of lawn and forest with no roads to cross. The cousins free-range from breakfast to dinner &mdash; the olders swim off the dock in 70&deg;F water within sight of the porch, the 6-year-olds build things on the beach, and the adults referee from Adirondack chairs instead of car seats. No rec-center walk, no parking lot, no reservation window: the whole point of Mica Bay is that the kids' entire day happens inside the property line.</p>
+    </div>
+
+    <h3 class="section-label">Honest ledger</h3>
+    <div class="pro-con">
+      <div class="card pro"><h3>For</h3><ul class="clean">
+        <li><b>Warmest water of the trio</b> &mdash; ~70&ndash;73&deg;F in July. This is the one where everyone actually swims off the dock all day.</li>
+        <li>True lakefront 18&ndash;20-person lodges with private beaches &mdash; the "one big house on the water" dream is most real here</li>
+        <li>Silverwood + Hiawatha is arguably the strongest pure-kid one-two punch on the whole 2028 ballot</li>
+        <li>Cheapest lodging of the three; mid-80s&deg;F and dry in July</li>
+      </ul></div>
+      <div class="card con"><h3>Against &mdash; said plainly</h3><ul class="clean">
+        <li><b>Lowest wow-factor of the trio.</b> It's gorgeous, but it's not Emerald Bay and it's certainly not Moraine Lake. Nobody frames a Coeur d'Alene photo next to a fjord.</li>
+        <li>Oceanside can't drive it &mdash; 9 of 20 fly (vs 4 for Tahoe), plus two rental vehicles, so the travel bill runs ~$5,000&ndash;6,500 (still ~75&ndash;85% below the international options)</li>
+        <li>Silverwood in mid-July is a genuine tourist crush &mdash; plan a weekday, arrive at opening</li>
+        <li>Utah's 10-hour drive usually becomes an 11&ndash;12-hour day with kids, or an overnight split</li>
+        <li>North Idaho shares the Northwest's August&ndash;September smoke season; late June/July is usually clear, not guaranteed</li>
+      </ul></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BANFF ============ -->
+<div class="dest" id="banff">
+  <div class="dest-band b-band">
+    <div class="tag">Option 3 &middot; Alberta, Canada</div>
+    <h2>Banff &amp; Canmore &mdash; the showstopper (with a price of admission)</h2>
+    <p>The most spectacular mountain scenery in North America, full stop: Moraine Lake, Lake Louise, the Icefields Parkway. It keeps the no-jet-lag card (Mountain Time, same as Utah) &mdash; but it surrenders the drive-there card: this one means flights and passports for everyone who goes.</p>
+  </div>
+  <div class="dest-body">
+
+    <div class="grid3">
+      <figure class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Moraine_Lake%2C_Banff_-_Flickr_-_Jaykhuang.jpg/1280px-Moraine_Lake%2C_Banff_-_Flickr_-_Jaykhuang.jpg" alt="Turquoise Moraine Lake beneath the Valley of the Ten Peaks, Banff National Park" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Moraine Lake and the Valley of the Ten Peaks&lt;/div&gt;'">
+        <figcaption>Moraine Lake, Valley of the Ten Peaks (Wikimedia Commons)</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/1_moraine_lake_pano_2019.jpg/1280px-1_moraine_lake_pano_2019.jpg" alt="Panoramic view of Moraine Lake, Banff National Park" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;Moraine Lake panorama&lt;/div&gt;'">
+        <figcaption>The photo everyone comes home with (Wikimedia Commons)</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Three_Sister_Mountains%2C_Canmore%2C_Alberta.jpg/1280px-Three_Sister_Mountains%2C_Canmore%2C_Alberta.jpg" alt="The Three Sisters peaks above Canmore, Alberta" onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;The Three Sisters above Canmore &mdash; our home base&lt;/div&gt;'">
+        <figcaption>The Three Sisters above Canmore &mdash; the home base (Wikimedia Commons)</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="section-label">Getting there, family by family &mdash; the honest version</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Family</th><th>Route</th><th>Time</th><th>Est. 2028 cost</th></tr>
+      <tr><td>Salt Lake crew (11 people)</td><td>Fly SLC&ndash;Calgary (YYC) nonstop ~2.5 hrs (Delta/WestJet, July RT ~$650&ndash;900 each) + 75&ndash;90 min drive to Canmore. Driving is ~13 hrs / 850 mi &mdash; a 2-day haul each way that saves ~$5,000&ndash;7,000 if the Utah families take it, at the cost of 4 travel days.</td><td>~6&ndash;7 hrs door to door flying</td><td>Air: ~$7,150&ndash;$9,900 (or ~$2,000 gas + en-route hotels if driving)</td></tr>
+      <tr><td>Oceanside crew (5 people)</td><td>Fly SAN&ndash;YYC nonstop ~3.5 hrs (WestJet/Delta, July RT ~$400&ndash;550)</td><td>~6&ndash;7 hrs door to door</td><td>Air: ~$2,000&ndash;$2,750</td></tr>
+      <tr><td>Boston family (3) + Manchester (1)</td><td>Fly BOS&ndash;YYC (~$450&ndash;650 RT July; WestJet runs seasonal nonstops)</td><td>~7&ndash;9 hrs</td><td>~$1,800&ndash;$2,600</td></tr>
+      <tr><td>Everyone</td><td>4&ndash;5 rental SUVs/vans at YYC for 10 days + <b>passports for all 20 travelers, including all 9 children</b> (~$2,000&ndash;2,800 in fees if not current; apply 6+ months out)</td><td>&mdash;</td><td>Rentals ~$3,500&ndash;5,000; passports up to ~$2,800</td></tr>
+      <tr class="hl"><td colspan="3">Group travel total &mdash; 0 of 20 by car (realistically)</td><td>~$17,300&ndash;$23,100 flying; ~$12,000&ndash;$15,500 if Utah drives</td></tr>
+    </table></div>
+    <p class="fine">The honest note: some of us think of Banff as "closer" because it's the same time zone and a short flight from SLC. Time-zone-wise, true &mdash; no jet lag. Cost-wise, it behaves like an international trip: its travel bill overlaps the low end of the Greece/Hawaii airfare range. The savings vs. Europe come mostly from the favorable exchange rate on the ground, not from getting there.</p>
+
+    <h3 class="section-label">Where 20 people sleep &mdash; the honest inventory problem</h3>
+    <p class="fine">Canmore restricts short-term rentals to "tourist home" zoned properties, and as of March 2025 no new tourist homes can be created &mdash; so true 20-person single houses are scarce and the realistic play is one rare big lodge or a cluster of condos/suites. That's fine by this family's own rules &mdash; separate cabins or condo clusters with shared amenities are explicitly acceptable, and a big shared living room is a celebrated bonus where a property has one, not a requirement. Inside Banff townsite it's even tighter (federal park lease rules). All totals: 9 nights, USD, incl. taxes/fees, 2028-adjusted.</p>
+    <div class="card prop">
+      <h3>1. Downtown Canmore Mountain Lodge &mdash; 5 private suites under one roof</h3>
+      <div class="meta">Downtown Canmore &middot; Sleeps up to 22 &middot; 5 suites, full kitchen, common room with fireplace, yard, bikes on site &middot; Airbnb</div>
+      <div class="pill-row"><span class="pill">The rare true one-roof option</span><span class="pill">Walk to restaurants</span><span class="pill">Mountain views from every balcony</span></div>
+      <div class="price">Est. US$1,900&ndash;$2,600/night &rarr; ~$18,500&ndash;$25,000 all-in</div>
+    </div>
+    <div class="card prop">
+      <h3>2. The Lodges at Canmore &mdash; block of five 2-BR condos</h3>
+      <div class="meta">Canmore &middot; 5 &times; 2BR/2BA condos (each sleeps 6) booked as a block &middot; lodgesofcanmore.ca / VRBO &middot; shoulder-season averages ~$197/night per condo; July peak higher</div>
+      <div class="pill-row"><span class="pill">Outdoor pool + hot tub</span><span class="pill">Full kitchens in every unit</span><span class="pill">Each family gets a door</span></div>
+      <div class="price">Est. US$1,300&ndash;$1,700/night for 5 condos &rarr; ~$12,500&ndash;$16,500 all-in</div>
+    </div>
+    <div class="card prop">
+      <h3>3. Basecamp Resorts Canmore &mdash; suite cluster / group lodge floors</h3>
+      <div class="meta">Canmore (several buildings) &middot; 5&ndash;6 adjoining suites, ~$279/night typical per suite &middot; basecampresorts.com</div>
+      <div class="pill-row"><span class="pill">Rooftop hot tubs (select buildings)</span><span class="pill">Modern, walkable</span><span class="pill">Books as a group block</span></div>
+      <div class="price">Est. US$1,400&ndash;$1,800/night &rarr; ~$13,500&ndash;$17,500 all-in</div>
+    </div>
+
+    <h3 class="section-label">Top multigenerational activities</h3>
+    <div class="table-wrap"><table>
+      <tr><th>Activity</th><th>Ages</th><th>Est. 2028 price (USD)</th></tr>
+      <tr><td><b>Lake Louise + Moraine Lake day</b> &mdash; private vehicles are banned at Moraine year-round; Parks Canada shuttle from the Lake Louise Park &amp; Ride, reservations open in spring and sell out (40% released in April, 60% at 8am two days ahead &mdash; set alarms)</td><td>All 20 (lakeshore strolls are flat)</td><td>Shuttle ~$10 adult / $3 kid RT + park entry ~$9/adult/day (kids 17U free) &rarr; ~$250&ndash;300 group for the day</td></tr>
+      <tr><td><b>Banff Gondola</b> up Sulphur Mountain + summit boardwalk</td><td>All; under 6 free</td><td>~$55 adult / $36 youth &rarr; ~$850 group</td></tr>
+      <tr><td><b>Icefields Parkway + Columbia Icefield Adventure</b> (glacier bus + Skywalk) &mdash; a huge, unforgettable day, but 3+ hrs driving each way from Canmore; pack toddler patience</td><td>All; under 6 free</td><td>~$95 adult / $62 youth &rarr; ~$1,450 group</td></tr>
+      <tr><td>Johnston Canyon catwalk hike to Lower/Upper Falls</td><td>All &mdash; stroller-hostile but toddler-carrier-friendly</td><td>Free (park pass + early parking or Roam bus)</td></tr>
+      <tr><td>Banff Upper Hot Springs soak + Bow River family float</td><td>All / ages 4+ on floats</td><td>Springs ~$13/person; float ~$60 adult &rarr; ~$1,100 combined</td></tr>
+    </table></div>
+
+    <div class="kidfree">
+      <div class="kf-label">Kid Freedom Report &mdash; the six roamers (6, 6, 9, 9, 11, 11)</div>
+      <div class="kf-grade">Grade: Limited &mdash; the honest weak spot</div>
+      <p>The condo-cluster reality means shared courtyards and a pool rather than private acres, so day-long free-ranging shrinks to supervised outings. The consolation is real: Canmore's compact townsite is genuinely walkable, and the 9s and 11s can run bakery, playground, and candy-store missions on their own. But this is bear country &mdash; kids don't wander trails alone here, ever, and that rule is non-negotiable. Families who rank kid freedom first should weigh this heavily against Banff's scenery card.</p>
+    </div>
+
+    <h3 class="section-label">Honest ledger</h3>
+    <div class="pro-con">
+      <div class="card pro"><h3>For</h3><ul class="clean">
+        <li><b>The biggest single "wow" on the entire 2028 ballot.</b> This family has already done Hawaii (everyone), Crete (a cruise day each), an Alaska cruise (one), and Slovenia (one). Nobody has seen Moraine Lake. For the voters who care most about NEW &mdash; the grandparents, the no-kids couple, the solo traveler &mdash; Banff out-postcards everything else per dollar spent on the ground, Norway included</li>
+        <li>No time-zone pain for 16 of 20: Mountain Time, same as Utah; short nonstops from SLC and San Diego</li>
+        <li>Exchange rate makes meals, groceries, and activities ~25&ndash;30% cheaper than the sticker suggests</li>
+        <li>July weather 70&ndash;75&deg;F, cool nights, wildflowers; trail options at every length &mdash; the grandparents will happily out-hike half the group here</li>
+      </ul></div>
+      <div class="card con"><h3>Against &mdash; said plainly</h3><ul class="clean">
+        <li><b>It sacrifices the premise.</b> The North America pitch is "most of us just drive" &mdash; and Banff realistically means flights for all 20, at ~$11,000&ndash;$15,250 in airfare plus $3,500&ndash;5,000 in rentals (Utah driving 13 hrs each way is the only cost escape hatch).</li>
+        <li>Passports for all 20, including all 9 kids &mdash; not a dealbreaker, just a real to-do: ~$2,800 in fees and one apply-by-January paperwork errand across five households</li>
+        <li><b>True 20-person homes are scarce</b> &mdash; Canmore's tourist-home zoning is frozen; expect a condo cluster (fine by the family's rules) with shared courtyards instead of private grounds &mdash; the real cost lands on kid roaming, not on togetherness</li>
+        <li><b>Crowds are legendary</b> &mdash; Moraine/Louise access is a reservation war, parking lots fill before 7am, July is peak of peak</li>
+        <li><b>No swimming.</b> The famous lakes are glacial &mdash; 40&ndash;50&deg;F. Beautiful to look at; nobody's doing cannonballs off a dock.</li>
+        <li>Canada's recent record fire seasons (2023, Jasper 2024) mean smoke risk here too</li>
+      </ul></div>
+    </div>
+  </div>
+</div>
+
+<!-- REFEREE TABLE -->
+<section>
+  <h2>The three, side by side &mdash; referee's card, no winner declared</h2>
+  <div class="rule"></div>
+  <div class="table-wrap"><table>
+    <tr><th></th><th>Lake Tahoe</th><th>Coeur d'Alene</th><th>Banff / Canmore</th></tr>
+    <tr><td><b>Travel burden</b></td><td>SLC drives ~8h; Oceanside drives ~8&ndash;8.5h; New England (4) 1-stop flight to RNO. 16/20 by car.</td><td>SLC drives ~10h; Oceanside flies SAN&ndash;GEG nonstop (2.5h); New England 1-stop. 11/20 by car.</td><td>Everyone flies (SLC &amp; SAN nonstop, BOS seasonal nonstop) + 90-min drive; 0/20 by car realistically.</td></tr>
+    <tr><td><b>Group travel cost (2028)</b></td><td>~$3,150&ndash;3,900</td><td>~$5,050&ndash;6,550</td><td>~$17,300&ndash;23,100 flying (~$12,000&ndash;15,500 if Utah drives 13h), incl. rentals &amp; passports</td></tr>
+    <tr><td><b>Passports</b></td><td>None</td><td>None</td><td>All 20, incl. 9 children</td></tr>
+    <tr><td><b>20-person lodging, 9 nights</b></td><td>~$12,000&ndash;23,000; deep inventory (avoid South Lake city limits)</td><td>~$12,500&ndash;25,500; true lakefront lodges w/ private beaches</td><td>~$12,500&ndash;25,000; scarce &mdash; likely condo cluster, not one roof</td></tr>
+    <tr><td><b>Compound feel</b> (one roof or cluster &mdash; both fine per the family)</td><td>One big roof, easy to book</td><td>One big roof &mdash; and it's on the water</td><td>Condo cluster most likely (one rare 22-sleeper exists); shared great room becomes a shared courtyard</td></tr>
+    <tr><td><b>Kid freedom (the six 6&ndash;11s)</b></td><td>Strong &mdash; HOA pools + private beach + forest trails on a buddy system</td><td><b>Best</b> &mdash; private beach, dock, and acres; free-range within the property line</td><td>Limited &mdash; walkable townsite errands, but no lone trail-roaming (bear country)</td></tr>
+    <tr><td><b>Weather late June/July</b></td><td>75&ndash;82&deg;F, ~90% sun</td><td>Mid-80s&deg;F, dry</td><td>70&ndash;75&deg;F, cool nights, some storms</td></tr>
+    <tr><td><b>Swimming</b></td><td>Cold: 60&ndash;68&deg;F (warmer at Donner Lake)</td><td>Best: ~70&ndash;73&deg;F, real dock-jumping water</td><td>None &mdash; glacial lakes</td></tr>
+    <tr><td><b>Smoke risk</b></td><td>Real; late June/early July clearest</td><td>Real; same seasonal pattern</td><td>Real; record Canadian fire years recently</td></tr>
+    <tr><td><b>Activity depth ages 18 months&ndash;67</b></td><td>Excellent: cruise, float, tram, ziplines, beaches</td><td>Excellent: theme park + rail-trail + warm lake</td><td>Excellent: world-class scenery days (some long drives)</td></tr>
+    <tr><td><b>Wow / exotic factor</b></td><td>High-medium: iconic American lake</td><td>Lowest of the three (still lovely)</td><td>Highest on the entire 2028 ballot</td></tr>
+    <tr><td><b>Est. all-in group total</b></td><td>~$27,000&ndash;41,000</td><td>~$29,000&ndash;45,000</td><td>~$36,000&ndash;62,000 (less if Utah drives)</td></tr>
+  </table></div>
+  <p class="fine">All-in totals = lodging + travel + groceries/restaurants for 20 + activities, 9 nights, escalated ~5&ndash;8%/yr to 2028. For scale: the international pitches (Crete, Alaska cruise, Lake Bled, Maui, Norway) run roughly $40,000&ndash;$85,000 all-in, with $14,000&ndash;$36,000 of that in airfare alone.</p>
 </section>
 
-<!-- CLOSING -->
-<section class="closing">
-  <h2>Why Tahoe wins</h2>
+<!-- THE $35K BUILD -->
+<section>
+  <h2>The $35,000 build &mdash; same money, more vacation</h2>
   <div class="rule"></div>
-  <p>Strip every pitch down to what actually happens, and a reunion is twenty people around one dinner table, nine nights in a row. Tahoe buys more of exactly that than any option on the ballot: the money that would have been airfare becomes a bigger house and a boat day; the day that would have been spent in security lines and layovers becomes the first beach day; the toddler meltdown at gate B27 simply never happens.</p>
-  <p style="margin-top:14px;">Greece and Norway are once-in-a-lifetime trips &mdash; for couples, someday. This is a trip for a 3&frac12;-year-old, two 6-year-olds, two 9-year-olds, two 11-year-olds, a 13-year-old, a 16-year-old, eleven adults, and two grandparents who hike &mdash; and for that exact group, in the summer of 2028, the bluest lake in America, eight easy highway hours from almost everyone's driveway, is not the compromise choice. It's the smart one.</p>
-  <p style="margin-top:14px;font-weight:700;color:#ffd98a;">Vote Tahoe. Everybody just drives.</p>
+  <p class="lead">Slovenia's pitch will make this move &mdash; cheap lodging converts into staff and boats. Fine: here's ours. If every option on the ballot got the same <b>$35,000 on-the-ground budget (getting-there costs excluded)</b>, this is what the North America trio builds. Tahoe and Coeur d'Alene don't just fit &mdash; they leave $6,000&ndash;$8,000 of headroom, and headroom is where a good trip becomes a legendary one.</p>
+  <div class="build-grid">
+    <div class="build">
+      <h3>Lake Tahoe &mdash; mid build</h3>
+      <div class="bd-row"><span>Sleeps-20 Tahoe Donner lodge, 9 nights all-in</span><span>$16,000</span></div>
+      <div class="bd-row"><span>Groceries for 20 + 3 restaurant nights</span><span>$7,500</span></div>
+      <div class="bd-row"><span>Full activity slate (cruise, float, tram, treetop, Sand Harbor)</span><span>$5,600</span></div>
+      <div class="bd-total"><span>Base</span><span>$29,100</span></div>
+      <div class="bd-head"><b>~$5,900 headroom buys:</b> two extra pontoon afternoons ($2,400), a mother's-helper for the 18-month-old five mornings ($1,200), and a private chef for three dinners ($2,200) &mdash; the adults eat lakeview meals they didn't cook.</div>
+    </div>
+    <div class="build">
+      <h3>Coeur d'Alene &mdash; mid build</h3>
+      <div class="bd-row"><span>Mica Shore Lake House (7BR waterfront), 9 nights all-in</span><span>$15,000</span></div>
+      <div class="bd-row"><span>Groceries for 20 + 3 restaurant nights</span><span>$7,500</span></div>
+      <div class="bd-row"><span>Silverwood + Hiawatha + cruise + boat day, everyone</span><span>$4,600</span></div>
+      <div class="bd-total"><span>Base</span><span>$27,100</span></div>
+      <div class="bd-head"><b>~$7,900 headroom buys:</b> a private chef for four nights ($2,800), a nanny/mother's-helper all week ($1,500), a pontoon-and-jet-ski day off the private dock ($1,800), a second Silverwood day for the coaster crew ($700) &mdash; with ~$1,100 still in the envelope.</div>
+    </div>
+    <div class="build">
+      <h3>Banff/Canmore &mdash; the honest version</h3>
+      <div class="bd-row"><span>Lodges at Canmore condo cluster, 9 nights all-in</span><span>$14,500</span></div>
+      <div class="bd-row"><span>Groceries + restaurants (exchange rate helps)</span><span>$8,000</span></div>
+      <div class="bd-row"><span>Gondola + Icefield + shuttles + hot springs + river float</span><span>$4,500</span></div>
+      <div class="bd-total"><span>Base</span><span>$27,000</span></div>
+      <div class="bd-head"><b>~$8,000 headroom on paper &mdash; but be honest:</b> Banff's getting-there bill (~$17,000&ndash;$23,000 with flights, rentals, and passports) sits outside this box, and no other trio member's does at that scale. In practice the surplus is spoken for before anyone hires a chef.</div>
+    </div>
+  </div>
+  <p class="fine">Chef, nanny, and boat figures from typical regional rates (private chefs ~$550&ndash;750/night for 20 covers incl. groceries; mother's-helpers ~$25&ndash;30/hr), escalated to 2028. The point stands regardless of the exact line items: at Tahoe and CdA, the $35k that barely covers lodging-plus-logistics in Norway buys the whole trip <i>plus staff and boats</i>.</p>
+</section>
+
+<!-- VOTE CARD -->
+<section class="votecard">
+  <div class="vc-kicker">The Case, In One Card</div>
+  <h2>Rank North America #1 &mdash; keep three doors open</h2>
+  <div class="vc-grid">
+    <div class="vc-point">
+      <b>For the kid-families: the dream logistics</b>
+      <p>Road-trip naps beat redeyes when you're traveling with an 18-month-old and a 3-year-old. For Tahoe, 16 of our 20 just drive &mdash; car seats stay installed, the pack-n-play rides in the trunk, nobody clears customs at midnight. And once there, the six 6-to-11s get real freedom: private grounds, a dock or a rec center, cousins running loose from breakfast to dinner.</p>
+    </div>
+    <div class="vc-point">
+      <b>The lowest travel bill on the ballot</b>
+      <p>~$3,150&ndash;3,900 gets the whole group to Tahoe, versus $14,000&ndash;$36,000 in airfare for the international options. The difference buys the lakefront lodge, the boat day, and the theme-park day &mdash; combined.</p>
+    </div>
+    <div class="vc-point">
+      <b>For the NEW-experience voters</b>
+      <p>Grandparents, the solo traveler, the no-kids couple: Banff is inside this vote too &mdash; and it would be the single biggest "wow" on the entire ballot. Nobody in this family has seen Moraine Lake. (The passports are a to-do, not a dealbreaker.)</p>
+    </div>
+    <div class="vc-point">
+      <b>You're not picking a place yet</b>
+      <p>This vote chooses certainty and ease &mdash; then the family picks the flavor together: warm-water Coeur d'Alene, drive-there Tahoe, or showstopper Banff. Three doors stay open; every other ballot line is one door.</p>
+    </div>
+  </div>
+  <p class="vc-concede">Full honesty: Tahoe and Coeur d'Alene will never out-exotic Crete or the fjords &mdash; they win on ease and togetherness instead.</p>
+  <div class="vc-cta">Rank North America #1 on the Vote tab</div>
+  <p class="vc-tail">Then argue about which lake on the drive there.</p>
 </section>
 
 </main>
 
 <footer>
-  Family Reunion 2028 &middot; North America pitch &middot; Prices are researched mid-2026 figures escalated ~5&ndash;8%/yr to summer 2028; all lodging and activity numbers from live listings and operator pricing at research time. Photos: Wikimedia Commons.
+  Family Reunion 2028 &middot; North America pitch (Tahoe &middot; Coeur d'Alene &middot; Banff&ndash;Canmore) &middot; Prices researched mid-2026 from live listings, operators, and fare data, escalated ~5&ndash;8%/yr to summer 2028 &middot; Photos: Wikimedia Commons.
 </footer>
 
 </body>

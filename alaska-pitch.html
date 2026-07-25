@@ -157,6 +157,54 @@
   .alaska-pitch .ak-verdict p{max-width:54rem;}
   .alaska-pitch .ak-verdict .ak-big{font-size:1.25rem;line-height:1.5;font-style:italic;color:#fff;}
   .alaska-pitch .ak-footer-note{font-size:.78rem;color:#7a8fa0;font-family:'Segoe UI',Helvetica,Arial,sans-serif;padding:0 0 2.5rem;}
+  /* ---- kid freedom report ---- */
+  .alaska-pitch .ak-kidcard{
+    background:#eef6f0;border:1px solid #bcd8c6;border-left:6px solid var(--ak-forest);
+    border-radius:12px;padding:1.5rem 1.8rem;margin:1.6rem 0;
+  }
+  .alaska-pitch .ak-kidcard-label{
+    display:inline-block;background:var(--ak-forest);color:#fff;border-radius:6px;
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.72rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.12em;padding:.2rem .6rem;margin-bottom:.7rem;
+  }
+  .alaska-pitch .ak-kidcard h3{margin:0 0 .6rem;font-size:1.3rem;color:var(--ak-forest);}
+  .alaska-pitch .ak-kidcard p{margin:0 0 .8rem;font-size:.98rem;}
+  .alaska-pitch .ak-kidcard p:last-child{margin-bottom:0;}
+  /* ---- $35k build box ---- */
+  .alaska-pitch .ak-build{
+    background:#fff;border:2px dashed var(--ak-glacier);border-radius:12px;
+    padding:1.3rem 1.6rem;margin:1.6rem 0;
+  }
+  .alaska-pitch .ak-build h3{margin:0 0 .6rem;font-size:1.15rem;color:var(--ak-deep);}
+  .alaska-pitch .ak-build-verdict{
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.9rem;font-weight:600;
+    color:var(--ak-red);margin:.6rem 0 0;
+  }
+  /* ---- vote card ---- */
+  .alaska-pitch .ak-votecard{
+    background:#fff;border:3px solid var(--ak-gold);border-radius:16px;
+    padding:2rem 2.2rem;margin:0 0 2.5rem;box-shadow:0 10px 30px rgba(12,47,67,.16);
+    position:relative;overflow:hidden;
+  }
+  .alaska-pitch .ak-votecard::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:8px;
+    background:linear-gradient(90deg,var(--ak-gold),var(--ak-glacier),var(--ak-deep));
+  }
+  .alaska-pitch .ak-votecard-title{font-size:clamp(1.5rem,3vw,2rem);color:var(--ak-deep);margin:.3rem 0 1.1rem;line-height:1.15;}
+  .alaska-pitch .ak-votegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:0 0 1.2rem;}
+  .alaska-pitch .ak-votepoint{background:var(--ak-ice);border:1px solid var(--ak-line);border-radius:10px;padding:.9rem 1rem;}
+  .alaska-pitch .ak-votepoint-h{font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-weight:700;font-size:.95rem;color:var(--ak-deep);margin:0 0 .3rem;}
+  .alaska-pitch .ak-votepoint p{margin:0;font-size:.9rem;}
+  .alaska-pitch .ak-vote-concede{
+    font-size:.9rem;color:#6b5340;background:#fdf4e0;border-left:4px solid var(--ak-gold);
+    padding:.6rem .9rem;border-radius:0 8px 8px 0;margin:0 0 1.3rem;font-style:italic;
+  }
+  .alaska-pitch .ak-vote-cta{
+    display:block;text-align:center;background:var(--ak-deep);color:#fff;
+    font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-weight:700;font-size:1.15rem;
+    letter-spacing:.04em;border-radius:10px;padding:.9rem 1.2rem;
+  }
+  .alaska-pitch .ak-vote-cta .ak-vote-star{color:#ffd98a;}
   .alaska-pitch .ak-badge{
     display:inline-block;background:var(--ak-gold);color:#fff;border-radius:6px;
     font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.72rem;font-weight:700;
@@ -181,9 +229,9 @@
     <div class="ak-hero-overlay">
       <p class="ak-kicker">Family Reunion 2028 &middot; The Alaska Proposal</p>
       <h1 class="ak-hero-title">One Ship. One Family.<br>Twenty People, Zero Logistics.</h1>
-      <p class="ak-hero-sub">A 7-night one-way glacier cruise from Vancouver into the heart of Alaska — then trade the ship for Denali. The only vacation where a 3-year-old, four teens, and two grandparents all win the same week.</p>
+      <p class="ak-hero-sub">A 7-night one-way glacier cruise from Vancouver into the heart of Alaska — then trade the ship for Denali. The only vacation where an 18-month-old, a teenager, and two grandparents all win the same week.</p>
       <div class="ak-statrow ak-sans">
-        <div class="ak-stat"><span class="ak-stat-num">20</span><span class="ak-stat-lbl">travelers, ages 3&ndash;67</span></div>
+        <div class="ak-stat"><span class="ak-stat-num">20</span><span class="ak-stat-lbl">travelers, 18 mo to 67 yrs</span></div>
         <div class="ak-stat"><span class="ak-stat-num">7 + 3</span><span class="ak-stat-lbl">nights afloat + Denali days</span></div>
         <div class="ak-stat"><span class="ak-stat-num">2</span><span class="ak-stat-lbl">full glacier days</span></div>
         <div class="ak-stat"><span class="ak-stat-num">1</span><span class="ak-stat-lbl">unpack. That's it.</span></div>
@@ -196,9 +244,17 @@
     <!-- ================= THE CORE ARGUMENT ================= -->
     <section class="ak-section">
       <p class="ak-eyebrow">The core argument</p>
-      <h2 class="ak-h2">A ship is the only "one big house" that actually fits this family</h2>
-      <p class="ak-lead">Every competing pitch — the Greek islands, the Slovenian villa, Maui — has to solve the same brutal problem: <strong>how do 20 people spanning 64 years of age eat together, sleep near each other, and still each have a good day?</strong> Villas split into car caravans. Island-hopping means ferries with a toddler. A resort means three condos and a group text about where to meet.</p>
-      <p class="ak-lead">A cruise ship dissolves the problem. Seven cabins on the same corridor. Free kids' clubs by age band, a teen lounge, a covered pool, quiet decks for the grandparents — and every single night, <strong>two adjoining tables of ten at the same fixed dinner seating</strong>, no reservation scramble, no driving, no cooking rotation. The scenery moves so nobody has to.</p>
+      <h2 class="ak-h2">Every family gets its own door — and all 20 share one world</h2>
+      <p class="ak-lead">Separate rooms for separate families is exactly right — nobody wants 20 people under one literal roof. The real question is what happens <em>between</em> the doors: <strong>how do 20 people spanning 65 years of age actually find each other, eat together, and still each have a good day?</strong> On land that means cars, group texts, and somebody always hosting.</p>
+      <p class="ak-lead">A ship handles it automatically. Seven private cabins on the same corridor. Free kids' clubs by age band, a teen lounge, a covered pool, quiet decks for the grandparents — and every single night, <strong>two adjoining tables of ten at the same fixed dinner seating</strong>, no reservation scramble, no driving, no cooking rotation. The scenery moves so nobody has to.</p>
+
+      <div class="ak-kidcard">
+        <span class="ak-kidcard-label">Kid Freedom Report</span>
+        <h3>Six kids, ages 6&ndash;11, off the leash all week — safely</h3>
+        <p>This is the card no villa, hotel, or fjord town can play. A cruise ship is a <strong>contained world</strong>: no traffic, no open front door, crew on every deck, and nowhere to actually go except somewhere fun. The cousin pack — two 11s, two 9s, two 6s — gets a week of pools, the arcade, the pizza and ice-cream counters, deck-top movies, and each other, <em>on their own</em>, in a way modern kids almost never get at home.</p>
+        <p>The honest rules: Princess's kids club lets <strong>ages 8&ndash;12 sign themselves in and out with parent permission</strong> — so the 9s and 11s genuinely come and go all week, while the 6-year-olds get full club days but need a parent pickup (a five-minute walk, not a car ride). And on Princess's MedallionClass ships, the wearable medallion <strong>shows each kid's live location on the ship in the parents' app</strong> — free-range with a safety net. Independence applies on sea days and evenings; in ports, everyone explores together.</p>
+        <p>For the 9s and 11s especially, this may be the single most memorable part of the trip: the week they got to be free.</p>
+      </div>
     </section>
 
     <!-- ================= THE PLAN ================= -->
@@ -227,14 +283,17 @@
       <table class="ak-table">
         <tr><th>Cabin</th><th>Who</th><th>Type</th><th>Est. fare (2026/27 proxy)</th></tr>
         <tr><td>1</td><td>Grandparents (67 &amp; 65)</td><td>Balcony</td><td class="ak-money">~$3,400</td></tr>
-        <tr><td>2&ndash;4</td><td>Three couples, 2 kids each</td><td>Balcony quads (&times;3)</td><td class="ak-money">~$4,600 each</td></tr>
-        <tr><td>5</td><td>Couple + the 3-year-old</td><td>Balcony triple</td><td class="ak-money">~$4,000</td></tr>
-        <tr><td>6</td><td>Two oldest kids (16 &amp; 13)</td><td>Inside, connecting to Cabin 5</td><td class="ak-money">~$2,200</td></tr>
-        <tr><td>7</td><td>Boston aunt/uncle (+ optionally the 16-yr-old, saving ~$1,100)</td><td>Inside</td><td class="ak-money">~$2,200</td></tr>
-        <tr class="ak-total-row"><td colspan="3">Cruise fares + taxes/port fees (~$275/person on one-ways)</td><td class="ak-money">~$31,000</td></tr>
+        <tr><td>2</td><td>The no-kids couple</td><td>Balcony</td><td class="ak-money">~$3,400</td></tr>
+        <tr><td>3</td><td>Family of 7: parents + the 3-year-old + the 18-month-old</td><td>Balcony quad</td><td class="ak-money">~$4,300</td></tr>
+        <tr><td>4</td><td>Family of 7: their 3 older kids (11, 9, 6)</td><td>Inside, connecting to Cabin 3</td><td class="ak-money">~$2,700</td></tr>
+        <tr><td>5</td><td>Family of 5: parents + their youngest (6)</td><td>Balcony triple</td><td class="ak-money">~$4,000</td></tr>
+        <tr><td>6</td><td>Boston family (couple + the 16-year-old)</td><td>Balcony triple</td><td class="ak-money">~$4,000</td></tr>
+        <tr><td>7</td><td>Manchester aunt/uncle + Family of 5's two older kids (11 &amp; 9 — bunking with cousins kills the ~$1,100 solo supplement)</td><td>Inside triple</td><td class="ak-money">~$2,700</td></tr>
+        <tr class="ak-total-row"><td colspan="3">Cruise fares + taxes/port fees (~$275/person on one-ways)</td><td class="ak-money">~$30,200</td></tr>
         <tr class="ak-total-row"><td colspan="3">Lean version: all inside/oceanview + "Kids Sail Free" promo</td><td class="ak-money">~$24,000&ndash;25,500</td></tr>
       </table>
       </div>
+      <p class="ak-note">Infant fine print: cruise lines require infants to be at least 6 months old at sailing — the 18-month-old clears it easily. Under-2s pay the (already lower) 3rd/4th-guest rate rather than an adult fare, and under "Kids Sail Free"-type promotions that drops to roughly taxes/fees only (~$275) — reflected in Cabin 3 above.</p>
       <p class="ak-note">Basis: July-peak Princess pricing — insides ~$1,000&ndash;1,300/person, balconies ~$1,500&ndash;1,900/person for guests 1&ndash;2; 3rd/4th guests ~$450&ndash;700 (or taxes-only under Princess's recurring "3rd &amp; 4th Guests Sail Free" promotions — worth $3,000&ndash;4,500 to this group). Holland America's Glacier Discovery runs ~5% less (2027 leads $869&ndash;$1,214 inside). Add ~5&ndash;10% for 2028. <strong>Disney reference point:</strong> Disney Wonder does Alaska only as a <em>round-trip from Vancouver</em> (no one-way, no Denali link) from ~$3,938/person double occupancy — roughly <strong>$58,000&ndash;$72,000 for this group, about 2&times; Princess</strong>, for one fewer glacier.</p>
     </section>
 
@@ -256,7 +315,7 @@
       <div class="ak-exp">
         <div class="ak-exp-num">3</div>
         <div><h4>Skagway: White Pass &amp; Yukon Route Railroad <span class="ak-price-tag">$155 adult / $77.50 child &middot; ~$2,300&ndash;2,600 group</span></h4>
-        <p>A vintage narrow-gauge train climbing 3,000 feet over Gold Rush trestles, boarding steps from the pier. Zero walking required — the single best all-twenty-ages excursion of the trip.</p></div>
+        <p>A vintage narrow-gauge train climbing 3,000 feet over Gold Rush trestles and cliff-hugging tunnels, boarding steps from the pier — living history with knockout views that hooks everyone from the 3-year-old to the grandparents. The single best all-twenty-ages excursion of the trip.</p></div>
       </div>
       <div class="ak-exp">
         <div class="ak-exp-num">4</div>
@@ -265,7 +324,7 @@
       </div>
       <div class="ak-exp">
         <div class="ak-exp-num">5</div>
-        <div><h4>Denali Tundra Wilderness Tour <span class="ak-price-tag">$144.75 adult / $66 child &middot; ~$2,350 group</span></h4>
+        <div><h4>Denali Tundra Wilderness Tour <span class="ak-price-tag">$144.75 adult / $66 child &middot; ~$2,270 group</span></h4>
         <p>Grizzlies, caribou, moose, and Dall sheep from the park's classic wildlife bus, deep past where private cars can go. (Honest note: it's 6&ndash;7 hours — one parent may sit it out with the toddler at the lodge's free sled-dog demo.)</p></div>
       </div>
 
@@ -305,7 +364,7 @@
           <tr><td>Whittier&rarr;Anchorage transfer</td><td class="ak-money">~$1,300</td></tr>
           <tr><td>4 rental vehicles &times; 3 days + gas</td><td class="ak-money">~$2,100&ndash;2,700</td></tr>
           <tr><td>Denali-area lodge, 7 rooms &times; 2 nights (July $350&ndash;500/night)</td><td class="ak-money">~$5,000&ndash;7,000</td></tr>
-          <tr><td>Tundra Wilderness Tour (13 adult-fare + 7 child)</td><td class="ak-money">~$2,350</td></tr>
+          <tr><td>Tundra Wilderness Tour (12 adult-fare + 8 child; the baby rides free on a lap)</td><td class="ak-money">~$2,270</td></tr>
           <tr><td>Anchorage hotel, final night (7 rooms)</td><td class="ak-money">~$2,100</td></tr>
           <tr><td>Meals on land (~3 days)</td><td class="ak-money">~$3,600</td></tr>
           <tr class="ak-total-row"><td>DIY land total (vs. ~$18,000&ndash;26,000 for the packaged cruisetour)</td><td class="ak-money">~$16,500&ndash;19,000</td></tr>
@@ -340,7 +399,7 @@
       <div class="ak-scrollx">
       <table class="ak-table">
         <tr><th>Line item (20 people, ex-airfare)</th><th>Lean</th><th>Recommended</th></tr>
-        <tr><td>Cruise fares + taxes (7 cabins)</td><td class="ak-money">~$24,000</td><td class="ak-money">~$31,000</td></tr>
+        <tr><td>Cruise fares + taxes (7 cabins)</td><td class="ak-money">~$24,000</td><td class="ak-money">~$30,200</td></tr>
         <tr><td>Gratuities ($18/person/day &times; 7 nights)</td><td class="ak-money">$2,520</td><td class="ak-money">$2,520</td></tr>
         <tr><td>Pre-cruise Vancouver hotel night (7 rooms)</td><td class="ak-money">~$2,300</td><td class="ak-money">~$2,600</td></tr>
         <tr><td>Shore excursions</td><td class="ak-money">~$3,500</td><td class="ak-money">~$6,500</td></tr>
@@ -349,19 +408,35 @@
         <tr class="ak-total-row"><td>Total ex-airfare (with ~7% 2028 inflation buffer)</td><td class="ak-money">~$38,000&ndash;41,000</td><td class="ak-money">~$52,000&ndash;60,000</td></tr>
       </table>
       </div>
+      <div class="ak-build">
+        <h3>If every option got the same $35,000 (excluding airfare), here's Alaska's build</h3>
+        <div class="ak-scrollx">
+        <table class="ak-table">
+          <tr><th>Item</th><th>Cost</th></tr>
+          <tr><td>7 cabins, inside/oceanview, 3rd&ndash;4th-guest promo fares + taxes</td><td class="ak-money">~$24,000</td></tr>
+          <tr><td>Gratuities (20 &times; 7 nights)</td><td class="ak-money">$2,520</td></tr>
+          <tr><td>Pre-cruise Vancouver night (7 rooms + dinner)</td><td class="ak-money">~$2,300</td></tr>
+          <tr><td>Core excursions: White Pass train for all 20 + whale watching + Ketchikan show mix</td><td class="ak-money">~$4,300</td></tr>
+          <tr><td>Fly home from Anchorage the morning you disembark</td><td class="ak-money">$0</td></tr>
+          <tr class="ak-total-row"><td>The $35k Alaska: 7 nights, both glacier days, three ports, whales and the gold-rush train</td><td class="ak-money">~$33,100</td></tr>
+        </table>
+        </div>
+        <p class="ak-build-verdict">Plain truth: the Denali land extension does NOT fit in $35k — even the cheaper Talkeetna fallback (+~$11k) blows the cap. It's a genuine two-tier choice: take the complete-in-itself $35k cruise, or vote the bigger trip (~$52&ndash;60k ex-air) and get balconies + Denali.</p>
+      </div>
+
       <p><strong>Straight talk:</strong> $30k buys the cruise itself — inside cabins on a kids-sail-free promotion (~$24&ndash;27k with gratuities) plus the Vancouver night — but not balconies, the full excursion slate, <em>and</em> Denali. The recommended experience is roughly <strong>$2,600&ndash;3,000 per person, everything included except flights</strong>. That is still about half of what Disney charges for the boat alone.</p>
 
       <h3 class="ak-h3">Airfare reality — the open-jaw (separate from the budget above)</h3>
       <div class="ak-scrollx">
       <table class="ak-table">
         <tr><th>Departure city</th><th>Fly into Vancouver</th><th>Fly home from Anchorage</th><th>Open-jaw / person</th><th>Family total</th></tr>
-        <tr><td>Salt Lake City (12 travelers)</td><td>~$170&ndash;250</td><td>~$450&ndash;500 (July peak)</td><td class="ak-money">~$620&ndash;750</td><td class="ak-money">~$7,500&ndash;9,000</td></tr>
-        <tr><td>Southern California (7)</td><td>~$150&ndash;250</td><td>~$260&ndash;350</td><td class="ak-money">~$450&ndash;600</td><td class="ak-money">~$3,200&ndash;4,200</td></tr>
-        <tr><td>Boston (1)</td><td>~$300&ndash;450</td><td>~$310&ndash;450</td><td class="ak-money">~$650&ndash;900</td><td class="ak-money">~$650&ndash;900</td></tr>
-        <tr class="ak-total-row"><td colspan="4">Group airfare total</td><td class="ak-money">~$11,500&ndash;14,000</td></tr>
+        <tr><td>Salt Lake City (11 travelers: grandparents, the no-kids couple, and the family of 7)</td><td>~$170&ndash;250</td><td>~$450&ndash;500 (July peak, Delta nonstop)</td><td class="ak-money">~$620&ndash;750</td><td class="ak-money">~$6,800&ndash;8,300</td></tr>
+        <tr><td>Oceanside, CA — San Diego/SAN (5 travelers: the family of 5)</td><td>~$150&ndash;250</td><td>~$260&ndash;350</td><td class="ak-money">~$450&ndash;600</td><td class="ak-money">~$2,250&ndash;3,000</td></tr>
+        <tr><td>Boston / Manchester NH (4 travelers: Boston family of 3 + the Manchester single, both via BOS or MHT)</td><td>~$300&ndash;450</td><td>~$310&ndash;450</td><td class="ak-money">~$650&ndash;900</td><td class="ak-money">~$2,600&ndash;3,600</td></tr>
+        <tr class="ak-total-row"><td colspan="4">Group airfare total</td><td class="ak-money">~$12,000&ndash;15,000</td></tr>
       </table>
       </div>
-      <p class="ak-note">Sanity check: a round-trip-Seattle Inside Passage cruise would cut group airfare to ~$5,500&ndash;7,500 — the one-way's ~$5,000&ndash;7,000 flight premium is the real price of Glacier Bay + College Fjord + Denali. We think it's worth it; the family should decide with eyes open.</p>
+      <p class="ak-note">Sanity check: a round-trip-Seattle Inside Passage cruise would cut group airfare to ~$5,500&ndash;7,500 — the one-way's ~$6,000&ndash;8,000 flight premium is the real price of Glacier Bay + College Fjord + Denali. We think it's worth it; the family should decide with eyes open. Even so, Alaska's domestic-plus-Vancouver flights remain the cheapest airfare of the five options on the table.</p>
     </section>
 
     <!-- ================= PROS & CONS ================= -->
@@ -372,21 +447,22 @@
         <div class="ak-pros">
           <h3>Why it works</h3>
           <ul class="ak-pc-list">
-            <li><strong>The one-roof factor is unbeatable.</strong> Seven cabins, one corridor, dinner for 20 at two adjoining tables every night — no villa, resort, or island-hop can match it with zero driving and one unpack.</li>
+            <li><strong>Private doors, shared world.</strong> Every family keeps its own cabin, yet the whole group shares one corridor, one pool deck, and dinner for 20 at two adjoining tables every night — with zero driving and one unpack.</li>
+            <li><strong>Real independence for the 6&ndash;11 crowd.</strong> A contained, crew-staffed ship lets the 9s and 11s roam club-to-pool-to-pizza on their own (Princess allows 8+ self-sign-out with parent permission, with live location on the parents' app) — freedom no land option can safely offer.</li>
             <li><strong>Every age has a lane.</strong> Free kids' clubs (ages 3&ndash;17 in bands), a teen lounge, a covered pool, quiet adult decks — parents actually get a vacation too.</li>
             <li><strong>Two included glacier days</strong> — the wow moments cost nothing extra and happen with everyone together at the rail.</li>
-            <li><strong>2028 timing is perfect:</strong> the grandkids will be 3&frac12; to 16 — old enough to remember it, young enough to still all come.</li>
-            <li><strong>Cool-weather comfort:</strong> 60s&ndash;70s°F, 18&ndash;20 hours of daylight, no sunburned toddlers, easy on the grandparents.</li>
-            <li><strong>Roughly half Disney's price</strong> for a better itinerary, and the land leg ends at Anchorage's airport with nonstops toward all three home cities.</li>
+            <li><strong>2028 timing is perfect:</strong> the grandkids will span 18 months to 16 — the big kids old enough to remember it forever, everyone still young enough to all come.</li>
+            <li><strong>Cool-weather comfort:</strong> 60s&ndash;70s°F, 18&ndash;20 hours of daylight, no sunburned toddlers — energy left for long days of exploring.</li>
+            <li><strong>Roughly half Disney's price</strong> for a better itinerary, and the land leg ends at Anchorage's airport — nonstop home to Salt Lake, direct West Coast service toward San Diego, one easy connection to Boston.</li>
           </ul>
         </div>
         <div class="ak-cons">
           <h3>Where it genuinely hurts</h3>
           <ul class="ak-pc-list">
-            <li><strong>Passports for all 20 — including every child.</strong> One-way Vancouver sailings void the birth-certificate exception. ~$1,300&ndash;1,500 and applications must start by late 2027. Miss one passport, miss the ship.</li>
-            <li><strong>The potty-training cliff.</strong> If the 3&frac12;-year-old isn't fully potty-trained by June 2028, mainstream lines allow <em>no</em> kids-club drop-off and <em>no</em> pool access — swim diapers are banned fleet-wide. Only Disney (2&times; the price) and Royal Caribbean truly solve this.</li>
+            <li><strong>Passports required for all 20, including the kids</strong> (one-way Vancouver sailings void the birth-certificate exception). A to-do, not a dealbreaker: ~$1,300&ndash;1,500 for the nine kids, applications on the calendar by late 2027.</li>
+            <li><strong>The under-3 gap is real — it now touches two kids.</strong> The 18-month-old is below every mainstream line's kids-club minimum (age 3, fully potty-trained) and barred from all pools (swim diapers banned fleet-wide) — a parent is on baby duty whenever the others swim. And the 3-year-old makes the club cutoff <em>only if</em> fully potty-trained by June 2028. Workarounds exist but cost: Royal Caribbean has the sole mainstream paid drop-off nursery (6&ndash;36 months) for the baby, and Disney (2&times; the price) adds a swim-diaper splash zone.</li>
             <li><strong>Motion sickness risk is real.</strong> The final Gulf of Alaska crossing is open ocean and can roll noticeably. Mitigate with midship cabins and Bonine, but anyone badly prone to seasickness will feel it.</li>
-            <li><strong>Open-jaw airfare costs ~$5,000&ndash;7,000 more</strong> than a simple round trip, and three cities converging on Vancouver demands a buffer day.</li>
+            <li><strong>Open-jaw airfare costs ~$6,000&ndash;8,000 more</strong> than a simple round trip, and three regions converging on Vancouver demands a buffer day.</li>
             <li><strong>Weather is a coin flip.</strong> Juneau averages 64°F with regular drizzle; Denali's summit hides ~2 days out of 3. Pack rain shells, not swimsuits — <strong>there is no beach on this vacation.</strong></li>
             <li><strong>$30k realistically buys only the lean version.</strong> The full recommended experience is $52&ndash;60k ex-air. Excursions for 20 add up fast ($6,500 for the full slate), and 7 connecting cabins require booking the day 2028 inventory opens.</li>
           </ul>
@@ -400,8 +476,34 @@
       <h2 class="ak-h2">Why Alaska wins the family vote</h2>
       <p>Greece is gorgeous — and it's ferries, heat, and four rental cars with nine kids. The Slovenian villa is charming — and someone cooks for 20 every night while the teens ask what there is to do. Maui is easy — and it's three condos, one pool, and a week that looks like every other resort week.</p>
       <p class="ak-big">Alaska is the only pitch where the hotel itself does the traveling. Twenty beds move together past calving glaciers while the family sleeps, and every generation wakes up to the same jaw-dropping view — then splits into kids' club, teen lounge, whale boat, and quiet deck, and reunites at the same dinner table by seven.</p>
-      <p>The grandparents get comfort and grandeur without a single long walk. The teens get whales breaching and a gold-rush railroad. The little ones get moose, sled dogs, and a ship to explore. The parents get actual rest. And in 2048, nobody will say "remember that villa?" — they'll say <em>"remember when the glacier cracked and the whole family screamed at once?"</em></p>
+      <p>The grandparents get front-row grandeur and a week fully off duty — nobody cooks, nobody drives, nobody hosts. The teens get whales breaching and a gold-rush railroad. The little ones get moose, sled dogs, and a ship to explore. The parents get actual rest. And in 2048, nobody will say "remember that villa?" — they'll say <em>"remember when the glacier cracked and the whole family screamed at once?"</em></p>
       <p class="ak-big">One booking window, one corridor of cabins, one unforgettable map line from Vancouver to Denali. That's the reunion. Vote Alaska.</p>
+    </section>
+
+    <!-- ================= VOTE CARD ================= -->
+    <section class="ak-votecard">
+      <span class="ak-badge">The vote card</span>
+      <h2 class="ak-votecard-title">Alaska is new to 19 of the 20 of us. Start there.</h2>
+      <div class="ak-votegrid">
+        <div class="ak-votepoint">
+          <p class="ak-votepoint-h">Maximum novelty</p>
+          <p>Exactly one of us has cruised Alaska. All 20 have done Hawaii. Greece got a single cruise-day on Crete. For the voters who want somewhere genuinely <em>new</em> — grandparents included — no option on this ballot is new to more of us than Alaska.</p>
+        </div>
+        <div class="ak-votepoint">
+          <p class="ak-votepoint-h">Truly effortless</p>
+          <p>The only option where nobody cooks, nobody drives, nobody hosts. Cabins on one corridor, kids' clubs by day, dinner for 20 set every night — the ship does the logistics, so the kid-families get an actual vacation.</p>
+        </div>
+        <div class="ak-votepoint">
+          <p class="ak-votepoint-h">Free-range cousins</p>
+          <p>Only Alaska hands the six 6-to-11-year-olds a contained, crew-staffed world to roam on their own — self-sign-out clubs at 8+, live location on the parents' app, and a cousin pack loose between pool, arcade, and pizza counter all week.</p>
+        </div>
+        <div class="ak-votepoint">
+          <p class="ak-votepoint-h">Cheapest flights on the ballot</p>
+          <p>~$12,000&ndash;15,000 for all 20 — domestic hops plus Vancouver, no trans-Atlantic fares, no ferries. Every competing pitch spends more just getting there.</p>
+        </div>
+      </div>
+      <p class="ak-vote-concede">Full honesty: the 18-month-old is below every kids-club and pool cutoff (a parent's always on baby duty), and done right this trip runs ~$68&ndash;75k all-in with flights.</p>
+      <p class="ak-vote-cta"><span class="ak-vote-star">&#9733;</span> Rank Alaska #1 on the Vote tab <span class="ak-vote-star">&#9733;</span></p>
     </section>
 
     <p class="ak-footer-note">Prices are real 2026/2027 published fares and rates used as a proxy for 2028 (add ~5&ndash;10%): Princess/HAL one-way leads $704&ndash;$1,214 inside; Disney Wonder from $3,938/person; White Pass $155/$77.50; Tundra Wilderness Tour $144.75/$66; Alaska Railroad $199&ndash;$378; gratuities $18/person/day; airfare from current July fare data (Delta, Alaska Airlines, Southwest). Full sourced research report available separately. Photos: Wikimedia Commons.</p>

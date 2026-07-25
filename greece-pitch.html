@@ -95,9 +95,34 @@
   .closing .win{background:rgba(255,255,255,.07);border-left:4px solid var(--turq);padding:16px 20px;border-radius:0 10px 10px 0;margin:14px 0}
   .closing .win strong{color:var(--turq);font-family:'Segoe UI',sans-serif}
   .vs td{color:var(--ink)}
+  /* VOTE CARD */
+  .votecard{margin-top:44px;background:linear-gradient(150deg,#0e4a6e,#12688f 55%,#1b8fa8);border:2px solid var(--turq);border-radius:18px;padding:34px 34px 30px;box-shadow:0 18px 50px rgba(0,0,0,.35);position:relative;overflow:hidden}
+  .votecard::before{content:"ΨΗΦΟΣ";position:absolute;right:-10px;top:-28px;font-size:7rem;font-weight:800;font-family:'Segoe UI',sans-serif;color:rgba(255,255,255,.05);letter-spacing:.05em;pointer-events:none}
+  .votecard .vc-kicker{font-family:'Segoe UI',sans-serif;letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;color:var(--turq);font-weight:700}
+  .votecard h3{font-size:1.7rem;color:#fff;margin:.3em 0 .7em;font-weight:800}
+  .vc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:6px 0 14px}
+  @media(max-width:760px){.vc-grid{grid-template-columns:1fr}}
+  .vc-cell{background:rgba(255,255,255,.08);border-radius:12px;padding:18px 20px}
+  .vc-cell h4{color:var(--turq);font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+  .vc-cell p{font-size:.97rem;color:#eef6fa}
+  .vc-concede{font-size:.9rem;font-style:italic;color:#cfe3ee;border-left:3px solid var(--coral);padding-left:14px;margin:14px 0 20px}
+  .vc-cta{display:inline-block;background:var(--turq);color:#04222f;font-family:'Segoe UI',sans-serif;font-weight:800;font-size:1.1rem;padding:14px 30px;border-radius:40px;letter-spacing:.02em}
   footer{background:var(--deep);color:#9db4c2;padding:34px 0;font-size:.8rem;font-family:'Segoe UI',sans-serif}
   footer a{color:#7fd4dd;text-decoration:none;word-break:break-all}
   .note{background:#fff8e8;border:1px solid #eadfb8;border-radius:10px;padding:14px 18px;font-size:.88rem;font-family:'Segoe UI',sans-serif;margin:20px 0}
+  /* KID FREEDOM */
+  .kidfree{background:var(--white);border:1px solid #d9cfba;border-left:6px solid var(--olive);border-radius:12px;padding:22px 24px;margin:30px 0 8px;box-shadow:var(--shadow)}
+  .kidfree h3{color:var(--olive);font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+  .kidfree ul{list-style:none;font-size:.95rem}
+  .kidfree li{padding:6px 0 6px 26px;position:relative}
+  .kidfree li.ok::before{content:"●";position:absolute;left:4px;color:#4c8a54}
+  .kidfree li.maybe::before{content:"●";position:absolute;left:4px;color:#d9a13b}
+  .kidfree li.no::before{content:"●";position:absolute;left:4px;color:var(--coral)}
+  /* $35K BUILD */
+  .build35{background:var(--white);border:1px solid #d9cfba;border-top:6px solid var(--sky);border-radius:12px;padding:22px 24px;margin:30px 0 8px;box-shadow:var(--shadow);font-family:'Segoe UI',sans-serif}
+  .build35 h3{color:var(--aegean);font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+  .build35 table{box-shadow:none;border:1px solid #e8e0d2;font-size:.88rem}
+  .build35 p{font-size:.9rem;margin-top:10px}
 </style>
 </head>
 <body>
@@ -123,8 +148,8 @@
   <div class="wrap grid">
     <div><div class="num">$17,600</div><div class="lbl">est. 2028 lodging for 9 nights — vs. the $30,000 target</div></div>
     <div><div class="num">20 beds</div><div class="lbl">one villa, 9 bedrooms — nobody sleeps in an annex</div></div>
-    <div><div class="num">0 ferries</div><div class="lbl">50-minute hop from Athens; no boat logistics with a toddler</div></div>
-    <div><div class="num">300 m</div><div class="lbl">from the villa gate to a sandy beach, on flat ground</div></div>
+    <div><div class="num">0 ferries</div><div class="lbl">50-minute hop from Athens; no boat logistics with an 18-month-old</div></div>
+    <div><div class="num">300 m</div><div class="lbl">from the villa gate to a sandy beach</div></div>
   </div>
 </div>
 
@@ -133,9 +158,9 @@
   <div class="wrap">
     <div class="kicker2">The Case</div>
     <h2>Why Northwest Crete beats the field for <em>this</em> family</h2>
-    <p class="lede">We are not a couple. We are twenty people spanning ages 3&frac12; to 67 — a toddler who needs a
-    shallow pool and a crib, teenagers who need actual adventure, five families who need their own bedrooms,
-    and grandparents who need beauty without a thousand stairs. Very few places on Earth check every box.
+    <p class="lede">We are not a couple. We are twenty people spanning 18 months to 67 — a baby and a 3-year-old
+    who need cribs, naps, and a shallow pool; a 16-year-old and a pack of 6-to-11-year-olds who need actual
+    adventure; and six households who each need their own bedrooms and one long shared table. Very few places on Earth check every box.
     The Chania coast of Crete checks all of them, at a price that leaves room in the budget for the memories.</p>
     <div class="two" style="margin-top:36px">
       <div>
@@ -143,9 +168,8 @@
         <p>Chania has its own international airport (CHQ): a 50-minute flight from Athens (~$150 round trip), and in
         summer, direct flights from major European hubs — some of our families can connect straight to Crete without
         ever touching Athens. <strong>No ferries, no ports, no dragging 40 suitcases up a gangway with a
-        3-year-old.</strong> The villa zone (Maleme/Platanias) is flat coastal ground: mini-market at 100&nbsp;m,
-        tavernas at 300&nbsp;m, beach at 300&nbsp;m. Chania General Hospital — a full regional hospital with an ER and
-        pediatrics — is 25 minutes away, the best medical access of any Greek island.</p>
+        18-month-old.</strong> The villa zone (Maleme/Platanias) has a mini-market at 100&nbsp;m,
+        tavernas at 300&nbsp;m, and the beach at 300&nbsp;m. (Logistics note: Chania General Hospital is 25 minutes away.)</p>
         <h3 style="color:var(--aegean);margin:18px 0 8px">The weather is the mild version of Greece</h3>
         <p>In late June/July, Chania runs <strong>28–31&deg;C (82–88&deg;F)</strong> while the famous Cyclades
         (Santorini/Mykonos) bake at 33–38&deg;C. The sea is 24–26&deg;C — genuinely warm. And the meltemi wind that
@@ -156,7 +180,7 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Harbor%2C_Venetian_shipyards_and_Lighthouse_in_Chania._Crete%2C_Greece.jpg/1920px-Harbor%2C_Venetian_shipyards_and_Lighthouse_in_Chania._Crete%2C_Greece.jpg"
              alt="The Venetian harbor and lighthouse of Chania old town, Crete"
              onerror="this.outerHTML='&lt;div class=&quot;imgfallback&quot;&gt;Chania&#39;s Venetian Harbor — image unavailable offline&lt;/div&gt;'">
-        <figcaption>Chania's Venetian Harbor — a flat, stroller-friendly promenade, 20 min from the villa. (Wikimedia Commons)</figcaption>
+        <figcaption>Chania's Venetian Harbor — a stroller-friendly waterfront promenade, 20 min from the villa. (Wikimedia Commons)</figcaption>
       </figure>
     </div>
   </div>
@@ -174,19 +198,21 @@
           <span class="badge">9 bedrooms / 8 baths</span>
           <span class="badge">Sleeps 20</span>
           <span class="badge">180&nbsp;m&sup2; pool with children's section</span>
-          <span class="badge">Elevator + ramps (grandparent-friendly)</span>
           <span class="badge">Gym &middot; Sauna &middot; Hot tub</span>
           <span class="badge">Outdoor kitchen + BBQ</span>
           <span class="badge">Beach 300&nbsp;m &middot; Market 100&nbsp;m &middot; Tavernas 300&nbsp;m</span>
           <span class="badge">Airport 27&nbsp;km</span>
         </div>
-        <p>Two kitchens plus a kitchenette mean three families can cook breakfast at once. The pool's dedicated
-        shallow children's section is a real answer for the toddler; the wheelchair-friendly ramps and elevator are a
-        real answer for the next twenty years of reunions. Bookable direct through Iason Villas
+        <p>Two kitchens plus a kitchenette mean three families can cook breakfast at once, and the pool's dedicated
+        shallow children's section is a real answer for the baby and the 3-year-old. Bookable direct through Iason Villas
         (villaiason.gr) or via Crete villa agencies.</p>
         <p class="small" style="margin-top:10px">Honesty note: like most Greek villas, the pool is <strong>not fenced by
-        default</strong> — we request a portable pool fence at booking (or budget ~€300–500 to arrange one) and confirm
-        crib availability in writing. See the cons section — we're not hiding this.</p>
+        default</strong> — with an 18-month-old walking, this is non-negotiable: we request a portable pool fence at booking
+        (or budget ~€300–500 to arrange one) and confirm crib/cot availability in writing (one for the baby, likely a second
+        for the 3-year-old). See the cons section — we're not hiding this.</p>
+        <p class="small" style="margin-top:10px">And to be clear: one roof is a feature we love, not a requirement. If we end up
+        preferring adjacent villas with shared grounds (Imperium, below), that works great too — what we're really buying is
+        one big living room and one long table for the evenings everyone drifts back to.</p>
       </div>
       <div class="pricebox">
         <div class="sans" style="opacity:.85;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase">9 nights, all 20 of us</div>
@@ -200,15 +226,25 @@
       </div>
     </div>
 
+    <div class="kidfree">
+      <h3>Kid Freedom Report — the six 6-to-11-year-olds (6, 6, 9, 9, 11, 11)</h3>
+      <ul>
+        <li class="ok"><strong>Free-range on property:</strong> Villa Natali is a private gated compound on 4,000 m² of gardens — pool, lawns, ping-pong, hide-and-seek territory. All six can roam unsupervised inside the gate all day (littles under the usual pool rules).</li>
+        <li class="ok"><strong>The mini-market run:</strong> 100 m up a quiet village lane — the 11s and 9s can absolutely be sent solo for bread, ice cream, and change-counting practice in euros. Maleme is a small, low-traffic village where kids on errands are a normal sight.</li>
+        <li class="maybe"><strong>Gelato/tavernas at 300 m:</strong> fine for the olders in pairs in daylight — but it's a village road, not a sidewalk grid, so parents should walk it once first and set the rule themselves. The 6-year-olds go with an older kid, not alone.</li>
+        <li class="no"><strong>Not solo:</strong> the beach (300 m away, unguarded open sea — swimming is always adults-present), the pool for the under-6s, and anywhere after dark. Standard stuff, stated plainly.</li>
+      </ul>
+    </div>
+
     <h3 style="color:var(--aegean);margin:44px 0 14px">Backup &amp; upgrade options (all real, all researched)</h3>
     <div class="tablescroll">
     <table>
       <tr><th>Property</th><th>Location</th><th>Sleeps</th><th>Layout</th><th>9-night est. (2025/26 rates)</th><th>Notes</th></tr>
-      <tr class="hl"><td><strong>Villa Natali</strong> (recommended)</td><td>Maleme, Chania, Crete</td><td>20</td><td>9 BR / 8 BA, kids' pool section</td><td>~$15,300 (~$17.6k in 2028)</td><td>One roof, in budget, accessible</td></tr>
+      <tr class="hl"><td><strong>Villa Natali</strong> (recommended)</td><td>Maleme, Chania, Crete</td><td>20</td><td>9 BR / 8 BA, kids' pool section</td><td>~$15,300 (~$17.6k in 2028)</td><td>One roof, in budget, sleeps exactly 20</td></tr>
       <tr><td>Imperium Luxury Villas (Ostria + Esperia)</td><td>Kalamaki, Chania, Crete</td><td>24</td><td>10 BR / 8 BA, two adjacent villas</td><td>est. $18–24k (quote basis)</td><td>Children's play area; heated pool +€1,400/wk; 650 m to sandy beach</td></tr>
       <tr><td>Beach House Arvi</td><td>South coast, Crete</td><td>up to 30</td><td>12 BR / 12 BA, beachfront, 4 kitchens</td><td>€23–40k (~$25–43k)</td><td>Spectacular beachfront; remoter, pricier</td></tr>
       <tr><td>Villa Rafaella</td><td>Porto Heli, Peloponnese</td><td>18 + 2 (pier studio)</td><td>9 BR / 9 BA, 19&times;8 m pool, tennis, private pier</td><td>€2,000–6,000/night → ~$44–59k</td><td>The "budget flexes up" option; no flights — 2.5 h drive from Athens</td></tr>
-      <tr><td>Maestro Estate (2 villas as one)</td><td>Plaka, Naxos</td><td>16 (+overflow villa nearby)</td><td>8 BR, 2 pools, 1 km to Plaka beach</td><td>est. $10–16k (quote basis)</td><td>Needs a second property for 20; ferry or small-plane logistics</td></tr>
+      <tr><td>Maestro Estate (2 villas as one)</td><td>Plaka, Naxos</td><td>16 (+overflow villa nearby)</td><td>8 BR, 2 pools, 1 km to Plaka beach</td><td>est. $10–16k (quote basis)</td><td>Two villas + a nearby overflow villa — a fine setup by our standards; the real catch is ferry/small-plane logistics</td></tr>
       <tr><td>The Westin Resort, Costa Navarino (7 rooms)</td><td>Messinia, Peloponnese</td><td>20 across rooms</td><td>Hotel — aqua park, 2 kids clubs</td><td>~$460–840/room/night → $29–53k</td><td>"Someone else does the childcare" fallback; loses the one-house magic</td></tr>
     </table>
     </div>
@@ -220,38 +256,40 @@
 <section>
   <div class="wrap">
     <div class="kicker2">The Days</div>
-    <h2>Five days everyone remembers — from 3&frac12; to 67</h2>
+    <h2>Five days everyone remembers — from 18 months to 67</h2>
     <div class="acts">
       <div class="act">
         <div class="actimg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Panoramic_view_of_Balos_Lagoon_on_Crete%2C_Greece.jpg/1920px-Panoramic_view_of_Balos_Lagoon_on_Crete%2C_Greece.jpg"
           alt="Panoramic view of Balos Lagoon's shallow turquoise water" onerror="this.outerHTML='&lt;div class=&quot;imgfallback&quot;&gt;Balos Lagoon&lt;/div&gt;'"></div>
         <div class="txt"><h3>1. Private boat day — Balos Lagoon &amp; Gramvousa</h3>
         <p>Charter our own boat from Kissamos (~€2,500–3,500 for the whole group, or the public ferry at ~€35–40/adult).
-        Grandparents in the shade on deck, teens snorkeling, the toddler splashing in knee-deep turquoise water.</p>
-        <div class="ages">TODDLER ✓ &nbsp; TEENS ✓ &nbsp; GRANDPARENTS ✓</div></div>
+        Teens snorkeling, the 3-year-old splashing in knee-deep turquoise water, the baby napping under the bimini shade,
+        everyone else swimming or sunning on deck.</p>
+        <div class="ages">BABY &amp; 3-Y-O ✓ &nbsp; TEENS ✓ &nbsp; GRANDPARENTS ✓</div></div>
       </div>
       <div class="act">
         <div class="actimg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Aerial_view_of_Elafonisi_beach_separating_Crete_and_Elafonisi_Island_in_Greece.jpg/1920px-Aerial_view_of_Elafonisi_beach_separating_Crete_and_Elafonisi_Island_in_Greece.jpg"
           alt="Aerial view of pink-sand Elafonisi beach and its shallow lagoon" onerror="this.outerHTML='&lt;div class=&quot;imgfallback&quot;&gt;Elafonisi Beach&lt;/div&gt;'"></div>
         <div class="txt"><h3>2. Elafonisi &amp; Falassarna beach days</h3>
-        <p>Pink sand at Elafonisi with water that stays waist-deep for hundreds of meters — a toddler paradise. Falassarna's
+        <p>Pink sand at Elafonisi with water that stays waist-deep for hundreds of meters — paradise for an 18-month-old
+        and a 3-year-old. Falassarna's
         huge sandy sweep, 25 minutes from the villa, has sunbeds, tavernas, and surf for the big kids. Easy parking, no stairs.</p>
-        <div class="ages">TODDLER ✓ &nbsp; TEENS ✓ &nbsp; GRANDPARENTS ✓</div></div>
+        <div class="ages">BABY &amp; 3-Y-O ✓ &nbsp; TEENS ✓ &nbsp; GRANDPARENTS ✓</div></div>
       </div>
       <div class="act">
         <div class="actimg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Chania_Old_Harbour_by_night.jpg/1920px-Chania_Old_Harbour_by_night.jpg"
           alt="Chania's old Venetian harbour lit up at night" onerror="this.outerHTML='&lt;div class=&quot;imgfallback&quot;&gt;Chania Harbor at night&lt;/div&gt;'"></div>
         <div class="txt"><h3>3. Chania Venetian Harbor evening</h3>
-        <p>A flat waterfront promenade (stroller- and grandparent-friendly), the lighthouse walk for the teens, gelato for
+        <p>A stroller-friendly waterfront promenade, the lighthouse walk for the teens, gelato for
         everyone, and one big table for twenty at a harbor taverna. Twenty minutes from the villa; zero effort, maximum magic.</p>
-        <div class="ages">TODDLER ✓ &nbsp; TEENS ✓ &nbsp; GRANDPARENTS ✓</div></div>
+        <div class="ages">BABY &amp; 3-Y-O ✓ &nbsp; TEENS ✓ &nbsp; GRANDPARENTS ✓</div></div>
       </div>
       <div class="act">
         <div class="actimg"><div class="imgfallback" style="font-size:2.6rem">🌊🛝</div></div>
         <div class="txt"><h3>4. Limnoupolis Water Park</h3>
         <p>A full slide complex for the 9-to-16 crowd, a lazy river and kiddie pools for the littles, and a shaded caf&eacute;
-        for the grandparents. Day tickets roughly €20–28/person. The designated "let the kids burn it all off" day.</p>
-        <div class="ages">KIDS ✓ &nbsp; TEENS ✓✓ &nbsp; GRANDPARENTS (in the shade) ✓</div></div>
+        for whoever wants a break. Day tickets roughly €20–28/person. The designated "let the kids burn it all off" day.</p>
+        <div class="ages">KIDS ✓ &nbsp; TEENS ✓✓ &nbsp; ADULTS ✓</div></div>
       </div>
       <div class="act">
         <div class="actimg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Falassarna_-_Kr%C3%A9ta_-_panoramio_%281%29.jpg/1920px-Falassarna_-_Kr%C3%A9ta_-_panoramio_%281%29.jpg"
@@ -264,8 +302,8 @@
       <div class="act">
         <div class="actimg"><div class="imgfallback" style="font-size:2.6rem">🥾 + 🏖️</div></div>
         <div class="txt"><h3>Bonus: the split day</h3>
-        <p>Adults and teens walk Imbros Gorge (the easy 2-hour cousin of Samaria) while grandparents and littles do beach +
-        playground; everyone reunites for a villa dinner cooked by a hired chef (~€400/night + groceries).</p>
+        <p>The hikers walk Imbros Gorge (the easy 2-hour cousin of Samaria) while the beach crew does sand +
+        playground with the littles; everyone reunites for a villa dinner cooked by a hired chef (~€400/night + groceries).</p>
         <div class="ages">EVERYONE GETS THEIR DAY ✓</div></div>
       </div>
     </div>
@@ -282,15 +320,18 @@
     <div class="tablescroll" style="margin-top:24px">
     <table>
       <tr><th>Departure</th><th>Who</th><th>Routing</th><th>One-way travel time</th><th>Est. 2028 RT / person</th></tr>
-      <tr><td><strong>Salt Lake City</strong></td><td>3 families — 12 people</td><td>Delta 1-stop via Amsterdam/Paris or JFK to Athens, then 50-min hop to Chania</td><td>15–19 hrs</td><td>$1,400–1,900</td></tr>
-      <tr><td><strong>Southern California (LAX)</strong></td><td>2 families — 7 people</td><td>1 stop via London/Frankfurt/Zurich (no nonstop LAX–Athens exists)</td><td>15–18 hrs</td><td>$1,250–1,800</td></tr>
-      <tr><td><strong>Boston</strong></td><td>1 adult</td><td><strong>Delta nonstop BOS→ATH</strong> — the easy one</td><td>~9.5 hrs</td><td>$1,000–1,550</td></tr>
+      <tr><td><strong>Salt Lake City</strong></td><td>11 people — grandparents + no-kids couple + the 5-kid family of 7</td><td>Delta 1-stop via Amsterdam/Paris or JFK to Athens, then 50-min hop to Chania</td><td>15–19 hrs</td><td>$1,400–1,900</td></tr>
+      <tr><td><strong>Oceanside, CA (San Diego — SAN, or LAX)</strong></td><td>5 people — couple + 3 kids</td><td>1 stop via London/Frankfurt/Zurich or a US hub (SAN routings price like LAX one-stops; no West Coast nonstop to Athens exists)</td><td>15–18 hrs</td><td>$1,250–1,800</td></tr>
+      <tr><td><strong>Boston area</strong></td><td>4 people — couple + 16-year-old from Boston; single adult from Manchester, NH (BOS or MHT)</td><td><strong>Delta nonstop BOS→ATH</strong> — the easy one (MHT adds a short domestic hop or a 1-hr drive to BOS)</td><td>~9.5 hrs</td><td>$1,000–1,550</td></tr>
     </table>
     </div>
     <div class="note"><strong>How we soften it:</strong> book 9–11 months out; use Delta's group desk (10+ passengers lock one
-    fare with name-change flexibility — gold with 9 kids); SLC families can route via JFK/BOS to join the nonstop. Some
-    European-hub itineraries connect straight to Chania in summer, skipping Athens entirely. Add ~$150/person RT for the
-    Athens–Chania hop if routing through Athens. Group-wide airfare total: roughly <strong>$28,000–36,000</strong>, paid per family.</div>
+    fare with name-change flexibility — gold with 9 kids, and our SLC contingent alone qualifies); SLC families can route via
+    JFK/BOS to join the nonstop. Some European-hub itineraries connect straight to Chania in summer, skipping Athens entirely.
+    The 18-month-old can fly as a lap infant internationally for ~10% of the adult fare (a purchased seat with a car seat is the
+    safer, pricier option). Add ~$150/person RT for the Athens–Chania hop if routing through Athens. Group-wide airfare total: roughly
+    <strong>$26,000–36,000</strong> (SLC: 11 &times; $1,400–1,900 ≈ $15,400–20,900; Oceanside: 5 &times; $1,250–1,800 ≈
+    $6,250–9,000; Boston area: 4 &times; $1,000–1,550 ≈ $4,000–6,200), paid per family.</div>
   </div>
 </section>
 
@@ -311,10 +352,31 @@
       <tr><td>Activities: private Balos charter, water park, cooking class, misc.</td><td>itemized above</td><td>~$5,700</td></tr>
       <tr><td>Contingency, tips, pool fence, baby gear</td><td>—</td><td>~$1,700</td></tr>
       <tr class="hl"><td><strong>Total on the ground</strong></td><td>everything except long-haul airfare</td><td><strong>~$38,400</strong> &nbsp;<span class="small">≈ $1,920/person for nine days in Greece</span></td></tr>
-      <tr><td>Long-haul airfare (separate, per family)</td><td>see table above</td><td>~$28,000–36,000 group-wide</td></tr>
+      <tr><td>Long-haul airfare (separate, per family)</td><td>see table above</td><td>~$26,000–36,000 group-wide</td></tr>
     </table>
     </div>
     <p class="small" style="margin-top:10px">Every number is drawn from published 2025/26 rates (villa listings, Kayak/Rental-Center-Crete van rates, published fare data) with a stated inflation adjustment. Nothing invented.</p>
+
+    <div class="build35">
+      <h3>The $35,000 Build — if every option got the same $35k (excluding airfare)</h3>
+      <div class="tablescroll">
+      <table>
+        <tr><th>Line</th><th>2028 est.</th><th>Adjustment vs. the full plan</th></tr>
+        <tr><td>Villa Natali, 9 nights</td><td>$17,600</td><td>unchanged</td></tr>
+        <tr><td>Athens→Chania hops ×20</td><td>$3,400</td><td>unchanged</td></tr>
+        <tr><td>2 vans + 1 car, 10 days + fuel</td><td>$4,250</td><td>unchanged</td></tr>
+        <tr><td>Groceries + 5 taverna dinners</td><td>$4,200</td><td>unchanged</td></tr>
+        <tr><td>Chef nights at the villa</td><td>$1,000</td><td>2 nights instead of 3 (−$500)</td></tr>
+        <tr><td>Activities — water park, cooking class, Elafonisi/Falassarna days, <strong>Balos by public ferry</strong> (~€35–40/adult)</td><td>$3,100</td><td>public ferry instead of the €2,500–3,500 private charter (−$2,600)</td></tr>
+        <tr><td>Pool fence, cots, tips, contingency</td><td>$1,450</td><td>trimmed −$250</td></tr>
+        <tr class="hl"><td><strong>Total</strong></td><td><strong>$35,000</strong></td><td>on the line, nothing invented</td></tr>
+      </table>
+      </div>
+      <p>Honest arithmetic: the full-fat plan above runs ~$38,400 — about $3,400 over a $35k cap. The $35k build keeps the villa,
+      all vehicles, every activity, and two chef nights; the only real sacrifice is trading the private Balos charter for the
+      public ferry. Run the other direction, every ~$1,000 of extra headroom buys back a chef night, the private boat, or a
+      second boat day — the plan flexes cleanly in both directions.</p>
+    </div>
   </div>
 </section>
 
@@ -351,12 +413,11 @@
       <div class="pcol pros">
         <h3>Why it's worth it</h3>
         <ul>
-          <li><strong>One actual house for all 20, well under budget</strong> — ~$17.6k vs. the $30k target, with a kids' pool section, elevator, and ramps.</li>
+          <li><strong>One actual house for all 20, well under budget</strong> — ~$17.6k vs. the $30k target, with 9 bedrooms and a kids' pool section.</li>
           <li><strong>No ferries, no tenders, no ports.</strong> Fly into Chania and you're 30 minutes from the front door.</li>
           <li><strong>Sandy, shallow, toddler-grade beaches</strong> — Elafonisi and Falassarna are among the most little-kid-friendly coastlines in Europe.</li>
-          <li><strong>Real range for every age:</strong> water park and gorges for teens, boat days and beaches for kids, harbor evenings and wine for adults, flat promenades for grandparents.</li>
+          <li><strong>Real range for every age:</strong> water park and gorge hikes for teens, boat days and beaches for kids, harbor evenings, wineries, and open-sea swims for the adults.</li>
           <li><strong>Milder than the famous islands:</strong> 28–31&deg;C vs. 33–38&deg;C in the Cyclades; the meltemi wind mostly misses Crete.</li>
-          <li><strong>Best island medical access in Greece:</strong> a full regional hospital with ER and pediatrics 25 minutes away.</li>
           <li><strong>Cheap, kid-proof food:</strong> souvlaki, fries, pasta, watermelon — tavernas adore children, and dinner for 20 runs ~€440.</li>
           <li><strong>It's <em>Greece</em>:</strong> a bucket-list destination the 16-year-old and the 67-year-old are equally excited to tell people about.</li>
         </ul>
@@ -364,11 +425,11 @@
       <div class="pcol cons">
         <h3>What's genuinely hard</h3>
         <ul>
-          <li><strong>The flights are long:</strong> 15–19 hours door-to-door from SLC and SoCal, with a connection — with a 3&frac12;-year-old. Jet lag is 9–10 hours; budget two rough days.
-            <span class="mitig">Mitigation: Boston's is a 9.5-hr nonstop; group-desk booking; arrive a day before the villa clock starts.</span></li>
-          <li><strong>July is hot:</strong> 30&deg;C+ most afternoons. The toddler and the grandparents will need midday siestas and shade discipline.
+          <li><strong>The flights are long:</strong> 15–19 hours door-to-door from Salt Lake City, with a connection — with an 18-month-old and a 3-year-old. Jet lag is 9–10 hours; budget two rough days.
+            <span class="mitig">Mitigation: the Boston crew gets a 9.5-hr nonstop; the baby flies as a lap infant for ~10% of the adult fare (or book a seat + car seat for safety); group-desk booking; arrive a day before the villa clock starts.</span></li>
+          <li><strong>July is hot:</strong> 30&deg;C+ most afternoons. Plan shade discipline and midday nap-and-pool hours, especially for the 18-month-old and the 3-year-old.
             <span class="mitig">Mitigation: go the last week of June — measurably cooler, calmer, slightly cheaper.</span></li>
-          <li><strong>The villa pool is not fenced by default</strong> — standard in Greece, and a real hazard with a 3-year-old.
+          <li><strong>The villa pool is not fenced by default</strong> — standard in Greece, and with an 18-month-old who's walking plus a 3-year-old, this matters even more than it did on paper.
             <span class="mitig">Mitigation: portable pool fence arranged at booking (~€300–500) plus an adults-on-duty roster. Non-negotiable either way.</span></li>
           <li><strong>Crete is big — driving distances are real:</strong> Elafonisi is ~75 minutes, Balos boat departures ~30. Three vehicles to caravan and park.
             <span class="mitig">Mitigation: cluster far excursions; hire a 20-seat driver-minibus (~€600–900/day) for the two biggest days.</span></li>
@@ -388,11 +449,32 @@
     <div class="kicker2" style="color:var(--turq)">The Vote</div>
     <h2>Why Greece wins</h2>
     <p style="max-width:840px;font-size:1.1rem">Against an Alaska cruise, a Slovenia villa, and Maui — all worthy — here is the honest head-to-head:</p>
-    <div class="win"><strong>vs. the Alaska cruise:</strong> A ship gives you cabins down a hallway and assigned dinner seatings. Crete gives all twenty of us one house, one pool, one long table under one pergola — the thing a reunion is actually <em>for</em>. And nobody's toddler is confined to a stateroom, and nobody gets seasick.</div>
+    <div class="win"><strong>vs. the Alaska cruise:</strong> A ship gives you cabins down a hallway and assigned dinner seatings. Crete gives all twenty of us one house, one pool, one long table under one pergola — the thing a reunion is actually <em>for</em>. And nobody's baby is confined to a stateroom, and nobody gets seasick.</div>
     <div class="win"><strong>vs. the Slovenia villa:</strong> Slovenia is lovely and cool in July — but it can't hand a 3-year-old a waist-deep, bathwater-warm lagoon, and its lakes at 20&deg;C are a polite swim, not a nine-day beach life. Crete has the sea, the sand, and 300 more years of sunshine per summer.</div>
-    <div class="win"><strong>vs. Maui:</strong> Maui matches our beaches — at roughly double the cost. Hawaii villa stock sleeping 20 rarely exists under $50–60k for 9 nights, dinner for twenty runs 2–3&times; a Greek taverna, and SLC/Boston flyers still face 9–13-hour journeys. Greece delivers the same ocean magic, plus 4,000 years of civilization for the kids' school essays, at two-thirds the total cost.</div>
-    <p style="margin-top:26px;max-width:840px;font-size:1.15rem">The math is simple: <strong style="color:var(--turq)">lodging $12,000 under target</strong>, a house that fits all twenty of us with an elevator for Grandma and a shallow pool for the baby, beaches engineered by nature for toddlers, adventure worthy of a 16-year-old — and a photo of all twenty of us on the bow of a boat in Balos Lagoon that hangs on six walls for the next thirty years.</p>
-    <p style="margin-top:18px;font-size:1.35rem;font-weight:700;font-family:'Segoe UI',sans-serif">Vote Greece. We'll bring the sunscreen.</p>
+    <div class="win"><strong>vs. Maui:</strong> Maui matches our beaches — at roughly double the cost. Hawaii villa stock sleeping 20 rarely exists under $50–60k for 9 nights, dinner for twenty runs 2–3&times; a Greek taverna, and our Salt Lake and Boston-area flyers still face 9–13-hour journeys. Greece delivers the same ocean magic, plus 4,000 years of civilization for the kids' school essays, at two-thirds the total cost.</div>
+    <div class="votecard">
+      <div class="vc-kicker">The Vote Card</div>
+      <h3>Greece for #1 — a case for both camps</h3>
+      <div class="vc-grid">
+        <div class="vc-cell">
+          <h4>For the novelty voters — grandparents, the NH solo, the SLC couple</h4>
+          <p>Our only Crete experience is <strong>one cruise-stop day</strong> — a port town on a ship's schedule. This is
+          the opposite trip: nine nights in a private villa on the island's far west, Balos by our own boat, pink-sand
+          lagoons, mountain wineries, dinner under our own pergola. "We've technically been" is the weakest objection on
+          the ballot — and everyone has <em>actually</em> been to Hawaii. Maui is a rerun; this is new.</p>
+        </div>
+        <div class="vc-cell">
+          <h4>For the ease voters — the families with kids</h4>
+          <p>Once you land, this is the easiest international option on the ballot: <strong>one villa, one beach at 300&nbsp;m,
+          nothing to coordinate.</strong> No ports, no ferries, no cabin assignments, no packing and unpacking — groceries at
+          100&nbsp;m, tavernas that adore kids at 300&nbsp;m, a kids'-section pool ten steps from every bedroom, and a gated
+          4,000&nbsp;m&sup2; compound where all six of the 6-to-11s can free-range, with the olders trusted for the solo
+          gelato-and-bread run to the village shop.</p>
+        </div>
+      </div>
+      <p class="vc-concede">Full honesty: these are the longest flights on the ballot, and we're bringing an 18-month-old. We think nine days of the above buys back two rough travel days.</p>
+      <a class="vc-cta" href="#" onclick="return false">Rank Greece #1 on the Vote tab</a>
+    </div>
   </div>
 </section>
 

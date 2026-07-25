@@ -124,6 +124,25 @@
   .closing p{font-size:1.12rem;margin-top:14px;}
   .vote{display:inline-block;margin-top:30px;font-family:'Segoe UI',sans-serif;font-weight:800;font-size:1.05rem;background:var(--sunset);color:#fff;padding:16px 34px;border-radius:999px;letter-spacing:.04em;box-shadow:0 6px 24px rgba(232,116,59,.45);}
 
+  /* ---------- LABELED REPORT BLOCKS ---------- */
+  .report{background:#fff;border:1px solid var(--line);border-left:6px solid var(--ocean);border-radius:0 14px 14px 0;padding:26px 28px 22px;margin-top:34px;box-shadow:0 3px 14px rgba(34,48,58,.07);}
+  .report .rpt-label{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--ocean);color:#fff;padding:5px 12px;border-radius:999px;margin-bottom:12px;}
+  .report.gold{border-left-color:var(--gold);} .report.gold .rpt-label{background:var(--gold);color:#3a2c07;}
+  .report h3{font-size:1.22rem;margin-bottom:8px;}
+  .report p{font-size:.96rem;margin-top:8px;}
+  .report ul{margin:10px 0 0 20px;}
+  .report li{font-size:.94rem;margin-bottom:7px;}
+
+  /* ---------- VOTE CARD ---------- */
+  .votecard{position:relative;margin:44px auto 0;max-width:760px;text-align:left;background:linear-gradient(150deg,#fdf8ef 0%,#f6eeda 100%);color:var(--ink);border:2px solid var(--gold);border-radius:18px;padding:34px 36px 30px;box-shadow:0 14px 44px rgba(0,0,0,.45);}
+  .votecard .vc-kicker{font-family:'Segoe UI',sans-serif;letter-spacing:.26em;text-transform:uppercase;font-size:.72rem;font-weight:800;color:var(--sunset-deep);}
+  .votecard h3{font-size:clamp(1.35rem,2.6vw,1.8rem);line-height:1.2;margin:.35em 0 .5em;color:var(--ocean-deep);}
+  .votecard p{font-size:1rem;margin-top:10px;color:var(--ink);}
+  .votecard .concession{font-family:'Segoe UI',sans-serif;font-size:.9rem;background:#fbeeea;border-left:4px solid #c85a26;color:#7a2c10;padding:10px 14px;border-radius:0 8px 8px 0;margin-top:16px;}
+  .votecard .cta{display:block;text-align:center;margin-top:22px;font-family:'Segoe UI',sans-serif;font-weight:800;font-size:1.08rem;background:var(--sunset);color:#fff;padding:16px 24px;border-radius:12px;letter-spacing:.05em;box-shadow:0 6px 22px rgba(232,116,59,.5);}
+  .votecard .vc-points{font-family:'Segoe UI',sans-serif;font-size:.9rem;display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .votecard .vc-points span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-weight:600;color:var(--ocean-deep);}
+
   footer{background:#052638;color:#9fb9c9;font-family:'Segoe UI',sans-serif;font-size:.8rem;padding:28px 0;text-align:center;}
   footer a{color:#cfe3ef;}
   .src{font-size:.78rem;color:#7d8b95;font-family:'Segoe UI',sans-serif;margin-top:10px;}
@@ -144,10 +163,10 @@
   <div class="content wrap">
     <div class="kicker">Family Reunion 2028 &nbsp;•&nbsp; The Hawaii Pitch</div>
     <h1>Maui.<br>Everyone in. No passports.<br>One unforgettable beach.</h1>
-    <p class="sub">Nine days on Ka'anapali Beach for all 20 of us — grandparents, five families, nine grandkids from 16 down to 3&frac12; — in full-kitchen beachfront villas, booked the smart way. This is the trip everyone can actually make, and the one the grandkids will talk about for thirty years.</p>
+    <p class="sub">Nine days on Ka'anapali Beach for all 20 of us — grandparents, five families, nine grandkids from 16 down to 18 months — in full-kitchen beachfront villas, booked the smart way. This is the trip everyone can actually make, and the one the grandkids will talk about for thirty years.</p>
     <div class="badges">
       <span class="badge"><strong>0</strong> passports needed — for all 20 travelers</span>
-      <span class="badge"><strong>19 of 20</strong> fly nonstop (5.5–7 hrs)</span>
+      <span class="badge"><strong>16 of 20</strong> fly nonstop — and the baby flies free</span>
       <span class="badge"><strong>88°F</strong> &amp; ~0.35" of rain all July</span>
       <span class="badge"><strong>80°F</strong> ocean — warmest &amp; calmest of the year</span>
     </div>
@@ -172,11 +191,11 @@
 <section id="why" class="dark">
   <div class="wrap">
     <div class="eyebrow">The Opening Argument</div>
-    <h2>Greece needs 12 passports we don't have. Alaska is cold water and cabin walls. Slovenia is 20+ hours of travel with a toddler.</h2>
-    <p class="lede">Maui is the only contender where a lost passport can't sink a family, where the 67-year-old and the 3&frac12;-year-old swim in the same 80-degree water, and where the Salt Lake and SoCal crews — 19 of our 20 people — board a single nonstop flight and step off in paradise before dinner. U.S. healthcare, U.S. cell plans, English everywhere, and the deepest full-kitchen lodging stock in the tropics. For a group this size and this spread of ages, logistics aren't a footnote. They're the whole ballgame.</p>
+    <h2>Greece needs a stack of passports we don't have. Alaska is cold water and cabin walls. Slovenia is 20+ hours of travel with an 18-month-old.</h2>
+    <p class="lede">Maui is the only contender where a lost passport can't sink a family, where the 67-year-old and the 3-year-old swim in the same 80-degree water, and where the Salt Lake and Oceanside crews — 16 of our 20 people — board nonstop flights (11 of us on a single Delta plane) and step off in paradise before dinner. U.S. healthcare, U.S. cell plans, English everywhere, and the deepest full-kitchen lodging stock in the tropics. For a group this size and this spread of ages, logistics aren't a footnote. They're the whole ballgame.</p>
     <div class="stats">
       <div class="stat"><div class="n">20/20</div><div class="l">travel on a driver's license — no passport office, no renewals, no risk</div></div>
-      <div class="stat"><div class="n">5.5 hrs</div><div class="l">SoCal nonstop to Maui; SLC nonstop under 7 hrs (Delta daily)</div></div>
+      <div class="stat"><div class="n">&lt;7 hrs</div><div class="l">SLC→Maui nonstop, Delta daily (11 of us on one plane) — 16 of 20 fly direct</div></div>
       <div class="stat"><div class="n">85–88°F</div><div class="l">late June/July highs in Ka'anapali; lows 68–72°F</div></div>
       <div class="stat"><div class="n">~0.35"</div><div class="l">total July rainfall on the leeward coast — near-guaranteed sun</div></div>
     </div>
@@ -276,6 +295,13 @@
         </div>
       </div>
     </div>
+
+    <div class="report">
+      <span class="rpt-label">Kid Freedom Report</span>
+      <h3>Can the six roamers (ages 6, 6, 9, 9, 11, 11) run loose? Honest answer: mostly.</h3>
+      <p>A beachfront resort complex hands the middle kids real independence: pools, lawns, and the beachwalk path all inside one property, with the shave-ice stand and Whalers Village a flat stroll away. The 11-year-olds can absolutely run ahead to the pool or the shave-ice line on their own; the 9s roam in cousin pairs; the 6s stay within sight of a big kid or an adult. But we'll be straight: <strong>this is a public resort, not a sealed compound — it's roam-with-eyes-on, not true free-range.</strong> An Alaska cruise ship (a closed vessel with kids' clubs) or a fully private villa estate genuinely beats us on kid independence, and we won't pretend otherwise.</p>
+      <p>What tips it back our way: the condo-cluster setup. With the family's 2–3 units in one complex, <strong>the cousins free-flow between doors</strong> — knock, grab a cousin, hit the pool — which is the reunion behavior everyone actually wants. And since the family has said separate units with shared amenities are fine, our 2–3-unit beachfront cluster is no longer a knock at all. The one thing a cluster can't give is a single big living room for all 20 — so we book the largest unit (a 3BR) as the HQ commons: game nights, the movie pile, and the big group dinners happen there.</p>
+    </div>
   </div>
 </section>
 
@@ -283,7 +309,7 @@
 <section id="activities">
   <div class="wrap">
     <div class="eyebrow">Nine Days, Every Generation</div>
-    <h2>The Top 5 — with real group costs for 13 adults (13+) and 7 kids.</h2>
+    <h2>The Top 5 — with real group costs for 12 adults (13+), 6 paying kids, and 2 free under-4s.</h2>
 
     <div class="act">
       <div class="thumb">
@@ -293,8 +319,8 @@
       </div>
       <div class="txt">
         <h3>1. Molokini Crater + Turtle Town snorkel — aboard the Calypso</h3>
-        <div class="cost">~$187/adult • ~$127/child 4–12 • under 3 free → group ≈ $3,200–$3,500 + tax/tip</div>
-        <p>A triple-deck glass-bottom catamaran with a waterslide and stair entry gentle enough for the grandparents — non-snorkelers ride in comfort, the toddler watches fish through the glass floor. 150-foot visibility inside a volcanic crescent. Morning departures only; the trades chop the water after 1 pm. (Trilogy is the premium option at ~$231/pp.)</p>
+        <div class="cost">~$187/adult • ~$127/child 4–12 • ages 3 &amp; under free → group ≈ $3,000–$3,300 + tax/tip (the baby AND the 3-year-old ride free)</div>
+        <p>A triple-deck glass-bottom catamaran with a waterslide and easy stair entry from the swim platform — non-snorkelers ride in comfort, the littlest two watch fish through the glass floor. 150-foot visibility inside a volcanic crescent. Morning departures only; the trades chop the water after 1 pm. (Trilogy is the premium option at ~$231/pp.)</p>
       </div>
     </div>
 
@@ -306,7 +332,7 @@
       </div>
       <div class="txt">
         <h3>2. Luau night — Old Lahaina Luau (or budget swap)</h3>
-        <div class="cost">$229/adult 13+ • $140/child 3–12 • under 3 free → group ≈ $3,960 (Myths of Maui swap: ≈ $2,900)</div>
+        <div class="cost">$229/adult 13+ • $140/child 3–12 • under 3 free → group ≈ $3,730, baby free (Myths of Maui swap: ≈ $2,850)</div>
         <p>Widely rated the most authentic luau in Hawaii — oceanfront, four-course dinner, open bar for the adults. It sells out months ahead; with 20 people we call group sales directly. Want fire-knife spectacle instead? Drums of the Pacific is next door to our Hyatt villas (~$202+/pp).</p>
       </div>
     </div>
@@ -320,7 +346,7 @@
       <div class="txt">
         <h3>3. Ka'anapali Beach + Black Rock — the free daily anchor</h3>
         <div class="cost">$0 — buy snorkel sets at Costco Kahului (~$35/set) instead of renting at $10/day</div>
-        <p>Turtles at Black Rock most mornings, the nightly cliff-dive torch ceremony, and a flat 3-mile beachwalk perfect for grandparents and strollers — all out our front door. For the 3&frac12;-year-old: Kapalua Bay and Napili Bay, 15 minutes north, are reef-protected crescents with gently sloping sand — the calmest toddler swimming on the island.</p>
+        <p>Turtles at Black Rock most mornings, the nightly cliff-dive torch ceremony, and a stroller-friendly 3-mile oceanfront beachwalk linking resorts, restaurants, and Whalers Village — all out our front door. For the baby and the 3-year-old: Kapalua Bay and Napili Bay, 15 minutes north, are reef-protected crescents with gently sloping sand — the calmest little-kid swimming on the island, and the zero-entry lagoon pool back at the villas is made for exactly this pair.</p>
       </div>
     </div>
 
@@ -346,11 +372,11 @@
       <div class="txt">
         <h3>5. Road to Hana — the smart "half-Hana" split</h3>
         <div class="cost">Self-drive ≈ $300–$600 (fuel + park fees) • guided vans for 12 ≈ $2,500+</div>
-        <p>620 curves and a 10–14 hour day is a no for a 3&frac12;-year-old and a 20-person convoy — so we don't pretend otherwise. The adventurous sub-group does the full drive (or a guided van, so nobody white-knuckles it); everyone else does the front half to Twin Falls and Ke'anae and is back for a beach afternoon. Wai'anapanapa's black-sand beach needs a timed reservation (~$10 parking + $5/person).</p>
+        <p>620 curves and a 10–14 hour day is a no for an 18-month-old, a 3-year-old, and a 20-person convoy — so we don't pretend otherwise. The adventurous sub-group does the full drive (or a guided van, so nobody white-knuckles it); everyone else does the front half to Twin Falls and Ke'anae and is back for a beach afternoon. Wai'anapanapa's black-sand beach needs a timed reservation (~$10 parking + $5/person).</p>
       </div>
     </div>
 
-    <div class="note"><strong>Straight talk on whales:</strong> humpbacks visit Maui December–April. In July there are <em>no whales</em> — anyone promising whale watching in summer is selling you something. Our summer wins are the warmest, calmest ocean of the year and near-zero rain. Rain-day backup: Maui Ocean Center aquarium (~$45 adult / $35 child ≈ $800 group).</div>
+    <div class="note"><strong>Straight talk on whales:</strong> humpbacks visit Maui December–April. In July there are <em>no whales</em> — anyone promising whale watching in summer is selling you something. Our summer wins are the warmest, calmest ocean of the year and near-zero rain. Rain-day backup: Maui Ocean Center aquarium (~$45 adult / $35 child ≈ $750 group).</div>
   </div>
 </section>
 
@@ -381,12 +407,25 @@
         <tr><td>Food — groceries (full kitchens)</td><td class="num">$5,000</td><td class="num">$6,500</td><td>Costco Kahului day 1 (~$1,200–1,500) + top-ups; all breakfasts, most lunches, 6–7 group dinners in</td></tr>
         <tr><td>Food — restaurants</td><td class="num">$3,500</td><td class="num">$5,000</td><td>3–4 outings for 20 @ $900–1,300</td></tr>
         <tr><td>4 minivans + gas + parking</td><td class="num">$7,000</td><td class="num">$9,500</td><td>Vans $5,000–7,500 (summer rates are volatile: $750–$2,080/wk observed) + gas ~$600 + up to $1,600 Hyatt parking</td></tr>
-        <tr><td>Activities</td><td class="num">$8,000</td><td class="num">$11,000</td><td>Snorkel boat ~$3,400 + luau $2,900–4,000 + Haleakala ~$124 + Hana $400–2,500 + extras</td></tr>
-        <tr class="totalrow"><td>Trip total (ex-airfare)</td><td class="num">≈ $48,500</td><td class="num">≈ $65,000</td><td>≈ $2,400–$3,250/person • ≈ $8,000–$11,000 per family of 4–5</td></tr>
-        <tr><td>Airfare (paid per family, separately)</td><td class="num">$14,000</td><td class="num">$19,000</td><td>Detail below — this is where Hawaii crushes the competition</td></tr>
+        <tr><td>Activities</td><td class="num">$7,500</td><td class="num">$10,500</td><td>Snorkel boat ~$3,000–3,300 + luau $2,850–3,730 + Haleakala ~$124 + Hana $400–2,500 + extras (baby &amp; 3-year-old free on the big tickets)</td></tr>
+        <tr class="totalrow"><td>Trip total (ex-airfare)</td><td class="num">≈ $48,000</td><td class="num">≈ $64,500</td><td>≈ $2,400–$3,225/person — families pay by headcount</td></tr>
+        <tr><td>Airfare (paid per family, separately)</td><td class="num">$12,000</td><td class="num">$19,500</td><td>Detail below — this is where Hawaii crushes the competition</td></tr>
       </table>
     </div>
     <div class="note"><strong>Cost-cutter menu if we need to shave:</strong> Westin instead of Hyatt (−$6–9k) • Wailea Ekolu condos (−$7–10k) • Myths of Maui luau (−$1,000) • 3 vans instead of 4 (−$2,500 incl. parking) • Big Island switch (−$10k+). The plan flexes down without leaving Hawaii.</div>
+
+    <div class="report gold">
+      <span class="rpt-label">The $35K Build</span>
+      <h3>What $35,000 actually buys on Maui — because the dream build runs $48.5–65k.</h3>
+      <p>If the family votes with the wallet, here's the honest budget version, all-in ex-airfare:</p>
+      <ul>
+        <li><strong>Lodging ~$17,000–$20,000:</strong> Westin Ka'anapali Ocean Resort Villas owner rentals at the low end (3×2BR lockoffs, sleeps 24, same beach, better waterslides) — or Wailea Ekolu 4×2BR (~$18.5k) if we trade beachfront for the sunny south side.</li>
+        <li><strong>Food ~$8,500–$9,500:</strong> the groceries-heavy kitchen plan, trimmed to two restaurant nights instead of four.</li>
+        <li><strong>Wheels ~$4,500–$6,000:</strong> 2–3 minivans instead of 4, incl. gas and parking.</li>
+        <li><strong>Activities ~$3,200–$4,000:</strong> free-beach-first itinerary (Black Rock, Kapalua Bay, the beachwalk), Haleakala sunset (~$120), and <strong>ONE paid marquee day — Molokini (~$3,000) OR the luau (~$3,730), not both.</strong></li>
+      </ul>
+      <p><strong>Total ≈ $33,000–$39,000.</strong> What gets cut vs. the dream build: the Hyatt anchor itself (Westin instead), one of the two marquee splurges, two restaurant nights, the fourth van, and guaranteed-oceanfront views. What survives untouched: the beach, the cousins-in-one-complex setup, the kitchens, the sunsets — the actual reunion.</p>
+    </div>
   </div>
 </section>
 
@@ -394,17 +433,18 @@
 <section id="airfare" class="alt">
   <div class="wrap">
     <div class="eyebrow">Getting There — Our Strongest Card</div>
-    <h2>19 of 20 people, one nonstop flight each. No other pitch can say that.</h2>
+    <h2>16 of 20 fly nonstop — 11 of us on one plane. No other pitch can say that.</h2>
     <div class="tablewrap">
       <table>
         <tr><th>Departure</th><th>Who</th><th>Nonstop?</th><th>Summer RT (current)</th><th>2028 est. / person</th></tr>
-        <tr><td>Salt Lake City → Kahului (OGG)</td><td>3 families — 12 people</td><td><strong>Yes</strong> — Delta daily, ~6h 50m</td><td class="num">$690–$980</td><td class="num">$750–$1,100</td></tr>
-        <tr><td>SoCal (LAX/SAN/SNA) → OGG</td><td>2 families — 7 people</td><td><strong>Yes</strong> — 7 carriers from LAX, ~5h 40m</td><td class="num">$295–$550</td><td class="num">$350–$650</td></tr>
-        <tr><td>Boston → OGG</td><td>1 adult</td><td>No — one stop via LAX/SFO/SEA, ~13–15 hrs</td><td class="num">$556–$1,100</td><td class="num">$650–$1,250</td></tr>
-        <tr class="totalrow"><td colspan="3">Group total (2028 est.)</td><td class="num" colspan="2">≈ $14,000–$19,000</td></tr>
+        <tr><td>Salt Lake City → Kahului (OGG)</td><td>Grandparents + 2 families — 11 people (a no-kids couple + the family of 7; the 18-month-old flies <strong>free</strong> as a lap infant, so only 10 paid seats)</td><td><strong>Yes</strong> — Delta daily, ~6h 50m</td><td class="num">$690–$980</td><td class="num">$750–$1,100</td></tr>
+        <tr><td>Oceanside, CA → OGG (via San Diego SAN)</td><td>1 family — 5 people (kids 11, 9, 6)</td><td><strong>Yes</strong> — Alaska/Southwest/Hawaiian from SAN, ~5h 40m</td><td class="num">$295–$550</td><td class="num">$350–$650</td></tr>
+        <tr><td>Boston (BOS) → OGG</td><td>1 family — 3 people (couple + their 16-year-old)</td><td>No — one stop via LAX/SFO/SEA, ~13–15 hrs</td><td class="num">$556–$1,100</td><td class="num">$650–$1,250</td></tr>
+        <tr><td>Manchester, NH (MHT or BOS) → OGG</td><td>1 adult</td><td>No — one stop, ~13–15 hrs</td><td class="num">$556–$1,100</td><td class="num">$650–$1,250</td></tr>
+        <tr class="totalrow"><td colspan="3">Group total (2028 est., 19 paid seats)</td><td class="num" colspan="2">≈ $12,000–$19,500</td></tr>
       </table>
     </div>
-    <p style="margin-top:20px;font-size:1.02rem">Compare the alternatives honestly: Greece or Slovenia means <strong>15–24 hours door-to-door each way with a toddler and two grandparents</strong>, connections in Europe, 8–9 time zones, and 12 of us racing passport renewals. An Alaska cruise means flying to Seattle/Vancouver <em>then</em> boarding, fixed dinner seatings for 20, and cold, unswimmable water. Maui: one flight, one ocean you can actually get in, and the 6-hour time change works <em>for</em> us — kids wake at 5 am ready for the beach before the wind picks up. Only real burden falls on one traveler: Boston's long haul (we'll fly them in a day early to recover).</p>
+    <p style="margin-top:20px;font-size:1.02rem">Compare the alternatives honestly: Greece or Slovenia means <strong>15–24 hours door-to-door each way with an 18-month-old</strong>, connections in Europe, 8–9 time zones, and a houseful of us racing passport renewals. An Alaska cruise means flying to Seattle/Vancouver <em>then</em> boarding, fixed dinner seatings for 20, and cold, unswimmable water. Maui: 11 of us on one Delta nonstop out of Salt Lake, the Oceanside five on a 5.5-hour San Diego nonstop, and the quiet bonus — <strong>the 18-month-old flies free as a domestic lap infant</strong>. A 6.5-hour nonstop with a lap baby beats any international routing ever invented. The 6-hour time change even works <em>for</em> us — kids wake at 5 am ready for the beach before the wind picks up. The real burden falls on the four Boston/NH travelers' one-stop haul — we'll book them the strong West Coast connections and fly them in a day early to recover.</p>
   </div>
 </section>
 
@@ -419,11 +459,11 @@
         <h3>Why Maui genuinely wins</h3>
         <ul>
           <li><strong>Zero passports for 20 people.</strong> The only tropical option where an expired or lost passport can't strand a family. With 9 kids, this is not a small thing.</li>
-          <li><strong>Shortest flights for 19 of 20:</strong> 5.5 hrs SoCal, &lt;7 hrs SLC — both nonstop. Half the effective travel of Europe for our two biggest contingents.</li>
+          <li><strong>Shortest flights for 16 of 20:</strong> the Salt Lake eleven on one Delta nonstop (&lt;7 hrs, baby free on a lap), the Oceanside five on a 5.5-hr San Diego nonstop — half the effective travel of Europe. The four Boston/NH travelers connect once.</li>
           <li><strong>Near-guaranteed weather:</strong> 85–88°F, ~0.35" rain all July on our coast, 80°F calm ocean — summer is West Maui's flattest, safest swim season.</li>
-          <li><strong>Every age wins:</strong> reef-protected toddler bays (Kapalua, Napili, Honokowai), waterslide pools, teen snorkeling and surf lessons, a flat 3-mile beachwalk for grandparents, luau nights for everyone.</li>
+          <li><strong>Every age wins:</strong> reef-protected toddler bays (Kapalua, Napili, Honokowai), waterslide pools, teen snorkeling and surf lessons, a 3-mile oceanfront beachwalk, luau nights for everyone.</li>
           <li><strong>Full kitchens save $10,000–$15,000</strong> vs. restaurant-feeding 20 — the deepest condo/timeshare stock in the U.S. tropics makes it possible.</li>
-          <li><strong>U.S. everything:</strong> healthcare, cell plans, car seats, pharmacies, English — meaningful with a 3&frac12;-year-old and grandparents in the party.</li>
+          <li><strong>U.S. everything:</strong> healthcare, cell plans, car seats, pharmacies, English — meaningful when you're traveling with nine kids, including an 18-month-old.</li>
           <li><strong>The owner-rental market makes the Hyatt anchor affordable</strong> — roughly half of retail, with escrow protection, and a same-beach Westin fallback if inventory tightens.</li>
           <li><strong>Activity depth:</strong> Molokini, Black Rock, Haleakala, Hana — nobody is bored on day 6, and the biggest daily activity (the beach) is free.</li>
         </ul>
@@ -439,7 +479,7 @@
           <li><strong>No whales in summer.</strong> Humpbacks are Dec–Apr. If whale watching is a must-have, this is the wrong season — full stop.</li>
           <li><strong>Summer = peak crowds and peak minivan chaos:</strong> observed van rates swung $750→$2,080/week in one summer. Book refundable early, re-shop monthly.</li>
           <li><strong>Lahaina town is still rebuilding.</strong> Ka'anapali resorts are fully open and the harbor and Old Lahaina Luau operate, but historic Front Street's core likely remains under reconstruction into 2027–2029. We'll be respectful guests in a recovering community.</li>
-          <li><strong>Likely 2–3 units, not one roof.</strong> Same complex, same pools, adjoining where possible — but the single-house version costs more ($32k–$55k) and gives up resort amenities.</li>
+          <li><strong>Kid roaming is eyes-on, not free-range.</strong> It's a public resort: the 11s can run to the pool and shave-ice stand, but a cruise ship or private villa compound beats us on true kid independence. And with 2–3 units instead of one roof, there's no single big living room — we mitigate by making the largest unit the group HQ.</li>
         </ul>
       </div>
     </div>
@@ -454,10 +494,20 @@
   <div class="content">
     <div class="kicker">The Closing Argument</div>
     <h2>Why Hawaii wins this vote.</h2>
-    <p>Greece is beautiful — for the 11 adults. Alaska is spectacular — through a window. Slovenia is a gem — 24 hours of travel away. <strong>Maui is the only option built for all twenty of us at once:</strong> the 3&frac12;-year-old wading at Kapalua Bay, the teens diving Black Rock, the grandparents walking a flat beachfront mile to breakfast, and every family behind its own kitchen door at night — together at one pool by day.</p>
-    <p>We've shown you the real numbers, the real fees, and the real trade-offs, because this plan doesn't need hiding. The anchor the family already loves — the Hyatt on Ka'anapali Beach — is achievable near budget through the owner-rental market, with a same-beach fallback if it isn't. No passports. Nonstop flights for 19 of 20. Guaranteed sun. An ocean warm enough for every generation.</p>
-    <p><em>The reunion's job is simple: everyone comes, everyone's comfortable, everyone remembers it forever. Only one destination checks all three.</em></p>
-    <div class="vote">VOTE MAUI — SUMMER 2028 &nbsp;🌺</div>
+    <p>Greece is beautiful — for the 11 adults. Alaska is spectacular — through a window. Slovenia is a gem — 24 hours of travel away. <strong>Maui is the only option built for all twenty of us at once:</strong> the baby and the 3-year-old splashing at Kapalua Bay, the teens diving Black Rock, the grandparents out on the morning snorkel with them, and every family behind its own kitchen door at night — together at one pool by day.</p>
+    <p>We've shown you the real numbers, the real fees, and the real trade-offs, because this plan doesn't need hiding. The anchor the family already loves — the Hyatt on Ka'anapali Beach — is achievable near budget through the owner-rental market, with a same-beach fallback if it isn't. No passports. Nonstops for 16 of 20. Guaranteed sun. An ocean warm enough for every generation.</p>
+
+    <div class="votecard">
+      <div class="vc-kicker">The Vote Card &nbsp;•&nbsp; Final Case for #1</div>
+      <h3>"But we've all been to Hawaii before." True. That's exactly the point.</h3>
+      <p>To the voters who crave somewhere new — the grandparents, the New Hampshire wanderer, the no-kids couple — we're not going to pretend Maui is novel. Instead: <strong>familiar is a feature when you're bringing an 18-month-old and eight other kids.</strong> You already know Hawaii delivers — which means zero risk of a rained-out, over-budget, jet-lagged reunion, and every ounce of energy spent on each other instead of on logistics triage. And be precise about what's actually new here: you've been to Hawaii, but <strong>never all 20 of you at once, never in one beachfront compound on Ka'anapali with your own kitchens and one shared pool.</strong> Nobody in this family has ever taken <em>that</em> trip. That trip is new.</p>
+      <p>The ease case seals it: nonstops for 16 of 20, the baby free on a lap for a 6.5-hour domestic flight instead of 15+ hours to Europe, no passports for anyone, and the guaranteed-great week the other three pitches can only gamble on. The cousins free-flow between our units to the shared pools, the middle kids get real (eyes-on) run of a beachfront resort — and if the budget vote tightens, the $35K Build above keeps us in Hawaii without losing the beach.</p>
+      <div class="concession">Full honesty: this is the priciest option on the ballot and the least novel. If novelty alone decides your ranking, Maui loses — we're betting the reunion is about something else.</div>
+      <div class="cta">RANK MAUI #1 ON THE VOTE TAB &nbsp;🌺</div>
+      <div class="vc-points">
+        <span>0 passports</span><span>16 of 20 nonstop</span><span>Baby flies free</span><span>~0.35" July rain</span><span>80°F ocean</span><span>Kitchens save $10–15k</span><span>$35K fallback build</span>
+      </div>
+    </div>
   </div>
 </section>
 
