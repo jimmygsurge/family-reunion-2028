@@ -3497,6 +3497,17 @@
       var survivors = Object.keys(last.counts).sort(function(a,b){ return last.counts[b]-last.counts[a]; });
       html += '<div class="vt-winner">🏆 <b>'+VT_LABEL[survivors[0]]+'</b> wins as the last option standing ('+last.counts[survivors[0]]+' of '+last.total+').</div>';
     }
+    /* FYI: Borda sum-points — 1st = N pts, 2nd = N-1, ... last = 1; unranked = 0 */
+    var N = VT_CANDS.length, pts = {};
+    VT_CANDS.forEach(function(c){ pts[c[0]] = 0; });
+    ballots.forEach(function(b){ b.r.forEach(function(c, idx){ if(pts.hasOwnProperty(c)) pts[c] += Math.max(0, N - idx); }); });
+    var ptsRanked = Object.keys(pts).sort(function(a,b){ return pts[b]-pts[a]; });
+    var ptsMax = pts[ptsRanked[0]] || 1;
+    html += '<div class="vt-round"><h4>FYI — sum-points scoreboard (1st = '+N+' pts, 2nd = '+(N-1)+' … last = 1)</h4>';
+    ptsRanked.forEach(function(c){
+      html += '<div class="vt-cand">'+VT_LABEL[c]+' — <b>'+pts[c]+'</b> pts<div class="vt-bar'+(pts[c]===ptsMax?' vt-lead':'')+'" style="width:'+Math.max(2, Math.round(100*pts[c]/ptsMax))+'%"></div></div>';
+    });
+    html += '<p class="vt-note">A different lens: total points measure broad consensus (a place everyone ranks 2nd scores high even if it never leads a runoff round). The official winner is decided by the instant-runoff count above — this scoreboard is for discussion.</p></div>';
     out.innerHTML = html;
   }
   vtInitRank(); vtRenderList(); vtSyncNow();
