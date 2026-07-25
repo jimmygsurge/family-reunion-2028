@@ -58,6 +58,18 @@
   .badge{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:10px;}
   .badge.pick{background:var(--gold);color:#241c05;}
   .badge.alt{background:var(--lake-lt);color:var(--lake);}
+  a.proplink{color:var(--pine);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px;}
+  a.proplink:hover{color:var(--lake);}
+  .booklinks{font-family:'Segoe UI',sans-serif;font-size:.82rem;margin-top:8px;}
+  .booklinks a{color:var(--lake);font-weight:600;text-decoration:underline;text-underline-offset:2px;margin-right:10px;}
+  .photostrip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;}
+  .photostrip .imgbox{height:110px;}
+  .photostrip img{width:100%;height:110px;object-fit:cover;display:block;}
+  .cardimg .imgbox{height:150px;}
+  .cardimg img{width:100%;height:150px;object-fit:cover;display:block;}
+  .urgent{margin-top:12px;background:#fdf0ec;border:1px solid #e8c4b8;border-left:5px solid var(--red);border-radius:8px;padding:12px 14px;font-family:'Segoe UI',sans-serif;font-size:.85rem;color:#6b3325;}
+  .urgent b{color:var(--red);}
+  .urgent a{color:var(--red);font-weight:700;}
 
   /* ACTIVITIES */
   .act{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;}
@@ -169,19 +181,27 @@
     <p class="lede">Honesty first: Slovenia is not Tuscany — true 20-sleeper villas are rare, and two famous big-group properties (Chateau Ramšak, Pule Estate) are currently closed. But the options below are real, priced, and available to book 12–18 months out.</p>
     <div class="grid props">
       <div class="card">
+        <div class="photostrip">
+          <div class="imgbox"><img src="https://a0.muscache.com/im/pictures/d1a0fb5e-691a-4b3e-a38e-6688f29b8349.jpg?im_w=720" alt="The Millhouse Bled exterior — white alpine millhouse with wooden balconies in Ribno" onerror="this.style.display='none';this.parentElement.querySelector('.imgfallback').style.display='flex';"><div class="imgfallback">Millhouse exterior</div></div>
+          <div class="imgbox"><img src="https://a0.muscache.com/im/pictures/0803614f-b1aa-400b-9a15-7f9eb4cb15f7.jpg?im_w=720" alt="Millhouse interior — one of the six-bed bunk rooms the kids will claim" onerror="this.style.display='none';this.parentElement.querySelector('.imgfallback').style.display='flex';"><div class="imgfallback">Bunk room</div></div>
+          <div class="imgbox"><img src="https://a0.muscache.com/im/pictures/019270e6-8311-451b-b154-546fc09cfd99.jpg?im_w=720" alt="Millhouse riverside garden with trampoline — the kids' free-roam territory" onerror="this.style.display='none';this.parentElement.querySelector('.imgfallback').style.display='flex';"><div class="imgfallback">Garden &amp; trampoline</div></div>
+        </div>
         <div class="body">
           <span class="badge pick">★ Top Pick</span>
-          <h3>The Millhouse Bled</h3>
+          <h3><a class="proplink" href="https://www.airbnb.com/rooms/9102032" target="_blank" rel="noopener">The Millhouse Bled</a></h3>
           <div class="loc sans">Ribno village · 2 km from Lake Bled</div>
           <p>300-year-old converted millhouse in riverside gardens. <b>Sleeps 20 in one house</b>: 5 rooms, 6 full baths, two 6-bed bunk rooms the kids will fight over, a kitchen with a <b>20-seat table</b>, laundry, free bikes, even an 8-seat house minibus. River out back, lake swimming 5 minutes away.</p>
           <span class="price">~$630/night now · 9 nights ≈ $5,700 → ~$6,5–7,5k in 2028</span>
-          <p style="margin-top:10px;font-size:.85rem;">Airbnb &amp; Booking.com · rustic-comfortable, not luxe · no pool (river + lake instead) · confirm a crib/cot for the 18-month-old when booking</p>
+          <p class="booklinks"><a href="https://www.airbnb.com/rooms/9102032" target="_blank" rel="noopener">View on Airbnb →</a> <a href="https://www.booking.com/hotel/si/the-millhouse.html" target="_blank" rel="noopener">View on Booking.com →</a></p>
+          <p style="margin-top:8px;font-size:.85rem;">Rustic-comfortable, not luxe · no pool (river + lake instead) · confirm a crib/cot for the 18-month-old when booking</p>
+          <div class="urgent"><b>⚠ Single point of failure — act first.</b> This is the only true 20-sleeper near Bled and it's unique inventory that books out 12+ months ahead. <a href="https://www.airbnb.com/rooms/9102032" target="_blank" rel="noopener">Check its Airbnb calendar for late June 2028 and send an inquiry now</a> — before we finish debating the shortlist.</div>
         </div>
       </div>
-      <div class="card">
+      <div class="card cardimg">
+        <div class="imgbox"><img src="https://a0.muscache.com/im/pictures/b9e9c1c9-e1ea-4790-88e1-66f203059b7a.jpg?im_w=720" alt="Holiday House Na vasi — alpine guesthouse with red balconies under Bohinj peaks" onerror="this.style.display='none';this.parentElement.querySelector('.imgfallback').style.display='flex';"><div class="imgfallback">Na vasi, Bohinj</div></div>
         <div class="body">
           <span class="badge alt">Backup · Bohinj</span>
-          <h3>Holiday House "Na vasi"</h3>
+          <h3><a class="proplink" href="https://www.airbnb.com/rooms/29853142" target="_blank" rel="noopener">Holiday House "Na vasi"</a></h3>
           <div class="loc sans">Savica village, Bohinjska Bistrica · 25 min from Bled</div>
           <p>One house, <b>10–20 guests</b> in apartment units — each family gets its own kitchenette and bath (a gift with a napping 18-month-old). Garden, playground, BBQ, bike hire.</p>
           <span class="price">Est. €550–800/night whole house · 9 nights ≈ $6–8.5k (2028: $7–10k)</span>
@@ -191,16 +211,17 @@
       <div class="card">
         <div class="body">
           <span class="badge alt">Backup · Kranjska Gora</span>
-          <h3>Villa Nebina</h3>
+          <h3><a class="proplink" href="https://villanebina.si/" target="_blank" rel="noopener">Villa Nebina</a></h3>
           <div class="loc sans">Rateče (Planica valley) · 40 min from Bled</div>
           <p>Renovated alpine farmhouse, <b>4 apartments sleeping 18 + sofa beds (~20)</b>, balconies facing the Julian Alps. Best base for the Soča Valley day.</p>
           <span class="price">Est. €450–650/night whole house · 9 nights ≈ $5–7.5k (2028: $6–9k)</span>
         </div>
       </div>
-      <div class="card">
+      <div class="card cardimg">
+        <div class="imgbox"><img src="https://www.gardenvillagebled.com/wp-content/uploads/Site-image-Garden.jpg" alt="Garden Village Bled at dusk — lit tree houses and boardwalks over the stream" onerror="this.style.display='none';this.parentElement.querySelector('.imgfallback').style.display='flex';"><div class="imgfallback">Garden Village Bled</div></div>
         <div class="body">
           <span class="badge alt">The Magical One</span>
-          <h3>Garden Village Bled</h3>
+          <h3><a class="proplink" href="https://gardenvillagebled.com/" target="_blank" rel="noopener">Garden Village Bled</a></h3>
           <div class="loc sans">700 m from Lake Bled</div>
           <p>Glamping resort of only 16 units — tree houses, hot-tub glamping tents, pier tents over a stream, apartments — plus <b>natural swimming pools with a waterfall</b>. Our 20 would take ~6–7 units; a near-buyout is genuinely plausible.</p>
           <span class="price">From ~€100–350/unit · group ≈ $13–18k for 9 nights (2028: $15–21k)</span>
@@ -209,7 +230,7 @@
       <div class="card">
         <div class="body">
           <span class="badge alt">The Splurge</span>
-          <h3>Vila Bled</h3>
+          <h3><a class="proplink" href="https://brdo.si/en/objekti/vila-bled-estate/" target="_blank" rel="noopener">Vila Bled</a></h3>
           <div class="loc sans">Lakefront, Bled — Tito's former presidential residence</div>
           <p>30-room boutique hotel with private lakefront park and pier. 9–10 rooms covers us, with daily housekeeping and breakfast — the grandparents' favorite option.</p>
           <span class="price">Rooms from ~$254 · 10 rooms × 9 nights ≈ $23–30k (2028: $26–35k)</span>
@@ -218,7 +239,7 @@
       <div class="card">
         <div class="body">
           <span class="badge alt">Hybrid</span>
-          <h3>Ribno Alpine Resort</h3>
+          <h3><a class="proplink" href="https://www.hotel-ribno.si/" target="_blank" rel="noopener">Ribno Alpine Resort</a></h3>
           <div class="loc sans">Ribno · next door to the Millhouse</div>
           <p>Family-run hotel + A-frame glamping chalets with hot tubs, sauna, playground, bikes. Hotel services with villa adjacency; half-board available.</p>
           <span class="price">Rooms ~$151–219 · group ≈ $12–15k for 9 nights (2028: $14–18k)</span>

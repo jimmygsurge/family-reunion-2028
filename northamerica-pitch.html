@@ -67,7 +67,12 @@
   .b-band{background:linear-gradient(120deg,var(--banff-deep),var(--banff));}
   .dest-body h3.section-label{font-family:'Segoe UI',Tahoma,Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;color:var(--gold);margin-top:30px;font-weight:700;}
   .prop{border-left:5px solid var(--gold);}
+  .prop h3 a{color:inherit;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:3px;}
+  .prop h3 a:hover{color:var(--tahoe);}
   .prop .meta{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.86rem;color:var(--ink-soft);margin:5px 0 8px;}
+  .prop-photos{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+  .prop-photos img{flex:1 1 150px;min-width:140px;max-width:32%;height:120px;object-fit:cover;border-radius:8px;display:block;background:var(--sand-deep);}
+  @media (max-width:640px){.prop-photos img{max-width:100%;}}
   .prop .price{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-weight:700;color:var(--cda-deep);font-size:1rem;margin-top:9px;}
   .pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px;}
   .pill{font-family:'Segoe UI',Tahoma,Arial,sans-serif;font-size:.76rem;background:var(--sand);border:1px solid var(--sand-deep);padding:3px 10px;border-radius:20px;color:var(--ink-soft);}
@@ -181,26 +186,27 @@
 
     <h3 class="section-label">Where 20 people sleep (9 nights, all-in incl. cleaning + ~10&ndash;14% tax, 2028-adjusted)</h3>
     <p class="fine">Note on South Lake Tahoe: the city's VHR ordinance history (Measure T, struck down 2025, replaced by a 900-permit cap) makes big-home permits there a lottery &mdash; so this pitch stays on the North Shore and Truckee, where large rentals are abundant and uncapped.</p>
+    <p class="fine"><b>Booking reality, all three destinations:</b> big July cabins book ~12 months out &mdash; but every named listing in this pitch is an example pulled from a deep market, not a single point of failure. If one house is taken, a dozen comparable ones exist; that's a structural advantage the Greece and Slovenia pitches, built on a handful of specific 20-person villas, can't match.</p>
     <div class="card prop">
-      <h3>1. "Luxury Tahoe Donner Home, Sauna + Hot Tub &mdash; Sleeps 20"</h3>
+      <h3>1. <a href="https://www.airbnb.com/rooms/2419342" target="_blank" rel="noopener">"Luxury Tahoe Donner Home, Sauna + Hot Tub &mdash; Sleeps 20"</a></h3>
       <div class="meta">Tahoe Donner (Truckee), CA &middot; Sleeps 20 &middot; Airbnb #2419342</div>
       <div class="pill-row"><span class="pill">Hot tub + sauna</span><span class="pill">HOA rec center: 3 pools incl. toddler pool</span><span class="pill">Private HOA beach on Donner Lake</span></div>
       <div class="price">Est. $1,300&ndash;$1,600/night &rarr; ~$14,000&ndash;$17,500 all-in</div>
     </div>
     <div class="card prop">
-      <h3>2. Truckee Estate &mdash; 8 BR / 12 BA with Movie Theater &amp; Elevator</h3>
+      <h3>2. <a href="https://www.vrbo.com/385791" target="_blank" rel="noopener">Truckee Estate &mdash; 8 BR / 12 BA with Movie Theater &amp; Elevator</a></h3>
       <div class="meta">Truckee, CA &middot; Sleeps 18 (+2 aerobeds for teens) &middot; VRBO #385791</div>
       <div class="pill-row"><span class="pill">Private movie theater</span><span class="pill">Spa + hot tub</span><span class="pill">12 bathrooms &mdash; zero shower wars</span></div>
       <div class="price">Est. $1,700&ndash;$2,100/night &rarr; ~$18,500&ndash;$23,000 all-in</div>
     </div>
     <div class="card prop">
-      <h3>3. "Sleeps 18 &mdash; Private Theater &amp; Hot Tub" (value play)</h3>
+      <h3>3. <a href="https://www.airbnb.com/rooms/2467011" target="_blank" rel="noopener">"Sleeps 18 &mdash; Private Theater &amp; Hot Tub"</a> (value play)</h3>
       <div class="meta">Truckee, CA &middot; Sleeps 18 (+crib) &middot; Airbnb #2467011</div>
       <div class="pill-row"><span class="pill">Theater room</span><span class="pill">Hot tub</span><span class="pill">Best price per head</span></div>
       <div class="price">Est. $1,100&ndash;$1,400/night &rarr; ~$12,000&ndash;$15,500 all-in</div>
     </div>
     <div class="card prop">
-      <h3>4. Two-house compound at Northstar (e.g., "Home Run" + "Eagle's Nest", Tahoe Luxury Properties)</h3>
+      <h3>4. <a href="https://www.tluxp.com/vacation-rentals/truckee" target="_blank" rel="noopener">Two-house compound at Northstar (e.g., "Home Run" + "Eagle's Nest", Tahoe Luxury Properties)</a></h3>
       <div class="meta">Northstar (Truckee), CA &middot; 2 &times; 5BR, each sleeps 12 &middot; tluxp.com, summer from ~$675&ndash;$1,000/night each</div>
       <div class="pill-row"><span class="pill">Walk to Northstar Village</span><span class="pill">Quiet toddler bedtimes</span><span class="pill">Hot tubs at both</span></div>
       <div class="price">Est. $1,600&ndash;$2,200/night combined &rarr; ~$17,000&ndash;$23,000 all-in</div>
@@ -276,19 +282,29 @@
 
     <h3 class="section-label">Where 20 people sleep (real named lodges, 9 nights all-in, 2028-adjusted)</h3>
     <div class="card prop">
-      <h3>1. Moose Lodge Estate &mdash; Mica Bay, Lake Coeur d'Alene</h3>
-      <div class="meta">Seasons Vacation Rentals (seasonsfpm.com) &middot; Sleeps 20 &middot; 5 BR / 5.5 BA main lodge + guest cabin &middot; 10 private acres, 360 ft of lakefront</div>
+      <h3>1. <a href="https://seasonsfpm.com/vacation-rentals/moose-lodge-estate/" target="_blank" rel="noopener">Moose Lodge Estate</a> &mdash; Mica Bay, Lake Coeur d'Alene</h3>
+      <div class="meta">Seasons Vacation Rentals &middot; also listed as <a href="https://www.vrbo.com/642928" target="_blank" rel="noopener" style="color:inherit;">VRBO #642928</a> &middot; Sleeps 20 &middot; 5 BR / 5.5 BA main lodge + guest cabin &middot; 10 private acres, 360 ft of lakefront</div>
       <div class="pill-row"><span class="pill">Private sandy beach</span><span class="pill">Boat dock</span><span class="pill">Lakeside lawn for 20-person dinners</span><span class="pill">Concierge</span></div>
+      <div class="prop-photos">
+        <img src="https://pictures.lodgix.com/media/gallery/property-33907/i033445_p.jpg" alt="Moose Lodge Estate lakefront exterior on Mica Bay, Lake Coeur d'Alene" onerror="this.style.display='none'">
+        <img src="https://pictures.lodgix.com/media/gallery/property-33907/i006173_p.jpg" alt="Moose Lodge Estate interior living space" onerror="this.style.display='none'">
+        <img src="https://pictures.lodgix.com/media/gallery/property-33907/i098634_p.jpg" alt="Moose Lodge Estate grounds and waterfront" onerror="this.style.display='none'">
+      </div>
       <div class="price">Est. $1,800&ndash;$2,500/night &rarr; ~$18,500&ndash;$25,500 all-in</div>
     </div>
     <div class="card prop">
-      <h3>2. Mica Shore Lake House &mdash; Mica Bay</h3>
+      <h3>2. <a href="https://seasonsfpm.com/vacation-rentals/mica-shore-lake-house/" target="_blank" rel="noopener">Mica Shore Lake House</a> &mdash; Mica Bay</h3>
       <div class="meta">Seasons Vacation Rentals &middot; Sleeps 18 (+2) &middot; 7 BR / 4.5 BA &middot; 105 ft of waterfront</div>
       <div class="pill-row"><span class="pill">Private dock + water toys</span><span class="pill">7 real bedrooms</span><span class="pill">Swim off the lawn</span></div>
+      <div class="prop-photos">
+        <img src="https://pictures.lodgix.com/media/gallery/property-86948/i009693_p.jpg" alt="Mica Shore Lake House waterfront exterior on Lake Coeur d'Alene" onerror="this.style.display='none'">
+        <img src="https://pictures.lodgix.com/media/gallery/property-86948/i023342_p.jpg" alt="Mica Shore Lake House private boat dock with kayaks and paddle boards" onerror="this.style.display='none'">
+        <img src="https://pictures.lodgix.com/media/gallery/property-86948/i071571_p.jpg" alt="Mica Shore Lake House main living room" onerror="this.style.display='none'">
+      </div>
       <div class="price">Est. $1,200&ndash;$1,700/night &rarr; ~$12,500&ndash;$17,500 all-in</div>
     </div>
     <div class="card prop">
-      <h3>3. Two-house combo: Riverfront Lodge + Fernan Lake Terrace Retreat</h3>
+      <h3>3. Two-house combo: <a href="https://seasonsfpm.com/vacation-rentals/riverfront-lodge/" target="_blank" rel="noopener">Riverfront Lodge</a> + <a href="https://seasonsfpm.com/vacation-rentals/fernan-lake-terrace-retreat/" target="_blank" rel="noopener">Fernan Lake Terrace Retreat</a></h3>
       <div class="meta">Seasons Vacation Rentals &middot; Riverfront log lodge on the Spokane River, sleeps 12, 4 BR + bunkhouse, published $850&ndash;$1,100/night &middot; Fernan Lake modern cabin, sleeps 14, published $400&ndash;$750/night &middot; 10 min apart, both minutes from downtown</div>
       <div class="pill-row"><span class="pill">Published real rates</span><span class="pill">Dock + river swimming</span><span class="pill">Wraparound decks</span></div>
       <div class="price">$1,250&ndash;$1,850/night combined &rarr; ~$12,500&ndash;$18,500 all-in</div>
@@ -367,19 +383,19 @@
     <h3 class="section-label">Where 20 people sleep &mdash; the honest inventory problem</h3>
     <p class="fine">Canmore restricts short-term rentals to "tourist home" zoned properties, and as of March 2025 no new tourist homes can be created &mdash; so true 20-person single houses are scarce and the realistic play is one rare big lodge or a cluster of condos/suites. That's fine by this family's own rules &mdash; separate cabins or condo clusters with shared amenities are explicitly acceptable, and a big shared living room is a celebrated bonus where a property has one, not a requirement. Inside Banff townsite it's even tighter (federal park lease rules). All totals: 9 nights, USD, incl. taxes/fees, 2028-adjusted.</p>
     <div class="card prop">
-      <h3>1. Downtown Canmore Mountain Lodge &mdash; 5 private suites under one roof</h3>
-      <div class="meta">Downtown Canmore &middot; Sleeps up to 22 &middot; 5 suites, full kitchen, common room with fireplace, yard, bikes on site &middot; Airbnb</div>
-      <div class="pill-row"><span class="pill">The rare true one-roof option</span><span class="pill">Walk to restaurants</span><span class="pill">Mountain views from every balcony</span></div>
+      <h3>1. <a href="https://www.airbnb.com/rooms/807244485126075277" target="_blank" rel="noopener">Paintbox Lodge &mdash; boutique lodge, sleeps 21</a></h3>
+      <div class="meta">Downtown Canmore &middot; Sleeps 21 &middot; whole-lodge chalet buyout, suite-style rooms, shared kitchen and lounge &middot; Airbnb</div>
+      <div class="pill-row"><span class="pill">The rare true one-roof option</span><span class="pill">Walk to restaurants</span><span class="pill">Mountain views</span></div>
       <div class="price">Est. US$1,900&ndash;$2,600/night &rarr; ~$18,500&ndash;$25,000 all-in</div>
     </div>
     <div class="card prop">
-      <h3>2. The Lodges at Canmore &mdash; block of five 2-BR condos</h3>
+      <h3>2. <a href="https://www.lodgesofcanmore.ca/rooms" target="_blank" rel="noopener">The Lodges at Canmore</a> &mdash; block of five 2-BR condos</h3>
       <div class="meta">Canmore &middot; 5 &times; 2BR/2BA condos (each sleeps 6) booked as a block &middot; lodgesofcanmore.ca / VRBO &middot; shoulder-season averages ~$197/night per condo; July peak higher</div>
       <div class="pill-row"><span class="pill">Outdoor pool + hot tub</span><span class="pill">Full kitchens in every unit</span><span class="pill">Each family gets a door</span></div>
       <div class="price">Est. US$1,300&ndash;$1,700/night for 5 condos &rarr; ~$12,500&ndash;$16,500 all-in</div>
     </div>
     <div class="card prop">
-      <h3>3. Basecamp Resorts Canmore &mdash; suite cluster / group lodge floors</h3>
+      <h3>3. <a href="https://basecampresorts.com/" target="_blank" rel="noopener">Basecamp Resorts Canmore</a> &mdash; suite cluster / group lodge floors</h3>
       <div class="meta">Canmore (several buildings) &middot; 5&ndash;6 adjoining suites, ~$279/night typical per suite &middot; basecampresorts.com</div>
       <div class="pill-row"><span class="pill">Rooftop hot tubs (select buildings)</span><span class="pill">Modern, walkable</span><span class="pill">Books as a group block</span></div>
       <div class="price">Est. US$1,400&ndash;$1,800/night &rarr; ~$13,500&ndash;$17,500 all-in</div>
@@ -431,7 +447,7 @@
     <tr><td><b>Group travel cost (2028)</b></td><td>~$3,150&ndash;3,900</td><td>~$5,050&ndash;6,550</td><td>~$17,300&ndash;23,100 flying (~$12,000&ndash;15,500 if Utah drives 13h), incl. rentals &amp; passports</td></tr>
     <tr><td><b>Passports</b></td><td>None</td><td>None</td><td>All 20, incl. 9 children</td></tr>
     <tr><td><b>20-person lodging, 9 nights</b></td><td>~$12,000&ndash;23,000; deep inventory (avoid South Lake city limits)</td><td>~$12,500&ndash;25,500; true lakefront lodges w/ private beaches</td><td>~$12,500&ndash;25,000; scarce &mdash; likely condo cluster, not one roof</td></tr>
-    <tr><td><b>Compound feel</b> (one roof or cluster &mdash; both fine per the family)</td><td>One big roof, easy to book</td><td>One big roof &mdash; and it's on the water</td><td>Condo cluster most likely (one rare 22-sleeper exists); shared great room becomes a shared courtyard</td></tr>
+    <tr><td><b>Compound feel</b> (one roof or cluster &mdash; both fine per the family)</td><td>One big roof, easy to book</td><td>One big roof &mdash; and it's on the water</td><td>Condo cluster most likely (one rare 21-sleeper, Paintbox Lodge, exists); shared great room becomes a shared courtyard</td></tr>
     <tr><td><b>Kid freedom (the five 6&ndash;11s)</b></td><td>Strong &mdash; HOA pools + private beach + forest trails on a buddy system</td><td><b>Best</b> &mdash; private beach, dock, and acres; free-range within the property line</td><td>Limited &mdash; walkable townsite errands, but no lone trail-roaming (bear country)</td></tr>
     <tr><td><b>Weather late June/July</b></td><td>75&ndash;82&deg;F, ~90% sun</td><td>Mid-80s&deg;F, dry</td><td>70&ndash;75&deg;F, cool nights, some storms</td></tr>
     <tr><td><b>Swimming</b></td><td>Cold: 60&ndash;68&deg;F (warmer at Donner Lake)</td><td>Best: ~70&ndash;73&deg;F, real dock-jumping water</td><td>None &mdash; glacial lakes</td></tr>

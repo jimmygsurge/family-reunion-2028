@@ -110,6 +110,15 @@
   footer{background:var(--deep);color:#9db4c2;padding:34px 0;font-size:.8rem;font-family:'Segoe UI',sans-serif}
   footer a{color:#7fd4dd;text-decoration:none;word-break:break-all}
   .note{background:#fff8e8;border:1px solid #eadfb8;border-radius:10px;padding:14px 18px;font-size:.88rem;font-family:'Segoe UI',sans-serif;margin:20px 0}
+  /* PROPERTY LINKS, GALLERIES, URGENCY */
+  a.plink{color:var(--sky);font-weight:600;text-decoration:underline;text-decoration-color:rgba(27,111,158,.35);text-underline-offset:2px}
+  a.plink:hover{color:var(--turq)}
+  .propgallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0}
+  .propgallery figure{border-radius:10px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(150deg,var(--sky),var(--turq));margin:0;position:relative}
+  .propgallery img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .propgallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:8px 12px 6px;background:linear-gradient(0deg,rgba(7,42,64,.8),transparent);color:#fff;font-family:'Segoe UI',sans-serif;font-size:.75rem}
+  .urgent{background:#fdeee9;border:1px solid #e8b3a4;border-left:6px solid var(--coral);border-radius:10px;padding:16px 20px;margin:24px 0 4px;font-family:'Segoe UI',sans-serif;font-size:.92rem}
+  .urgent strong{color:#a24630}
   /* KID FREEDOM */
   .kidfree{background:var(--white);border:1px solid #d9cfba;border-left:6px solid var(--olive);border-radius:12px;padding:22px 24px;margin:30px 0 8px;box-shadow:var(--shadow)}
   .kidfree h3{color:var(--olive);font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
@@ -204,8 +213,16 @@
           <span class="badge">Airport 27&nbsp;km</span>
         </div>
         <p>Two kitchens plus a kitchenette mean three families can cook breakfast at once, and the pool's dedicated
-        shallow children's section is a real answer for the baby and the 3- and 4-year-olds. Bookable direct through Iason Villas
-        (villaiason.gr) or via Crete villa agencies.</p>
+        shallow children's section is a real answer for the baby and the 3- and 4-year-olds. Bookable direct through
+        <a class="plink" href="https://villaiason.gr/villas/villa-natali/" target="_blank" rel="noopener">Iason Villas (villaiason.gr)</a>
+        or on <a class="plink" href="https://www.airbnb.com/rooms/2631155" target="_blank" rel="noopener">Airbnb</a> —
+        we verified the Airbnb listing the family found ("Natali Luxury Villa (Iason Villas), 9 Bedrooms, Chani&aacute;")
+        is this exact property.</p>
+        <div class="propgallery">
+          <figure><img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-2631155/original/f37cef7f-315a-418b-8b66-033f599db2ab.jpeg?im_w=960" alt="Villa Natali exterior with pool and palm gardens, Maleme, Crete" onerror="this.parentElement.style.display='none'"><figcaption>Villa Natali — pool &amp; gardens (Airbnb listing photo)</figcaption></figure>
+          <figure><img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-2631155/original/c6fdd20b-2918-453a-9f2b-d47ff8252f8f.jpeg?im_w=720" alt="Villa Natali interior, Airbnb listing photo" onerror="this.parentElement.style.display='none'"><figcaption>Villa Natali (Airbnb listing photo)</figcaption></figure>
+          <figure><img src="https://villaiason.gr/wp-content/uploads/2021/08/Natali2018EX-088.jpg" alt="Villa Natali exterior, official Iason Villas photo" onerror="this.parentElement.style.display='none'"><figcaption>Villa Natali (official Iason Villas photo)</figcaption></figure>
+        </div>
         <p class="small" style="margin-top:10px">Honesty note: like most Greek villas, the pool is <strong>not fenced by
         default</strong> — with an 18-month-old walking, this is non-negotiable: we request a portable pool fence at booking
         (or budget ~€300–500 to arrange one) and confirm crib/cot availability in writing (one for the baby, likely a second
@@ -226,6 +243,17 @@
       </div>
     </div>
 
+    <div class="urgent">
+      <strong>Availability watch — act before the vote closes.</strong> The family spotted Villa Natali's
+      <a class="plink" href="https://www.airbnb.com/rooms/2631155" target="_blank" rel="noopener">Airbnb calendar</a>
+      already looking heavily booked through June 2028. Big one-roof July villas book 12–18 months out, so this is normal —
+      but it means whoever runs point should <strong>send a dates inquiry now</strong> (both
+      <a class="plink" href="https://villaiason.gr/villas/villa-natali/" target="_blank" rel="noopener">villaiason.gr</a>
+      and Airbnb; an inquiry costs nothing and holds nothing against us). If our week is gone,
+      <a class="plink" href="https://imperiumvillas.gr/" target="_blank" rel="noopener">Imperium Villas</a> is the live
+      fallback two villages over.
+    </div>
+
     <div class="kidfree">
       <h3>Kid Freedom Report — the five 6-to-11-year-olds (11, 9, 9, 6, 6)</h3>
       <ul>
@@ -240,15 +268,20 @@
     <div class="tablescroll">
     <table>
       <tr><th>Property</th><th>Location</th><th>Sleeps</th><th>Layout</th><th>9-night est. (2025/26 rates)</th><th>Notes</th></tr>
-      <tr class="hl"><td><strong>Villa Natali</strong> (recommended)</td><td>Maleme, Chania, Crete</td><td>20</td><td>9 BR / 8 BA, kids' pool section</td><td>~$15,300 (~$17.6k in 2028)</td><td>One roof, in budget, sleeps exactly 20</td></tr>
-      <tr><td>Imperium Luxury Villas (Ostria + Esperia)</td><td>Kalamaki, Chania, Crete</td><td>24</td><td>10 BR / 8 BA, two adjacent villas</td><td>est. $18–24k (quote basis)</td><td>Children's play area; heated pool +€1,400/wk; 650 m to sandy beach</td></tr>
-      <tr><td>Beach House Arvi</td><td>South coast, Crete</td><td>up to 30</td><td>12 BR / 12 BA, beachfront, 4 kitchens</td><td>€23–40k (~$25–43k)</td><td>Spectacular beachfront; remoter, pricier</td></tr>
-      <tr><td>Villa Rafaella</td><td>Porto Heli, Peloponnese</td><td>18 + 2 (pier studio)</td><td>9 BR / 9 BA, 19&times;8 m pool, tennis, private pier</td><td>€2,000–6,000/night → ~$44–59k</td><td>The "budget flexes up" option; no flights — 2.5 h drive from Athens</td></tr>
-      <tr><td>Maestro Estate (2 villas as one)</td><td>Plaka, Naxos</td><td>16 (+overflow villa nearby)</td><td>8 BR, 2 pools, 1 km to Plaka beach</td><td>est. $10–16k (quote basis)</td><td>Two villas + a nearby overflow villa — a fine setup by our standards; the real catch is ferry/small-plane logistics</td></tr>
-      <tr><td>The Westin Resort, Costa Navarino (7 rooms)</td><td>Messinia, Peloponnese</td><td>20 across rooms</td><td>Hotel — aqua park, 2 kids clubs</td><td>~$460–840/room/night → $29–53k</td><td>"Someone else does the childcare" fallback; loses the one-house magic</td></tr>
+      <tr class="hl"><td><strong><a class="plink" href="https://villaiason.gr/villas/villa-natali/" target="_blank" rel="noopener">Villa Natali</a></strong> (recommended) — <a class="plink" href="https://www.airbnb.com/rooms/2631155" target="_blank" rel="noopener">Airbnb listing</a></td><td>Maleme, Chania, Crete</td><td>20</td><td>9 BR / 8 BA, kids' pool section</td><td>~$15,300 (~$17.6k in 2028)</td><td>One roof, in budget, sleeps exactly 20</td></tr>
+      <tr><td><a class="plink" href="https://imperiumvillas.gr/" target="_blank" rel="noopener">Imperium Luxury Villas</a> (Ostria + Esperia) — <a class="plink" href="https://www.cretevillas4u.com/en/Crete/Chania/Imperium-Villas" target="_blank" rel="noopener">CreteVillas4u</a></td><td>Kalamaki, Chania, Crete</td><td>24</td><td>10 BR / 8 BA, two adjacent villas</td><td>est. $18–24k (quote basis)</td><td>Children's play area; heated pool +€1,400/wk; 650 m to sandy beach</td></tr>
+      <tr><td><a class="plink" href="https://www.luxuryvillasoncrete.com/Villa/view/WEST-BEACH-HOUSE-ARVI" target="_blank" rel="noopener">Beach House Arvi</a></td><td>South coast, Crete</td><td>up to 30</td><td>12 BR / 12 BA, beachfront, 4 kitchens</td><td>€23–40k (~$25–43k)</td><td>Spectacular beachfront; remoter, pricier</td></tr>
+      <tr><td><a class="plink" href="https://oliverentals.com/villas/peloponnese/villa-rafaella/" target="_blank" rel="noopener">Villa Rafaella</a></td><td>Porto Heli, Peloponnese</td><td>18 + 2 (pier studio)</td><td>9 BR / 9 BA, 19&times;8 m pool, tennis, private pier</td><td>€2,000–6,000/night → ~$44–59k</td><td>The "budget flexes up" option; no flights — 2.5 h drive from Athens</td></tr>
+      <tr><td><a class="plink" href="https://www.airbnb.com/rooms/1180996993013664724" target="_blank" rel="noopener">Maestro Estate</a> (2 villas as one) — <a class="plink" href="https://maestronaxos.com/" target="_blank" rel="noopener">official site</a></td><td>Plaka, Naxos</td><td>16 (+overflow villa nearby)</td><td>8 BR, 2 pools, 1 km to Plaka beach</td><td>est. $10–16k (quote basis)</td><td>Two villas + a nearby overflow villa — a fine setup by our standards; the real catch is ferry/small-plane logistics</td></tr>
+      <tr><td><a class="plink" href="https://www.costanavarino.com/westin-resort/" target="_blank" rel="noopener">The Westin Resort, Costa Navarino</a> (7 rooms)</td><td>Messinia, Peloponnese</td><td>20 across rooms</td><td>Hotel — aqua park, 2 kids clubs</td><td>~$460–840/room/night → $29–53k</td><td>"Someone else does the childcare" fallback; loses the one-house magic</td></tr>
     </table>
     </div>
-    <p class="small" style="margin-top:10px">All prices are published/quoted 2025–2026 rates from Iason Villas, CreteVillas4u, Olive Villa Rentals, Exceptional Villas, and Marriott/momondo listings. For 2028, budget +10–20%.</p>
+    <div class="propgallery">
+      <figure><img src="https://imperiumvillas.gr/wp-content/uploads/2024/08/DJI_0077-f.jpg" alt="Aerial view of Imperium Luxury Villas estate, Kalamaki, Chania" onerror="this.parentElement.style.display='none'"><figcaption>Imperium Villas, Kalamaki — the live fallback (official photo)</figcaption></figure>
+      <figure><img src="https://imperiumvillas.gr/wp-content/uploads/2024/08/DJI_0038-f.jpg" alt="Imperium Luxury Villas pool and grounds, Kalamaki, Chania" onerror="this.parentElement.style.display='none'"><figcaption>Imperium Villas — pool &amp; grounds (official photo)</figcaption></figure>
+      <figure><img src="https://oliverentals.com/wp-content/uploads/2020/01/Villas-portoheli-olivevillarentals-rafaella1.jpg" alt="Villa Rafaella, Porto Heli — Olive Villa Rentals photo" onerror="this.parentElement.style.display='none'"><figcaption>Villa Rafaella, Porto Heli — the upgrade path (Olive Villa Rentals photo)</figcaption></figure>
+    </div>
+    <p class="small" style="margin-top:10px">All prices are published/quoted 2025–2026 rates from Iason Villas, CreteVillas4u, Olive Villa Rentals, Exceptional Villas, and Marriott/momondo listings. For 2028, budget +10–20%. Property photos above are hotlinked from the properties' own listings; if one fails to load, the link in the table is the source of truth.</p>
   </div>
 </section>
 
