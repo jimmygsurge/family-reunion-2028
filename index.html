@@ -3498,7 +3498,7 @@
   var VT_CANDS = [['greece','🏛️ Greece'],['alaska','🚢 Alaska'],['slovenia','🏔️ Slovenia'],['hawaii','🌺 Hawaii'],['norway','🌊 Norway'],['northamerica','🌲 North America']];
   var VT_LABEL = {}; VT_CANDS.forEach(function(c){ VT_LABEL[c[0]]=c[1]; });
   var VT_EXPECTED = 11, VT_KEY = 'rt2028ballots', vtOnline = null;
-  var VT_RESULTS_ENABLED = false; /* organizer flips to true when all ballots are in, then redeploys */
+  var VT_RESULTS_ENABLED = true; /* all 11 ballots are in — results unlocked by the organizer */
   var VT_SYNC = 'https://api.npoint.io/5fe91462d1e78155a199';
   function vtBallots(){ try { return JSON.parse(localStorage.getItem(VT_KEY)) || []; } catch(e){ return []; } }
   function vtSave(list){ try { localStorage.setItem(VT_KEY, JSON.stringify(list)); } catch(e){} vtRenderList(); }
